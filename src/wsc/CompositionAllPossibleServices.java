@@ -10,7 +10,7 @@ import javax.xml.bind.JAXBException;
 import wsc.data.pool.SWSPool;
 import wsc.data.pool.SemanticsPool;
 
-public class CompositionSollution {
+public class CompositionAllPossibleServices {
 
 	private final SWSPool swsPool;
 
@@ -32,6 +32,8 @@ public class CompositionSollution {
 		}
 		return false;
 	}
+	
+
 
 	/**
 	 * given a task associated with input and output to find a potential
@@ -64,7 +66,7 @@ public class CompositionSollution {
 	 * @throws JAXBException
 	 * @throws FileNotFoundException
 	 */
-	public CompositionSollution(String serviceFilePath, String owlFilePath)
+	public CompositionAllPossibleServices(String serviceFilePath, String owlFilePath)
 			throws FileNotFoundException, JAXBException {
 		this.semanticsPool = SemanticsPool.createSemanticsFromOWL(owlFilePath);
 		this.swsPool = SWSPool.parseXML(this.semanticsPool, serviceFilePath);

@@ -9,7 +9,7 @@ import ec.EvolutionState;
 import ec.Setup;
 import ec.simple.SimpleInitializer;
 import ec.util.Parameter;
-import wsc.CompositionSollution;
+import wsc.CompositionAllPossibleServices;
 
 public class GraphInitializer extends SimpleInitializer {
 
@@ -32,9 +32,9 @@ public class GraphInitializer extends SimpleInitializer {
 		qos_w4 = state.parameters.getDouble(new Parameter("fitness-weight4"), null);
 		dynamicNormalisation = state.parameters.getBoolean(new Parameter("dynamic-normalisation"), null, false);
 
-		CompositionSollution compositionSollution;
+		CompositionAllPossibleServices compositionSollution;
 		try {
-			compositionSollution = new CompositionSollution(service_wsdl, taxonomy_owl);
+			compositionSollution = new CompositionAllPossibleServices(service_wsdl, taxonomy_owl);
 			compositionSollution.compositeServices("inst2139388127", "inst162515103");
 
 		} catch (JAXBException | IOException e) {
