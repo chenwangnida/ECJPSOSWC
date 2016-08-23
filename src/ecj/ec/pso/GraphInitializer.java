@@ -9,7 +9,8 @@ import ec.EvolutionState;
 import ec.Setup;
 import ec.simple.SimpleInitializer;
 import ec.util.Parameter;
-import wsc.CompositionAllPossibleServices;
+import graph.Node;
+import wsc.RelevantServices;
 
 public class GraphInitializer extends SimpleInitializer {
 
@@ -18,6 +19,10 @@ public class GraphInitializer extends SimpleInitializer {
 	public double qos_w3;
 	public double qos_w4;
 	public static boolean dynamicNormalisation;
+
+	public RelevantServices relevantSerivces;
+	public Node relevantNode;
+
 
 	@Override
 	public void setup(EvolutionState state, Parameter base) {
@@ -32,16 +37,17 @@ public class GraphInitializer extends SimpleInitializer {
 		qos_w4 = state.parameters.getDouble(new Parameter("fitness-weight4"), null);
 		dynamicNormalisation = state.parameters.getBoolean(new Parameter("dynamic-normalisation"), null, false);
 
-		CompositionAllPossibleServices compositionSollution;
 		try {
-			compositionSollution = new CompositionAllPossibleServices(service_wsdl, taxonomy_owl);
-			compositionSollution.compositeServices("inst2139388127", "inst162515103");
+			relevantSerivces = new RelevantServices(service_wsdl, taxonomy_owl);
+			relevantSerivces.allRelevantService("inst2139388127", "inst162515103");
+			System.out.println("releveantService Size:" + relevantSerivces.getServiceSequence().size());
 
 		} catch (JAXBException | IOException e) {
 			e.printStackTrace();
 		}
-
-
+		// Set size of particles
+		Parameter genomeSizeParam = new Parameter("pop.subpop.0.species.genome-size");
+		state.parameters.set(genomeSizeParam, ""+relevantSerivces.getServiceSequence().size());
 	}
 
 }

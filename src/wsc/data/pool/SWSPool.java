@@ -44,7 +44,7 @@ public class SWSPool {
 	 *
 	 * @param inputSet
 	 */
-	public String findPossibleService(HashSet<String> inputSet) {
+	public Service findPossibleService(HashSet<String> inputSet) {
 		int foundServiceIndex = -1;
 		for (int i = 0; i < this.serviceList.size(); i++) {
 			Service service = this.serviceList.get(i);
@@ -66,7 +66,7 @@ public class SWSPool {
 				inputSet.add(output);
 			}
 		}
-		return service.getServiceID();
+		return service;
 	}
 
 }

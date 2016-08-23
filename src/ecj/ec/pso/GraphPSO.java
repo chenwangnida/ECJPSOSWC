@@ -15,6 +15,7 @@ public class GraphPSO extends Problem implements SimpleProblemForm {
 		if (!(ind instanceof GraphParticle))
 			state.output.fatal("It is not a graph particle objective !", null);
 		GraphParticle ind2 = (GraphParticle) ind;
+		System.out.println("check point");
 
 	}
 

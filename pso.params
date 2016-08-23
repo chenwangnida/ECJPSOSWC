@@ -10,7 +10,7 @@ fitness-weight4       = 0.25
 dynamic-normalisation = true
 
 state = ec.simple.SimpleEvolutionState
-init = ecj.ec.pso.GraphInitializer.java
+init = ecj.ec.pso.GraphInitializer
 finish = ec.simple.SimpleFinisher
 exch = ec.simple.SimpleExchanger
 breed = ec.pso.PSOBreeder
@@ -26,7 +26,7 @@ evalthreads = auto
 checkpoint = false
 checkpoint-modulo = 1
 checkpoint-prefix = ec
-generations = 100
+generations = 10
 quit-on-run-complete = true
 pop = ec.Population
 pop.subpops = 1
@@ -34,7 +34,7 @@ pop.subpop.0 = ec.Subpopulation
 pop.subpop.0.size = 30
 pop.subpop.0.duplicate-retries = 2
 pop.subpop.0.species = ec.vector.FloatVectorSpecies
-pop.subpop.0.species.ind = ec.pso.Particle
+pop.subpop.0.species.ind = ecj.ec.pso.GraphParticle
 pop.subpop.0.species.fitness = ec.simple.SimpleFitness
 
 # You have to specify some kind of dummy pipeline even though we won’t use it. but my explaination is:the individuals never die, never are selected, and never breed.
@@ -55,7 +55,7 @@ pop.subpop.0.species.min-gene = 0.0
 pop.subpop.0.species.max-gene = 1.0
 
 # Problem
-eval.problem = pso.ECJPSO
+eval.problem = ecj.ec.pso.GraphPSO
 
 # PSO parameters
 # Inertia weight (w)
