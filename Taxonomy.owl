@@ -1,0 +1,2808 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xmlns="http://www.ws-challenge.org/wsc08.owl#" xmlns:owl="http://www.w3.org/2002/07/owl#" xml:base="http://www.ws-challenge.org/wsc08.owl">
+  <owl:Ontology rdf:about="" />
+  <owl:Class rdf:ID="con1521052130" />
+  <owl:Class rdf:ID="con1377272070">
+    <rdfs:subClassOf rdf:resource="#con1521052130" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1617314946">
+    <rdfs:subClassOf rdf:resource="#con1521052130" />
+  </owl:Class>
+  <owl:Class rdf:ID="con758936073">
+    <rdfs:subClassOf rdf:resource="#con1521052130" />
+  </owl:Class>
+  <owl:Class rdf:ID="con651817784">
+    <rdfs:subClassOf rdf:resource="#con1521052130" />
+  </owl:Class>
+  <owl:Class rdf:ID="con188731503">
+    <rdfs:subClassOf rdf:resource="#con1377272070" />
+  </owl:Class>
+  <owl:Class rdf:ID="con735996723">
+    <rdfs:subClassOf rdf:resource="#con1377272070" />
+  </owl:Class>
+  <owl:Class rdf:ID="con615156051">
+    <rdfs:subClassOf rdf:resource="#con1377272070" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1764372018">
+    <rdfs:subClassOf rdf:resource="#con1377272070" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1265238187">
+    <rdfs:subClassOf rdf:resource="#con1617314946" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1961199061">
+    <rdfs:subClassOf rdf:resource="#con1617314946" />
+  </owl:Class>
+  <owl:Class rdf:ID="con855198889">
+    <rdfs:subClassOf rdf:resource="#con1617314946" />
+  </owl:Class>
+  <owl:Class rdf:ID="con294825469">
+    <rdfs:subClassOf rdf:resource="#con1617314946" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1614037896">
+    <rdfs:subClassOf rdf:resource="#con1617314946" />
+  </owl:Class>
+  <owl:Class rdf:ID="con618433101">
+    <rdfs:subClassOf rdf:resource="#con758936073" />
+  </owl:Class>
+  <owl:Class rdf:ID="con2144303683">
+    <rdfs:subClassOf rdf:resource="#con758936073" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1587207313">
+    <rdfs:subClassOf rdf:resource="#con758936073" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1516136536">
+    <rdfs:subClassOf rdf:resource="#con758936073" />
+  </owl:Class>
+  <owl:Class rdf:ID="con2037185394">
+    <rdfs:subClassOf rdf:resource="#con651817784" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1574099113">
+    <rdfs:subClassOf rdf:resource="#con188731503" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1777480218">
+    <rdfs:subClassOf rdf:resource="#con188731503" />
+  </owl:Class>
+  <owl:Class rdf:ID="con740912317">
+    <rdfs:subClassOf rdf:resource="#con188731503" />
+  </owl:Class>
+  <owl:Class rdf:ID="con44951443">
+    <rdfs:subClassOf rdf:resource="#con188731503" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1841996895">
+    <rdfs:subClassOf rdf:resource="#con735996723" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1911429128">
+    <rdfs:subClassOf rdf:resource="#con735996723" />
+  </owl:Class>
+  <owl:Class rdf:ID="con2121364333">
+    <rdfs:subClassOf rdf:resource="#con735996723" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1560990913">
+    <rdfs:subClassOf rdf:resource="#con735996723" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1927814378">
+    <rdfs:subClassOf rdf:resource="#con615156051" />
+  </owl:Class>
+  <owl:Class rdf:ID="con2000523661">
+    <rdfs:subClassOf rdf:resource="#con615156051" />
+  </owl:Class>
+  <owl:Class rdf:ID="con170707709">
+    <rdfs:subClassOf rdf:resource="#con1764372018" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1002255999">
+    <rdfs:subClassOf rdf:resource="#con1764372018" />
+  </owl:Class>
+  <owl:Class rdf:ID="con503122168">
+    <rdfs:subClassOf rdf:resource="#con1265238187" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1126373721">
+    <rdfs:subClassOf rdf:resource="#con1265238187" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1822334595">
+    <rdfs:subClassOf rdf:resource="#con1961199061" />
+  </owl:Class>
+  <owl:Class rdf:ID="con990786305">
+    <rdfs:subClassOf rdf:resource="#con1961199061" />
+  </owl:Class>
+  <owl:Class rdf:ID="con436966985">
+    <rdfs:subClassOf rdf:resource="#con1961199061" />
+  </owl:Class>
+  <owl:Class rdf:ID="con228670286">
+    <rdfs:subClassOf rdf:resource="#con1961199061" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1752902362">
+    <rdfs:subClassOf rdf:resource="#con1961199061" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1199083004">
+    <rdfs:subClassOf rdf:resource="#con1961199061" />
+  </owl:Class>
+  <owl:Class rdf:ID="con992424849">
+    <rdfs:subClassOf rdf:resource="#con855198889" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1893405334">
+    <rdfs:subClassOf rdf:resource="#con855198889" />
+  </owl:Class>
+  <owl:Class rdf:ID="con716334423">
+    <rdfs:subClassOf rdf:resource="#con855198889" />
+  </owl:Class>
+  <owl:Class rdf:ID="con2032269800">
+    <rdfs:subClassOf rdf:resource="#con855198889" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1476811936">
+    <rdfs:subClassOf rdf:resource="#con855198889" />
+  </owl:Class>
+  <owl:Class rdf:ID="con785766656">
+    <rdfs:subClassOf rdf:resource="#con855198889" />
+  </owl:Class>
+  <owl:Class rdf:ID="con2100063527">
+    <rdfs:subClassOf rdf:resource="#con855198889" />
+  </owl:Class>
+  <owl:Class rdf:ID="con369173258">
+    <rdfs:subClassOf rdf:resource="#con855198889" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1962837567">
+    <rdfs:subClassOf rdf:resource="#con855198889" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1680193079">
+    <rdfs:subClassOf rdf:resource="#con294825469" />
+  </owl:Class>
+  <owl:Class rdf:ID="con2096786477">
+    <rdfs:subClassOf rdf:resource="#con1614037896" />
+  </owl:Class>
+  <owl:Class rdf:ID="con851921839">
+    <rdfs:subClassOf rdf:resource="#con1614037896" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1681831585">
+    <rdfs:subClassOf rdf:resource="#con1614037896" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1266876731">
+    <rdfs:subClassOf rdf:resource="#con1614037896" />
+  </owl:Class>
+  <owl:Class rdf:ID="con2003800711">
+    <rdfs:subClassOf rdf:resource="#con618433101" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1726071779">
+    <rdfs:subClassOf rdf:resource="#con618433101" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1382187664">
+    <rdfs:subClassOf rdf:resource="#con2144303683" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1658278052">
+    <rdfs:subClassOf rdf:resource="#con2144303683" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1517775080">
+    <rdfs:subClassOf rdf:resource="#con1587207313" />
+  </owl:Class>
+  <owl:Class rdf:ID="con616794557">
+    <rdfs:subClassOf rdf:resource="#con1587207313" />
+  </owl:Class>
+  <owl:Class rdf:ID="con200201159">
+    <rdfs:subClassOf rdf:resource="#con1587207313" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1170613915">
+    <rdfs:subClassOf rdf:resource="#con1587207313" />
+  </owl:Class>
+  <owl:Class rdf:ID="con547362324">
+    <rdfs:subClassOf rdf:resource="#con1587207313" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1275069337">
+    <rdfs:subClassOf rdf:resource="#con2037185394" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1410656753">
+    <rdfs:subClassOf rdf:resource="#con2037185394" />
+  </owl:Class>
+  <owl:Class rdf:ID="con810344550">
+    <rdfs:subClassOf rdf:resource="#con1574099113" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1850189501">
+    <rdfs:subClassOf rdf:resource="#con1574099113" />
+  </owl:Class>
+  <owl:Class rdf:ID="con811983056">
+    <rdfs:subClassOf rdf:resource="#con1574099113" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1569183519">
+    <rdfs:subClassOf rdf:resource="#con1777480218" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1015364199">
+    <rdfs:subClassOf rdf:resource="#con1777480218" />
+  </owl:Class>
+  <owl:Class rdf:ID="con253248142">
+    <rdfs:subClassOf rdf:resource="#con1777480218" />
+  </owl:Class>
+  <owl:Class rdf:ID="con183815909">
+    <rdfs:subClassOf rdf:resource="#con1777480218" />
+  </owl:Class>
+  <owl:Class rdf:ID="con2126279927">
+    <rdfs:subClassOf rdf:resource="#con740912317" />
+  </owl:Class>
+  <owl:Class rdf:ID="con944293422">
+    <rdfs:subClassOf rdf:resource="#con44951443" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1845273945">
+    <rdfs:subClassOf rdf:resource="#con44951443" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1984138411">
+    <rdfs:subClassOf rdf:resource="#con44951443" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1430319053">
+    <rdfs:subClassOf rdf:resource="#con44951443" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1079880838">
+    <rdfs:subClassOf rdf:resource="#con1841996895" />
+  </owl:Class>
+  <owl:Class rdf:ID="con2118087283">
+    <rdfs:subClassOf rdf:resource="#con1841996895" />
+  </owl:Class>
+  <owl:Class rdf:ID="con2047016544">
+    <rdfs:subClassOf rdf:resource="#con1841996895" />
+  </owl:Class>
+  <owl:Class rdf:ID="con939377866">
+    <rdfs:subClassOf rdf:resource="#con1841996895" />
+  </owl:Class>
+  <owl:Class rdf:ID="con873222683">
+    <rdfs:subClassOf rdf:resource="#con2121364333" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1359248314">
+    <rdfs:subClassOf rdf:resource="#con2121364333" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1628784602">
+    <rdfs:subClassOf rdf:resource="#con1560990913" />
+  </owl:Class>
+  <owl:Class rdf:ID="con798874856">
+    <rdfs:subClassOf rdf:resource="#con1560990913" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1210552698">
+    <rdfs:subClassOf rdf:resource="#con1560990913" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1283261981">
+    <rdfs:subClassOf rdf:resource="#con1560990913" />
+  </owl:Class>
+  <owl:Class rdf:ID="con241778486">
+    <rdfs:subClassOf rdf:resource="#con1560990913" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1441788747">
+    <rdfs:subClassOf rdf:resource="#con1927814378" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1165698321">
+    <rdfs:subClassOf rdf:resource="#con1927814378" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1785672862">
+    <rdfs:subClassOf rdf:resource="#con1927814378" />
+  </owl:Class>
+  <owl:Class rdf:ID="con816898650">
+    <rdfs:subClassOf rdf:resource="#con1927814378" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1853466551">
+    <rdfs:subClassOf rdf:resource="#con1927814378" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1650085446">
+    <rdfs:subClassOf rdf:resource="#con1927814378" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1238407604">
+    <rdfs:subClassOf rdf:resource="#con2000523661" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1304562787">
+    <rdfs:subClassOf rdf:resource="#con2000523661" />
+  </owl:Class>
+  <owl:Class rdf:ID="con516230368">
+    <rdfs:subClassOf rdf:resource="#con170707709" />
+  </owl:Class>
+  <owl:Class rdf:ID="con929546716">
+    <rdfs:subClassOf rdf:resource="#con170707709" />
+  </owl:Class>
+  <owl:Class rdf:ID="con2038823900">
+    <rdfs:subClassOf rdf:resource="#con170707709" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1554436813">
+    <rdfs:subClassOf rdf:resource="#con170707709" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1693301279">
+    <rdfs:subClassOf rdf:resource="#con170707709" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1556075319">
+    <rdfs:subClassOf rdf:resource="#con170707709" />
+  </owl:Class>
+  <owl:Class rdf:ID="con853560383">
+    <rdfs:subClassOf rdf:resource="#con992424849" />
+  </owl:Class>
+  <owl:Class rdf:ID="con2101702033">
+    <rdfs:subClassOf rdf:resource="#con716334423" />
+  </owl:Class>
+  <owl:Class rdf:ID="con86528770">
+    <rdfs:subClassOf rdf:resource="#con1680193079" />
+  </owl:Class>
+  <owl:Class rdf:ID="con918077022">
+    <rdfs:subClassOf rdf:resource="#con1680193079" />
+  </owl:Class>
+  <owl:Class rdf:ID="con89805820">
+    <rdfs:subClassOf rdf:resource="#con851921839" />
+  </owl:Class>
+  <owl:Class rdf:ID="con157599509">
+    <rdfs:subClassOf rdf:resource="#con1681831585" />
+  </owl:Class>
+  <owl:Class rdf:ID="con919715566">
+    <rdfs:subClassOf rdf:resource="#con1681831585" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1542967119">
+    <rdfs:subClassOf rdf:resource="#con1681831585" />
+  </owl:Class>
+  <owl:Class rdf:ID="con504760674">
+    <rdfs:subClassOf rdf:resource="#con1266876731" />
+  </owl:Class>
+  <owl:Class rdf:ID="con296463975">
+    <rdfs:subClassOf rdf:resource="#con1266876731" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1890128284">
+    <rdfs:subClassOf rdf:resource="#con1266876731" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1058580032">
+    <rdfs:subClassOf rdf:resource="#con1266876731" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1102820188">
+    <rdfs:subClassOf rdf:resource="#con2003800711" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1241684654">
+    <rdfs:subClassOf rdf:resource="#con2003800711" />
+  </owl:Class>
+  <owl:Class rdf:ID="con340704169">
+    <rdfs:subClassOf rdf:resource="#con2003800711" />
+  </owl:Class>
+  <owl:Class rdf:ID="con201839703">
+    <rdfs:subClassOf rdf:resource="#con1726071779" />
+  </owl:Class>
+  <owl:Class rdf:ID="con481207141">
+    <rdfs:subClassOf rdf:resource="#con1382187664" />
+  </owl:Class>
+  <owl:Class rdf:ID="con620071607">
+    <rdfs:subClassOf rdf:resource="#con1382187664" />
+  </owl:Class>
+  <owl:Class rdf:ID="con134045976">
+    <rdfs:subClassOf rdf:resource="#con1658278052" />
+  </owl:Class>
+  <owl:Class rdf:ID="con896162033">
+    <rdfs:subClassOf rdf:resource="#con1658278052" />
+  </owl:Class>
+  <owl:Class rdf:ID="con757297567">
+    <rdfs:subClassOf rdf:resource="#con1658278052" />
+  </owl:Class>
+  <owl:Class rdf:ID="con2142665177">
+    <rdfs:subClassOf rdf:resource="#con1658278052" />
+  </owl:Class>
+  <owl:Class rdf:ID="con408497858">
+    <rdfs:subClassOf rdf:resource="#con1170613915" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1031749449">
+    <rdfs:subClassOf rdf:resource="#con1170613915" />
+  </owl:Class>
+  <owl:Class rdf:ID="con512953318">
+    <rdfs:subClassOf rdf:resource="#con1275069337" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1412295297">
+    <rdfs:subClassOf rdf:resource="#con1275069337" />
+  </owl:Class>
+  <owl:Class rdf:ID="con165792153">
+    <rdfs:subClassOf rdf:resource="#con1275069337" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1134566365">
+    <rdfs:subClassOf rdf:resource="#con1275069337" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1756179412">
+    <rdfs:subClassOf rdf:resource="#con1410656753" />
+  </owl:Class>
+  <owl:Class rdf:ID="con648540734">
+    <rdfs:subClassOf rdf:resource="#con1410656753" />
+  </owl:Class>
+  <owl:Class rdf:ID="con509676268">
+    <rdfs:subClassOf rdf:resource="#con1410656753" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1825611645">
+    <rdfs:subClassOf rdf:resource="#con1410656753" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1088073482">
+    <rdfs:subClassOf rdf:resource="#con1850189501" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1435234647">
+    <rdfs:subClassOf rdf:resource="#con811983056" />
+  </owl:Class>
+  <owl:Class rdf:ID="con534254124">
+    <rdfs:subClassOf rdf:resource="#con811983056" />
+  </owl:Class>
+  <owl:Class rdf:ID="con49867037">
+    <rdfs:subClassOf rdf:resource="#con811983056" />
+  </owl:Class>
+  <owl:Class rdf:ID="con464821891">
+    <rdfs:subClassOf rdf:resource="#con811983056" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1365802414">
+    <rdfs:subClassOf rdf:resource="#con811983056" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1296370181">
+    <rdfs:subClassOf rdf:resource="#con811983056" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1364163870">
+    <rdfs:subClassOf rdf:resource="#con2126279927" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1225299404">
+    <rdfs:subClassOf rdf:resource="#con2126279927" />
+  </owl:Class>
+  <owl:Class rdf:ID="con461544841">
+    <rdfs:subClassOf rdf:resource="#con2126279927" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1848550995">
+    <rdfs:subClassOf rdf:resource="#con2126279927" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1431957597">
+    <rdfs:subClassOf rdf:resource="#con2126279927" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1501389830">
+    <rdfs:subClassOf rdf:resource="#con2126279927" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1498112780">
+    <rdfs:subClassOf rdf:resource="#con944293422" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1706409479">
+    <rdfs:subClassOf rdf:resource="#con1845273945" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1222022354">
+    <rdfs:subClassOf rdf:resource="#con1984138411" />
+  </owl:Class>
+  <owl:Class rdf:ID="con317764819">
+    <rdfs:subClassOf rdf:resource="#con1079880838" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1703132429">
+    <rdfs:subClassOf rdf:resource="#con1079880838" />
+  </owl:Class>
+  <owl:Class rdf:ID="con178900353">
+    <rdfs:subClassOf rdf:resource="#con1079880838" />
+  </owl:Class>
+  <owl:Class rdf:ID="con732719673">
+    <rdfs:subClassOf rdf:resource="#con1079880838" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1840358351">
+    <rdfs:subClassOf rdf:resource="#con2118087283" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1355971264">
+    <rdfs:subClassOf rdf:resource="#con2118087283" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1217106798">
+    <rdfs:subClassOf rdf:resource="#con2118087283" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1284900487">
+    <rdfs:subClassOf rdf:resource="#con2047016544" />
+  </owl:Class>
+  <owl:Class rdf:ID="con314487769">
+    <rdfs:subClassOf rdf:resource="#con2047016544" />
+  </owl:Class>
+  <owl:Class rdf:ID="con937739322">
+    <rdfs:subClassOf rdf:resource="#con2047016544" />
+  </owl:Class>
+  <owl:Class rdf:ID="con177261809">
+    <rdfs:subClassOf rdf:resource="#con939377866" />
+  </owl:Class>
+  <owl:Class rdf:ID="con661648934">
+    <rdfs:subClassOf rdf:resource="#con939377866" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1562629419">
+    <rdfs:subClassOf rdf:resource="#con939377866" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1493197186">
+    <rdfs:subClassOf rdf:resource="#con939377866" />
+  </owl:Class>
+  <owl:Class rdf:ID="con111106626">
+    <rdfs:subClassOf rdf:resource="#con873222683" />
+  </owl:Class>
+  <owl:Class rdf:ID="con458267791">
+    <rdfs:subClassOf rdf:resource="#con1359248314" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1635338702">
+    <rdfs:subClassOf rdf:resource="#con1359248314" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1843635401">
+    <rdfs:subClassOf rdf:resource="#con1359248314" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1704770935">
+    <rdfs:subClassOf rdf:resource="#con1359248314" />
+  </owl:Class>
+  <owl:Class rdf:ID="con597132257">
+    <rdfs:subClassOf rdf:resource="#con1359248314" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1904875028">
+    <rdfs:subClassOf rdf:resource="#con1628784602" />
+  </owl:Class>
+  <owl:Class rdf:ID="con866668583">
+    <rdfs:subClassOf rdf:resource="#con1628784602" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1073326738">
+    <rdfs:subClassOf rdf:resource="#con1628784602" />
+  </owl:Class>
+  <owl:Class rdf:ID="con727804117">
+    <rdfs:subClassOf rdf:resource="#con1628784602" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1351055670">
+    <rdfs:subClassOf rdf:resource="#con1628784602" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1281623437">
+    <rdfs:subClassOf rdf:resource="#con1628784602" />
+  </owl:Class>
+  <owl:Class rdf:ID="con36758837">
+    <rdfs:subClassOf rdf:resource="#con798874856" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1352694214">
+    <rdfs:subClassOf rdf:resource="#con798874856" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1422126447">
+    <rdfs:subClassOf rdf:resource="#con798874856" />
+  </owl:Class>
+  <owl:Class rdf:ID="con448436641">
+    <rdfs:subClassOf rdf:resource="#con1210552698" />
+  </owl:Class>
+  <owl:Class rdf:ID="con379004408">
+    <rdfs:subClassOf rdf:resource="#con1210552698" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1144397515">
+    <rdfs:subClassOf rdf:resource="#con1283261981" />
+  </owl:Class>
+  <owl:Class rdf:ID="con521145924">
+    <rdfs:subClassOf rdf:resource="#con1283261981" />
+  </owl:Class>
+  <owl:Class rdf:ID="con102914020">
+    <rdfs:subClassOf rdf:resource="#con241778486" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1488281630">
+    <rdfs:subClassOf rdf:resource="#con241778486" />
+  </owl:Class>
+  <owl:Class rdf:ID="con656733340">
+    <rdfs:subClassOf rdf:resource="#con241778486" />
+  </owl:Class>
+  <owl:Class rdf:ID="con2042100950">
+    <rdfs:subClassOf rdf:resource="#con241778486" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1627146096">
+    <rdfs:subClassOf rdf:resource="#con241778486" />
+  </owl:Class>
+  <owl:Class rdf:ID="con679672690">
+    <rdfs:subClassOf rdf:resource="#con1441788747" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1787311368">
+    <rdfs:subClassOf rdf:resource="#con1441788747" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1302924281">
+    <rdfs:subClassOf rdf:resource="#con1441788747" />
+  </owl:Class>
+  <owl:Class rdf:ID="con403582302">
+    <rdfs:subClassOf rdf:resource="#con1165698321" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1719517679">
+    <rdfs:subClassOf rdf:resource="#con1165698321" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1023556805">
+    <rdfs:subClassOf rdf:resource="#con1785672862" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1369079464">
+    <rdfs:subClassOf rdf:resource="#con1785672862" />
+  </owl:Class>
+  <owl:Class rdf:ID="con815260106">
+    <rdfs:subClassOf rdf:resource="#con1785672862" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1924537328">
+    <rdfs:subClassOf rdf:resource="#con816898650" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1301285737">
+    <rdfs:subClassOf rdf:resource="#con816898650" />
+  </owl:Class>
+  <owl:Class rdf:ID="con54782593">
+    <rdfs:subClassOf rdf:resource="#con816898650" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1855105095">
+    <rdfs:subClassOf rdf:resource="#con816898650" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1091350532">
+    <rdfs:subClassOf rdf:resource="#con1853466551" />
+  </owl:Class>
+  <owl:Class rdf:ID="con120937776">
+    <rdfs:subClassOf rdf:resource="#con1853466551" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1921260278">
+    <rdfs:subClassOf rdf:resource="#con1853466551" />
+  </owl:Class>
+  <owl:Class rdf:ID="con56421137">
+    <rdfs:subClassOf rdf:resource="#con1650085446" />
+  </owl:Class>
+  <owl:Class rdf:ID="con887969389">
+    <rdfs:subClassOf rdf:resource="#con1650085446" />
+  </owl:Class>
+  <owl:Class rdf:ID="con267994886">
+    <rdfs:subClassOf rdf:resource="#con1238407604" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1028472399">
+    <rdfs:subClassOf rdf:resource="#con1238407604" />
+  </owl:Class>
+  <owl:Class rdf:ID="con476291585">
+    <rdfs:subClassOf rdf:resource="#con1238407604" />
+  </owl:Class>
+  <owl:Class rdf:ID="con542446768">
+    <rdfs:subClassOf rdf:resource="#con1304562787" />
+  </owl:Class>
+  <owl:Class rdf:ID="con307933669">
+    <rdfs:subClassOf rdf:resource="#con516230368" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1070049688">
+    <rdfs:subClassOf rdf:resource="#con516230368" />
+  </owl:Class>
+  <owl:Class rdf:ID="con446798135">
+    <rdfs:subClassOf rdf:resource="#con516230368" />
+  </owl:Class>
+  <owl:Class rdf:ID="con28566193">
+    <rdfs:subClassOf rdf:resource="#con929546716" />
+  </owl:Class>
+  <owl:Class rdf:ID="con167430659">
+    <rdfs:subClassOf rdf:resource="#con929546716" />
+  </owl:Class>
+  <owl:Class rdf:ID="con790682250">
+    <rdfs:subClassOf rdf:resource="#con929546716" />
+  </owl:Class>
+  <owl:Class rdf:ID="con514591824">
+    <rdfs:subClassOf rdf:resource="#con2038823900" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1137843415">
+    <rdfs:subClassOf rdf:resource="#con2038823900" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1276707881">
+    <rdfs:subClassOf rdf:resource="#con2038823900" />
+  </owl:Class>
+  <owl:Class rdf:ID="con998978949">
+    <rdfs:subClassOf rdf:resource="#con2038823900" />
+  </owl:Class>
+  <owl:Class rdf:ID="con375727358">
+    <rdfs:subClassOf rdf:resource="#con2038823900" />
+  </owl:Class>
+  <owl:Class rdf:ID="con653456290">
+    <rdfs:subClassOf rdf:resource="#con1554436813" />
+  </owl:Class>
+  <owl:Class rdf:ID="con793959300">
+    <rdfs:subClassOf rdf:resource="#con1556075319" />
+  </owl:Class>
+  <owl:Class rdf:ID="con655094834">
+    <rdfs:subClassOf rdf:resource="#con1556075319" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1417210853">
+    <rdfs:subClassOf rdf:resource="#con1556075319" />
+  </owl:Class>
+  <owl:Class rdf:ID="con585662601">
+    <rdfs:subClassOf rdf:resource="#con1556075319" />
+  </owl:Class>
+  <owl:Class rdf:ID="con709780323">
+    <rdfs:subClassOf rdf:resource="#con86528770" />
+  </owl:Class>
+  <owl:Class rdf:ID="con643625140">
+    <rdfs:subClassOf rdf:resource="#con89805820" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1475173430">
+    <rdfs:subClassOf rdf:resource="#con89805820" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1405741197">
+    <rdfs:subClassOf rdf:resource="#con89805820" />
+  </owl:Class>
+  <owl:Class rdf:ID="con18735043">
+    <rdfs:subClassOf rdf:resource="#con1542967119" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1866574751">
+    <rdfs:subClassOf rdf:resource="#con481207141" />
+  </owl:Class>
+  <owl:Class rdf:ID="con342342675">
+    <rdfs:subClassOf rdf:resource="#con481207141" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1243323198">
+    <rdfs:subClassOf rdf:resource="#con620071607" />
+  </owl:Class>
+  <owl:Class rdf:ID="con269633392">
+    <rdfs:subClassOf rdf:resource="#con1031749449" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1828888695">
+    <rdfs:subClassOf rdf:resource="#con512953318" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1898320928">
+    <rdfs:subClassOf rdf:resource="#con512953318" />
+  </owl:Class>
+  <owl:Class rdf:ID="con927908172">
+    <rdfs:subClassOf rdf:resource="#con512953318" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1896682384">
+    <rdfs:subClassOf rdf:resource="#con1412295297" />
+  </owl:Class>
+  <owl:Class rdf:ID="con2035546850">
+    <rdfs:subClassOf rdf:resource="#con1412295297" />
+  </owl:Class>
+  <owl:Class rdf:ID="con650179240">
+    <rdfs:subClassOf rdf:resource="#con1412295297" />
+  </owl:Class>
+  <owl:Class rdf:ID="con511314774">
+    <rdfs:subClassOf rdf:resource="#con1412295297" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1481727530">
+    <rdfs:subClassOf rdf:resource="#con165792153" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1551159763">
+    <rdfs:subClassOf rdf:resource="#con165792153" />
+  </owl:Class>
+  <owl:Class rdf:ID="con233585842">
+    <rdfs:subClassOf rdf:resource="#con1134566365" />
+  </owl:Class>
+  <owl:Class rdf:ID="con372450308">
+    <rdfs:subClassOf rdf:resource="#con1134566365" />
+  </owl:Class>
+  <owl:Class rdf:ID="con94721376">
+    <rdfs:subClassOf rdf:resource="#con1134566365" />
+  </owl:Class>
+  <owl:Class rdf:ID="con164153609">
+    <rdfs:subClassOf rdf:resource="#con1134566365" />
+  </owl:Class>
+  <owl:Class rdf:ID="con995701899">
+    <rdfs:subClassOf rdf:resource="#con1134566365" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1757817918">
+    <rdfs:subClassOf rdf:resource="#con1134566365" />
+  </owl:Class>
+  <owl:Class rdf:ID="con2033908344">
+    <rdfs:subClassOf rdf:resource="#con648540734" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1641892802">
+    <rdfs:subClassOf rdf:resource="#con1088073482" />
+  </owl:Class>
+  <owl:Class rdf:ID="con325957425">
+    <rdfs:subClassOf rdf:resource="#con1088073482" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1987415461">
+    <rdfs:subClassOf rdf:resource="#con1364163870" />
+  </owl:Class>
+  <owl:Class rdf:ID="con463183385">
+    <rdfs:subClassOf rdf:resource="#con1225299404" />
+  </owl:Class>
+  <owl:Class rdf:ID="con878138239">
+    <rdfs:subClassOf rdf:resource="#con1848550995" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1640254296">
+    <rdfs:subClassOf rdf:resource="#con1848550995" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1086434938">
+    <rdfs:subClassOf rdf:resource="#con1848550995" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1223660898">
+    <rdfs:subClassOf rdf:resource="#con1431957597" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1494835730">
+    <rdfs:subClassOf rdf:resource="#con178900353" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1078242332">
+    <rdfs:subClassOf rdf:resource="#con1840358351" />
+  </owl:Class>
+  <owl:Class rdf:ID="con316126275">
+    <rdfs:subClassOf rdf:resource="#con1840358351" />
+  </owl:Class>
+  <owl:Class rdf:ID="con593855207">
+    <rdfs:subClassOf rdf:resource="#con1355971264" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1215468254">
+    <rdfs:subClassOf rdf:resource="#con1284900487" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1496474236">
+    <rdfs:subClassOf rdf:resource="#con111106626" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1357609770">
+    <rdfs:subClassOf rdf:resource="#con111106626" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1980861361">
+    <rdfs:subClassOf rdf:resource="#con111106626" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1220383848">
+    <rdfs:subClassOf rdf:resource="#con597132257" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1489920136">
+    <rdfs:subClassOf rdf:resource="#con866668583" />
+  </owl:Class>
+  <owl:Class rdf:ID="con311210719">
+    <rdfs:subClassOf rdf:resource="#con1073326738" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1767649068">
+    <rdfs:subClassOf rdf:resource="#con1144397515" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1005533049">
+    <rdfs:subClassOf rdf:resource="#con1144397515" />
+  </owl:Class>
+  <owl:Class rdf:ID="con243416992">
+    <rdfs:subClassOf rdf:resource="#con1144397515" />
+  </owl:Class>
+  <owl:Class rdf:ID="con193647059">
+    <rdfs:subClassOf rdf:resource="#con1787311368" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1579014669">
+    <rdfs:subClassOf rdf:resource="#con1787311368" />
+  </owl:Class>
+  <owl:Class rdf:ID="con540808224">
+    <rdfs:subClassOf rdf:resource="#con1302924281" />
+  </owl:Class>
+  <owl:Class rdf:ID="con468098941">
+    <rdfs:subClassOf rdf:resource="#con1369079464" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1299647231">
+    <rdfs:subClassOf rdf:resource="#con1369079464" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1230214998">
+    <rdfs:subClassOf rdf:resource="#con1369079464" />
+  </owl:Class>
+  <owl:Class rdf:ID="con745827873">
+    <rdfs:subClassOf rdf:resource="#con815260106" />
+  </owl:Class>
+  <owl:Class rdf:ID="con2063401794">
+    <rdfs:subClassOf rdf:resource="#con54782593" />
+  </owl:Class>
+  <owl:Class rdf:ID="con329234475">
+    <rdfs:subClassOf rdf:resource="#con1091350532" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1645169852">
+    <rdfs:subClassOf rdf:resource="#con1091350532" />
+  </owl:Class>
+  <owl:Class rdf:ID="con883053833">
+    <rdfs:subClassOf rdf:resource="#con1091350532" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1298008687">
+    <rdfs:subClassOf rdf:resource="#con120937776" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1506305386">
+    <rdfs:subClassOf rdf:resource="#con120937776" />
+  </owl:Class>
+  <owl:Class rdf:ID="con2129556977">
+    <rdfs:subClassOf rdf:resource="#con120937776" />
+  </owl:Class>
+  <owl:Class rdf:ID="con258163736">
+    <rdfs:subClassOf rdf:resource="#con1921260278" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1159144221">
+    <rdfs:subClassOf rdf:resource="#con1921260278" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1782395812">
+    <rdfs:subClassOf rdf:resource="#con1921260278" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1020279755">
+    <rdfs:subClassOf rdf:resource="#con1921260278" />
+  </owl:Class>
+  <owl:Class rdf:ID="con474653041">
+    <rdfs:subClassOf rdf:resource="#con267994886" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1306201331">
+    <rdfs:subClassOf rdf:resource="#con267994886" />
+  </owl:Class>
+  <owl:Class rdf:ID="con891246439">
+    <rdfs:subClassOf rdf:resource="#con267994886" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1653362496">
+    <rdfs:subClassOf rdf:resource="#con267994886" />
+  </owl:Class>
+  <owl:Class rdf:ID="con752381973">
+    <rdfs:subClassOf rdf:resource="#con267994886" />
+  </owl:Class>
+  <owl:Class rdf:ID="con196924109">
+    <rdfs:subClassOf rdf:resource="#con1028472399" />
+  </owl:Class>
+  <owl:Class rdf:ID="con681311234">
+    <rdfs:subClassOf rdf:resource="#con1028472399" />
+  </owl:Class>
+  <owl:Class rdf:ID="con266356342">
+    <rdfs:subClassOf rdf:resource="#con1028472399" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1443427253">
+    <rdfs:subClassOf rdf:resource="#con1028472399" />
+  </owl:Class>
+  <owl:Class rdf:ID="con820175700">
+    <rdfs:subClassOf rdf:resource="#con1028472399" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1861659195">
+    <rdfs:subClassOf rdf:resource="#con476291585" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1099543138">
+    <rdfs:subClassOf rdf:resource="#con476291585" />
+  </owl:Class>
+  <owl:Class rdf:ID="con337427119">
+    <rdfs:subClassOf rdf:resource="#con476291585" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1690024229">
+    <rdfs:subClassOf rdf:resource="#con1828888695" />
+  </owl:Class>
+  <owl:Class rdf:ID="con254886686">
+    <rdfs:subClassOf rdf:resource="#con1086434938" />
+  </owl:Class>
+  <owl:Class rdf:ID="con383920002">
+    <rdfs:subClassOf rdf:resource="#con1215468254" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1146036021">
+    <rdfs:subClassOf rdf:resource="#con1215468254" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1164059815">
+    <rdfs:subClassOf rdf:resource="#con540808224" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1926175834">
+    <rdfs:subClassOf rdf:resource="#con540808224" />
+  </owl:Class>
+  <owl:Class rdf:ID="con129130420">
+    <rdfs:subClassOf rdf:resource="#con891246439" />
+  </owl:Class>
+  <owl:Class rdf:ID="con1514498030">
+    <rdfs:subClassOf rdf:resource="#con891246439" />
+  </owl:Class>
+  <owl:Thing rdf:ID="inst66252287">
+    <rdf:type rdf:resource="#con1521052130" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst2069955894">
+    <rdf:type rdf:resource="#con1377272070" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst162515103">
+    <rdf:type rdf:resource="#con1617314946" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1451619897">
+    <rdf:type rdf:resource="#con758936073" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1344501570">
+    <rdf:type rdf:resource="#con651817784" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst881415289">
+    <rdf:type rdf:resource="#con188731503" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1428680547">
+    <rdf:type rdf:resource="#con735996723" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1307839837">
+    <rdf:type rdf:resource="#con615156051" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst309572175">
+    <rdf:type rdf:resource="#con1764372018" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1749625312">
+    <rdf:type rdf:resource="#con1265238187" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1957922011">
+    <rdf:type rdf:resource="#con1265238187" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1060218538">
+    <rdf:type rdf:resource="#con1961199061" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst506399218">
+    <rdf:type rdf:resource="#con1961199061" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst93082870">
+    <rdf:type rdf:resource="#con855198889" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1547882713">
+    <rdf:type rdf:resource="#con855198889" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1200721548">
+    <rdf:type rdf:resource="#con855198889" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst987509255">
+    <rdf:type rdf:resource="#con294825469" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst2095147933">
+    <rdf:type rdf:resource="#con294825469" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst159238053">
+    <rdf:type rdf:resource="#con1614037896" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1311116887">
+    <rdf:type rdf:resource="#con618433101" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst689503840">
+    <rdf:type rdf:resource="#con2144303683" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst132407470">
+    <rdf:type rdf:resource="#con1587207313" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst825091256">
+    <rdf:type rdf:resource="#con1587207313" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1446704303">
+    <rdf:type rdf:resource="#con1516136536" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst754020517">
+    <rdf:type rdf:resource="#con1516136536" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst684588284">
+    <rdf:type rdf:resource="#con1516136536" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst2139388127">
+    <rdf:type rdf:resource="#con1516136536" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst61336693">
+    <rdf:type rdf:resource="#con1516136536" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst582385551">
+    <rdf:type rdf:resource="#con2037185394" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst119299270">
+    <rdf:type rdf:resource="#con1574099113" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst322680375">
+    <rdf:type rdf:resource="#con1777480218" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1433596103">
+    <rdf:type rdf:resource="#con740912317" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst737635267">
+    <rdf:type rdf:resource="#con44951443" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst387197052">
+    <rdf:type rdf:resource="#con1841996895" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst456629285">
+    <rdf:type rdf:resource="#con1911429128" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1149313071">
+    <rdf:type rdf:resource="#con1911429128" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst666564490">
+    <rdf:type rdf:resource="#con2121364333" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst106191070">
+    <rdf:type rdf:resource="#con1560990913" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst473014535">
+    <rdf:type rdf:resource="#con1927814378" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst545723818">
+    <rdf:type rdf:resource="#con2000523661" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst863391533">
+    <rdf:type rdf:resource="#con170707709" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1694939785">
+    <rdf:type rdf:resource="#con1002255999" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst240139942">
+    <rdf:type rdf:resource="#con1002255999" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst932823766">
+    <rdf:type rdf:resource="#con1002255999" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1625507552">
+    <rdf:type rdf:resource="#con1002255999" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1888489778">
+    <rdf:type rdf:resource="#con503122168" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst433689935">
+    <rdf:type rdf:resource="#con503122168" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1195805954">
+    <rdf:type rdf:resource="#con503122168" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1819057545">
+    <rdf:type rdf:resource="#con1126373721" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1056941488">
+    <rdf:type rdf:resource="#con1126373721" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst364257702">
+    <rdf:type rdf:resource="#con1126373721" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst367534752">
+    <rdf:type rdf:resource="#con1822334595" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1683470129">
+    <rdf:type rdf:resource="#con990786305" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1129650771">
+    <rdf:type rdf:resource="#con436966985" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst921354072">
+    <rdf:type rdf:resource="#con228670286" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst298102519">
+    <rdf:type rdf:resource="#con1752902362" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1891766828">
+    <rdf:type rdf:resource="#con1199083004" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1685108635">
+    <rdf:type rdf:resource="#con992424849" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst922992616">
+    <rdf:type rdf:resource="#con992424849" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst230308792">
+    <rdf:type rdf:resource="#con992424849" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1615676402">
+    <rdf:type rdf:resource="#con992424849" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst160876559">
+    <rdf:type rdf:resource="#con992424849" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1823973101">
+    <rdf:type rdf:resource="#con1893405334" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1131289315">
+    <rdf:type rdf:resource="#con1893405334" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst438605491">
+    <rdf:type rdf:resource="#con1893405334" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1339586014">
+    <rdf:type rdf:resource="#con716334423" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1409018247">
+    <rdf:type rdf:resource="#con716334423" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1270153781">
+    <rdf:type rdf:resource="#con2032269800" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst577469957">
+    <rdf:type rdf:resource="#con2032269800" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1407379703">
+    <rdf:type rdf:resource="#con1476811936" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst714695917">
+    <rdf:type rdf:resource="#con1476811936" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst22012093">
+    <rdf:type rdf:resource="#con1476811936" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1478450480">
+    <rdf:type rdf:resource="#con785766656" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst23650637">
+    <rdf:type rdf:resource="#con785766656" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst575831451">
+    <rdf:type rdf:resource="#con2100063527" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1337947470">
+    <rdf:type rdf:resource="#con2100063527" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst645263684">
+    <rdf:type rdf:resource="#con2100063527" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1268515237">
+    <rdf:type rdf:resource="#con2100063527" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst2030631294">
+    <rdf:type rdf:resource="#con2100063527" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1754540868">
+    <rdf:type rdf:resource="#con369173258" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst299741025">
+    <rdf:type rdf:resource="#con369173258" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1061857082">
+    <rdf:type rdf:resource="#con369173258" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst508037724">
+    <rdf:type rdf:resource="#con1962837567" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst225393236">
+    <rdf:type rdf:resource="#con1680193079" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst641986634">
+    <rdf:type rdf:resource="#con2096786477" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst2027354244">
+    <rdf:type rdf:resource="#con2096786477" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst572554401">
+    <rdf:type rdf:resource="#con2096786477" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1334670420">
+    <rdf:type rdf:resource="#con2096786477" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1544605663">
+    <rdf:type rdf:resource="#con851921839" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst227031742">
+    <rdf:type rdf:resource="#con1681831585" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1404102653">
+    <rdf:type rdf:resource="#con1681831585" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1959560517">
+    <rdf:type rdf:resource="#con1266876731" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst365896208">
+    <rdf:type rdf:resource="#con1266876731" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst410136402">
+    <rdf:type rdf:resource="#con2003800711" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1864936245">
+    <rdf:type rdf:resource="#con2003800711" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst549000868">
+    <rdf:type rdf:resource="#con2003800711" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst963955722">
+    <rdf:type rdf:resource="#con1726071779" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1656639546">
+    <rdf:type rdf:resource="#con1726071779" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst271271936">
+    <rdf:type rdf:resource="#con1726071779" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst965594266">
+    <rdf:type rdf:resource="#con1382187664" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst2074871450">
+    <rdf:type rdf:resource="#con1382187664" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst203478209">
+    <rdf:type rdf:resource="#con1658278052" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst2141026633">
+    <rdf:type rdf:resource="#con1517775080" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1448342847">
+    <rdf:type rdf:resource="#con1517775080" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst686226790">
+    <rdf:type rdf:resource="#con1517775080" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst62975237">
+    <rdf:type rdf:resource="#con1517775080" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst755659023">
+    <rdf:type rdf:resource="#con1517775080" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1378910614">
+    <rdf:type rdf:resource="#con1517775080" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst2071594400">
+    <rdf:type rdf:resource="#con1517775080" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst2002162167">
+    <rdf:type rdf:resource="#con616794557" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1309478381">
+    <rdf:type rdf:resource="#con616794557" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst892884983">
+    <rdf:type rdf:resource="#con200201159" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst823452750">
+    <rdf:type rdf:resource="#con200201159" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1585568769">
+    <rdf:type rdf:resource="#con200201159" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst130768926">
+    <rdf:type rdf:resource="#con200201159" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1863297701">
+    <rdf:type rdf:resource="#con1170613915" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1655001002">
+    <rdf:type rdf:resource="#con1170613915" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst477930091">
+    <rdf:type rdf:resource="#con547362324" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1932729934">
+    <rdf:type rdf:resource="#con547362324" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1240046148">
+    <rdf:type rdf:resource="#con547362324" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1967753161">
+    <rdf:type rdf:resource="#con1275069337" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst2103340577">
+    <rdf:type rdf:resource="#con1410656753" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1503028336">
+    <rdf:type rdf:resource="#con810344550" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst48228493">
+    <rdf:type rdf:resource="#con810344550" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst395389658">
+    <rdf:type rdf:resource="#con1850189501" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst603686357">
+    <rdf:type rdf:resource="#con811983056" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1919621734">
+    <rdf:type rdf:resource="#con811983056" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1504666880">
+    <rdf:type rdf:resource="#con811983056" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst673118590">
+    <rdf:type rdf:resource="#con811983056" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1499751286">
+    <rdf:type rdf:resource="#con1569183519" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst807067500">
+    <rdf:type rdf:resource="#con1569183519" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst114383676">
+    <rdf:type rdf:resource="#con1569183519" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1708047985">
+    <rdf:type rdf:resource="#con1015364199" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst945931966">
+    <rdf:type rdf:resource="#con253248142" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1638615752">
+    <rdf:type rdf:resource="#con253248142" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst876499733">
+    <rdf:type rdf:resource="#con183815909" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst671480084">
+    <rdf:type rdf:resource="#con2126279927" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1567545013">
+    <rdf:type rdf:resource="#con944293422" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst112745170">
+    <rdf:type rdf:resource="#con944293422" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst874861189">
+    <rdf:type rdf:resource="#con944293422" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst805428956">
+    <rdf:type rdf:resource="#con944293422" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst182177403">
+    <rdf:type rdf:resource="#con944293422" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1636977246">
+    <rdf:type rdf:resource="#con944293422" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1013725655">
+    <rdf:type rdf:resource="#con1845273945" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1775841712">
+    <rdf:type rdf:resource="#con1845273945" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst390474102">
+    <rdf:type rdf:resource="#con1845273945" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1083157888">
+    <rdf:type rdf:resource="#con1845273945" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst321041869">
+    <rdf:type rdf:resource="#con1845273945" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst529338568">
+    <rdf:type rdf:resource="#con1984138411" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst598770801">
+    <rdf:type rdf:resource="#con1430319053" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1360886820">
+    <rdf:type rdf:resource="#con1430319053" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst2123002877">
+    <rdf:type rdf:resource="#con1430319053" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst2053570644">
+    <rdf:type rdf:resource="#con1430319053" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1291454587">
+    <rdf:type rdf:resource="#con1430319053" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst668203034">
+    <rdf:type rdf:resource="#con1430319053" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1772564662">
+    <rdf:type rdf:resource="#con1079880838" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst663287440">
+    <rdf:type rdf:resource="#con2118087283" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst592216701">
+    <rdf:type rdf:resource="#con2047016544" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst2116448777">
+    <rdf:type rdf:resource="#con939377866" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1632061652">
+    <rdf:type rdf:resource="#con939377866" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1565906469">
+    <rdf:type rdf:resource="#con873222683" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst2051932100">
+    <rdf:type rdf:resource="#con1359248314" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst173984759">
+    <rdf:type rdf:resource="#con1628784602" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1491558680">
+    <rdf:type rdf:resource="#con798874856" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1903236484">
+    <rdf:type rdf:resource="#con1210552698" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1833804251">
+    <rdf:type rdf:resource="#con1210552698" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1975945767">
+    <rdf:type rdf:resource="#con1283261981" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst934462272">
+    <rdf:type rdf:resource="#con241778486" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst2134472533">
+    <rdf:type rdf:resource="#con1441788747" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1858382145">
+    <rdf:type rdf:resource="#con1165698321" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst676395640">
+    <rdf:type rdf:resource="#con1785672862" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst330873019">
+    <rdf:type rdf:resource="#con1785672862" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1092989038">
+    <rdf:type rdf:resource="#con816898650" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1509582436">
+    <rdf:type rdf:resource="#con816898650" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1162421271">
+    <rdf:type rdf:resource="#con816898650" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst398666708">
+    <rdf:type rdf:resource="#con1853466551" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1511220980">
+    <rdf:type rdf:resource="#con1650085446" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst195285603">
+    <rdf:type rdf:resource="#con1650085446" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1931091428">
+    <rdf:type rdf:resource="#con1238407604" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1997246611">
+    <rdf:type rdf:resource="#con1304562787" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1208914154">
+    <rdf:type rdf:resource="#con516230368" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1901597978">
+    <rdf:type rdf:resource="#con516230368" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1622230502">
+    <rdf:type rdf:resource="#con929546716" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1552798269">
+    <rdf:type rdf:resource="#con929546716" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst97998426">
+    <rdf:type rdf:resource="#con929546716" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst584024057">
+    <rdf:type rdf:resource="#con2038823900" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst30204737">
+    <rdf:type rdf:resource="#con1554436813" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst2108256133">
+    <rdf:type rdf:resource="#con1554436813" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst722888523">
+    <rdf:type rdf:resource="#con1554436813" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst99636970">
+    <rdf:type rdf:resource="#con1554436813" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1485004580">
+    <rdf:type rdf:resource="#con1554436813" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst792320756">
+    <rdf:type rdf:resource="#con1554436813" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1415572347">
+    <rdf:type rdf:resource="#con1554436813" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst861752989">
+    <rdf:type rdf:resource="#con1693301279" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst931185222">
+    <rdf:type rdf:resource="#con1693301279" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst238501436">
+    <rdf:type rdf:resource="#con1693301279" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1623869046">
+    <rdf:type rdf:resource="#con1693301279" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst169069203">
+    <rdf:type rdf:resource="#con1693301279" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst101275476">
+    <rdf:type rdf:resource="#con1556075319" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1546244169">
+    <rdf:type rdf:resource="#con853560383" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst784128150">
+    <rdf:type rdf:resource="#con853560383" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst91444326">
+    <rdf:type rdf:resource="#con853560383" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst646902190">
+    <rdf:type rdf:resource="#con2101702033" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1471896380">
+    <rdf:type rdf:resource="#con86528770" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst779212556">
+    <rdf:type rdf:resource="#con86528770" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst17096537">
+    <rdf:type rdf:resource="#con86528770" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1610760846">
+    <rdf:type rdf:resource="#con918077022" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1541328613">
+    <rdf:type rdf:resource="#con918077022" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst155961003">
+    <rdf:type rdf:resource="#con918077022" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst848644789">
+    <rdf:type rdf:resource="#con918077022" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst574192907">
+    <rdf:type rdf:resource="#con89805820" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst2028992750">
+    <rdf:type rdf:resource="#con89805820" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst782489606">
+    <rdf:type rdf:resource="#con89805820" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst850283333">
+    <rdf:type rdf:resource="#con157599509" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1612399352">
+    <rdf:type rdf:resource="#con919715566" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst88167276">
+    <rdf:type rdf:resource="#con1542967119" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1473534886">
+    <rdf:type rdf:resource="#con1542967119" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst780851100">
+    <rdf:type rdf:resource="#con1542967119" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1197444498">
+    <rdf:type rdf:resource="#con504760674" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst989147799">
+    <rdf:type rdf:resource="#con296463975" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1128012265">
+    <rdf:type rdf:resource="#con1890128284" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1820696051">
+    <rdf:type rdf:resource="#con1890128284" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst435328441">
+    <rdf:type rdf:resource="#con1890128284" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1751263818">
+    <rdf:type rdf:resource="#con1058580032" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1795504012">
+    <rdf:type rdf:resource="#con1102820188" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1934368478">
+    <rdf:type rdf:resource="#con1241684654" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst479568635">
+    <rdf:type rdf:resource="#con1241684654" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1172252421">
+    <rdf:type rdf:resource="#con1241684654" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1033387955">
+    <rdf:type rdf:resource="#con340704169" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst894523489">
+    <rdf:type rdf:resource="#con201839703" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1173890965">
+    <rdf:type rdf:resource="#con481207141" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1797142518">
+    <rdf:type rdf:resource="#con481207141" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst2005439217">
+    <rdf:type rdf:resource="#con620071607" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst550639374">
+    <rdf:type rdf:resource="#con620071607" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1312755431">
+    <rdf:type rdf:resource="#con620071607" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst826729800">
+    <rdf:type rdf:resource="#con134045976" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst64613743">
+    <rdf:type rdf:resource="#con134045976" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1519413586">
+    <rdf:type rdf:resource="#con134045976" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1588845819">
+    <rdf:type rdf:resource="#con896162033" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1449981353">
+    <rdf:type rdf:resource="#con757297567" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst687865334">
+    <rdf:type rdf:resource="#con2142665177" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst2073232944">
+    <rdf:type rdf:resource="#con2142665177" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1380549120">
+    <rdf:type rdf:resource="#con2142665177" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1101181682">
+    <rdf:type rdf:resource="#con408497858" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1793865468">
+    <rdf:type rdf:resource="#con408497858" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst339065625">
+    <rdf:type rdf:resource="#con408497858" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1724433235">
+    <rdf:type rdf:resource="#con1031749449" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1205637104">
+    <rdf:type rdf:resource="#con512953318" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst2104979083">
+    <rdf:type rdf:resource="#con1412295297" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst789043706">
+    <rdf:type rdf:resource="#con165792153" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst719611473">
+    <rdf:type rdf:resource="#con165792153" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst858475939">
+    <rdf:type rdf:resource="#con165792153" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1827250151">
+    <rdf:type rdf:resource="#con1134566365" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst994063355">
+    <rdf:type rdf:resource="#con1756179412" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst301379569">
+    <rdf:type rdf:resource="#con1756179412" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst231947336">
+    <rdf:type rdf:resource="#con1756179412" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1686747179">
+    <rdf:type rdf:resource="#con1756179412" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst924631122">
+    <rdf:type rdf:resource="#con1756179412" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1341224520">
+    <rdf:type rdf:resource="#con648540734" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1202360054">
+    <rdf:type rdf:resource="#con509676268" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst440244035">
+    <rdf:type rdf:resource="#con509676268" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1895043878">
+    <rdf:type rdf:resource="#con509676268" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1132927821">
+    <rdf:type rdf:resource="#con509676268" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst370811802">
+    <rdf:type rdf:resource="#con1825611645" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1063495588">
+    <rdf:type rdf:resource="#con1825611645" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1780757268">
+    <rdf:type rdf:resource="#con1088073482" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst2127918433">
+    <rdf:type rdf:resource="#con1435234647" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1226937948">
+    <rdf:type rdf:resource="#con534254124" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst742550823">
+    <rdf:type rdf:resource="#con49867037" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1157505715">
+    <rdf:type rdf:resource="#con464821891" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst2058486200">
+    <rdf:type rdf:resource="#con1365802414" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1989053967">
+    <rdf:type rdf:resource="#con1296370181" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst2056847694">
+    <rdf:type rdf:resource="#con1364163870" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1294731637">
+    <rdf:type rdf:resource="#con1364163870" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst602047851">
+    <rdf:type rdf:resource="#con1364163870" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1917983228">
+    <rdf:type rdf:resource="#con1225299404" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1084796432">
+    <rdf:type rdf:resource="#con461544841" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1846912451">
+    <rdf:type rdf:resource="#con461544841" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst392112608">
+    <rdf:type rdf:resource="#con461544841" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1154228665">
+    <rdf:type rdf:resource="#con461544841" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst393751152">
+    <rdf:type rdf:resource="#con1848550995" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst2124641383">
+    <rdf:type rdf:resource="#con1431957597" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1985776917">
+    <rdf:type rdf:resource="#con1431957597" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1293093131">
+    <rdf:type rdf:resource="#con1431957597" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst600409307">
+    <rdf:type rdf:resource="#con1431957597" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1362525364">
+    <rdf:type rdf:resource="#con1431957597" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst530977074">
+    <rdf:type rdf:resource="#con1431957597" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst669841540">
+    <rdf:type rdf:resource="#con1431957597" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst2055209150">
+    <rdf:type rdf:resource="#con1431957597" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst739273773">
+    <rdf:type rdf:resource="#con1501389830" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst46589987">
+    <rdf:type rdf:resource="#con1501389830" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst43312937">
+    <rdf:type rdf:resource="#con1498112780" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst251609636">
+    <rdf:type rdf:resource="#con1706409479" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1152590121">
+    <rdf:type rdf:resource="#con1222022354" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst459906335">
+    <rdf:type rdf:resource="#con1222022354" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1914706178">
+    <rdf:type rdf:resource="#con1222022354" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1010448605">
+    <rdf:type rdf:resource="#con317764819" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst941016372">
+    <rdf:type rdf:resource="#con1703132429" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1633700196">
+    <rdf:type rdf:resource="#con1703132429" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst248332586">
+    <rdf:type rdf:resource="#con1703132429" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst802151906">
+    <rdf:type rdf:resource="#con178900353" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst109468120">
+    <rdf:type rdf:resource="#con178900353" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1564267963">
+    <rdf:type rdf:resource="#con178900353" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst871584139">
+    <rdf:type rdf:resource="#con178900353" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1425403497">
+    <rdf:type rdf:resource="#con732719673" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst385558508">
+    <rdf:type rdf:resource="#con1840358351" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1701493885">
+    <rdf:type rdf:resource="#con1840358351" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst246694042">
+    <rdf:type rdf:resource="#con1840358351" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst2048655050">
+    <rdf:type rdf:resource="#con1355971264" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst454990741">
+    <rdf:type rdf:resource="#con1217106798" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1909790584">
+    <rdf:type rdf:resource="#con1217106798" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1147674565">
+    <rdf:type rdf:resource="#con1217106798" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst522784468">
+    <rdf:type rdf:resource="#con1284900487" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1977584311">
+    <rdf:type rdf:resource="#con1284900487" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1007171555">
+    <rdf:type rdf:resource="#con314487769" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1699855379">
+    <rdf:type rdf:resource="#con314487769" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst245055536">
+    <rdf:type rdf:resource="#con314487769" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst175623303">
+    <rdf:type rdf:resource="#con937739322" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1630423146">
+    <rdf:type rdf:resource="#con937739322" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst868307089">
+    <rdf:type rdf:resource="#con937739322" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst869945633">
+    <rdf:type rdf:resource="#con177261809" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1354332720">
+    <rdf:type rdf:resource="#con661648934" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst107829576">
+    <rdf:type rdf:resource="#con1562629419" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst800513400">
+    <rdf:type rdf:resource="#con1562629419" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst38397343">
+    <rdf:type rdf:resource="#con1493197186" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst731081167">
+    <rdf:type rdf:resource="#con1493197186" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1423764953">
+    <rdf:type rdf:resource="#con1493197186" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst803790450">
+    <rdf:type rdf:resource="#con111106626" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1150951615">
+    <rdf:type rdf:resource="#con458267791" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst180538859">
+    <rdf:type rdf:resource="#con1635338702" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1774203168">
+    <rdf:type rdf:resource="#con1843635401" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1012087149">
+    <rdf:type rdf:resource="#con1843635401" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst319403325">
+    <rdf:type rdf:resource="#con1843635401" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1081519382">
+    <rdf:type rdf:resource="#con1843635401" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst388835558">
+    <rdf:type rdf:resource="#con1843635401" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst249971092">
+    <rdf:type rdf:resource="#con1704770935" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst942654916">
+    <rdf:type rdf:resource="#con1704770935" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst527700024">
+    <rdf:type rdf:resource="#con597132257" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1982499867">
+    <rdf:type rdf:resource="#con597132257" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1289816081">
+    <rdf:type rdf:resource="#con597132257" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1142758971">
+    <rdf:type rdf:resource="#con1904875028" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst450075185">
+    <rdf:type rdf:resource="#con1904875028" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst380642952">
+    <rdf:type rdf:resource="#con1904875028" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1835442795">
+    <rdf:type rdf:resource="#con1904875028" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst797236350">
+    <rdf:type rdf:resource="#con866668583" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst104552526">
+    <rdf:type rdf:resource="#con866668583" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1559352369">
+    <rdf:type rdf:resource="#con866668583" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1766010562">
+    <rdf:type rdf:resource="#con1073326738" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1696578329">
+    <rdf:type rdf:resource="#con1073326738" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst658371884">
+    <rdf:type rdf:resource="#con727804117" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst2113171727">
+    <rdf:type rdf:resource="#con727804117" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1420487903">
+    <rdf:type rdf:resource="#con727804117" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst588939651">
+    <rdf:type rdf:resource="#con1351055670" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst2043739494">
+    <rdf:type rdf:resource="#con1351055670" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1974307261">
+    <rdf:type rdf:resource="#con1281623437" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1212191204">
+    <rdf:type rdf:resource="#con1281623437" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst519507418">
+    <rdf:type rdf:resource="#con1281623437" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst729442623">
+    <rdf:type rdf:resource="#con36758837" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst2045378000">
+    <rdf:type rdf:resource="#con1352694214" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst590578157">
+    <rdf:type rdf:resource="#con1352694214" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst2114810233">
+    <rdf:type rdf:resource="#con1422126447" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst660010390">
+    <rdf:type rdf:resource="#con1422126447" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1141120465">
+    <rdf:type rdf:resource="#con448436641" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1071688232">
+    <rdf:type rdf:resource="#con379004408" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1074965282">
+    <rdf:type rdf:resource="#con1144397515" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1837081301">
+    <rdf:type rdf:resource="#con1144397515" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst382281458">
+    <rdf:type rdf:resource="#con1144397515" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1213829748">
+    <rdf:type rdf:resource="#con521145924" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst451713691">
+    <rdf:type rdf:resource="#con521145924" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1906513534">
+    <rdf:type rdf:resource="#con521145924" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst795597806">
+    <rdf:type rdf:resource="#con102914020" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst726165573">
+    <rdf:type rdf:resource="#con1488281630" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst2111533183">
+    <rdf:type rdf:resource="#con1488281630" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst33481787">
+    <rdf:type rdf:resource="#con1488281630" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1418849397">
+    <rdf:type rdf:resource="#con1488281630" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1349417164">
+    <rdf:type rdf:resource="#con656733340" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst517868874">
+    <rdf:type rdf:resource="#con2042100950" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1972668717">
+    <rdf:type rdf:resource="#con2042100950" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1279984931">
+    <rdf:type rdf:resource="#con2042100950" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst587301107">
+    <rdf:type rdf:resource="#con2042100950" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst865030039">
+    <rdf:type rdf:resource="#con1627146096" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1557713863">
+    <rdf:type rdf:resource="#con1627146096" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst172346253">
+    <rdf:type rdf:resource="#con1627146096" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst2065040300">
+    <rdf:type rdf:resource="#con679672690" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1372356514">
+    <rdf:type rdf:resource="#con679672690" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst610240457">
+    <rdf:type rdf:resource="#con679672690" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst263079292">
+    <rdf:type rdf:resource="#con1787311368" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst332511525">
+    <rdf:type rdf:resource="#con1787311368" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1717879135">
+    <rdf:type rdf:resource="#con1787311368" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1025195349">
+    <rdf:type rdf:resource="#con1787311368" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst955763116">
+    <rdf:type rdf:resource="#con1787311368" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1648446902">
+    <rdf:type rdf:resource="#con1787311368" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1995608067">
+    <rdf:type rdf:resource="#con1302924281" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst334150069">
+    <rdf:type rdf:resource="#con403582302" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1788949912">
+    <rdf:type rdf:resource="#con403582302" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1096266088">
+    <rdf:type rdf:resource="#con403582302" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1026833855">
+    <rdf:type rdf:resource="#con403582302" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst264717836">
+    <rdf:type rdf:resource="#con1719517679" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst957401622">
+    <rdf:type rdf:resource="#con1719517679" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst261440786">
+    <rdf:type rdf:resource="#con1023556805" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst192008553">
+    <rdf:type rdf:resource="#con1023556805" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1646808396">
+    <rdf:type rdf:resource="#con1023556805" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1716240629">
+    <rdf:type rdf:resource="#con1023556805" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst122576320">
+    <rdf:type rdf:resource="#con1023556805" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1577376163">
+    <rdf:type rdf:resource="#con1023556805" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst884692339">
+    <rdf:type rdf:resource="#con1023556805" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst954124572">
+    <rdf:type rdf:resource="#con1023556805" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst606963407">
+    <rdf:type rdf:resource="#con1369079464" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst2061763250">
+    <rdf:type rdf:resource="#con1369079464" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst2131195483">
+    <rdf:type rdf:resource="#con815260106" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst53144087">
+    <rdf:type rdf:resource="#con815260106" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1507943930">
+    <rdf:type rdf:resource="#con815260106" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst469737485">
+    <rdf:type rdf:resource="#con1924537328" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1231853504">
+    <rdf:type rdf:resource="#con1301285737" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst539169718">
+    <rdf:type rdf:resource="#con1301285737" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1993969561">
+    <rdf:type rdf:resource="#con1301285737" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1440150203">
+    <rdf:type rdf:resource="#con54782593" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst747466417">
+    <rdf:type rdf:resource="#con54782593" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst2132834027">
+    <rdf:type rdf:resource="#con54782593" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst678034184">
+    <rdf:type rdf:resource="#con54782593" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1370717970">
+    <rdf:type rdf:resource="#con54782593" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst400305252">
+    <rdf:type rdf:resource="#con1855105095" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst952486066">
+    <rdf:type rdf:resource="#con1091350532" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst259802242">
+    <rdf:type rdf:resource="#con1091350532" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1714602085">
+    <rdf:type rdf:resource="#con1091350532" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1784034318">
+    <rdf:type rdf:resource="#con1091350532" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst813621600">
+    <rdf:type rdf:resource="#con120937776" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst605324901">
+    <rdf:type rdf:resource="#con120937776" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst466460435">
+    <rdf:type rdf:resource="#con1921260278" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst749104923">
+    <rdf:type rdf:resource="#con56421137" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst125853370">
+    <rdf:type rdf:resource="#con887969389" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst818537156">
+    <rdf:type rdf:resource="#con887969389" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1580653213">
+    <rdf:type rdf:resource="#con887969389" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst960678672">
+    <rdf:type rdf:resource="#con267994886" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1721156185">
+    <rdf:type rdf:resource="#con1028472399" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1168975371">
+    <rdf:type rdf:resource="#con476291585" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1235130554">
+    <rdf:type rdf:resource="#con542446768" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1000617455">
+    <rdf:type rdf:resource="#con307933669" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1762733512">
+    <rdf:type rdf:resource="#con1070049688" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst377365902">
+    <rdf:type rdf:resource="#con446798135" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1139481921">
+    <rdf:type rdf:resource="#con446798135" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1832165745">
+    <rdf:type rdf:resource="#con446798135" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst2106617627">
+    <rdf:type rdf:resource="#con28566193" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst721250017">
+    <rdf:type rdf:resource="#con28566193" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1413933803">
+    <rdf:type rdf:resource="#con28566193" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst860114483">
+    <rdf:type rdf:resource="#con167430659" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1483366036">
+    <rdf:type rdf:resource="#con790682250" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst445159591">
+    <rdf:type rdf:resource="#con514591824" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1899959434">
+    <rdf:type rdf:resource="#con514591824" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1207275648">
+    <rdf:type rdf:resource="#con514591824" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1830527201">
+    <rdf:type rdf:resource="#con1137843415" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1969391667">
+    <rdf:type rdf:resource="#con1276707881" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst236862892">
+    <rdf:type rdf:resource="#con998978949" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1691662735">
+    <rdf:type rdf:resource="#con998978949" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1761094968">
+    <rdf:type rdf:resource="#con375727358" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst306295125">
+    <rdf:type rdf:resource="#con375727358" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1068411182">
+    <rdf:type rdf:resource="#con375727358" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1346140114">
+    <rdf:type rdf:resource="#con653456290" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst31843243">
+    <rdf:type rdf:resource="#con793959300" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst724527067">
+    <rdf:type rdf:resource="#con793959300" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1486643086">
+    <rdf:type rdf:resource="#con793959300" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1347778620">
+    <rdf:type rdf:resource="#con655094834" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst2040462444">
+    <rdf:type rdf:resource="#con655094834" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst2109894677">
+    <rdf:type rdf:resource="#con1417210853" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1971030211">
+    <rdf:type rdf:resource="#con585662601" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1278346387">
+    <rdf:type rdf:resource="#con585662601" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1402464147">
+    <rdf:type rdf:resource="#con709780323" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1336308964">
+    <rdf:type rdf:resource="#con643625140" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst20373587">
+    <rdf:type rdf:resource="#con1475173430" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst713057373">
+    <rdf:type rdf:resource="#con1475173430" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst2098424983">
+    <rdf:type rdf:resource="#con1405741197" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst711418867">
+    <rdf:type rdf:resource="#con18735043" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst411774908">
+    <rdf:type rdf:resource="#con1866574751" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1104458732">
+    <rdf:type rdf:resource="#con1866574751" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1727710285">
+    <rdf:type rdf:resource="#con342342675" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst272910442">
+    <rdf:type rdf:resource="#con342342675" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1035026499">
+    <rdf:type rdf:resource="#con342342675" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1936006984">
+    <rdf:type rdf:resource="#con1243323198" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst962317216">
+    <rdf:type rdf:resource="#con269633392" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst304656619">
+    <rdf:type rdf:resource="#con1828888695" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1066772638">
+    <rdf:type rdf:resource="#con1828888695" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst997340405">
+    <rdf:type rdf:resource="#con1828888695" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst374088852">
+    <rdf:type rdf:resource="#con1828888695" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1759456462">
+    <rdf:type rdf:resource="#con1828888695" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst443521085">
+    <rdf:type rdf:resource="#con1898320928" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1136204871">
+    <rdf:type rdf:resource="#con1898320928" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1620591996">
+    <rdf:type rdf:resource="#con927908172" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst441882541">
+    <rdf:type rdf:resource="#con1896682384" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1273430831">
+    <rdf:type rdf:resource="#con2035546850" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1966114617">
+    <rdf:type rdf:resource="#con2035546850" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst580747007">
+    <rdf:type rdf:resource="#con2035546850" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1342863064">
+    <rdf:type rdf:resource="#con650179240" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1203998598">
+    <rdf:type rdf:resource="#con511314774" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst26927687">
+    <rdf:type rdf:resource="#con1481727530" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst96359920">
+    <rdf:type rdf:resource="#con1551159763" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1618953452">
+    <rdf:type rdf:resource="#con233585842" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst926269666">
+    <rdf:type rdf:resource="#con233585842" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1065134132">
+    <rdf:type rdf:resource="#con372450308" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst25289143">
+    <rdf:type rdf:resource="#con94721376" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1480088986">
+    <rdf:type rdf:resource="#con94721376" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst787405200">
+    <rdf:type rdf:resource="#con94721376" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst717972967">
+    <rdf:type rdf:resource="#con94721376" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1549521219">
+    <rdf:type rdf:resource="#con164153609" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst856837433">
+    <rdf:type rdf:resource="#con164153609" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1688385685">
+    <rdf:type rdf:resource="#con995701899" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst303018075">
+    <rdf:type rdf:resource="#con1757817918" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst579108501">
+    <rdf:type rdf:resource="#con2033908344" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1271792287">
+    <rdf:type rdf:resource="#con2033908344" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1964476111">
+    <rdf:type rdf:resource="#con2033908344" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst117660726">
+    <rdf:type rdf:resource="#con1641892802" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst187092959">
+    <rdf:type rdf:resource="#con1641892802" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst879776783">
+    <rdf:type rdf:resource="#con1641892802" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1572460569">
+    <rdf:type rdf:resource="#con1641892802" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst949209016">
+    <rdf:type rdf:resource="#con325957425" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1018641249">
+    <rdf:type rdf:resource="#con325957425" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1711325035">
+    <rdf:type rdf:resource="#con325957425" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst256525192">
+    <rdf:type rdf:resource="#con325957425" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst532615618">
+    <rdf:type rdf:resource="#con1987415461" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1155867171">
+    <rdf:type rdf:resource="#con463183385" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst808706006">
+    <rdf:type rdf:resource="#con878138239" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1570822063">
+    <rdf:type rdf:resource="#con878138239" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst116022220">
+    <rdf:type rdf:resource="#con878138239" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst185454453">
+    <rdf:type rdf:resource="#con1640254296" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1779118762">
+    <rdf:type rdf:resource="#con1086434938" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1017002705">
+    <rdf:type rdf:resource="#con1086434938" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1709686529">
+    <rdf:type rdf:resource="#con1086434938" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst324318919">
+    <rdf:type rdf:resource="#con1086434938" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1916344684">
+    <rdf:type rdf:resource="#con1223660898" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst40035887">
+    <rdf:type rdf:resource="#con1494835730" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1770926118">
+    <rdf:type rdf:resource="#con1078242332" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1008810099">
+    <rdf:type rdf:resource="#con316126275" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst524422974">
+    <rdf:type rdf:resource="#con593855207" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1286539031">
+    <rdf:type rdf:resource="#con593855207" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1979222817">
+    <rdf:type rdf:resource="#con593855207" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst453352235">
+    <rdf:type rdf:resource="#con1215468254" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1769287612">
+    <rdf:type rdf:resource="#con1215468254" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1908152078">
+    <rdf:type rdf:resource="#con1215468254" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst734358217">
+    <rdf:type rdf:resource="#con1496474236" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst2119725827">
+    <rdf:type rdf:resource="#con1496474236" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1427042003">
+    <rdf:type rdf:resource="#con1496474236" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst41674393">
+    <rdf:type rdf:resource="#con1496474236" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst664925984">
+    <rdf:type rdf:resource="#con1496474236" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1288177537">
+    <rdf:type rdf:resource="#con1357609770" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst2050293594">
+    <rdf:type rdf:resource="#con1357609770" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst595493751">
+    <rdf:type rdf:resource="#con1357609770" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst526061518">
+    <rdf:type rdf:resource="#con1980861361" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1218745304">
+    <rdf:type rdf:resource="#con1980861361" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1913067634">
+    <rdf:type rdf:resource="#con1220383848" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst35120293">
+    <rdf:type rdf:resource="#con1489920136" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1003894505">
+    <rdf:type rdf:resource="#con311210719" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst312849225">
+    <rdf:type rdf:resource="#con1767649068" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1698216835">
+    <rdf:type rdf:resource="#con1005533049" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst936100816">
+    <rdf:type rdf:resource="#con243416992" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst886330883">
+    <rdf:type rdf:resource="#con193647059" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst124214826">
+    <rdf:type rdf:resource="#con1579014669" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst401943758">
+    <rdf:type rdf:resource="#con540808224" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1233492048">
+    <rdf:type rdf:resource="#con540808224" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1094627582">
+    <rdf:type rdf:resource="#con540808224" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1160782765">
+    <rdf:type rdf:resource="#con468098941" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst537531174">
+    <rdf:type rdf:resource="#con1299647231" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1992331017">
+    <rdf:type rdf:resource="#con1299647231" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1922898784">
+    <rdf:type rdf:resource="#con1230214998" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1438511697">
+    <rdf:type rdf:resource="#con745827873" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst608601951">
+    <rdf:type rdf:resource="#con2063401794" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1021918299">
+    <rdf:type rdf:resource="#con329234475" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst190370009">
+    <rdf:type rdf:resource="#con1645169852" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1575737619">
+    <rdf:type rdf:resource="#con883053833" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1228576454">
+    <rdf:type rdf:resource="#con1298008687" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst535892668">
+    <rdf:type rdf:resource="#con1298008687" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1990692511">
+    <rdf:type rdf:resource="#con1298008687" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst744189367">
+    <rdf:type rdf:resource="#con1506305386" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1436873153">
+    <rdf:type rdf:resource="#con1506305386" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst51505543">
+    <rdf:type rdf:resource="#con1506305386" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst2060124744">
+    <rdf:type rdf:resource="#con2129556977" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1367440920">
+    <rdf:type rdf:resource="#con2129556977" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst674757134">
+    <rdf:type rdf:resource="#con2129556977" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1643531346">
+    <rdf:type rdf:resource="#con258163736" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst950847522">
+    <rdf:type rdf:resource="#con258163736" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1851828045">
+    <rdf:type rdf:resource="#con1159144221" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1089711988">
+    <rdf:type rdf:resource="#con1159144221" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst397028202">
+    <rdf:type rdf:resource="#con1159144221" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst327595969">
+    <rdf:type rdf:resource="#con1782395812" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1712963579">
+    <rdf:type rdf:resource="#con1020279755" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1097904632">
+    <rdf:type rdf:resource="#con474653041" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1860020651">
+    <rdf:type rdf:resource="#con474653041" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1790588418">
+    <rdf:type rdf:resource="#con474653041" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1167336865">
+    <rdf:type rdf:resource="#con474653041" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst405220808">
+    <rdf:type rdf:resource="#con474653041" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst335788575">
+    <rdf:type rdf:resource="#con474653041" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst544085274">
+    <rdf:type rdf:resource="#con1306201331" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1929452884">
+    <rdf:type rdf:resource="#con1306201331" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1998885117">
+    <rdf:type rdf:resource="#con1306201331" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1236769098">
+    <rdf:type rdf:resource="#con1306201331" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1583930263">
+    <rdf:type rdf:resource="#con891246439" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst198562653">
+    <rdf:type rdf:resource="#con1653362496" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst613517507">
+    <rdf:type rdf:resource="#con752381973" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst682949740">
+    <rdf:type rdf:resource="#con752381973" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1375633564">
+    <rdf:type rdf:resource="#con752381973" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst2137749583">
+    <rdf:type rdf:resource="#con752381973" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst2068317350">
+    <rdf:type rdf:resource="#con752381973" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1445065797">
+    <rdf:type rdf:resource="#con752381973" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1582291719">
+    <rdf:type rdf:resource="#con196924109" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst127491876">
+    <rdf:type rdf:resource="#con196924109" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst889607933">
+    <rdf:type rdf:resource="#con196924109" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst2066678844">
+    <rdf:type rdf:resource="#con681311234" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst611879001">
+    <rdf:type rdf:resource="#con681311234" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1373995020">
+    <rdf:type rdf:resource="#con681311234" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1651723952">
+    <rdf:type rdf:resource="#con266356342" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst959040166">
+    <rdf:type rdf:resource="#con266356342" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst2136111077">
+    <rdf:type rdf:resource="#con1443427253" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst750743467">
+    <rdf:type rdf:resource="#con820175700" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1512859486">
+    <rdf:type rdf:resource="#con820175700" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst58059643">
+    <rdf:type rdf:resource="#con820175700" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst406859352">
+    <rdf:type rdf:resource="#con1861659195" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1792226962">
+    <rdf:type rdf:resource="#con1099543138" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1722794729">
+    <rdf:type rdf:resource="#con337427119" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1030110905">
+    <rdf:type rdf:resource="#con337427119" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst235224386">
+    <rdf:type rdf:resource="#con1690024229" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst947570472">
+    <rdf:type rdf:resource="#con254886686" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1076603788">
+    <rdf:type rdf:resource="#con383920002" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1838719845">
+    <rdf:type rdf:resource="#con1146036021" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst1856743601">
+    <rdf:type rdf:resource="#con1164059815" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst471375991">
+    <rdf:type rdf:resource="#con1926175834" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst821814206">
+    <rdf:type rdf:resource="#con129130420" />
+  </owl:Thing>
+  <owl:Thing rdf:ID="inst59698187">
+    <rdf:type rdf:resource="#con1514498030" />
+  </owl:Thing>
+</rdf:RDF>
+

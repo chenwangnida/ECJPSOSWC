@@ -1,0 +1,4174 @@
+<?xml version="1.0" encoding="UTF-8"?><SLA xmlns="http://www.ibm.com/wsla" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="WSC Service SLA">
+
+	<!-- Definition of the Involved Parties, the signatory parties as well as the supporting ones -->
+
+	<Parties>
+		<ServiceProvider name="ACME Service Provider">
+			<Contact>
+				<Street>Vienna XPress Services</Street>
+				<City>Vienna</City>
+			</Contact>
+		</ServiceProvider>
+
+		<ServiceConsumer name="Web Service Challenge Composition Client"/>
+	</Parties>
+
+<ServiceDefinition name="ServiceDefinitionTask0" xmlns="http://www.ibm.com/wsla" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+		<Operation name="WSCDefaultOperation" xsi:type="WSDLSOAPOperationDescriptionType">
+
+			<SLAParameter name="SLAParameterResponsetimeTask0" type="long" unit="milliseconds">
+				<Metric>AverageResponseTimeMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+			
+			<SLAParameter name="SLAParameterThroughputTask0" type="float" unit="invocationsperminute">
+				<Metric>ThroughputMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+
+			<Metric name="AverageResponseTimeMetric" type="double" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<Function resultType="double" xsi:type="Average">
+					<Function resultType="long" xsi:type="QConstructor">
+						<Metric>ResponseTimeMetric</Metric>						
+						<Window>100</Window>
+					</Function>
+				</Function>
+			</Metric>
+
+			<Metric name="ResponseTimeMetric" type="long" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="ResponseTime" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/ResponseTime</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<Metric name="ThroughputMetric" type="long" unit="dollar">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="Price" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/Throughput</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<WSDLFile>SLAMonitorTestService.wsdl</WSDLFile>
+			<SOAPBindingName>Task0SOAP</SOAPBindingName>
+			<SOAPOperationName>Task0Operation</SOAPOperationName>
+		</Operation>
+
+</ServiceDefinition><ServiceDefinition name="ServiceDefinitionserv154322459" xmlns="http://www.ibm.com/wsla" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+		<Operation name="WSCDefaultOperation" xsi:type="WSDLSOAPOperationDescriptionType">
+
+			<SLAParameter name="SLAParameterResponsetimeserv154322459" type="long" unit="milliseconds">
+				<Metric>AverageResponseTimeMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+			
+			<SLAParameter name="SLAParameterThroughputserv154322459" type="float" unit="invocationsperminute">
+				<Metric>ThroughputMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+
+			<Metric name="AverageResponseTimeMetric" type="double" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<Function resultType="double" xsi:type="Average">
+					<Function resultType="long" xsi:type="QConstructor">
+						<Metric>ResponseTimeMetric</Metric>						
+						<Window>100</Window>
+					</Function>
+				</Function>
+			</Metric>
+
+			<Metric name="ResponseTimeMetric" type="long" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="ResponseTime" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/ResponseTime</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<Metric name="ThroughputMetric" type="long" unit="dollar">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="Price" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/Throughput</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<WSDLFile>SLAMonitorTestService.wsdl</WSDLFile>
+			<SOAPBindingName>serv154322459SOAP</SOAPBindingName>
+			<SOAPOperationName>serv154322459Operation</SOAPOperationName>
+		</Operation>
+
+</ServiceDefinition><ServiceDefinition name="ServiceDefinitionserv847006283" xmlns="http://www.ibm.com/wsla" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+		<Operation name="WSCDefaultOperation" xsi:type="WSDLSOAPOperationDescriptionType">
+
+			<SLAParameter name="SLAParameterResponsetimeserv847006283" type="long" unit="milliseconds">
+				<Metric>AverageResponseTimeMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+			
+			<SLAParameter name="SLAParameterThroughputserv847006283" type="float" unit="invocationsperminute">
+				<Metric>ThroughputMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+
+			<Metric name="AverageResponseTimeMetric" type="double" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<Function resultType="double" xsi:type="Average">
+					<Function resultType="long" xsi:type="QConstructor">
+						<Metric>ResponseTimeMetric</Metric>						
+						<Window>100</Window>
+					</Function>
+				</Function>
+			</Metric>
+
+			<Metric name="ResponseTimeMetric" type="long" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="ResponseTime" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/ResponseTime</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<Metric name="ThroughputMetric" type="long" unit="dollar">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="Price" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/Throughput</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<WSDLFile>SLAMonitorTestService.wsdl</WSDLFile>
+			<SOAPBindingName>serv847006283SOAP</SOAPBindingName>
+			<SOAPOperationName>serv847006283Operation</SOAPOperationName>
+		</Operation>
+
+</ServiceDefinition><ServiceDefinition name="ServiceDefinitionserv1539690069" xmlns="http://www.ibm.com/wsla" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+		<Operation name="WSCDefaultOperation" xsi:type="WSDLSOAPOperationDescriptionType">
+
+			<SLAParameter name="SLAParameterResponsetimeserv1539690069" type="long" unit="milliseconds">
+				<Metric>AverageResponseTimeMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+			
+			<SLAParameter name="SLAParameterThroughputserv1539690069" type="float" unit="invocationsperminute">
+				<Metric>ThroughputMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+
+			<Metric name="AverageResponseTimeMetric" type="double" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<Function resultType="double" xsi:type="Average">
+					<Function resultType="long" xsi:type="QConstructor">
+						<Metric>ResponseTimeMetric</Metric>						
+						<Window>100</Window>
+					</Function>
+				</Function>
+			</Metric>
+
+			<Metric name="ResponseTimeMetric" type="long" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="ResponseTime" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/ResponseTime</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<Metric name="ThroughputMetric" type="long" unit="dollar">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="Price" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/Throughput</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<WSDLFile>SLAMonitorTestService.wsdl</WSDLFile>
+			<SOAPBindingName>serv1539690069SOAP</SOAPBindingName>
+			<SOAPOperationName>serv1539690069Operation</SOAPOperationName>
+		</Operation>
+
+</ServiceDefinition><ServiceDefinition name="ServiceDefinitionserv84890226" xmlns="http://www.ibm.com/wsla" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+		<Operation name="WSCDefaultOperation" xsi:type="WSDLSOAPOperationDescriptionType">
+
+			<SLAParameter name="SLAParameterResponsetimeserv84890226" type="long" unit="milliseconds">
+				<Metric>AverageResponseTimeMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+			
+			<SLAParameter name="SLAParameterThroughputserv84890226" type="float" unit="invocationsperminute">
+				<Metric>ThroughputMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+
+			<Metric name="AverageResponseTimeMetric" type="double" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<Function resultType="double" xsi:type="Average">
+					<Function resultType="long" xsi:type="QConstructor">
+						<Metric>ResponseTimeMetric</Metric>						
+						<Window>100</Window>
+					</Function>
+				</Function>
+			</Metric>
+
+			<Metric name="ResponseTimeMetric" type="long" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="ResponseTime" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/ResponseTime</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<Metric name="ThroughputMetric" type="long" unit="dollar">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="Price" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/Throughput</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<WSDLFile>SLAMonitorTestService.wsdl</WSDLFile>
+			<SOAPBindingName>serv84890226SOAP</SOAPBindingName>
+			<SOAPOperationName>serv84890226Operation</SOAPOperationName>
+		</Operation>
+
+</ServiceDefinition><ServiceDefinition name="ServiceDefinitionserv777574050" xmlns="http://www.ibm.com/wsla" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+		<Operation name="WSCDefaultOperation" xsi:type="WSDLSOAPOperationDescriptionType">
+
+			<SLAParameter name="SLAParameterResponsetimeserv777574050" type="long" unit="milliseconds">
+				<Metric>AverageResponseTimeMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+			
+			<SLAParameter name="SLAParameterThroughputserv777574050" type="float" unit="invocationsperminute">
+				<Metric>ThroughputMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+
+			<Metric name="AverageResponseTimeMetric" type="double" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<Function resultType="double" xsi:type="Average">
+					<Function resultType="long" xsi:type="QConstructor">
+						<Metric>ResponseTimeMetric</Metric>						
+						<Window>100</Window>
+					</Function>
+				</Function>
+			</Metric>
+
+			<Metric name="ResponseTimeMetric" type="long" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="ResponseTime" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/ResponseTime</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<Metric name="ThroughputMetric" type="long" unit="dollar">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="Price" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/Throughput</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<WSDLFile>SLAMonitorTestService.wsdl</WSDLFile>
+			<SOAPBindingName>serv777574050SOAP</SOAPBindingName>
+			<SOAPOperationName>serv777574050Operation</SOAPOperationName>
+		</Operation>
+
+</ServiceDefinition><ServiceDefinition name="ServiceDefinitionserv1470257836" xmlns="http://www.ibm.com/wsla" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+		<Operation name="WSCDefaultOperation" xsi:type="WSDLSOAPOperationDescriptionType">
+
+			<SLAParameter name="SLAParameterResponsetimeserv1470257836" type="long" unit="milliseconds">
+				<Metric>AverageResponseTimeMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+			
+			<SLAParameter name="SLAParameterThroughputserv1470257836" type="float" unit="invocationsperminute">
+				<Metric>ThroughputMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+
+			<Metric name="AverageResponseTimeMetric" type="double" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<Function resultType="double" xsi:type="Average">
+					<Function resultType="long" xsi:type="QConstructor">
+						<Metric>ResponseTimeMetric</Metric>						
+						<Window>100</Window>
+					</Function>
+				</Function>
+			</Metric>
+
+			<Metric name="ResponseTimeMetric" type="long" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="ResponseTime" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/ResponseTime</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<Metric name="ThroughputMetric" type="long" unit="dollar">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="Price" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/Throughput</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<WSDLFile>SLAMonitorTestService.wsdl</WSDLFile>
+			<SOAPBindingName>serv1470257836SOAP</SOAPBindingName>
+			<SOAPOperationName>serv1470257836Operation</SOAPOperationName>
+		</Operation>
+
+</ServiceDefinition><ServiceDefinition name="ServiceDefinitionserv15457993" xmlns="http://www.ibm.com/wsla" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+		<Operation name="WSCDefaultOperation" xsi:type="WSDLSOAPOperationDescriptionType">
+
+			<SLAParameter name="SLAParameterResponsetimeserv15457993" type="long" unit="milliseconds">
+				<Metric>AverageResponseTimeMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+			
+			<SLAParameter name="SLAParameterThroughputserv15457993" type="float" unit="invocationsperminute">
+				<Metric>ThroughputMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+
+			<Metric name="AverageResponseTimeMetric" type="double" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<Function resultType="double" xsi:type="Average">
+					<Function resultType="long" xsi:type="QConstructor">
+						<Metric>ResponseTimeMetric</Metric>						
+						<Window>100</Window>
+					</Function>
+				</Function>
+			</Metric>
+
+			<Metric name="ResponseTimeMetric" type="long" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="ResponseTime" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/ResponseTime</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<Metric name="ThroughputMetric" type="long" unit="dollar">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="Price" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/Throughput</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<WSDLFile>SLAMonitorTestService.wsdl</WSDLFile>
+			<SOAPBindingName>serv15457993SOAP</SOAPBindingName>
+			<SOAPOperationName>serv15457993Operation</SOAPOperationName>
+		</Operation>
+
+</ServiceDefinition><ServiceDefinition name="ServiceDefinitionserv708141817" xmlns="http://www.ibm.com/wsla" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+		<Operation name="WSCDefaultOperation" xsi:type="WSDLSOAPOperationDescriptionType">
+
+			<SLAParameter name="SLAParameterResponsetimeserv708141817" type="long" unit="milliseconds">
+				<Metric>AverageResponseTimeMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+			
+			<SLAParameter name="SLAParameterThroughputserv708141817" type="float" unit="invocationsperminute">
+				<Metric>ThroughputMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+
+			<Metric name="AverageResponseTimeMetric" type="double" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<Function resultType="double" xsi:type="Average">
+					<Function resultType="long" xsi:type="QConstructor">
+						<Metric>ResponseTimeMetric</Metric>						
+						<Window>100</Window>
+					</Function>
+				</Function>
+			</Metric>
+
+			<Metric name="ResponseTimeMetric" type="long" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="ResponseTime" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/ResponseTime</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<Metric name="ThroughputMetric" type="long" unit="dollar">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="Price" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/Throughput</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<WSDLFile>SLAMonitorTestService.wsdl</WSDLFile>
+			<SOAPBindingName>serv708141817SOAP</SOAPBindingName>
+			<SOAPOperationName>serv708141817Operation</SOAPOperationName>
+		</Operation>
+
+</ServiceDefinition><ServiceDefinition name="ServiceDefinitionserv1400825603" xmlns="http://www.ibm.com/wsla" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+		<Operation name="WSCDefaultOperation" xsi:type="WSDLSOAPOperationDescriptionType">
+
+			<SLAParameter name="SLAParameterResponsetimeserv1400825603" type="long" unit="milliseconds">
+				<Metric>AverageResponseTimeMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+			
+			<SLAParameter name="SLAParameterThroughputserv1400825603" type="float" unit="invocationsperminute">
+				<Metric>ThroughputMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+
+			<Metric name="AverageResponseTimeMetric" type="double" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<Function resultType="double" xsi:type="Average">
+					<Function resultType="long" xsi:type="QConstructor">
+						<Metric>ResponseTimeMetric</Metric>						
+						<Window>100</Window>
+					</Function>
+				</Function>
+			</Metric>
+
+			<Metric name="ResponseTimeMetric" type="long" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="ResponseTime" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/ResponseTime</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<Metric name="ThroughputMetric" type="long" unit="dollar">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="Price" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/Throughput</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<WSDLFile>SLAMonitorTestService.wsdl</WSDLFile>
+			<SOAPBindingName>serv1400825603SOAP</SOAPBindingName>
+			<SOAPOperationName>serv1400825603Operation</SOAPOperationName>
+		</Operation>
+
+</ServiceDefinition><ServiceDefinition name="ServiceDefinitionserv1886851234" xmlns="http://www.ibm.com/wsla" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+		<Operation name="WSCDefaultOperation" xsi:type="WSDLSOAPOperationDescriptionType">
+
+			<SLAParameter name="SLAParameterResponsetimeserv1886851234" type="long" unit="milliseconds">
+				<Metric>AverageResponseTimeMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+			
+			<SLAParameter name="SLAParameterThroughputserv1886851234" type="float" unit="invocationsperminute">
+				<Metric>ThroughputMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+
+			<Metric name="AverageResponseTimeMetric" type="double" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<Function resultType="double" xsi:type="Average">
+					<Function resultType="long" xsi:type="QConstructor">
+						<Metric>ResponseTimeMetric</Metric>						
+						<Window>100</Window>
+					</Function>
+				</Function>
+			</Metric>
+
+			<Metric name="ResponseTimeMetric" type="long" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="ResponseTime" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/ResponseTime</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<Metric name="ThroughputMetric" type="long" unit="dollar">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="Price" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/Throughput</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<WSDLFile>SLAMonitorTestService.wsdl</WSDLFile>
+			<SOAPBindingName>serv1886851234SOAP</SOAPBindingName>
+			<SOAPOperationName>serv1886851234Operation</SOAPOperationName>
+		</Operation>
+
+</ServiceDefinition><ServiceDefinition name="ServiceDefinitionserv2093509427" xmlns="http://www.ibm.com/wsla" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+		<Operation name="WSCDefaultOperation" xsi:type="WSDLSOAPOperationDescriptionType">
+
+			<SLAParameter name="SLAParameterResponsetimeserv2093509427" type="long" unit="milliseconds">
+				<Metric>AverageResponseTimeMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+			
+			<SLAParameter name="SLAParameterThroughputserv2093509427" type="float" unit="invocationsperminute">
+				<Metric>ThroughputMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+
+			<Metric name="AverageResponseTimeMetric" type="double" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<Function resultType="double" xsi:type="Average">
+					<Function resultType="long" xsi:type="QConstructor">
+						<Metric>ResponseTimeMetric</Metric>						
+						<Window>100</Window>
+					</Function>
+				</Function>
+			</Metric>
+
+			<Metric name="ResponseTimeMetric" type="long" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="ResponseTime" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/ResponseTime</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<Metric name="ThroughputMetric" type="long" unit="dollar">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="Price" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/Throughput</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<WSDLFile>SLAMonitorTestService.wsdl</WSDLFile>
+			<SOAPBindingName>serv2093509427SOAP</SOAPBindingName>
+			<SOAPOperationName>serv2093509427Operation</SOAPOperationName>
+		</Operation>
+
+</ServiceDefinition><ServiceDefinition name="ServiceDefinitionserv638709584" xmlns="http://www.ibm.com/wsla" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+		<Operation name="WSCDefaultOperation" xsi:type="WSDLSOAPOperationDescriptionType">
+
+			<SLAParameter name="SLAParameterResponsetimeserv638709584" type="long" unit="milliseconds">
+				<Metric>AverageResponseTimeMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+			
+			<SLAParameter name="SLAParameterThroughputserv638709584" type="float" unit="invocationsperminute">
+				<Metric>ThroughputMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+
+			<Metric name="AverageResponseTimeMetric" type="double" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<Function resultType="double" xsi:type="Average">
+					<Function resultType="long" xsi:type="QConstructor">
+						<Metric>ResponseTimeMetric</Metric>						
+						<Window>100</Window>
+					</Function>
+				</Function>
+			</Metric>
+
+			<Metric name="ResponseTimeMetric" type="long" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="ResponseTime" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/ResponseTime</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<Metric name="ThroughputMetric" type="long" unit="dollar">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="Price" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/Throughput</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<WSDLFile>SLAMonitorTestService.wsdl</WSDLFile>
+			<SOAPBindingName>serv638709584SOAP</SOAPBindingName>
+			<SOAPOperationName>serv638709584Operation</SOAPOperationName>
+		</Operation>
+
+</ServiceDefinition><ServiceDefinition name="ServiceDefinitionserv1331393370" xmlns="http://www.ibm.com/wsla" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+		<Operation name="WSCDefaultOperation" xsi:type="WSDLSOAPOperationDescriptionType">
+
+			<SLAParameter name="SLAParameterResponsetimeserv1331393370" type="long" unit="milliseconds">
+				<Metric>AverageResponseTimeMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+			
+			<SLAParameter name="SLAParameterThroughputserv1331393370" type="float" unit="invocationsperminute">
+				<Metric>ThroughputMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+
+			<Metric name="AverageResponseTimeMetric" type="double" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<Function resultType="double" xsi:type="Average">
+					<Function resultType="long" xsi:type="QConstructor">
+						<Metric>ResponseTimeMetric</Metric>						
+						<Window>100</Window>
+					</Function>
+				</Function>
+			</Metric>
+
+			<Metric name="ResponseTimeMetric" type="long" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="ResponseTime" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/ResponseTime</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<Metric name="ThroughputMetric" type="long" unit="dollar">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="Price" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/Throughput</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<WSDLFile>SLAMonitorTestService.wsdl</WSDLFile>
+			<SOAPBindingName>serv1331393370SOAP</SOAPBindingName>
+			<SOAPOperationName>serv1331393370Operation</SOAPOperationName>
+		</Operation>
+
+</ServiceDefinition><ServiceDefinition name="ServiceDefinitionserv2024077194" xmlns="http://www.ibm.com/wsla" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+		<Operation name="WSCDefaultOperation" xsi:type="WSDLSOAPOperationDescriptionType">
+
+			<SLAParameter name="SLAParameterResponsetimeserv2024077194" type="long" unit="milliseconds">
+				<Metric>AverageResponseTimeMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+			
+			<SLAParameter name="SLAParameterThroughputserv2024077194" type="float" unit="invocationsperminute">
+				<Metric>ThroughputMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+
+			<Metric name="AverageResponseTimeMetric" type="double" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<Function resultType="double" xsi:type="Average">
+					<Function resultType="long" xsi:type="QConstructor">
+						<Metric>ResponseTimeMetric</Metric>						
+						<Window>100</Window>
+					</Function>
+				</Function>
+			</Metric>
+
+			<Metric name="ResponseTimeMetric" type="long" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="ResponseTime" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/ResponseTime</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<Metric name="ThroughputMetric" type="long" unit="dollar">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="Price" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/Throughput</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<WSDLFile>SLAMonitorTestService.wsdl</WSDLFile>
+			<SOAPBindingName>serv2024077194SOAP</SOAPBindingName>
+			<SOAPOperationName>serv2024077194Operation</SOAPOperationName>
+		</Operation>
+
+</ServiceDefinition><ServiceDefinition name="ServiceDefinitionserv569277351" xmlns="http://www.ibm.com/wsla" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+		<Operation name="WSCDefaultOperation" xsi:type="WSDLSOAPOperationDescriptionType">
+
+			<SLAParameter name="SLAParameterResponsetimeserv569277351" type="long" unit="milliseconds">
+				<Metric>AverageResponseTimeMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+			
+			<SLAParameter name="SLAParameterThroughputserv569277351" type="float" unit="invocationsperminute">
+				<Metric>ThroughputMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+
+			<Metric name="AverageResponseTimeMetric" type="double" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<Function resultType="double" xsi:type="Average">
+					<Function resultType="long" xsi:type="QConstructor">
+						<Metric>ResponseTimeMetric</Metric>						
+						<Window>100</Window>
+					</Function>
+				</Function>
+			</Metric>
+
+			<Metric name="ResponseTimeMetric" type="long" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="ResponseTime" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/ResponseTime</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<Metric name="ThroughputMetric" type="long" unit="dollar">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="Price" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/Throughput</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<WSDLFile>SLAMonitorTestService.wsdl</WSDLFile>
+			<SOAPBindingName>serv569277351SOAP</SOAPBindingName>
+			<SOAPOperationName>serv569277351Operation</SOAPOperationName>
+		</Operation>
+
+</ServiceDefinition><ServiceDefinition name="ServiceDefinitionserv1261961137" xmlns="http://www.ibm.com/wsla" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+		<Operation name="WSCDefaultOperation" xsi:type="WSDLSOAPOperationDescriptionType">
+
+			<SLAParameter name="SLAParameterResponsetimeserv1261961137" type="long" unit="milliseconds">
+				<Metric>AverageResponseTimeMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+			
+			<SLAParameter name="SLAParameterThroughputserv1261961137" type="float" unit="invocationsperminute">
+				<Metric>ThroughputMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+
+			<Metric name="AverageResponseTimeMetric" type="double" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<Function resultType="double" xsi:type="Average">
+					<Function resultType="long" xsi:type="QConstructor">
+						<Metric>ResponseTimeMetric</Metric>						
+						<Window>100</Window>
+					</Function>
+				</Function>
+			</Metric>
+
+			<Metric name="ResponseTimeMetric" type="long" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="ResponseTime" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/ResponseTime</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<Metric name="ThroughputMetric" type="long" unit="dollar">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="Price" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/Throughput</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<WSDLFile>SLAMonitorTestService.wsdl</WSDLFile>
+			<SOAPBindingName>serv1261961137SOAP</SOAPBindingName>
+			<SOAPOperationName>serv1261961137Operation</SOAPOperationName>
+		</Operation>
+
+</ServiceDefinition><ServiceDefinition name="ServiceDefinitionserv432051391" xmlns="http://www.ibm.com/wsla" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+		<Operation name="WSCDefaultOperation" xsi:type="WSDLSOAPOperationDescriptionType">
+
+			<SLAParameter name="SLAParameterResponsetimeserv432051391" type="long" unit="milliseconds">
+				<Metric>AverageResponseTimeMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+			
+			<SLAParameter name="SLAParameterThroughputserv432051391" type="float" unit="invocationsperminute">
+				<Metric>ThroughputMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+
+			<Metric name="AverageResponseTimeMetric" type="double" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<Function resultType="double" xsi:type="Average">
+					<Function resultType="long" xsi:type="QConstructor">
+						<Metric>ResponseTimeMetric</Metric>						
+						<Window>100</Window>
+					</Function>
+				</Function>
+			</Metric>
+
+			<Metric name="ResponseTimeMetric" type="long" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="ResponseTime" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/ResponseTime</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<Metric name="ThroughputMetric" type="long" unit="dollar">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="Price" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/Throughput</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<WSDLFile>SLAMonitorTestService.wsdl</WSDLFile>
+			<SOAPBindingName>serv432051391SOAP</SOAPBindingName>
+			<SOAPOperationName>serv432051391Operation</SOAPOperationName>
+		</Operation>
+
+</ServiceDefinition><ServiceDefinition name="ServiceDefinitionserv1124735215" xmlns="http://www.ibm.com/wsla" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+		<Operation name="WSCDefaultOperation" xsi:type="WSDLSOAPOperationDescriptionType">
+
+			<SLAParameter name="SLAParameterResponsetimeserv1124735215" type="long" unit="milliseconds">
+				<Metric>AverageResponseTimeMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+			
+			<SLAParameter name="SLAParameterThroughputserv1124735215" type="float" unit="invocationsperminute">
+				<Metric>ThroughputMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+
+			<Metric name="AverageResponseTimeMetric" type="double" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<Function resultType="double" xsi:type="Average">
+					<Function resultType="long" xsi:type="QConstructor">
+						<Metric>ResponseTimeMetric</Metric>						
+						<Window>100</Window>
+					</Function>
+				</Function>
+			</Metric>
+
+			<Metric name="ResponseTimeMetric" type="long" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="ResponseTime" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/ResponseTime</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<Metric name="ThroughputMetric" type="long" unit="dollar">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="Price" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/Throughput</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<WSDLFile>SLAMonitorTestService.wsdl</WSDLFile>
+			<SOAPBindingName>serv1124735215SOAP</SOAPBindingName>
+			<SOAPOperationName>serv1124735215Operation</SOAPOperationName>
+		</Operation>
+
+</ServiceDefinition><ServiceDefinition name="ServiceDefinitionserv1954644961" xmlns="http://www.ibm.com/wsla" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+		<Operation name="WSCDefaultOperation" xsi:type="WSDLSOAPOperationDescriptionType">
+
+			<SLAParameter name="SLAParameterResponsetimeserv1954644961" type="long" unit="milliseconds">
+				<Metric>AverageResponseTimeMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+			
+			<SLAParameter name="SLAParameterThroughputserv1954644961" type="float" unit="invocationsperminute">
+				<Metric>ThroughputMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+
+			<Metric name="AverageResponseTimeMetric" type="double" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<Function resultType="double" xsi:type="Average">
+					<Function resultType="long" xsi:type="QConstructor">
+						<Metric>ResponseTimeMetric</Metric>						
+						<Window>100</Window>
+					</Function>
+				</Function>
+			</Metric>
+
+			<Metric name="ResponseTimeMetric" type="long" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="ResponseTime" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/ResponseTime</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<Metric name="ThroughputMetric" type="long" unit="dollar">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="Price" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/Throughput</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<WSDLFile>SLAMonitorTestService.wsdl</WSDLFile>
+			<SOAPBindingName>serv1954644961SOAP</SOAPBindingName>
+			<SOAPOperationName>serv1954644961Operation</SOAPOperationName>
+		</Operation>
+
+</ServiceDefinition><ServiceDefinition name="ServiceDefinitionserv499845118" xmlns="http://www.ibm.com/wsla" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+		<Operation name="WSCDefaultOperation" xsi:type="WSDLSOAPOperationDescriptionType">
+
+			<SLAParameter name="SLAParameterResponsetimeserv499845118" type="long" unit="milliseconds">
+				<Metric>AverageResponseTimeMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+			
+			<SLAParameter name="SLAParameterThroughputserv499845118" type="float" unit="invocationsperminute">
+				<Metric>ThroughputMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+
+			<Metric name="AverageResponseTimeMetric" type="double" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<Function resultType="double" xsi:type="Average">
+					<Function resultType="long" xsi:type="QConstructor">
+						<Metric>ResponseTimeMetric</Metric>						
+						<Window>100</Window>
+					</Function>
+				</Function>
+			</Metric>
+
+			<Metric name="ResponseTimeMetric" type="long" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="ResponseTime" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/ResponseTime</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<Metric name="ThroughputMetric" type="long" unit="dollar">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="Price" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/Throughput</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<WSDLFile>SLAMonitorTestService.wsdl</WSDLFile>
+			<SOAPBindingName>serv499845118SOAP</SOAPBindingName>
+			<SOAPOperationName>serv499845118Operation</SOAPOperationName>
+		</Operation>
+
+</ServiceDefinition><ServiceDefinition name="ServiceDefinitionserv1192528904" xmlns="http://www.ibm.com/wsla" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+		<Operation name="WSCDefaultOperation" xsi:type="WSDLSOAPOperationDescriptionType">
+
+			<SLAParameter name="SLAParameterResponsetimeserv1192528904" type="long" unit="milliseconds">
+				<Metric>AverageResponseTimeMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+			
+			<SLAParameter name="SLAParameterThroughputserv1192528904" type="float" unit="invocationsperminute">
+				<Metric>ThroughputMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+
+			<Metric name="AverageResponseTimeMetric" type="double" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<Function resultType="double" xsi:type="Average">
+					<Function resultType="long" xsi:type="QConstructor">
+						<Metric>ResponseTimeMetric</Metric>						
+						<Window>100</Window>
+					</Function>
+				</Function>
+			</Metric>
+
+			<Metric name="ResponseTimeMetric" type="long" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="ResponseTime" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/ResponseTime</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<Metric name="ThroughputMetric" type="long" unit="dollar">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="Price" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/Throughput</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<WSDLFile>SLAMonitorTestService.wsdl</WSDLFile>
+			<SOAPBindingName>serv1192528904SOAP</SOAPBindingName>
+			<SOAPOperationName>serv1192528904Operation</SOAPOperationName>
+		</Operation>
+
+</ServiceDefinition><ServiceDefinition name="ServiceDefinitionserv1885212728" xmlns="http://www.ibm.com/wsla" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+		<Operation name="WSCDefaultOperation" xsi:type="WSDLSOAPOperationDescriptionType">
+
+			<SLAParameter name="SLAParameterResponsetimeserv1885212728" type="long" unit="milliseconds">
+				<Metric>AverageResponseTimeMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+			
+			<SLAParameter name="SLAParameterThroughputserv1885212728" type="float" unit="invocationsperminute">
+				<Metric>ThroughputMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+
+			<Metric name="AverageResponseTimeMetric" type="double" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<Function resultType="double" xsi:type="Average">
+					<Function resultType="long" xsi:type="QConstructor">
+						<Metric>ResponseTimeMetric</Metric>						
+						<Window>100</Window>
+					</Function>
+				</Function>
+			</Metric>
+
+			<Metric name="ResponseTimeMetric" type="long" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="ResponseTime" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/ResponseTime</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<Metric name="ThroughputMetric" type="long" unit="dollar">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="Price" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/Throughput</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<WSDLFile>SLAMonitorTestService.wsdl</WSDLFile>
+			<SOAPBindingName>serv1885212728SOAP</SOAPBindingName>
+			<SOAPOperationName>serv1885212728Operation</SOAPOperationName>
+		</Operation>
+
+</ServiceDefinition><ServiceDefinition name="ServiceDefinitionserv1817419001" xmlns="http://www.ibm.com/wsla" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+		<Operation name="WSCDefaultOperation" xsi:type="WSDLSOAPOperationDescriptionType">
+
+			<SLAParameter name="SLAParameterResponsetimeserv1817419001" type="long" unit="milliseconds">
+				<Metric>AverageResponseTimeMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+			
+			<SLAParameter name="SLAParameterThroughputserv1817419001" type="float" unit="invocationsperminute">
+				<Metric>ThroughputMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+
+			<Metric name="AverageResponseTimeMetric" type="double" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<Function resultType="double" xsi:type="Average">
+					<Function resultType="long" xsi:type="QConstructor">
+						<Metric>ResponseTimeMetric</Metric>						
+						<Window>100</Window>
+					</Function>
+				</Function>
+			</Metric>
+
+			<Metric name="ResponseTimeMetric" type="long" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="ResponseTime" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/ResponseTime</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<Metric name="ThroughputMetric" type="long" unit="dollar">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="Price" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/Throughput</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<WSDLFile>SLAMonitorTestService.wsdl</WSDLFile>
+			<SOAPBindingName>serv1817419001SOAP</SOAPBindingName>
+			<SOAPOperationName>serv1817419001Operation</SOAPOperationName>
+		</Operation>
+
+</ServiceDefinition><ServiceDefinition name="ServiceDefinitionserv430412885" xmlns="http://www.ibm.com/wsla" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+		<Operation name="WSCDefaultOperation" xsi:type="WSDLSOAPOperationDescriptionType">
+
+			<SLAParameter name="SLAParameterResponsetimeserv430412885" type="long" unit="milliseconds">
+				<Metric>AverageResponseTimeMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+			
+			<SLAParameter name="SLAParameterThroughputserv430412885" type="float" unit="invocationsperminute">
+				<Metric>ThroughputMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+
+			<Metric name="AverageResponseTimeMetric" type="double" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<Function resultType="double" xsi:type="Average">
+					<Function resultType="long" xsi:type="QConstructor">
+						<Metric>ResponseTimeMetric</Metric>						
+						<Window>100</Window>
+					</Function>
+				</Function>
+			</Metric>
+
+			<Metric name="ResponseTimeMetric" type="long" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="ResponseTime" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/ResponseTime</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<Metric name="ThroughputMetric" type="long" unit="dollar">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="Price" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/Throughput</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<WSDLFile>SLAMonitorTestService.wsdl</WSDLFile>
+			<SOAPBindingName>serv430412885SOAP</SOAPBindingName>
+			<SOAPOperationName>serv430412885Operation</SOAPOperationName>
+		</Operation>
+
+</ServiceDefinition><ServiceDefinition name="ServiceDefinitionserv1123096671" xmlns="http://www.ibm.com/wsla" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+		<Operation name="WSCDefaultOperation" xsi:type="WSDLSOAPOperationDescriptionType">
+
+			<SLAParameter name="SLAParameterResponsetimeserv1123096671" type="long" unit="milliseconds">
+				<Metric>AverageResponseTimeMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+			
+			<SLAParameter name="SLAParameterThroughputserv1123096671" type="float" unit="invocationsperminute">
+				<Metric>ThroughputMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+
+			<Metric name="AverageResponseTimeMetric" type="double" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<Function resultType="double" xsi:type="Average">
+					<Function resultType="long" xsi:type="QConstructor">
+						<Metric>ResponseTimeMetric</Metric>						
+						<Window>100</Window>
+					</Function>
+				</Function>
+			</Metric>
+
+			<Metric name="ResponseTimeMetric" type="long" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="ResponseTime" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/ResponseTime</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<Metric name="ThroughputMetric" type="long" unit="dollar">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="Price" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/Throughput</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<WSDLFile>SLAMonitorTestService.wsdl</WSDLFile>
+			<SOAPBindingName>serv1123096671SOAP</SOAPBindingName>
+			<SOAPOperationName>serv1123096671Operation</SOAPOperationName>
+		</Operation>
+
+</ServiceDefinition><ServiceDefinition name="ServiceDefinitionserv1815780495" xmlns="http://www.ibm.com/wsla" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+		<Operation name="WSCDefaultOperation" xsi:type="WSDLSOAPOperationDescriptionType">
+
+			<SLAParameter name="SLAParameterResponsetimeserv1815780495" type="long" unit="milliseconds">
+				<Metric>AverageResponseTimeMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+			
+			<SLAParameter name="SLAParameterThroughputserv1815780495" type="float" unit="invocationsperminute">
+				<Metric>ThroughputMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+
+			<Metric name="AverageResponseTimeMetric" type="double" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<Function resultType="double" xsi:type="Average">
+					<Function resultType="long" xsi:type="QConstructor">
+						<Metric>ResponseTimeMetric</Metric>						
+						<Window>100</Window>
+					</Function>
+				</Function>
+			</Metric>
+
+			<Metric name="ResponseTimeMetric" type="long" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="ResponseTime" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/ResponseTime</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<Metric name="ThroughputMetric" type="long" unit="dollar">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="Price" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/Throughput</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<WSDLFile>SLAMonitorTestService.wsdl</WSDLFile>
+			<SOAPBindingName>serv1815780495SOAP</SOAPBindingName>
+			<SOAPOperationName>serv1815780495Operation</SOAPOperationName>
+		</Operation>
+
+</ServiceDefinition><ServiceDefinition name="ServiceDefinitionserv360980652" xmlns="http://www.ibm.com/wsla" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+		<Operation name="WSCDefaultOperation" xsi:type="WSDLSOAPOperationDescriptionType">
+
+			<SLAParameter name="SLAParameterResponsetimeserv360980652" type="long" unit="milliseconds">
+				<Metric>AverageResponseTimeMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+			
+			<SLAParameter name="SLAParameterThroughputserv360980652" type="float" unit="invocationsperminute">
+				<Metric>ThroughputMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+
+			<Metric name="AverageResponseTimeMetric" type="double" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<Function resultType="double" xsi:type="Average">
+					<Function resultType="long" xsi:type="QConstructor">
+						<Metric>ResponseTimeMetric</Metric>						
+						<Window>100</Window>
+					</Function>
+				</Function>
+			</Metric>
+
+			<Metric name="ResponseTimeMetric" type="long" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="ResponseTime" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/ResponseTime</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<Metric name="ThroughputMetric" type="long" unit="dollar">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="Price" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/Throughput</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<WSDLFile>SLAMonitorTestService.wsdl</WSDLFile>
+			<SOAPBindingName>serv360980652SOAP</SOAPBindingName>
+			<SOAPOperationName>serv360980652Operation</SOAPOperationName>
+		</Operation>
+
+</ServiceDefinition><ServiceDefinition name="ServiceDefinitionserv1053664438" xmlns="http://www.ibm.com/wsla" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+		<Operation name="WSCDefaultOperation" xsi:type="WSDLSOAPOperationDescriptionType">
+
+			<SLAParameter name="SLAParameterResponsetimeserv1053664438" type="long" unit="milliseconds">
+				<Metric>AverageResponseTimeMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+			
+			<SLAParameter name="SLAParameterThroughputserv1053664438" type="float" unit="invocationsperminute">
+				<Metric>ThroughputMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+
+			<Metric name="AverageResponseTimeMetric" type="double" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<Function resultType="double" xsi:type="Average">
+					<Function resultType="long" xsi:type="QConstructor">
+						<Metric>ResponseTimeMetric</Metric>						
+						<Window>100</Window>
+					</Function>
+				</Function>
+			</Metric>
+
+			<Metric name="ResponseTimeMetric" type="long" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="ResponseTime" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/ResponseTime</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<Metric name="ThroughputMetric" type="long" unit="dollar">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="Price" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/Throughput</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<WSDLFile>SLAMonitorTestService.wsdl</WSDLFile>
+			<SOAPBindingName>serv1053664438SOAP</SOAPBindingName>
+			<SOAPOperationName>serv1053664438Operation</SOAPOperationName>
+		</Operation>
+
+</ServiceDefinition><ServiceDefinition name="ServiceDefinitionserv362619158" xmlns="http://www.ibm.com/wsla" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+		<Operation name="WSCDefaultOperation" xsi:type="WSDLSOAPOperationDescriptionType">
+
+			<SLAParameter name="SLAParameterResponsetimeserv362619158" type="long" unit="milliseconds">
+				<Metric>AverageResponseTimeMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+			
+			<SLAParameter name="SLAParameterThroughputserv362619158" type="float" unit="invocationsperminute">
+				<Metric>ThroughputMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+
+			<Metric name="AverageResponseTimeMetric" type="double" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<Function resultType="double" xsi:type="Average">
+					<Function resultType="long" xsi:type="QConstructor">
+						<Metric>ResponseTimeMetric</Metric>						
+						<Window>100</Window>
+					</Function>
+				</Function>
+			</Metric>
+
+			<Metric name="ResponseTimeMetric" type="long" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="ResponseTime" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/ResponseTime</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<Metric name="ThroughputMetric" type="long" unit="dollar">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="Price" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/Throughput</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<WSDLFile>SLAMonitorTestService.wsdl</WSDLFile>
+			<SOAPBindingName>serv362619158SOAP</SOAPBindingName>
+			<SOAPOperationName>serv362619158Operation</SOAPOperationName>
+		</Operation>
+
+</ServiceDefinition><ServiceDefinition name="ServiceDefinitionserv1746348262" xmlns="http://www.ibm.com/wsla" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+		<Operation name="WSCDefaultOperation" xsi:type="WSDLSOAPOperationDescriptionType">
+
+			<SLAParameter name="SLAParameterResponsetimeserv1746348262" type="long" unit="milliseconds">
+				<Metric>AverageResponseTimeMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+			
+			<SLAParameter name="SLAParameterThroughputserv1746348262" type="float" unit="invocationsperminute">
+				<Metric>ThroughputMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+
+			<Metric name="AverageResponseTimeMetric" type="double" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<Function resultType="double" xsi:type="Average">
+					<Function resultType="long" xsi:type="QConstructor">
+						<Metric>ResponseTimeMetric</Metric>						
+						<Window>100</Window>
+					</Function>
+				</Function>
+			</Metric>
+
+			<Metric name="ResponseTimeMetric" type="long" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="ResponseTime" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/ResponseTime</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<Metric name="ThroughputMetric" type="long" unit="dollar">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="Price" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/Throughput</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<WSDLFile>SLAMonitorTestService.wsdl</WSDLFile>
+			<SOAPBindingName>serv1746348262SOAP</SOAPBindingName>
+			<SOAPOperationName>serv1746348262Operation</SOAPOperationName>
+		</Operation>
+
+</ServiceDefinition><ServiceDefinition name="ServiceDefinitionserv1055302982" xmlns="http://www.ibm.com/wsla" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+		<Operation name="WSCDefaultOperation" xsi:type="WSDLSOAPOperationDescriptionType">
+
+			<SLAParameter name="SLAParameterResponsetimeserv1055302982" type="long" unit="milliseconds">
+				<Metric>AverageResponseTimeMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+			
+			<SLAParameter name="SLAParameterThroughputserv1055302982" type="float" unit="invocationsperminute">
+				<Metric>ThroughputMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+
+			<Metric name="AverageResponseTimeMetric" type="double" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<Function resultType="double" xsi:type="Average">
+					<Function resultType="long" xsi:type="QConstructor">
+						<Metric>ResponseTimeMetric</Metric>						
+						<Window>100</Window>
+					</Function>
+				</Function>
+			</Metric>
+
+			<Metric name="ResponseTimeMetric" type="long" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="ResponseTime" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/ResponseTime</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<Metric name="ThroughputMetric" type="long" unit="dollar">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="Price" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/Throughput</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<WSDLFile>SLAMonitorTestService.wsdl</WSDLFile>
+			<SOAPBindingName>serv1055302982SOAP</SOAPBindingName>
+			<SOAPOperationName>serv1055302982Operation</SOAPOperationName>
+		</Operation>
+
+</ServiceDefinition><ServiceDefinition name="ServiceDefinitionserv291548419" xmlns="http://www.ibm.com/wsla" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+		<Operation name="WSCDefaultOperation" xsi:type="WSDLSOAPOperationDescriptionType">
+
+			<SLAParameter name="SLAParameterResponsetimeserv291548419" type="long" unit="milliseconds">
+				<Metric>AverageResponseTimeMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+			
+			<SLAParameter name="SLAParameterThroughputserv291548419" type="float" unit="invocationsperminute">
+				<Metric>ThroughputMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+
+			<Metric name="AverageResponseTimeMetric" type="double" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<Function resultType="double" xsi:type="Average">
+					<Function resultType="long" xsi:type="QConstructor">
+						<Metric>ResponseTimeMetric</Metric>						
+						<Window>100</Window>
+					</Function>
+				</Function>
+			</Metric>
+
+			<Metric name="ResponseTimeMetric" type="long" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="ResponseTime" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/ResponseTime</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<Metric name="ThroughputMetric" type="long" unit="dollar">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="Price" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/Throughput</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<WSDLFile>SLAMonitorTestService.wsdl</WSDLFile>
+			<SOAPBindingName>serv291548419SOAP</SOAPBindingName>
+			<SOAPOperationName>serv291548419Operation</SOAPOperationName>
+		</Operation>
+
+</ServiceDefinition><ServiceDefinition name="ServiceDefinitionserv984232205" xmlns="http://www.ibm.com/wsla" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+		<Operation name="WSCDefaultOperation" xsi:type="WSDLSOAPOperationDescriptionType">
+
+			<SLAParameter name="SLAParameterResponsetimeserv984232205" type="long" unit="milliseconds">
+				<Metric>AverageResponseTimeMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+			
+			<SLAParameter name="SLAParameterThroughputserv984232205" type="float" unit="invocationsperminute">
+				<Metric>ThroughputMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+
+			<Metric name="AverageResponseTimeMetric" type="double" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<Function resultType="double" xsi:type="Average">
+					<Function resultType="long" xsi:type="QConstructor">
+						<Metric>ResponseTimeMetric</Metric>						
+						<Window>100</Window>
+					</Function>
+				</Function>
+			</Metric>
+
+			<Metric name="ResponseTimeMetric" type="long" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="ResponseTime" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/ResponseTime</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<Metric name="ThroughputMetric" type="long" unit="dollar">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="Price" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/Throughput</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<WSDLFile>SLAMonitorTestService.wsdl</WSDLFile>
+			<SOAPBindingName>serv984232205SOAP</SOAPBindingName>
+			<SOAPOperationName>serv984232205Operation</SOAPOperationName>
+		</Operation>
+
+</ServiceDefinition><ServiceDefinition name="ServiceDefinitionserv1676916029" xmlns="http://www.ibm.com/wsla" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+		<Operation name="WSCDefaultOperation" xsi:type="WSDLSOAPOperationDescriptionType">
+
+			<SLAParameter name="SLAParameterResponsetimeserv1676916029" type="long" unit="milliseconds">
+				<Metric>AverageResponseTimeMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+			
+			<SLAParameter name="SLAParameterThroughputserv1676916029" type="float" unit="invocationsperminute">
+				<Metric>ThroughputMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+
+			<Metric name="AverageResponseTimeMetric" type="double" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<Function resultType="double" xsi:type="Average">
+					<Function resultType="long" xsi:type="QConstructor">
+						<Metric>ResponseTimeMetric</Metric>						
+						<Window>100</Window>
+					</Function>
+				</Function>
+			</Metric>
+
+			<Metric name="ResponseTimeMetric" type="long" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="ResponseTime" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/ResponseTime</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<Metric name="ThroughputMetric" type="long" unit="dollar">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="Price" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/Throughput</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<WSDLFile>SLAMonitorTestService.wsdl</WSDLFile>
+			<SOAPBindingName>serv1676916029SOAP</SOAPBindingName>
+			<SOAPOperationName>serv1676916029Operation</SOAPOperationName>
+		</Operation>
+
+</ServiceDefinition><ServiceDefinition name="ServiceDefinitionserv222116186" xmlns="http://www.ibm.com/wsla" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+		<Operation name="WSCDefaultOperation" xsi:type="WSDLSOAPOperationDescriptionType">
+
+			<SLAParameter name="SLAParameterResponsetimeserv222116186" type="long" unit="milliseconds">
+				<Metric>AverageResponseTimeMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+			
+			<SLAParameter name="SLAParameterThroughputserv222116186" type="float" unit="invocationsperminute">
+				<Metric>ThroughputMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+
+			<Metric name="AverageResponseTimeMetric" type="double" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<Function resultType="double" xsi:type="Average">
+					<Function resultType="long" xsi:type="QConstructor">
+						<Metric>ResponseTimeMetric</Metric>						
+						<Window>100</Window>
+					</Function>
+				</Function>
+			</Metric>
+
+			<Metric name="ResponseTimeMetric" type="long" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="ResponseTime" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/ResponseTime</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<Metric name="ThroughputMetric" type="long" unit="dollar">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="Price" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/Throughput</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<WSDLFile>SLAMonitorTestService.wsdl</WSDLFile>
+			<SOAPBindingName>serv222116186SOAP</SOAPBindingName>
+			<SOAPOperationName>serv222116186Operation</SOAPOperationName>
+		</Operation>
+
+</ServiceDefinition><ServiceDefinition name="ServiceDefinitionserv1747986768" xmlns="http://www.ibm.com/wsla" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+		<Operation name="WSCDefaultOperation" xsi:type="WSDLSOAPOperationDescriptionType">
+
+			<SLAParameter name="SLAParameterResponsetimeserv1747986768" type="long" unit="milliseconds">
+				<Metric>AverageResponseTimeMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+			
+			<SLAParameter name="SLAParameterThroughputserv1747986768" type="float" unit="invocationsperminute">
+				<Metric>ThroughputMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+
+			<Metric name="AverageResponseTimeMetric" type="double" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<Function resultType="double" xsi:type="Average">
+					<Function resultType="long" xsi:type="QConstructor">
+						<Metric>ResponseTimeMetric</Metric>						
+						<Window>100</Window>
+					</Function>
+				</Function>
+			</Metric>
+
+			<Metric name="ResponseTimeMetric" type="long" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="ResponseTime" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/ResponseTime</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<Metric name="ThroughputMetric" type="long" unit="dollar">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="Price" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/Throughput</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<WSDLFile>SLAMonitorTestService.wsdl</WSDLFile>
+			<SOAPBindingName>serv1747986768SOAP</SOAPBindingName>
+			<SOAPOperationName>serv1747986768Operation</SOAPOperationName>
+		</Operation>
+
+</ServiceDefinition><ServiceDefinition name="ServiceDefinitionserv914799972" xmlns="http://www.ibm.com/wsla" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+		<Operation name="WSCDefaultOperation" xsi:type="WSDLSOAPOperationDescriptionType">
+
+			<SLAParameter name="SLAParameterResponsetimeserv914799972" type="long" unit="milliseconds">
+				<Metric>AverageResponseTimeMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+			
+			<SLAParameter name="SLAParameterThroughputserv914799972" type="float" unit="invocationsperminute">
+				<Metric>ThroughputMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+
+			<Metric name="AverageResponseTimeMetric" type="double" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<Function resultType="double" xsi:type="Average">
+					<Function resultType="long" xsi:type="QConstructor">
+						<Metric>ResponseTimeMetric</Metric>						
+						<Window>100</Window>
+					</Function>
+				</Function>
+			</Metric>
+
+			<Metric name="ResponseTimeMetric" type="long" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="ResponseTime" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/ResponseTime</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<Metric name="ThroughputMetric" type="long" unit="dollar">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="Price" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/Throughput</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<WSDLFile>SLAMonitorTestService.wsdl</WSDLFile>
+			<SOAPBindingName>serv914799972SOAP</SOAPBindingName>
+			<SOAPOperationName>serv914799972Operation</SOAPOperationName>
+		</Operation>
+
+</ServiceDefinition><ServiceDefinition name="ServiceDefinitionserv293186925" xmlns="http://www.ibm.com/wsla" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+		<Operation name="WSCDefaultOperation" xsi:type="WSDLSOAPOperationDescriptionType">
+
+			<SLAParameter name="SLAParameterResponsetimeserv293186925" type="long" unit="milliseconds">
+				<Metric>AverageResponseTimeMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+			
+			<SLAParameter name="SLAParameterThroughputserv293186925" type="float" unit="invocationsperminute">
+				<Metric>ThroughputMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+
+			<Metric name="AverageResponseTimeMetric" type="double" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<Function resultType="double" xsi:type="Average">
+					<Function resultType="long" xsi:type="QConstructor">
+						<Metric>ResponseTimeMetric</Metric>						
+						<Window>100</Window>
+					</Function>
+				</Function>
+			</Metric>
+
+			<Metric name="ResponseTimeMetric" type="long" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="ResponseTime" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/ResponseTime</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<Metric name="ThroughputMetric" type="long" unit="dollar">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="Price" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/Throughput</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<WSDLFile>SLAMonitorTestService.wsdl</WSDLFile>
+			<SOAPBindingName>serv293186925SOAP</SOAPBindingName>
+			<SOAPOperationName>serv293186925Operation</SOAPOperationName>
+		</Operation>
+
+</ServiceDefinition><ServiceDefinition name="ServiceDefinitionserv1607483796" xmlns="http://www.ibm.com/wsla" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+		<Operation name="WSCDefaultOperation" xsi:type="WSDLSOAPOperationDescriptionType">
+
+			<SLAParameter name="SLAParameterResponsetimeserv1607483796" type="long" unit="milliseconds">
+				<Metric>AverageResponseTimeMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+			
+			<SLAParameter name="SLAParameterThroughputserv1607483796" type="float" unit="invocationsperminute">
+				<Metric>ThroughputMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+
+			<Metric name="AverageResponseTimeMetric" type="double" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<Function resultType="double" xsi:type="Average">
+					<Function resultType="long" xsi:type="QConstructor">
+						<Metric>ResponseTimeMetric</Metric>						
+						<Window>100</Window>
+					</Function>
+				</Function>
+			</Metric>
+
+			<Metric name="ResponseTimeMetric" type="long" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="ResponseTime" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/ResponseTime</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<Metric name="ThroughputMetric" type="long" unit="dollar">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="Price" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/Throughput</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<WSDLFile>SLAMonitorTestService.wsdl</WSDLFile>
+			<SOAPBindingName>serv1607483796SOAP</SOAPBindingName>
+			<SOAPOperationName>serv1607483796Operation</SOAPOperationName>
+		</Operation>
+
+</ServiceDefinition><ServiceDefinition name="ServiceDefinitionserv152683953" xmlns="http://www.ibm.com/wsla" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+		<Operation name="WSCDefaultOperation" xsi:type="WSDLSOAPOperationDescriptionType">
+
+			<SLAParameter name="SLAParameterResponsetimeserv152683953" type="long" unit="milliseconds">
+				<Metric>AverageResponseTimeMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+			
+			<SLAParameter name="SLAParameterThroughputserv152683953" type="float" unit="invocationsperminute">
+				<Metric>ThroughputMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+
+			<Metric name="AverageResponseTimeMetric" type="double" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<Function resultType="double" xsi:type="Average">
+					<Function resultType="long" xsi:type="QConstructor">
+						<Metric>ResponseTimeMetric</Metric>						
+						<Window>100</Window>
+					</Function>
+				</Function>
+			</Metric>
+
+			<Metric name="ResponseTimeMetric" type="long" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="ResponseTime" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/ResponseTime</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<Metric name="ThroughputMetric" type="long" unit="dollar">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="Price" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/Throughput</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<WSDLFile>SLAMonitorTestService.wsdl</WSDLFile>
+			<SOAPBindingName>serv152683953SOAP</SOAPBindingName>
+			<SOAPOperationName>serv152683953Operation</SOAPOperationName>
+		</Operation>
+
+</ServiceDefinition><ServiceDefinition name="ServiceDefinitionserv985870749" xmlns="http://www.ibm.com/wsla" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+		<Operation name="WSCDefaultOperation" xsi:type="WSDLSOAPOperationDescriptionType">
+
+			<SLAParameter name="SLAParameterResponsetimeserv985870749" type="long" unit="milliseconds">
+				<Metric>AverageResponseTimeMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+			
+			<SLAParameter name="SLAParameterThroughputserv985870749" type="float" unit="invocationsperminute">
+				<Metric>ThroughputMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+
+			<Metric name="AverageResponseTimeMetric" type="double" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<Function resultType="double" xsi:type="Average">
+					<Function resultType="long" xsi:type="QConstructor">
+						<Metric>ResponseTimeMetric</Metric>						
+						<Window>100</Window>
+					</Function>
+				</Function>
+			</Metric>
+
+			<Metric name="ResponseTimeMetric" type="long" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="ResponseTime" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/ResponseTime</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<Metric name="ThroughputMetric" type="long" unit="dollar">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="Price" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/Throughput</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<WSDLFile>SLAMonitorTestService.wsdl</WSDLFile>
+			<SOAPBindingName>serv985870749SOAP</SOAPBindingName>
+			<SOAPOperationName>serv985870749Operation</SOAPOperationName>
+		</Operation>
+
+</ServiceDefinition><ServiceDefinition name="ServiceDefinitionserv845367739" xmlns="http://www.ibm.com/wsla" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+		<Operation name="WSCDefaultOperation" xsi:type="WSDLSOAPOperationDescriptionType">
+
+			<SLAParameter name="SLAParameterResponsetimeserv845367739" type="long" unit="milliseconds">
+				<Metric>AverageResponseTimeMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+			
+			<SLAParameter name="SLAParameterThroughputserv845367739" type="float" unit="invocationsperminute">
+				<Metric>ThroughputMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+
+			<Metric name="AverageResponseTimeMetric" type="double" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<Function resultType="double" xsi:type="Average">
+					<Function resultType="long" xsi:type="QConstructor">
+						<Metric>ResponseTimeMetric</Metric>						
+						<Window>100</Window>
+					</Function>
+				</Function>
+			</Metric>
+
+			<Metric name="ResponseTimeMetric" type="long" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="ResponseTime" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/ResponseTime</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<Metric name="ThroughputMetric" type="long" unit="dollar">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="Price" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/Throughput</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<WSDLFile>SLAMonitorTestService.wsdl</WSDLFile>
+			<SOAPBindingName>serv845367739SOAP</SOAPBindingName>
+			<SOAPOperationName>serv845367739Operation</SOAPOperationName>
+		</Operation>
+
+</ServiceDefinition><ServiceDefinition name="ServiceDefinitionserv1678554535" xmlns="http://www.ibm.com/wsla" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+		<Operation name="WSCDefaultOperation" xsi:type="WSDLSOAPOperationDescriptionType">
+
+			<SLAParameter name="SLAParameterResponsetimeserv1678554535" type="long" unit="milliseconds">
+				<Metric>AverageResponseTimeMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+			
+			<SLAParameter name="SLAParameterThroughputserv1678554535" type="float" unit="invocationsperminute">
+				<Metric>ThroughputMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+
+			<Metric name="AverageResponseTimeMetric" type="double" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<Function resultType="double" xsi:type="Average">
+					<Function resultType="long" xsi:type="QConstructor">
+						<Metric>ResponseTimeMetric</Metric>						
+						<Window>100</Window>
+					</Function>
+				</Function>
+			</Metric>
+
+			<Metric name="ResponseTimeMetric" type="long" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="ResponseTime" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/ResponseTime</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<Metric name="ThroughputMetric" type="long" unit="dollar">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="Price" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/Throughput</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<WSDLFile>SLAMonitorTestService.wsdl</WSDLFile>
+			<SOAPBindingName>serv1678554535SOAP</SOAPBindingName>
+			<SOAPOperationName>serv1678554535Operation</SOAPOperationName>
+		</Operation>
+
+</ServiceDefinition><ServiceDefinition name="ServiceDefinitionserv1538051563" xmlns="http://www.ibm.com/wsla" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+		<Operation name="WSCDefaultOperation" xsi:type="WSDLSOAPOperationDescriptionType">
+
+			<SLAParameter name="SLAParameterResponsetimeserv1538051563" type="long" unit="milliseconds">
+				<Metric>AverageResponseTimeMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+			
+			<SLAParameter name="SLAParameterThroughputserv1538051563" type="float" unit="invocationsperminute">
+				<Metric>ThroughputMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+
+			<Metric name="AverageResponseTimeMetric" type="double" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<Function resultType="double" xsi:type="Average">
+					<Function resultType="long" xsi:type="QConstructor">
+						<Metric>ResponseTimeMetric</Metric>						
+						<Window>100</Window>
+					</Function>
+				</Function>
+			</Metric>
+
+			<Metric name="ResponseTimeMetric" type="long" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="ResponseTime" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/ResponseTime</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<Metric name="ThroughputMetric" type="long" unit="dollar">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="Price" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/Throughput</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<WSDLFile>SLAMonitorTestService.wsdl</WSDLFile>
+			<SOAPBindingName>serv1538051563SOAP</SOAPBindingName>
+			<SOAPOperationName>serv1538051563Operation</SOAPOperationName>
+		</Operation>
+
+</ServiceDefinition><ServiceDefinition name="ServiceDefinitionserv223754692" xmlns="http://www.ibm.com/wsla" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+		<Operation name="WSCDefaultOperation" xsi:type="WSDLSOAPOperationDescriptionType">
+
+			<SLAParameter name="SLAParameterResponsetimeserv223754692" type="long" unit="milliseconds">
+				<Metric>AverageResponseTimeMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+			
+			<SLAParameter name="SLAParameterThroughputserv223754692" type="float" unit="invocationsperminute">
+				<Metric>ThroughputMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+
+			<Metric name="AverageResponseTimeMetric" type="double" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<Function resultType="double" xsi:type="Average">
+					<Function resultType="long" xsi:type="QConstructor">
+						<Metric>ResponseTimeMetric</Metric>						
+						<Window>100</Window>
+					</Function>
+				</Function>
+			</Metric>
+
+			<Metric name="ResponseTimeMetric" type="long" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="ResponseTime" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/ResponseTime</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<Metric name="ThroughputMetric" type="long" unit="dollar">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="Price" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/Throughput</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<WSDLFile>SLAMonitorTestService.wsdl</WSDLFile>
+			<SOAPBindingName>serv223754692SOAP</SOAPBindingName>
+			<SOAPOperationName>serv223754692Operation</SOAPOperationName>
+		</Operation>
+
+</ServiceDefinition><ServiceDefinition name="ServiceDefinitionserv916438516" xmlns="http://www.ibm.com/wsla" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+		<Operation name="WSCDefaultOperation" xsi:type="WSDLSOAPOperationDescriptionType">
+
+			<SLAParameter name="SLAParameterResponsetimeserv916438516" type="long" unit="milliseconds">
+				<Metric>AverageResponseTimeMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+			
+			<SLAParameter name="SLAParameterThroughputserv916438516" type="float" unit="invocationsperminute">
+				<Metric>ThroughputMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+
+			<Metric name="AverageResponseTimeMetric" type="double" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<Function resultType="double" xsi:type="Average">
+					<Function resultType="long" xsi:type="QConstructor">
+						<Metric>ResponseTimeMetric</Metric>						
+						<Window>100</Window>
+					</Function>
+				</Function>
+			</Metric>
+
+			<Metric name="ResponseTimeMetric" type="long" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="ResponseTime" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/ResponseTime</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<Metric name="ThroughputMetric" type="long" unit="dollar">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="Price" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/Throughput</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<WSDLFile>SLAMonitorTestService.wsdl</WSDLFile>
+			<SOAPBindingName>serv916438516SOAP</SOAPBindingName>
+			<SOAPOperationName>serv916438516Operation</SOAPOperationName>
+		</Operation>
+
+</ServiceDefinition><ServiceDefinition name="ServiceDefinitionserv83251720" xmlns="http://www.ibm.com/wsla" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+		<Operation name="WSCDefaultOperation" xsi:type="WSDLSOAPOperationDescriptionType">
+
+			<SLAParameter name="SLAParameterResponsetimeserv83251720" type="long" unit="milliseconds">
+				<Metric>AverageResponseTimeMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+			
+			<SLAParameter name="SLAParameterThroughputserv83251720" type="float" unit="invocationsperminute">
+				<Metric>ThroughputMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+
+			<Metric name="AverageResponseTimeMetric" type="double" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<Function resultType="double" xsi:type="Average">
+					<Function resultType="long" xsi:type="QConstructor">
+						<Metric>ResponseTimeMetric</Metric>						
+						<Window>100</Window>
+					</Function>
+				</Function>
+			</Metric>
+
+			<Metric name="ResponseTimeMetric" type="long" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="ResponseTime" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/ResponseTime</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<Metric name="ThroughputMetric" type="long" unit="dollar">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="Price" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/Throughput</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<WSDLFile>SLAMonitorTestService.wsdl</WSDLFile>
+			<SOAPBindingName>serv83251720SOAP</SOAPBindingName>
+			<SOAPOperationName>serv83251720Operation</SOAPOperationName>
+		</Operation>
+
+</ServiceDefinition><ServiceDefinition name="ServiceDefinitionserv775935506" xmlns="http://www.ibm.com/wsla" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+		<Operation name="WSCDefaultOperation" xsi:type="WSDLSOAPOperationDescriptionType">
+
+			<SLAParameter name="SLAParameterResponsetimeserv775935506" type="long" unit="milliseconds">
+				<Metric>AverageResponseTimeMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+			
+			<SLAParameter name="SLAParameterThroughputserv775935506" type="float" unit="invocationsperminute">
+				<Metric>ThroughputMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+
+			<Metric name="AverageResponseTimeMetric" type="double" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<Function resultType="double" xsi:type="Average">
+					<Function resultType="long" xsi:type="QConstructor">
+						<Metric>ResponseTimeMetric</Metric>						
+						<Window>100</Window>
+					</Function>
+				</Function>
+			</Metric>
+
+			<Metric name="ResponseTimeMetric" type="long" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="ResponseTime" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/ResponseTime</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<Metric name="ThroughputMetric" type="long" unit="dollar">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="Price" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/Throughput</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<WSDLFile>SLAMonitorTestService.wsdl</WSDLFile>
+			<SOAPBindingName>serv775935506SOAP</SOAPBindingName>
+			<SOAPOperationName>serv775935506Operation</SOAPOperationName>
+		</Operation>
+
+</ServiceDefinition><ServiceDefinition name="ServiceDefinitionserv1468619330" xmlns="http://www.ibm.com/wsla" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+		<Operation name="WSCDefaultOperation" xsi:type="WSDLSOAPOperationDescriptionType">
+
+			<SLAParameter name="SLAParameterResponsetimeserv1468619330" type="long" unit="milliseconds">
+				<Metric>AverageResponseTimeMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+			
+			<SLAParameter name="SLAParameterThroughputserv1468619330" type="float" unit="invocationsperminute">
+				<Metric>ThroughputMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+
+			<Metric name="AverageResponseTimeMetric" type="double" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<Function resultType="double" xsi:type="Average">
+					<Function resultType="long" xsi:type="QConstructor">
+						<Metric>ResponseTimeMetric</Metric>						
+						<Window>100</Window>
+					</Function>
+				</Function>
+			</Metric>
+
+			<Metric name="ResponseTimeMetric" type="long" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="ResponseTime" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/ResponseTime</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<Metric name="ThroughputMetric" type="long" unit="dollar">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="Price" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/Throughput</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<WSDLFile>SLAMonitorTestService.wsdl</WSDLFile>
+			<SOAPBindingName>serv1468619330SOAP</SOAPBindingName>
+			<SOAPOperationName>serv1468619330Operation</SOAPOperationName>
+		</Operation>
+
+</ServiceDefinition><ServiceDefinition name="ServiceDefinitionserv13819487" xmlns="http://www.ibm.com/wsla" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+		<Operation name="WSCDefaultOperation" xsi:type="WSDLSOAPOperationDescriptionType">
+
+			<SLAParameter name="SLAParameterResponsetimeserv13819487" type="long" unit="milliseconds">
+				<Metric>AverageResponseTimeMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+			
+			<SLAParameter name="SLAParameterThroughputserv13819487" type="float" unit="invocationsperminute">
+				<Metric>ThroughputMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+
+			<Metric name="AverageResponseTimeMetric" type="double" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<Function resultType="double" xsi:type="Average">
+					<Function resultType="long" xsi:type="QConstructor">
+						<Metric>ResponseTimeMetric</Metric>						
+						<Window>100</Window>
+					</Function>
+				</Function>
+			</Metric>
+
+			<Metric name="ResponseTimeMetric" type="long" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="ResponseTime" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/ResponseTime</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<Metric name="ThroughputMetric" type="long" unit="dollar">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="Price" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/Throughput</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<WSDLFile>SLAMonitorTestService.wsdl</WSDLFile>
+			<SOAPBindingName>serv13819487SOAP</SOAPBindingName>
+			<SOAPOperationName>serv13819487Operation</SOAPOperationName>
+		</Operation>
+
+</ServiceDefinition><ServiceDefinition name="ServiceDefinitionserv706503273" xmlns="http://www.ibm.com/wsla" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+		<Operation name="WSCDefaultOperation" xsi:type="WSDLSOAPOperationDescriptionType">
+
+			<SLAParameter name="SLAParameterResponsetimeserv706503273" type="long" unit="milliseconds">
+				<Metric>AverageResponseTimeMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+			
+			<SLAParameter name="SLAParameterThroughputserv706503273" type="float" unit="invocationsperminute">
+				<Metric>ThroughputMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+
+			<Metric name="AverageResponseTimeMetric" type="double" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<Function resultType="double" xsi:type="Average">
+					<Function resultType="long" xsi:type="QConstructor">
+						<Metric>ResponseTimeMetric</Metric>						
+						<Window>100</Window>
+					</Function>
+				</Function>
+			</Metric>
+
+			<Metric name="ResponseTimeMetric" type="long" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="ResponseTime" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/ResponseTime</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<Metric name="ThroughputMetric" type="long" unit="dollar">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="Price" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/Throughput</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<WSDLFile>SLAMonitorTestService.wsdl</WSDLFile>
+			<SOAPBindingName>serv706503273SOAP</SOAPBindingName>
+			<SOAPOperationName>serv706503273Operation</SOAPOperationName>
+		</Operation>
+
+</ServiceDefinition><ServiceDefinition name="ServiceDefinitionserv1609122302" xmlns="http://www.ibm.com/wsla" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+		<Operation name="WSCDefaultOperation" xsi:type="WSDLSOAPOperationDescriptionType">
+
+			<SLAParameter name="SLAParameterResponsetimeserv1609122302" type="long" unit="milliseconds">
+				<Metric>AverageResponseTimeMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+			
+			<SLAParameter name="SLAParameterThroughputserv1609122302" type="float" unit="invocationsperminute">
+				<Metric>ThroughputMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+
+			<Metric name="AverageResponseTimeMetric" type="double" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<Function resultType="double" xsi:type="Average">
+					<Function resultType="long" xsi:type="QConstructor">
+						<Metric>ResponseTimeMetric</Metric>						
+						<Window>100</Window>
+					</Function>
+				</Function>
+			</Metric>
+
+			<Metric name="ResponseTimeMetric" type="long" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="ResponseTime" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/ResponseTime</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<Metric name="ThroughputMetric" type="long" unit="dollar">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="Price" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/Throughput</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<WSDLFile>SLAMonitorTestService.wsdl</WSDLFile>
+			<SOAPBindingName>serv1609122302SOAP</SOAPBindingName>
+			<SOAPOperationName>serv1609122302Operation</SOAPOperationName>
+		</Operation>
+
+</ServiceDefinition><ServiceDefinition name="ServiceDefinitionserv1399187097" xmlns="http://www.ibm.com/wsla" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+		<Operation name="WSCDefaultOperation" xsi:type="WSDLSOAPOperationDescriptionType">
+
+			<SLAParameter name="SLAParameterResponsetimeserv1399187097" type="long" unit="milliseconds">
+				<Metric>AverageResponseTimeMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+			
+			<SLAParameter name="SLAParameterThroughputserv1399187097" type="float" unit="invocationsperminute">
+				<Metric>ThroughputMetric</Metric>
+				<Communication>
+					<Source>Vienna XPress Services</Source>
+					<Pull>ZAuditing</Pull>
+					<Push>ZAuditing</Push>
+				</Communication>
+			</SLAParameter>
+
+			<Metric name="AverageResponseTimeMetric" type="double" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<Function resultType="double" xsi:type="Average">
+					<Function resultType="long" xsi:type="QConstructor">
+						<Metric>ResponseTimeMetric</Metric>						
+						<Window>100</Window>
+					</Function>
+				</Function>
+			</Metric>
+
+			<Metric name="ResponseTimeMetric" type="long" unit="milliseconds">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="ResponseTime" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/ResponseTime</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<Metric name="ThroughputMetric" type="long" unit="dollar">
+				<Source>Vienna XPress Services</Source>
+				<MeasurementDirective name="Price" resultType="long" xsi:type="GenericQoSDimension">
+					<SourceURI>http://192.168.143.245:7438/Throughput</SourceURI>
+				</MeasurementDirective>
+			</Metric>
+			
+			<WSDLFile>SLAMonitorTestService.wsdl</WSDLFile>
+			<SOAPBindingName>serv1399187097SOAP</SOAPBindingName>
+			<SOAPOperationName>serv1399187097Operation</SOAPOperationName>
+		</Operation>
+
+</ServiceDefinition><Obligations><ServiceLevelObjective name="ServiceLevelObjectiveResponsetimeTask0">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Less">
+					<SLAParameter>SLAParameterResponsetimeTask0</SLAParameter>
+					<Value>490</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveThroughputTask0">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Greater">
+					<SLAParameter>SLAParameterThroughputTask0</SLAParameter>
+					<Value>2000</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveResponsetimeserv154322459">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Less">
+					<SLAParameter>SLAParameterResponsetimeserv154322459</SLAParameter>
+					<Value>30</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveThroughputserv154322459">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Greater">
+					<SLAParameter>SLAParameterThroughputserv154322459</SLAParameter>
+					<Value>20000</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveResponsetimeserv847006283">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Less">
+					<SLAParameter>SLAParameterResponsetimeserv847006283</SLAParameter>
+					<Value>500</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveThroughputserv847006283">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Greater">
+					<SLAParameter>SLAParameterThroughputserv847006283</SLAParameter>
+					<Value>1000</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveResponsetimeserv1539690069">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Less">
+					<SLAParameter>SLAParameterResponsetimeserv1539690069</SLAParameter>
+					<Value>420</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveThroughputserv1539690069">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Greater">
+					<SLAParameter>SLAParameterThroughputserv1539690069</SLAParameter>
+					<Value>13000</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveResponsetimeserv84890226">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Less">
+					<SLAParameter>SLAParameterResponsetimeserv84890226</SLAParameter>
+					<Value>450</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveThroughputserv84890226">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Greater">
+					<SLAParameter>SLAParameterThroughputserv84890226</SLAParameter>
+					<Value>13000</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveResponsetimeserv777574050">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Less">
+					<SLAParameter>SLAParameterResponsetimeserv777574050</SLAParameter>
+					<Value>10</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveThroughputserv777574050">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Greater">
+					<SLAParameter>SLAParameterThroughputserv777574050</SLAParameter>
+					<Value>14000</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveResponsetimeserv1470257836">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Less">
+					<SLAParameter>SLAParameterResponsetimeserv1470257836</SLAParameter>
+					<Value>200</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveThroughputserv1470257836">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Greater">
+					<SLAParameter>SLAParameterThroughputserv1470257836</SLAParameter>
+					<Value>19000</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveResponsetimeserv15457993">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Less">
+					<SLAParameter>SLAParameterResponsetimeserv15457993</SLAParameter>
+					<Value>280</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveThroughputserv15457993">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Greater">
+					<SLAParameter>SLAParameterThroughputserv15457993</SLAParameter>
+					<Value>14000</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveResponsetimeserv708141817">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Less">
+					<SLAParameter>SLAParameterResponsetimeserv708141817</SLAParameter>
+					<Value>300</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveThroughputserv708141817">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Greater">
+					<SLAParameter>SLAParameterThroughputserv708141817</SLAParameter>
+					<Value>10000</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveResponsetimeserv1400825603">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Less">
+					<SLAParameter>SLAParameterResponsetimeserv1400825603</SLAParameter>
+					<Value>330</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveThroughputserv1400825603">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Greater">
+					<SLAParameter>SLAParameterThroughputserv1400825603</SLAParameter>
+					<Value>20000</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveResponsetimeserv1886851234">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Less">
+					<SLAParameter>SLAParameterResponsetimeserv1886851234</SLAParameter>
+					<Value>80</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveThroughputserv1886851234">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Greater">
+					<SLAParameter>SLAParameterThroughputserv1886851234</SLAParameter>
+					<Value>16000</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveResponsetimeserv2093509427">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Less">
+					<SLAParameter>SLAParameterResponsetimeserv2093509427</SLAParameter>
+					<Value>190</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveThroughputserv2093509427">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Greater">
+					<SLAParameter>SLAParameterThroughputserv2093509427</SLAParameter>
+					<Value>5000</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveResponsetimeserv638709584">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Less">
+					<SLAParameter>SLAParameterResponsetimeserv638709584</SLAParameter>
+					<Value>80</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveThroughputserv638709584">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Greater">
+					<SLAParameter>SLAParameterThroughputserv638709584</SLAParameter>
+					<Value>20000</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveResponsetimeserv1331393370">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Less">
+					<SLAParameter>SLAParameterResponsetimeserv1331393370</SLAParameter>
+					<Value>170</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveThroughputserv1331393370">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Greater">
+					<SLAParameter>SLAParameterThroughputserv1331393370</SLAParameter>
+					<Value>9000</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveResponsetimeserv2024077194">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Less">
+					<SLAParameter>SLAParameterResponsetimeserv2024077194</SLAParameter>
+					<Value>350</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveThroughputserv2024077194">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Greater">
+					<SLAParameter>SLAParameterThroughputserv2024077194</SLAParameter>
+					<Value>7000</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveResponsetimeserv569277351">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Less">
+					<SLAParameter>SLAParameterResponsetimeserv569277351</SLAParameter>
+					<Value>240</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveThroughputserv569277351">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Greater">
+					<SLAParameter>SLAParameterThroughputserv569277351</SLAParameter>
+					<Value>2000</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveResponsetimeserv1261961137">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Less">
+					<SLAParameter>SLAParameterResponsetimeserv1261961137</SLAParameter>
+					<Value>60</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveThroughputserv1261961137">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Greater">
+					<SLAParameter>SLAParameterThroughputserv1261961137</SLAParameter>
+					<Value>5000</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveResponsetimeserv432051391">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Less">
+					<SLAParameter>SLAParameterResponsetimeserv432051391</SLAParameter>
+					<Value>210</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveThroughputserv432051391">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Greater">
+					<SLAParameter>SLAParameterThroughputserv432051391</SLAParameter>
+					<Value>12000</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveResponsetimeserv1124735215">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Less">
+					<SLAParameter>SLAParameterResponsetimeserv1124735215</SLAParameter>
+					<Value>360</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveThroughputserv1124735215">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Greater">
+					<SLAParameter>SLAParameterThroughputserv1124735215</SLAParameter>
+					<Value>8000</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveResponsetimeserv1954644961">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Less">
+					<SLAParameter>SLAParameterResponsetimeserv1954644961</SLAParameter>
+					<Value>450</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveThroughputserv1954644961">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Greater">
+					<SLAParameter>SLAParameterThroughputserv1954644961</SLAParameter>
+					<Value>4000</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveResponsetimeserv499845118">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Less">
+					<SLAParameter>SLAParameterResponsetimeserv499845118</SLAParameter>
+					<Value>350</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveThroughputserv499845118">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Greater">
+					<SLAParameter>SLAParameterThroughputserv499845118</SLAParameter>
+					<Value>20000</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveResponsetimeserv1192528904">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Less">
+					<SLAParameter>SLAParameterResponsetimeserv1192528904</SLAParameter>
+					<Value>210</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveThroughputserv1192528904">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Greater">
+					<SLAParameter>SLAParameterThroughputserv1192528904</SLAParameter>
+					<Value>12000</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveResponsetimeserv1885212728">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Less">
+					<SLAParameter>SLAParameterResponsetimeserv1885212728</SLAParameter>
+					<Value>160</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveThroughputserv1885212728">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Greater">
+					<SLAParameter>SLAParameterThroughputserv1885212728</SLAParameter>
+					<Value>19000</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveResponsetimeserv1817419001">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Less">
+					<SLAParameter>SLAParameterResponsetimeserv1817419001</SLAParameter>
+					<Value>460</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveThroughputserv1817419001">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Greater">
+					<SLAParameter>SLAParameterThroughputserv1817419001</SLAParameter>
+					<Value>17000</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveResponsetimeserv430412885">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Less">
+					<SLAParameter>SLAParameterResponsetimeserv430412885</SLAParameter>
+					<Value>470</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveThroughputserv430412885">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Greater">
+					<SLAParameter>SLAParameterThroughputserv430412885</SLAParameter>
+					<Value>20000</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveResponsetimeserv1123096671">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Less">
+					<SLAParameter>SLAParameterResponsetimeserv1123096671</SLAParameter>
+					<Value>290</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveThroughputserv1123096671">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Greater">
+					<SLAParameter>SLAParameterThroughputserv1123096671</SLAParameter>
+					<Value>16000</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveResponsetimeserv1815780495">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Less">
+					<SLAParameter>SLAParameterResponsetimeserv1815780495</SLAParameter>
+					<Value>20</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveThroughputserv1815780495">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Greater">
+					<SLAParameter>SLAParameterThroughputserv1815780495</SLAParameter>
+					<Value>9000</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveResponsetimeserv360980652">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Less">
+					<SLAParameter>SLAParameterResponsetimeserv360980652</SLAParameter>
+					<Value>260</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveThroughputserv360980652">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Greater">
+					<SLAParameter>SLAParameterThroughputserv360980652</SLAParameter>
+					<Value>3000</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveResponsetimeserv1053664438">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Less">
+					<SLAParameter>SLAParameterResponsetimeserv1053664438</SLAParameter>
+					<Value>260</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveThroughputserv1053664438">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Greater">
+					<SLAParameter>SLAParameterThroughputserv1053664438</SLAParameter>
+					<Value>6000</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveResponsetimeserv362619158">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Less">
+					<SLAParameter>SLAParameterResponsetimeserv362619158</SLAParameter>
+					<Value>140</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveThroughputserv362619158">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Greater">
+					<SLAParameter>SLAParameterThroughputserv362619158</SLAParameter>
+					<Value>15000</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveResponsetimeserv1746348262">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Less">
+					<SLAParameter>SLAParameterResponsetimeserv1746348262</SLAParameter>
+					<Value>210</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveThroughputserv1746348262">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Greater">
+					<SLAParameter>SLAParameterThroughputserv1746348262</SLAParameter>
+					<Value>18000</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveResponsetimeserv1055302982">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Less">
+					<SLAParameter>SLAParameterResponsetimeserv1055302982</SLAParameter>
+					<Value>150</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveThroughputserv1055302982">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Greater">
+					<SLAParameter>SLAParameterThroughputserv1055302982</SLAParameter>
+					<Value>11000</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveResponsetimeserv291548419">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Less">
+					<SLAParameter>SLAParameterResponsetimeserv291548419</SLAParameter>
+					<Value>300</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveThroughputserv291548419">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Greater">
+					<SLAParameter>SLAParameterThroughputserv291548419</SLAParameter>
+					<Value>10000</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveResponsetimeserv984232205">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Less">
+					<SLAParameter>SLAParameterResponsetimeserv984232205</SLAParameter>
+					<Value>110</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveThroughputserv984232205">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Greater">
+					<SLAParameter>SLAParameterThroughputserv984232205</SLAParameter>
+					<Value>8000</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveResponsetimeserv1676916029">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Less">
+					<SLAParameter>SLAParameterResponsetimeserv1676916029</SLAParameter>
+					<Value>20</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveThroughputserv1676916029">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Greater">
+					<SLAParameter>SLAParameterThroughputserv1676916029</SLAParameter>
+					<Value>9000</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveResponsetimeserv222116186">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Less">
+					<SLAParameter>SLAParameterResponsetimeserv222116186</SLAParameter>
+					<Value>400</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveThroughputserv222116186">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Greater">
+					<SLAParameter>SLAParameterThroughputserv222116186</SLAParameter>
+					<Value>9000</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveResponsetimeserv1747986768">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Less">
+					<SLAParameter>SLAParameterResponsetimeserv1747986768</SLAParameter>
+					<Value>330</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveThroughputserv1747986768">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Greater">
+					<SLAParameter>SLAParameterThroughputserv1747986768</SLAParameter>
+					<Value>18000</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveResponsetimeserv914799972">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Less">
+					<SLAParameter>SLAParameterResponsetimeserv914799972</SLAParameter>
+					<Value>440</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveThroughputserv914799972">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Greater">
+					<SLAParameter>SLAParameterThroughputserv914799972</SLAParameter>
+					<Value>15000</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveResponsetimeserv293186925">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Less">
+					<SLAParameter>SLAParameterResponsetimeserv293186925</SLAParameter>
+					<Value>330</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveThroughputserv293186925">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Greater">
+					<SLAParameter>SLAParameterThroughputserv293186925</SLAParameter>
+					<Value>6000</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveResponsetimeserv1607483796">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Less">
+					<SLAParameter>SLAParameterResponsetimeserv1607483796</SLAParameter>
+					<Value>400</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveThroughputserv1607483796">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Greater">
+					<SLAParameter>SLAParameterThroughputserv1607483796</SLAParameter>
+					<Value>6000</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveResponsetimeserv152683953">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Less">
+					<SLAParameter>SLAParameterResponsetimeserv152683953</SLAParameter>
+					<Value>220</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveThroughputserv152683953">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Greater">
+					<SLAParameter>SLAParameterThroughputserv152683953</SLAParameter>
+					<Value>13000</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveResponsetimeserv985870749">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Less">
+					<SLAParameter>SLAParameterResponsetimeserv985870749</SLAParameter>
+					<Value>490</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveThroughputserv985870749">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Greater">
+					<SLAParameter>SLAParameterThroughputserv985870749</SLAParameter>
+					<Value>2000</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveResponsetimeserv845367739">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Less">
+					<SLAParameter>SLAParameterResponsetimeserv845367739</SLAParameter>
+					<Value>410</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveThroughputserv845367739">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Greater">
+					<SLAParameter>SLAParameterThroughputserv845367739</SLAParameter>
+					<Value>20000</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveResponsetimeserv1678554535">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Less">
+					<SLAParameter>SLAParameterResponsetimeserv1678554535</SLAParameter>
+					<Value>30</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveThroughputserv1678554535">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Greater">
+					<SLAParameter>SLAParameterThroughputserv1678554535</SLAParameter>
+					<Value>4000</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveResponsetimeserv1538051563">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Less">
+					<SLAParameter>SLAParameterResponsetimeserv1538051563</SLAParameter>
+					<Value>250</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveThroughputserv1538051563">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Greater">
+					<SLAParameter>SLAParameterThroughputserv1538051563</SLAParameter>
+					<Value>1000</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveResponsetimeserv223754692">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Less">
+					<SLAParameter>SLAParameterResponsetimeserv223754692</SLAParameter>
+					<Value>80</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveThroughputserv223754692">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Greater">
+					<SLAParameter>SLAParameterThroughputserv223754692</SLAParameter>
+					<Value>1000</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveResponsetimeserv916438516">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Less">
+					<SLAParameter>SLAParameterResponsetimeserv916438516</SLAParameter>
+					<Value>480</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveThroughputserv916438516">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Greater">
+					<SLAParameter>SLAParameterThroughputserv916438516</SLAParameter>
+					<Value>2000</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveResponsetimeserv83251720">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Less">
+					<SLAParameter>SLAParameterResponsetimeserv83251720</SLAParameter>
+					<Value>430</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveThroughputserv83251720">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Greater">
+					<SLAParameter>SLAParameterThroughputserv83251720</SLAParameter>
+					<Value>17000</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveResponsetimeserv775935506">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Less">
+					<SLAParameter>SLAParameterResponsetimeserv775935506</SLAParameter>
+					<Value>70</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveThroughputserv775935506">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Greater">
+					<SLAParameter>SLAParameterThroughputserv775935506</SLAParameter>
+					<Value>9000</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveResponsetimeserv1468619330">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Less">
+					<SLAParameter>SLAParameterResponsetimeserv1468619330</SLAParameter>
+					<Value>120</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveThroughputserv1468619330">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Greater">
+					<SLAParameter>SLAParameterThroughputserv1468619330</SLAParameter>
+					<Value>18000</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveResponsetimeserv13819487">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Less">
+					<SLAParameter>SLAParameterResponsetimeserv13819487</SLAParameter>
+					<Value>310</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveThroughputserv13819487">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Greater">
+					<SLAParameter>SLAParameterThroughputserv13819487</SLAParameter>
+					<Value>17000</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveResponsetimeserv706503273">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Less">
+					<SLAParameter>SLAParameterResponsetimeserv706503273</SLAParameter>
+					<Value>50</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveThroughputserv706503273">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Greater">
+					<SLAParameter>SLAParameterThroughputserv706503273</SLAParameter>
+					<Value>12000</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveResponsetimeserv1609122302">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Less">
+					<SLAParameter>SLAParameterResponsetimeserv1609122302</SLAParameter>
+					<Value>390</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveThroughputserv1609122302">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Greater">
+					<SLAParameter>SLAParameterThroughputserv1609122302</SLAParameter>
+					<Value>15000</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveResponsetimeserv1399187097">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Less">
+					<SLAParameter>SLAParameterResponsetimeserv1399187097</SLAParameter>
+					<Value>80</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective><ServiceLevelObjective name="ServiceLevelObjectiveThroughputserv1399187097">
+			<Obliged>Vienna XPress Services</Obliged>
+			<Validity>
+				<Start>2008-01-30T14:00:00</Start>
+				<End>2008-05-29T17:29:00</End>
+			</Validity>
+			<Expression>
+				<Predicate xsi:type="Greater">
+					<SLAParameter>SLAParameterThroughputserv1399187097</SLAParameter>
+					<Value>9000</Value>
+				</Predicate>
+			</Expression>
+			<EvaluationEvent>NewValue</EvaluationEvent>
+		</ServiceLevelObjective></Obligations></SLA>

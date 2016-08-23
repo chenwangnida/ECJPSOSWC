@@ -1,0 +1,72 @@
+#testset files
+service-wsdl = Services.wsdl
+taxonomy-owl = Taxonomy.owl
+service-wsla = Servicelevelagreements.wsla
+#QoSweights
+fitness-weight1       = 0.25
+fitness-weight2       = 0.25
+fitness-weight3       = 0.25
+fitness-weight4       = 0.25
+dynamic-normalisation = true
+
+state = ec.simple.SimpleEvolutionState
+init = ecj.ec.pso.GraphInitializer.java
+finish = ec.simple.SimpleFinisher
+exch = ec.simple.SimpleExchanger
+breed = ec.pso.PSOBreeder
+eval = ec.simple.SimpleEvaluator
+
+stat = ec.simple.SimpleStatistics
+stat.file = out.stat
+stat.do-time = true
+stat.do-final = true
+
+breedthreads = auto
+evalthreads = auto
+checkpoint = false
+checkpoint-modulo = 1
+checkpoint-prefix = ec
+generations = 100
+quit-on-run-complete = true
+pop = ec.Population
+pop.subpops = 1
+pop.subpop.0 = ec.Subpopulation
+pop.subpop.0.size = 30
+pop.subpop.0.duplicate-retries = 2
+pop.subpop.0.species = ec.vector.FloatVectorSpecies
+pop.subpop.0.species.ind = ec.pso.Particle
+pop.subpop.0.species.fitness = ec.simple.SimpleFitness
+
+# You have to specify some kind of dummy pipeline even though we won’t use it. but my explaination is:the individuals never die, never are selected, and never breed.
+# They just undergo a directed mutation influenced by personal best results, neighborhood (“informant”) best results, and global best results.
+pop.subpop.0.species.pipe = ec.vector.breed.VectorMutationPipeline
+pop.subpop.0.species.pipe.source.0 = ec.select.TournamentSelection
+select.tournament.size = 2
+
+# You also have to specify a few dummy mutation parameters we won’t use either
+pop.subpop.0.species.mutation-prob = 0.01
+pop.subpop.0.species.mutation-stdev = 0.05
+pop.subpop.0.species.mutation-type = gauss
+pop.subpop.0.species.crossover-type = one
+
+# Here you specify your individual in the usual way
+pop.subpop.0.species.genome-size = 2
+pop.subpop.0.species.min-gene = 0.0
+pop.subpop.0.species.max-gene = 1.0
+
+# Problem
+eval.problem = pso.ECJPSO
+
+# PSO parameters
+# Inertia weight (w)
+breed.velocity-coefficient = 0.7298
+# Self confidence factor (c1)
+breed.personal-coefficient = 1.49618
+# Swarm confidence factor (c2)
+breed.informant-coefficient = 1.49618
+
+breed.global-coefficient = 0.0
+#subset of particles, but normally we set it equal to subpop0 size
+breed.neighborhood-size = 30
+breed.neighborhood-style = random
+breed.include-self = false
