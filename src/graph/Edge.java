@@ -2,8 +2,6 @@ package graph;
 
 import java.util.Set;
 
-import ec.pso.Edge;
-
 public class Edge {
 	private Node fromNode;
 	private Node toNode;
@@ -48,13 +46,13 @@ public class Edge {
 	}
 
 	@Override
-	public boolean equals(Object obj) {
+	public boolean equals(Object other) {
 		if (other instanceof Edge) {
 			Edge o = (Edge) other;
 			return fromNode.getName().equals(o.fromNode.getName()) && toNode.getName().equals(o.toNode.getName());
-		} else
+		}
+		else
 			return false;
-
 	}
 
 	@Override

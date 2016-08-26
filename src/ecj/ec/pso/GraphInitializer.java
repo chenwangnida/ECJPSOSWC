@@ -33,7 +33,7 @@ public class GraphInitializer extends SimpleInitializer {
 
 		qos_w1 = state.parameters.getDouble(new Parameter("fitness-weight1"), null);
 		qos_w2 = state.parameters.getDouble(new Parameter("fitness-weight2"), null);
-		qos_w3 = state.parameters.getDouble(new Parameter("fitness-weight3"), null);
+		qos_w3 =  state.parameters.getDouble(new Parameter("fitness-weight3"), null);
 		qos_w4 = state.parameters.getDouble(new Parameter("fitness-weight4"), null);
 		dynamicNormalisation = state.parameters.getBoolean(new Parameter("dynamic-normalisation"), null, false);
 
