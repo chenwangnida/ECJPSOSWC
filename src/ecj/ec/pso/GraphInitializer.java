@@ -20,6 +20,11 @@ public class GraphInitializer extends SimpleInitializer {
 	public double qos_w4;
 	public static boolean dynamicNormalisation;
 
+	public static final int TIME = 0;
+	public static final int COST = 1;
+	public static final int AVAILABILITY = 2;
+	public static final int RELIABILITY = 3;
+
 	public RelevantServices relevantSerivces;
 	public Node relevantNode;
 
@@ -37,6 +42,7 @@ public class GraphInitializer extends SimpleInitializer {
 		qos_w4 = state.parameters.getDouble(new Parameter("fitness-weight4"), null);
 		dynamicNormalisation = state.parameters.getBoolean(new Parameter("dynamic-normalisation"), null, false);
 
+		//Find all relevant services
 		try {
 			relevantSerivces = new RelevantServices(service_wsdl, taxonomy_owl);
 			relevantSerivces.allRelevantService("inst2139388127", "inst162515103");
@@ -45,6 +51,13 @@ public class GraphInitializer extends SimpleInitializer {
 		} catch (JAXBException | IOException e) {
 			e.printStackTrace();
 		}
+
+		double[] mockQos = new double[4];
+		mockQos[TIME] = 0;
+		mockQos[COST] = 0;
+		mockQos[AVAILABILITY] = 1;
+		mockQos[RELIABILITY] = 1;
+
 		// Set size of particles
 		Parameter genomeSizeParam = new Parameter("pop.subpop.0.species.genome-size");
 		state.parameters.set(genomeSizeParam, ""+relevantSerivces.getServiceSequence().size());

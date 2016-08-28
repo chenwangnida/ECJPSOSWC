@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<services>
+	<service name="1" Res="3272.56" Ava="0.81" Suc="0.88" Rel="0.64"
+		Lat="2825.51" Pri="4.32">
+	</service>
+	<service name="2" Res="4365.09" Ava="0.80" Suc="0.75" Rel="0.53"
+		Lat="651.11" Pri="9.82">
+	</service>
+	<service name="3" Res="4400.33" Ava="0.28" Suc="0.48" Rel="0.40"
+		Lat="2067.53" Pri="6.74">
+	</service>
+	<service name="4" Res="3042.95" Ava="0.67" Suc="0.26" Rel="0.73"
+		Lat="2316.72" Pri="4.98">
+	</service>
+	<service name="5" Res="4693.10" Ava="0.67" Suc="0.68" Rel="0.52"
+		Lat="4357.02" Pri="7.24">
+	</service>
+	<service name="6" Res="2288.63" Ava="0.09" Suc="0.06" Rel="0.45"
+		Lat="4231.66" Pri="8.10">
+	</service>
+	<service name="7" Res="1159.81" Ava="0.45" Suc="0.69" Rel="0.37"
+		Lat="1288.01" Pri="8.75">
+	</service>
+	<service name="8" Res="3761.47" Ava="0.58" Suc="0.99" Rel="0.51"
+		Lat="4786.78" Pri="6.53">
+	</service>
+	<service name="9" Res="1217.82" Ava="0.62" Suc="0.72" Rel="0.83"
+		Lat="2773.88" Pri="3.56">
+	</service>
+	<service name="10" Res="2435.73" Ava="0.93" Suc="0.37" Rel="0.54"
+		Lat="3120.65" Pri="9.02">
+	</service>
+	<service name="11" Res="3800.27" Ava="0.54" Suc="0.92" Rel="0.33"
+		Lat="4547.07" Pri="0.87">
+
+	</service>
+	<service name="12" Res="4838.10" Ava="0.67" Suc="0.43" Rel="0.69"
+		Lat="4520.30" Pri="9.90">
+
+	</service>
+	<service name="13" Res="4993.96" Ava="0.54" Suc="0.42" Rel="0.52"
+		Lat="4873.34" Pri="8.99">
+
+	</service>
+	<service name="14" Res="2508.28" Ava="0.61" Suc="0.72" Rel="0.34"
+		Lat="557.95" Pri="2.66">
+
+	</service>
+	<service name="15" Res="74.19" Ava="0.58" Suc="0.51" Rel="0.69"
+		Lat="3678.07" Pri="9.18">
+
+	</service>
+	<service name="16" Res="2323.37" Ava="0.86" Suc="0.80" Rel="0.76"
+		Lat="1618.02" Pri="7.38">
+
+	</service>
+	<service name="17" Res="4782.20" Ava="0.74" Suc="0.67" Rel="0.83"
+		Lat="1855.84" Pri="2.99">
+
+	</service>
+	<service name="18" Res="1249.34" Ava="0.61" Suc="0.71" Rel="0.73"
+		Lat="4485.03" Pri="0.30">
+
+	</service>
+	<service name="19" Res="4783.38" Ava="0.18" Suc="0.95" Rel="0.58"
+		Lat="4380.58" Pri="0.24">
+
+	</service>
+	<service name="20" Res="989.47" Ava="0.75" Suc="0.43" Rel="0.69"
+		Lat="12.24" Pri="3.48">
+
+	</service>
+	<service name="21" Res="3005.61" Ava="0.34" Suc="0.92" Rel="0.60"
+		Lat="910.35" Pri="0.50">
+
+	</service>
+	<service name="22" Res="971.23" Ava="0.26" Suc="0.24" Rel="0.70"
+		Lat="1949.87" Pri="2.38">
+
+	</service>
+	<service name="23" Res="1232.38" Ava="0.61" Suc="0.26" Rel="0.55"
+		Lat="3854.64" Pri="5.15">
+
+	</service>
+	<service name="24" Res="2829.16" Ava="0.32" Suc="0.68" Rel="0.58"
+		Lat="3511.49" Pri="5.95">
+
+	</service>
+	<service name="25" Res="4831.76" Ava="0.06" Suc="0.97" Rel="0.76"
+		Lat="2884.96" Pri="5.83">
+	</service>
+	<service name="26" Res="1660.56" Ava="0.33" Suc="0.74" Rel="0.50"
+		Lat="1547.88" Pri="0.62">
+	</service>
+	<service name="27" Res="1889.94" Ava="0.77" Suc="0.44" Rel="0.69"
+		Lat="2638.42" Pri="6.71">
+	</service>
+	<service name="28" Res="4146.73" Ava="0.33" Suc="0.76" Rel="0.73"
+		Lat="1011.71" Pri="2.85">
+	</service>
+	<service name="29" Res="3980.25" Ava="0.80" Suc="0.97" Rel="0.82"
+		Lat="439.64" Pri="7.09">
+
+	</service>
+	<service name="30" Res="3426.73" Ava="0.18" Suc="0.62" Rel="0.51"
+		Lat="2601.27" Pri="1.65">
+	</service>
+	<service name="31" Res="373.56" Ava="0.44" Suc="0.66" Rel="0.67"
+		Lat="1653.25" Pri="0.86">
+
+	</service>
+	<service name="32" Res="2524.93" Ava="0.94" Suc="0.31" Rel="0.42"
+		Lat="148.88" Pri="0.09">
+
+	</service>
+	<service name="33" Res="512.71" Ava="0.91" Suc="0.77" Rel="0.88"
+		Lat="3142.34" Pri="4.07">
+
+	</service>
+	<service name="34" Res="4231.07" Ava="0.28" Suc="0.82" Rel="0.71"
+		Lat="4892.07" Pri="7.87">
+	</service>
+	<service name="35" Res="3073.39" Ava="0.46" Suc="0.25" Rel="0.34"
+		Lat="3106.04" Pri="1.66">
+
+	</service>
+	<service name="36" Res="2285.74" Ava="0.09" Suc="0.27" Rel="0.46"
+		Lat="2889.74" Pri="1.09">
+
+	</service>
+	<service name="37" Res="124.33" Ava="0.25" Suc="0.96" Rel="0.70"
+		Lat="1052.99" Pri="2.63">
+
+	</service>
+	<service name="38" Res="30.30" Ava="0.64" Suc="0.77" Rel="0.86"
+		Lat="3958.79" Pri="1.73">
+
+	</service>
+	<service name="39" Res="4725.15" Ava="0.70" Suc="0.53" Rel="0.44"
+		Lat="2404.21" Pri="2.68">
+
+	</service>
+	<service name="40" Res="1764.83" Ava="0.41" Suc="0.46" Rel="0.81"
+		Lat="19.76" Pri="8.92">
+
+	</service>
+	<service name="41" Res="4355.37" Ava="0.50" Suc="0.35" Rel="0.39"
+		Lat="3550.81" Pri="9.79">
+
+	</service>
+	<service name="42" Res="3839.57" Ava="0.85" Suc="0.36" Rel="0.69"
+		Lat="4847.31" Pri="4.17">
+
+	</service>
+	<service name="43" Res="2218.10" Ava="0.22" Suc="0.08" Rel="0.63"
+		Lat="3440.84" Pri="3.48">
+
+	</service>
+	<service name="44" Res="145.07" Ava="0.67" Suc="0.66" Rel="0.35"
+		Lat="397.16" Pri="9.28">
+
+	</service>
+	<service name="45" Res="3264.75" Ava="0.29" Suc="0.59" Rel="0.87"
+		Lat="4485.11" Pri="1.97">
+	</service>
+	<service name="46" Res="3347.94" Ava="0.20" Suc="0.24" Rel="0.37"
+		Lat="3963.15" Pri="7.30">
+
+	</service>
+	<service name="47" Res="4727.40" Ava="0.89" Suc="0.92" Rel="0.76"
+		Lat="964.47" Pri="9.39">
+
+	</service>
+	<service name="48" Res="4188.93" Ava="0.32" Suc="0.73" Rel="0.38"
+		Lat="3784.08" Pri="2.98">
+
+	</service>
+	<service name="49" Res="1144.37" Ava="0.81" Suc="0.70" Rel="0.38"
+		Lat="4171.71" Pri="3.50">
+
+	</service>
+	<service name="50" Res="1236.54" Ava="0.83" Suc="0.43" Rel="0.54"
+		Lat="2311.74" Pri="4.53">
+
+	</service>
+	<service name="51" Res="2058.43" Ava="0.80" Suc="0.95" Rel="0.40"
+		Lat="4934.47" Pri="8.07">
+
+	</service>
+	<service name="52" Res="1057.71" Ava="0.40" Suc="0.42" Rel="0.50"
+		Lat="3027.17" Pri="7.98">
+
+	</service>
+	<service name="53" Res="2154.16" Ava="0.28" Suc="0.48" Rel="0.72"
+		Lat="1022.46" Pri="7.90">
+
+	</service>
+</services>

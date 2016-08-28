@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-
 public class Node implements Cloneable {
 	private String name;
 	private double[] qos;
@@ -12,14 +11,36 @@ public class Node implements Cloneable {
 	private Set<String> outputs;
 	private boolean consider = true;
 
-//
-//	private List<Edge> incomingEdgeList = new ArrayList<Edge>();
-//	private List<Edge> outgoingEdgeList = new ArrayList<Edge>();
-//	private List<TaxonomyNode> taxonomyOutputs = new ArrayList<TaxonomyNode>();
+	private List<Edge> incomingEdgeList = new ArrayList<Edge>();
+	private List<Edge> outgoingEdgeList = new ArrayList<Edge>();
+	// private List<TaxonomyNode> taxonomyOutputs = new
+	// ArrayList<TaxonomyNode>();
 
+	public Node(String name, double[] qos, Set<String> inputs, Set<String> outputs) {
+		this.name = name;
+		this.qos = qos;
+		this.inputs = inputs;
+		this.outputs = outputs;
+	}
 
 	public double[] getQos() {
 		return qos;
+	}
+
+	public List<Edge> getIncomingEdgeList() {
+		return incomingEdgeList;
+	}
+
+	public void setIncomingEdgeList(List<Edge> incomingEdgeList) {
+		this.incomingEdgeList = incomingEdgeList;
+	}
+
+	public List<Edge> getOutgoingEdgeList() {
+		return outgoingEdgeList;
+	}
+
+	public void setOutgoingEdgeList(List<Edge> outgoingEdgeList) {
+		this.outgoingEdgeList = outgoingEdgeList;
 	}
 
 	public void setQos(double[] qos) {
@@ -57,8 +78,9 @@ public class Node implements Cloneable {
 	public void setConsider(boolean consider) {
 		this.consider = consider;
 	}
+
 	@Override
-	public String toString(){
+	public String toString() {
 		if (consider)
 			return name;
 		else
@@ -75,8 +97,7 @@ public class Node implements Cloneable {
 		if (other instanceof Node) {
 			Node o = (Node) other;
 			return name.equals(o.name);
-		}
-		else
+		} else
 			return false;
 	}
 
