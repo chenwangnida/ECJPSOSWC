@@ -13,6 +13,7 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
+import org.jgrapht.UndirectedGraph;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
@@ -24,6 +25,8 @@ public class SWSPool {
 
 	private List<Service> serviceList = new LinkedList<Service>();
 	private SemanticsPool semantics;
+
+	private static int preFoundServiceIndex = -1;
 
 	/**
 	 * Semantic web service pool initialization
@@ -38,7 +41,6 @@ public class SWSPool {
 			throws FileNotFoundException, JAXBException {
 		SWSPool swsp = new SWSPool();
 		swsp.semantics = semantics;
-
 		List<double[]> list = initialQoSfromSLA("qos.xml");
 
 		Definitions def = Definitions.parseXML(serviceFilePath);
@@ -47,7 +49,7 @@ public class SWSPool {
 					def.getSemExtension().getSemMessageExtList().get(i + 1)));
 		}
 
-		for(int i=0; i< list.size();i++){
+		for (int i = 0; i < list.size(); i++) {
 
 			swsp.serviceList.get(i).setQos(list.get(i));
 		}
@@ -65,7 +67,6 @@ public class SWSPool {
 	 */
 	public static List<double[]> initialQoSfromSLA(String fileName) {
 		List<double[]> qosList = new ArrayList<double[]>();
-
 
 		try {
 			File fXmlFile = new File(fileName);
@@ -127,6 +128,50 @@ public class SWSPool {
 			}
 		}
 		return service;
+	}
+
+	/**
+	 * find a single service that can be applied now and update the output list
+	 * and delete the service
+	 *
+	 * @param inputSet
+	 */
+	public Service createGraphService(HashSet<String> inputSet, List<Service> serviceSequence,
+			UndirectedGraph undirectedGraph) {
+		int foundServiceIndex = -1;
+		for (int i = 0; i < serviceSequence.size(); i++) {
+			Service service = serviceSequence.get(i);
+
+			if (service.searchServiceMatchFromInputSet(this.semantics, inputSet)) {
+				foundServiceIndex = i;
+				break;
+			}
+		}
+		if (foundServiceIndex == -1) {
+			System.out.println("no matching for inputSet");
+			return null;
+		}
+		Service newService = serviceSequence.get(foundServiceIndex);
+
+		// graph add vertex, edge< old vertex,new edge>
+		undirectedGraph.addVertex(newService.getServiceID());
+		if (preFoundServiceIndex == -1) {
+			undirectedGraph.addEdge("startNode", newService.getServiceID());
+		} else {
+			Service oldService = serviceSequence.get(preFoundServiceIndex);
+
+			undirectedGraph.addEdge(oldService.getServiceID(), newService.getServiceID());
+		}
+
+		serviceSequence.remove(foundServiceIndex);
+		// add found service outputs to inputSet
+		for (String output : newService.getOutputList()) {
+			if (!inputSet.contains(output)) {
+				inputSet.add(output);
+			}
+		}
+		preFoundServiceIndex = foundServiceIndex;
+		return newService;
 	}
 
 }

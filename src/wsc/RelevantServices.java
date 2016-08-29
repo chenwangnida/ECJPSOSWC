@@ -7,6 +7,8 @@ import java.util.LinkedList;
 import java.util.List;
 import javax.xml.bind.JAXBException;
 
+import org.jgrapht.UndirectedGraph;
+
 import wsc.data.pool.SWSPool;
 import wsc.data.pool.SemanticsPool;
 import wsc.data.pool.Service;
@@ -15,14 +17,16 @@ public class RelevantServices {
 
 	private final SWSPool swsPool;
 
-	// current output instance list
+	// current output instance list for all relevant services
 	private final HashSet<String> outputSet = new HashSet<String>();
+	//
+	private final HashSet<String> graphOutputSet = new HashSet<String>();
 	private final SemanticsPool semanticsPool;
 
 	// save all the relevant services
 	private final List<Service> serviceSequence = new LinkedList<Service>();
 
-	//set and get
+	// set and get
 	public SWSPool getSwsPool() {
 		return swsPool;
 	}
@@ -87,6 +91,20 @@ public class RelevantServices {
 			System.out.println("choose service " + service.getServiceID());
 			serviceSequence.add(service);
 		} while (true);// while(!this.checkOutputSet(output))
+	}
+
+	public void createGraphService(String input, String output, UndirectedGraph undirectedGraph) {
+
+		this.graphOutputSet.add(input);
+		do {
+			Service service = this.swsPool.createGraphService(this.graphOutputSet, this.serviceSequence, undirectedGraph);
+			if (service == null) {
+				System.out.println("No more service satisfied");
+				return;
+			}
+			System.out.println("choose service " + service.getServiceID());
+		} while (!this.checkOutputSet(output));
+
 	}
 
 }

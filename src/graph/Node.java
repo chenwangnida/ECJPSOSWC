@@ -2,13 +2,12 @@ package graph;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 public class Node implements Cloneable {
 	private String name;
 	private double[] qos;
-	private Set<String> inputs;
-	private Set<String> outputs;
+	private List<String> inputs;
+	private List<String> outputs;
 	private boolean consider = true;
 
 	private List<Edge> incomingEdgeList = new ArrayList<Edge>();
@@ -16,7 +15,7 @@ public class Node implements Cloneable {
 	// private List<TaxonomyNode> taxonomyOutputs = new
 	// ArrayList<TaxonomyNode>();
 
-	public Node(String name, double[] qos, Set<String> inputs, Set<String> outputs) {
+	public Node(String name, double[] qos, List<String> inputs, List<String> outputs) {
 		this.name = name;
 		this.qos = qos;
 		this.inputs = inputs;
@@ -47,19 +46,19 @@ public class Node implements Cloneable {
 		this.qos = qos;
 	}
 
-	public Set<String> getInputs() {
+	public List<String> getInputs() {
 		return inputs;
 	}
 
-	public void setInputs(Set<String> inputs) {
+	public void setInputs(List<String> inputs) {
 		this.inputs = inputs;
 	}
 
-	public Set<String> getOutputs() {
+	public List<String> getOutputs() {
 		return outputs;
 	}
 
-	public void setOutputs(Set<String> outputs) {
+	public void setOutputs(List<String> outputs) {
 		this.outputs = outputs;
 	}
 
@@ -77,6 +76,10 @@ public class Node implements Cloneable {
 
 	public void setConsider(boolean consider) {
 		this.consider = consider;
+	}
+
+	public Node clone() {
+		return new Node(name, qos, inputs, outputs);
 	}
 
 	@Override
