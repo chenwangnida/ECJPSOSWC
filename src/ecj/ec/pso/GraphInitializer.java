@@ -7,10 +7,13 @@ import java.util.List;
 
 import javax.xml.bind.JAXBException;
 
+import org.jgrapht.UndirectedGraph;
+import org.jgrapht.graph.DefaultEdge;
+import org.jgrapht.graph.SimpleGraph;
+
 import ec.EvolutionState;
 import ec.simple.SimpleInitializer;
 import ec.util.Parameter;
-import graph.Node;
 import wsc.RelevantServices;
 
 public class GraphInitializer extends SimpleInitializer {
@@ -28,9 +31,9 @@ public class GraphInitializer extends SimpleInitializer {
 
 	public RelevantServices relevantSerivces;
 
-	public Node startNode;
-	public Node endNode;
-	public Node relevantNode;
+	List<String> taskInput;
+	List<String> taskOutput;
+
 
 	@Override
 	public void setup(EvolutionState state, Parameter base) {
@@ -46,9 +49,9 @@ public class GraphInitializer extends SimpleInitializer {
 		dynamicNormalisation = state.parameters.getBoolean(new Parameter("dynamic-normalisation"), null, false);
 
 		// define task
-		List<String> taskInput = new ArrayList<String>();
+		taskInput = new ArrayList<String>();
 		taskInput.add("inst2139388127");
-		List<String> taskOutput = new ArrayList<String>();
+		taskOutput = new ArrayList<String>();
 		taskOutput.add("inst162515103");
 
 		// Find all relevant services
@@ -69,12 +72,14 @@ public class GraphInitializer extends SimpleInitializer {
 		mockQos[AVAILABILITY] = 1;
 		mockQos[RELIABILITY] = 1;
 
-		startNode = new Node("start", mockQos, new ArrayList<String>(), taskInput);
-		endNode = new Node("end", mockQos, taskOutput, new ArrayList<String>());
-
 		// Set size of particles
 		Parameter genomeSizeParam = new Parameter("pop.subpop.0.species.genome-size");
 		state.parameters.set(genomeSizeParam, "" + relevantSerivces.getServiceSequence().size());
+
+		UndirectedGraph<String, DefaultEdge> undirectedGraph = new SimpleGraph<String, DefaultEdge>(DefaultEdge.class);
+		undirectedGraph.addVertex("startNode");
+		relevantSerivces.createGraphService(taskInput.get(0), taskOutput.get(0), undirectedGraph);
+        System.out.println(undirectedGraph.toString());
 	}
 
 }

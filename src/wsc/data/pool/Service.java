@@ -114,4 +114,31 @@ public class Service {
 		return false;
 	}
 
+	/**
+	 * search for services matched with current inputSet
+	 *
+	 * @param semanticsPool
+	 * @param intputList
+	 * @return boolean
+	 */
+	public boolean searchServiceGraphMatchFromInputSet(SemanticsPool semanticsPool, Service service,HashSet<String> inputSet) {
+		int inputMatchCount = 0;
+		// check if the inputSet contains all the required inputs from services
+		for (String giveninput : inputSet) {
+			for (int i = 0; i < service.getInputList().size(); i++) {
+
+				String existInput = service.getInputList().get(i);
+				if (semanticsPool.searchSemanticMatchFromInst(giveninput, existInput)) {
+					inputMatchCount++;
+					// contain complete match from a single service
+					if (inputMatchCount == service.getInputList().size()) {
+						return true;
+					}
+				}
+			}
+		}
+		return false;
+	}
+
+
 }

@@ -14,6 +14,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
 import org.jgrapht.UndirectedGraph;
+import org.jgrapht.graph.DefaultEdge;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
@@ -49,6 +50,7 @@ public class SWSPool {
 					def.getSemExtension().getSemMessageExtList().get(i + 1)));
 		}
 
+		// manually add QoS attributes
 		for (int i = 0; i < list.size(); i++) {
 
 			swsp.serviceList.get(i).setQos(list.get(i));
@@ -137,13 +139,25 @@ public class SWSPool {
 	 * @param inputSet
 	 */
 	public Service createGraphService(HashSet<String> inputSet, List<Service> serviceSequence,
-			UndirectedGraph undirectedGraph) {
+			SemanticsPool semanticsPool, UndirectedGraph<String, DefaultEdge> undirectedGraph) {
 		int foundServiceIndex = -1;
-		for (int i = 0; i < serviceSequence.size(); i++) {
-			Service service = serviceSequence.get(i);
 
-			if (service.searchServiceMatchFromInputSet(this.semantics, inputSet)) {
+		for (int i = 0; i < serviceSequence.size(); i++) {
+			Service s = new Service(serviceSequence.get(i).getServiceID());
+			if (s.searchServiceGraphMatchFromInputSet(semanticsPool, serviceSequence.get(i), inputSet)) {
 				foundServiceIndex = i;
+				// Service newService = serviceSequence.get(foundServiceIndex);
+				// graph add vertex, edge< old vertex,new edge>
+				undirectedGraph.addVertex(s.getServiceID());
+
+				if (preFoundServiceIndex == -1) {
+					undirectedGraph.addEdge("startNode", s.getServiceID());
+//					undirectedGraph.addEdge("startNode", "test");
+				} else {
+					Service oldService = serviceSequence.get(preFoundServiceIndex);
+					undirectedGraph.addEdge(oldService.getServiceID(), s.getServiceID());
+				}
+
 				break;
 			}
 		}
@@ -152,16 +166,6 @@ public class SWSPool {
 			return null;
 		}
 		Service newService = serviceSequence.get(foundServiceIndex);
-
-		// graph add vertex, edge< old vertex,new edge>
-		undirectedGraph.addVertex(newService.getServiceID());
-		if (preFoundServiceIndex == -1) {
-			undirectedGraph.addEdge("startNode", newService.getServiceID());
-		} else {
-			Service oldService = serviceSequence.get(preFoundServiceIndex);
-
-			undirectedGraph.addEdge(oldService.getServiceID(), newService.getServiceID());
-		}
 
 		serviceSequence.remove(foundServiceIndex);
 		// add found service outputs to inputSet

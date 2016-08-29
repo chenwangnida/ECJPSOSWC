@@ -8,6 +8,7 @@ import java.util.List;
 import javax.xml.bind.JAXBException;
 
 import org.jgrapht.UndirectedGraph;
+import org.jgrapht.graph.DefaultEdge;
 
 import wsc.data.pool.SWSPool;
 import wsc.data.pool.SemanticsPool;
@@ -15,7 +16,7 @@ import wsc.data.pool.Service;
 
 public class RelevantServices {
 
-	private final SWSPool swsPool;
+	private SWSPool swsPool;
 
 	// current output instance list for all relevant services
 	private final HashSet<String> outputSet = new HashSet<String>();
@@ -25,6 +26,7 @@ public class RelevantServices {
 
 	// save all the relevant services
 	private final List<Service> serviceSequence = new LinkedList<Service>();
+	// save all semantics
 
 	// set and get
 	public SWSPool getSwsPool() {
@@ -62,9 +64,11 @@ public class RelevantServices {
 	 * @param givenoutput
 	 * @return
 	 */
-	private boolean checkOutputSet(String output) {
-		for (String outputInst : this.outputSet) {
+	private boolean checkOutputSet(String output, UndirectedGraph<String, DefaultEdge> undirectedGraph) {
+		for (String outputInst : this.graphOutputSet) {
 			if (this.semanticsPool.searchSemanticMatchFromInst(outputInst, output)) {
+
+				undirectedGraph.addVertex("endNode");
 				return true;
 			}
 		}
@@ -93,17 +97,19 @@ public class RelevantServices {
 		} while (true);// while(!this.checkOutputSet(output))
 	}
 
-	public void createGraphService(String input, String output, UndirectedGraph undirectedGraph) {
+	public void createGraphService(String input, String output, UndirectedGraph<String, DefaultEdge> undirectedGraph) {
 
 		this.graphOutputSet.add(input);
+		SWSPool swsPool = new SWSPool();
+
 		do {
-			Service service = this.swsPool.createGraphService(this.graphOutputSet, this.serviceSequence, undirectedGraph);
+			Service service = swsPool.createGraphService(this.graphOutputSet, this.serviceSequence, this.semanticsPool,
+					undirectedGraph);
 			if (service == null) {
 				System.out.println("No more service satisfied");
 				return;
 			}
-			System.out.println("choose service " + service.getServiceID());
-		} while (!this.checkOutputSet(output));
+		} while (!this.checkOutputSet(output, undirectedGraph));
 
 	}
 
