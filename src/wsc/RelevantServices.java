@@ -23,7 +23,7 @@ public class RelevantServices {
 
 	// current output instance list for all relevant services
 	private final HashSet<String> outputSet = new HashSet<String>();
-	private final HashSet<String> graphOutputSet = new HashSet<String>();
+	private HashSet<String> graphOutputSet = new HashSet<String>();
 	
 	
 	
@@ -50,6 +50,14 @@ public class RelevantServices {
 		return serviceSequence;
 	}
 
+	public HashSet<String> getGraphOutputSet() {
+		return graphOutputSet;
+	}
+
+	public void setGraphOutputSet(HashSet<String> graphOutputSet) {
+		this.graphOutputSet = graphOutputSet;
+	}
+
 	/**
 	 * using service file and owl file to create semantics pool and service pool
 	 *
@@ -58,6 +66,7 @@ public class RelevantServices {
 	 * @throws JAXBException
 	 * @throws FileNotFoundException
 	 */
+ 
 	public RelevantServices(String serviceFilePath, String owlFilePath) throws FileNotFoundException, JAXBException {
 		this.semanticsPool = SemanticsPool.createSemanticsFromOWL(owlFilePath);
 		this.swsPool = SWSPool.parseXML(this.semanticsPool, serviceFilePath);

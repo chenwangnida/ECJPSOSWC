@@ -76,11 +76,18 @@ public class GraphInitializer extends SimpleInitializer {
 		Parameter genomeSizeParam = new Parameter("pop.subpop.0.species.genome-size");
 		state.parameters.set(genomeSizeParam, "" + relevantSerivces.getServiceSequence().size());
 
+		for(int i=0;i<=10;i++){
+		relevantSerivces.getGraphOutputSet().clear();
 		UndirectedGraph<String, DefaultEdge> undirectedGraph = new SimpleGraph<String, DefaultEdge>(DefaultEdge.class);
 		undirectedGraph.addVertex("startNode");
 		relevantSerivces.createGraphService(taskInput.get(0), taskOutput.get(0), undirectedGraph);
 		 System.out.println("graph printing#########################################");
         System.out.println(undirectedGraph.toString());
+        
+        
+		}
+        
+        
 	}
 
 }

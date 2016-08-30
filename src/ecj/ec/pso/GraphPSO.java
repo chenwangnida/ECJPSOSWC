@@ -28,14 +28,18 @@ public class GraphPSO extends Problem implements SimpleProblemForm {
 			return;
 		if (!(ind instanceof GraphParticle))
 			state.output.fatal("It is not a graph particle objective !", null);
+		
+		
 		GraphParticle ind2 = (GraphParticle) ind;
-
-		//create service graph
 		System.out.print("A");
+		
 //		UndirectedGraph<String, DefaultEdge> undirectedGraph = new SimpleGraph<String, DefaultEdge>(DefaultEdge.class);
 //		undirectedGraph.addVertex("startNode");
 //		init.relevantSerivces.createGraphService(init.taskInput.get(0), init.taskOutput.get(0), undirectedGraph);
+//		 System.out.println("graph printing#########################################");
 //        System.out.println(undirectedGraph.toString());
+
+
 	}
 
 
