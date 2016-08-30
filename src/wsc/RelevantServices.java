@@ -2,9 +2,12 @@ package wsc;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
+
 import javax.xml.bind.JAXBException;
 
 import org.jgrapht.UndirectedGraph;
@@ -20,8 +23,10 @@ public class RelevantServices {
 
 	// current output instance list for all relevant services
 	private final HashSet<String> outputSet = new HashSet<String>();
-	//
 	private final HashSet<String> graphOutputSet = new HashSet<String>();
+	
+	
+	
 	private final SemanticsPool semanticsPool;
 
 	// save all the relevant services
@@ -109,6 +114,8 @@ public class RelevantServices {
 				System.out.println("No more service satisfied");
 				return;
 			}
+			System.out.println("choose composite service " + service.getServiceID());
+
 		} while (!this.checkOutputSet(output, undirectedGraph));
 
 	}

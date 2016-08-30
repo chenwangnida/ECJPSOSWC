@@ -4,9 +4,11 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 import javax.xml.bind.JAXBException;
 import javax.xml.parsers.DocumentBuilder;
@@ -20,6 +22,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
+import wsc.RelevantServices;
 import wsc.wsdl.bean.Definitions;
 
 public class SWSPool {
@@ -27,7 +30,12 @@ public class SWSPool {
 	private List<Service> serviceList = new LinkedList<Service>();
 	private SemanticsPool semantics;
 
-	private static int preFoundServiceIndex = -1;
+	private final Map<String,Service> graphOutputSetMap = new HashMap<String, Service>();
+
+
+	public Map<String, Service> getGraphOutputSetMap() {
+		return graphOutputSetMap;
+	}
 
 	/**
 	 * Semantic web service pool initialization
@@ -144,20 +152,8 @@ public class SWSPool {
 
 		for (int i = 0; i < serviceSequence.size(); i++) {
 			Service s = new Service(serviceSequence.get(i).getServiceID());
-			if (s.searchServiceGraphMatchFromInputSet(semanticsPool, serviceSequence.get(i), inputSet)) {
+			if (s.searchServiceGraphMatchFromInputSet(semanticsPool, serviceSequence.get(i), inputSet,undirectedGraph, this.graphOutputSetMap)) {
 				foundServiceIndex = i;
-				// Service newService = serviceSequence.get(foundServiceIndex);
-				// graph add vertex, edge< old vertex,new edge>
-				undirectedGraph.addVertex(s.getServiceID());
-
-				if (preFoundServiceIndex == -1) {
-					undirectedGraph.addEdge("startNode", s.getServiceID());
-//					undirectedGraph.addEdge("startNode", "test");
-				} else {
-					Service oldService = serviceSequence.get(preFoundServiceIndex);
-					undirectedGraph.addEdge(oldService.getServiceID(), s.getServiceID());
-				}
-
 				break;
 			}
 		}
@@ -166,15 +162,18 @@ public class SWSPool {
 			return null;
 		}
 		Service newService = serviceSequence.get(foundServiceIndex);
+		// graph add vertex, edge< old vertex,new edge>
+//		undirectedGraph.addVertex(newService.getServiceID());
 
 		serviceSequence.remove(foundServiceIndex);
 		// add found service outputs to inputSet
 		for (String output : newService.getOutputList()) {
 			if (!inputSet.contains(output)) {
 				inputSet.add(output);
+				//output mapped back to service
+				graphOutputSetMap.put(output,newService );		
 			}
 		}
-		preFoundServiceIndex = foundServiceIndex;
 		return newService;
 	}
 

@@ -79,6 +79,7 @@ public class GraphInitializer extends SimpleInitializer {
 		UndirectedGraph<String, DefaultEdge> undirectedGraph = new SimpleGraph<String, DefaultEdge>(DefaultEdge.class);
 		undirectedGraph.addVertex("startNode");
 		relevantSerivces.createGraphService(taskInput.get(0), taskOutput.get(0), undirectedGraph);
+		 System.out.println("graph printing#########################################");
         System.out.println(undirectedGraph.toString());
 	}
 
