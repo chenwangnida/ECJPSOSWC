@@ -7,7 +7,7 @@ public class GraphParticle extends Particle {
 	private String strRepresentation;
 	private double availability;
 	private double reliability;
-	private double times;
+	private double time;
 	private double cost;
 
 	public String getStrRepresentation() {
@@ -34,12 +34,12 @@ public class GraphParticle extends Particle {
 		this.reliability = reliability;
 	}
 
-	public double getTimes() {
-		return times;
+	public double getTime() {
+		return time;
 	}
 
-	public void setTimes(double times) {
-		this.times = times;
+	public void setTime(double times) {
+		this.time = times;
 	}
 
 	public double getCost() {

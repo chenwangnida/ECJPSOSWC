@@ -146,13 +146,13 @@ public class SWSPool {
 	 *
 	 * @param inputSet
 	 */
-	public Service createGraphService(HashSet<String> inputSet, List<Service> serviceSequence,
+	public Service createGraphService(HashSet<String> inputSet, List<Service> serviceCandidates,
 			SemanticsPool semanticsPool, UndirectedGraph<String, DefaultEdge> undirectedGraph) {
 		int foundServiceIndex = -1;
 
-		for (int i = 0; i < serviceSequence.size(); i++) {
-			Service s = new Service(serviceSequence.get(i).getServiceID());
-			if (s.searchServiceGraphMatchFromInputSet(semanticsPool, serviceSequence.get(i), inputSet,undirectedGraph, this.graphOutputSetMap)) {
+		for (int i = 0; i < serviceCandidates.size(); i++) {
+			Service s = new Service(serviceCandidates.get(i).getServiceID());
+			if (s.searchServiceGraphMatchFromInputSet(semanticsPool, serviceCandidates.get(i), inputSet,undirectedGraph, this.graphOutputSetMap)) {
 				foundServiceIndex = i;
 				break;
 			}
@@ -161,17 +161,15 @@ public class SWSPool {
 			System.out.println("no matching for inputSet");
 			return null;
 		}
-		Service newService = serviceSequence.get(foundServiceIndex);
-		// graph add vertex, edge< old vertex,new edge>
-//		undirectedGraph.addVertex(newService.getServiceID());
+		Service newService = serviceCandidates.get(foundServiceIndex);
 
-		serviceSequence.remove(foundServiceIndex);
+		serviceCandidates.remove(foundServiceIndex);
 		// add found service outputs to inputSet
 		for (String output : newService.getOutputList()) {
 			if (!inputSet.contains(output)) {
 				inputSet.add(output);
 				//output mapped back to service
-				graphOutputSetMap.put(output,newService );		
+				graphOutputSetMap.put(output,newService );
 			}
 		}
 		return newService;

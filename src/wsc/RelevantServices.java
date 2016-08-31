@@ -2,6 +2,7 @@ package wsc;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
@@ -23,15 +24,21 @@ public class RelevantServices {
 
 	// current output instance list for all relevant services
 	private final HashSet<String> outputSet = new HashSet<String>();
-	private HashSet<String> graphOutputSet = new HashSet<String>();
-	
-	
-	
+
 	private final SemanticsPool semanticsPool;
 
 	// save all the relevant services
 	private final List<Service> serviceSequence = new LinkedList<Service>();
 	// save all semantics
+	private HashSet<String>  graphOutputSet = new HashSet<String>();
+
+	public HashSet<String> getGraphOutputSet() {
+		return graphOutputSet;
+	}
+
+	public void setGraphOutputSet(HashSet<String> graphOutputSet) {
+		this.graphOutputSet = graphOutputSet;
+	}
 
 	// set and get
 	public SWSPool getSwsPool() {
@@ -50,14 +57,6 @@ public class RelevantServices {
 		return serviceSequence;
 	}
 
-	public HashSet<String> getGraphOutputSet() {
-		return graphOutputSet;
-	}
-
-	public void setGraphOutputSet(HashSet<String> graphOutputSet) {
-		this.graphOutputSet = graphOutputSet;
-	}
-
 	/**
 	 * using service file and owl file to create semantics pool and service pool
 	 *
@@ -66,7 +65,7 @@ public class RelevantServices {
 	 * @throws JAXBException
 	 * @throws FileNotFoundException
 	 */
- 
+
 	public RelevantServices(String serviceFilePath, String owlFilePath) throws FileNotFoundException, JAXBException {
 		this.semanticsPool = SemanticsPool.createSemanticsFromOWL(owlFilePath);
 		this.swsPool = SWSPool.parseXML(this.semanticsPool, serviceFilePath);
@@ -78,11 +77,13 @@ public class RelevantServices {
 	 * @param givenoutput
 	 * @return
 	 */
-	private boolean checkOutputSet(String output, UndirectedGraph<String, DefaultEdge> undirectedGraph) {
+	private boolean checkOutputSet(String output, UndirectedGraph<String, DefaultEdge> undirectedGraph,
+			Service service) {
 		for (String outputInst : this.graphOutputSet) {
 			if (this.semanticsPool.searchSemanticMatchFromInst(outputInst, output)) {
 
 				undirectedGraph.addVertex("endNode");
+				undirectedGraph.addEdge(service.getServiceID(), "endNode");
 				return true;
 			}
 		}
@@ -106,7 +107,6 @@ public class RelevantServices {
 				System.out.println("No more service satisfied");
 				return;
 			}
-			System.out.println("choose service " + service.getServiceID());
 			serviceSequence.add(service);
 		} while (true);// while(!this.checkOutputSet(output))
 	}
@@ -116,16 +116,18 @@ public class RelevantServices {
 		this.graphOutputSet.add(input);
 		SWSPool swsPool = new SWSPool();
 
+		List<Service> serviceCandidates = new ArrayList<Service>();
+		serviceCandidates.addAll(serviceSequence);
+
+		Service service;
 		do {
-			Service service = swsPool.createGraphService(this.graphOutputSet, this.serviceSequence, this.semanticsPool,
+			service = swsPool.createGraphService(this.graphOutputSet, serviceCandidates, this.semanticsPool,
 					undirectedGraph);
 			if (service == null) {
 				System.out.println("No more service satisfied");
 				return;
 			}
-			System.out.println("choose composite service " + service.getServiceID());
-
-		} while (!this.checkOutputSet(output, undirectedGraph));
+		} while (!this.checkOutputSet(output, undirectedGraph, service));
 
 	}
 

@@ -121,7 +121,7 @@ public class Service {
 	 * search for services matched with current inputSet
 	 *
 	 * @param semanticsPool
-	 * @param graphOutputSetMap 
+	 * @param graphOutputSetMap
 	 * @param intputList
 	 * @return boolean
 	 */
@@ -137,16 +137,15 @@ public class Service {
 					// contain complete match from a single service
 					if (inputMatchCount == service.getInputList().size()) {
 						if(giveninput == "inst2139388127"){
-//							undirectedGraph.addEdge("startNode", service.getServiceID());
 							undirectedGraph.addVertex(service.getServiceID());
+							undirectedGraph.addEdge("startNode", service.getServiceID());
 
-							
+
 						}else{
 							String oldServiceID = graphOutputSetMap.get(giveninput).getServiceID();
-							System.out.print(oldServiceID+"--->"+ service.getServiceID()+";     ");
 							undirectedGraph.addVertex(service.getServiceID());
 							undirectedGraph.addEdge(oldServiceID, service.getServiceID());
-	
+
 						}
 												return true;
 					}

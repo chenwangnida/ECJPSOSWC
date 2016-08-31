@@ -15,6 +15,8 @@ import ec.EvolutionState;
 import ec.simple.SimpleInitializer;
 import ec.util.Parameter;
 import wsc.RelevantServices;
+import wsc.data.pool.SemanticsPool;
+import wsc.data.pool.Service;
 
 public class GraphInitializer extends SimpleInitializer {
 
@@ -31,9 +33,9 @@ public class GraphInitializer extends SimpleInitializer {
 
 	public RelevantServices relevantSerivces;
 
+
 	List<String> taskInput;
 	List<String> taskOutput;
-
 
 	@Override
 	public void setup(EvolutionState state, Parameter base) {
@@ -60,12 +62,12 @@ public class GraphInitializer extends SimpleInitializer {
 			relevantSerivces.allRelevantService(taskInput.get(0), taskOutput.get(0));
 			System.out.println("releveantService Size:" + relevantSerivces.getServiceSequence().size());
 
+
 		} catch (JAXBException | IOException e) {
 			e.printStackTrace();
 		}
 
-
-		//Initial StartNode and EndNode
+		// Initial StartNode and EndNode
 		double[] mockQos = new double[4];
 		mockQos[TIME] = 0;
 		mockQos[COST] = 0;
@@ -76,18 +78,19 @@ public class GraphInitializer extends SimpleInitializer {
 		Parameter genomeSizeParam = new Parameter("pop.subpop.0.species.genome-size");
 		state.parameters.set(genomeSizeParam, "" + relevantSerivces.getServiceSequence().size());
 
-		for(int i=0;i<=10;i++){
-		relevantSerivces.getGraphOutputSet().clear();
-		UndirectedGraph<String, DefaultEdge> undirectedGraph = new SimpleGraph<String, DefaultEdge>(DefaultEdge.class);
-		undirectedGraph.addVertex("startNode");
-		relevantSerivces.createGraphService(taskInput.get(0), taskOutput.get(0), undirectedGraph);
+		 for(int i=0;i<=5;i++){
+		 relevantSerivces.getGraphOutputSet().clear();
+		 UndirectedGraph<String, DefaultEdge> undirectedGraph = new
+		 SimpleGraph<String, DefaultEdge>(DefaultEdge.class);
+		 undirectedGraph.addVertex("startNode");
+		 relevantSerivces.createGraphService(taskInput.get(0),
+		 taskOutput.get(0), undirectedGraph);
 		 System.out.println("graph printing#########################################");
-        System.out.println(undirectedGraph.toString());
-        
-        
-		}
-        
-        
+		 System.out.println(undirectedGraph.toString());
+
+
+		 }
+
 	}
 
 }
