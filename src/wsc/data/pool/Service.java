@@ -12,6 +12,7 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
+import org.jgrapht.DirectedGraph;
 import org.jgrapht.UndirectedGraph;
 import org.jgrapht.graph.DefaultEdge;
 import org.w3c.dom.Document;
@@ -125,7 +126,7 @@ public class Service {
 	 * @param intputList
 	 * @return boolean
 	 */
-	public boolean searchServiceGraphMatchFromInputSet(SemanticsPool semanticsPool, Service service,HashSet<String> inputSet, UndirectedGraph<String, DefaultEdge> undirectedGraph, Map<String, Service> graphOutputSetMap) {
+	public boolean searchServiceGraphMatchFromInputSet(SemanticsPool semanticsPool, Service service,HashSet<String> inputSet, DirectedGraph<String, DefaultEdge> directedGraph, Map<String, Service> graphOutputSetMap) {
 		int inputMatchCount = 0;
 		// check if the inputSet contains all the required inputs from services
 		for (String giveninput : inputSet) {
@@ -137,14 +138,14 @@ public class Service {
 					// contain complete match from a single service
 					if (inputMatchCount == service.getInputList().size()) {
 						if(giveninput == "inst2139388127"){
-							undirectedGraph.addVertex(service.getServiceID());
-							undirectedGraph.addEdge("startNode", service.getServiceID());
+							directedGraph.addVertex(service.getServiceID());
+							directedGraph.addEdge("startNode", service.getServiceID());
 
 
 						}else{
 							String oldServiceID = graphOutputSetMap.get(giveninput).getServiceID();
-							undirectedGraph.addVertex(service.getServiceID());
-							undirectedGraph.addEdge(oldServiceID, service.getServiceID());
+							directedGraph.addVertex(service.getServiceID());
+							directedGraph.addEdge(oldServiceID, service.getServiceID());
 
 						}
 												return true;

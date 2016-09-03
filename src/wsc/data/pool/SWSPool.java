@@ -15,6 +15,7 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
+import org.jgrapht.DirectedGraph;
 import org.jgrapht.UndirectedGraph;
 import org.jgrapht.graph.DefaultEdge;
 import org.w3c.dom.Document;
@@ -29,12 +30,37 @@ public class SWSPool {
 
 	private List<Service> serviceList = new LinkedList<Service>();
 	private SemanticsPool semantics;
+	private Map<String,double[]> qosServiceMap = new HashMap<String, double[]>();
 
 	private final Map<String,Service> graphOutputSetMap = new HashMap<String, Service>();
 
 
 	public Map<String, Service> getGraphOutputSetMap() {
 		return graphOutputSetMap;
+	}
+
+	public List<Service> getServiceList() {
+		return serviceList;
+	}
+
+	public void setServiceList(List<Service> serviceList) {
+		this.serviceList = serviceList;
+	}
+
+	public SemanticsPool getSemantics() {
+		return semantics;
+	}
+
+	public void setSemantics(SemanticsPool semantics) {
+		this.semantics = semantics;
+	}
+
+	public Map<String, double[]> getQosServiceMap() {
+		return qosServiceMap;
+	}
+
+	public void setQosServiceMap(Map<String, double[]> qosServiceMap) {
+		this.qosServiceMap = qosServiceMap;
 	}
 
 	/**
@@ -60,8 +86,8 @@ public class SWSPool {
 
 		// manually add QoS attributes
 		for (int i = 0; i < list.size(); i++) {
-
-			swsp.serviceList.get(i).setQos(list.get(i));
+			swsp.qosServiceMap.put(swsp.serviceList.get(i).getServiceID(),list.get(i));
+//			swsp.serviceList.get(i).setQos(list.get(i));
 		}
 
 		System.out.println("No.of Service:" + swsp.serviceList.size());
@@ -147,12 +173,12 @@ public class SWSPool {
 	 * @param inputSet
 	 */
 	public Service createGraphService(HashSet<String> inputSet, List<Service> serviceCandidates,
-			SemanticsPool semanticsPool, UndirectedGraph<String, DefaultEdge> undirectedGraph) {
+			SemanticsPool semanticsPool, DirectedGraph<String, DefaultEdge> directedGraph) {
 		int foundServiceIndex = -1;
 
 		for (int i = 0; i < serviceCandidates.size(); i++) {
 			Service s = new Service(serviceCandidates.get(i).getServiceID());
-			if (s.searchServiceGraphMatchFromInputSet(semanticsPool, serviceCandidates.get(i), inputSet,undirectedGraph, this.graphOutputSetMap)) {
+			if (s.searchServiceGraphMatchFromInputSet(semanticsPool, serviceCandidates.get(i), inputSet,directedGraph, this.graphOutputSetMap)) {
 				foundServiceIndex = i;
 				break;
 			}

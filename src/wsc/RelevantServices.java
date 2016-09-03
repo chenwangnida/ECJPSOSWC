@@ -11,6 +11,7 @@ import java.util.Map;
 
 import javax.xml.bind.JAXBException;
 
+import org.jgrapht.DirectedGraph;
 import org.jgrapht.UndirectedGraph;
 import org.jgrapht.graph.DefaultEdge;
 
@@ -77,7 +78,7 @@ public class RelevantServices {
 	 * @param givenoutput
 	 * @return
 	 */
-	private boolean checkOutputSet(String output, UndirectedGraph<String, DefaultEdge> undirectedGraph,
+	private boolean checkOutputSet(String output, DirectedGraph<String, DefaultEdge> undirectedGraph,
 			Service service) {
 		for (String outputInst : this.graphOutputSet) {
 			if (this.semanticsPool.searchSemanticMatchFromInst(outputInst, output)) {
@@ -111,7 +112,7 @@ public class RelevantServices {
 		} while (true);// while(!this.checkOutputSet(output))
 	}
 
-	public void createGraphService(String input, String output, UndirectedGraph<String, DefaultEdge> undirectedGraph) {
+	public void createGraphService(String input, String output, DirectedGraph<String, DefaultEdge> directedGraph) {
 
 		this.graphOutputSet.add(input);
 		SWSPool swsPool = new SWSPool();
@@ -122,12 +123,12 @@ public class RelevantServices {
 		Service service;
 		do {
 			service = swsPool.createGraphService(this.graphOutputSet, serviceCandidates, this.semanticsPool,
-					undirectedGraph);
+					directedGraph);
 			if (service == null) {
 				System.out.println("No more service satisfied");
 				return;
 			}
-		} while (!this.checkOutputSet(output, undirectedGraph, service));
+		} while (!this.checkOutputSet(output, directedGraph, service));
 
 	}
 
