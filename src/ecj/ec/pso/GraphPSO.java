@@ -30,7 +30,7 @@ public class GraphPSO extends Problem implements SimpleProblemForm {
 		if (!(ind instanceof GraphParticle))
 			state.output.fatal("It is not a graph particle objective !", null);
 
-		GraphParticle ind2 = (GraphParticle) ind;
+		GraphParticle individual = (GraphParticle) ind;
 
 		// Create graph
 		init.relevantSerivces.getGraphOutputSet().clear();
@@ -87,13 +87,19 @@ public class GraphPSO extends Problem implements SimpleProblemForm {
 		for (String v : longestVertexList) {
 			if (!v.equals("startNode") && !v.equals("endNode")) {
 				double qos[] = qosMap.get(v);
-				a *= qos[GraphInitializer.AVAILABILITY];
-				r *= qos[GraphInitializer.RELIABILITY];
-				c += qos[GraphInitializer.COST];
+				t += qos[GraphInitializer.TIME];
 			}
 		}
 
-		System.out.println("#########AVAILABILITY:" + a + "##########RELIABILITY:" + r + "#########COST:" + c);
+		System.out.println("#########AVAILABILITY:" + a + "##########RELIABILITY:" + r + "#########COST:" + c
+				+ "#########time" + t);
+
+		individual.setAvailability(a);
+		individual.setReliability(r);
+		individual.setTime(t);
+		individual.setCost(c);
+
+
 
 	}
 
