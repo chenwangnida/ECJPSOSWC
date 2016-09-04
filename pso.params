@@ -8,6 +8,8 @@ fitness-weight2       = 0.25
 fitness-weight3       = 0.25
 fitness-weight4       = 0.25
 dynamic-normalisation = true
+#ontology startnode
+root-concept = con1521052130
 
 state = ec.simple.SimpleEvolutionState
 init = ecj.ec.pso.GraphInitializer

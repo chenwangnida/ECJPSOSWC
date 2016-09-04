@@ -30,6 +30,7 @@ public class GraphInitializer extends SimpleInitializer {
 	public double qos_w3;
 	public double qos_w4;
 	public static boolean dynamicNormalisation;
+	public static String rootconcept;
 
 	public static final int TIME = 0;
 	public static final int COST = 1;
@@ -41,7 +42,9 @@ public class GraphInitializer extends SimpleInitializer {
 	public static final int SUBSUME = 2;
 	public static final int INTERSECTION = 3;
 
+
 	public InitialWSCPool initialWSCPool;
+	public static DirectedGraph<String, DefaultEdge> ontologyDAG;
 
 	List<String> taskInput;
 	List<String> taskOutput;
@@ -53,11 +56,15 @@ public class GraphInitializer extends SimpleInitializer {
 		String taxonomy_owl = state.parameters.getString(new Parameter("taxonomy-owl"), null);
 		String service_wsla = state.parameters.getString(new Parameter("service-wsla"), null);
 
+
+
 		qos_w1 = state.parameters.getDouble(new Parameter("fitness-weight1"), null);
 		qos_w2 = state.parameters.getDouble(new Parameter("fitness-weight2"), null);
 		qos_w3 = state.parameters.getDouble(new Parameter("fitness-weight3"), null);
 		qos_w4 = state.parameters.getDouble(new Parameter("fitness-weight4"), null);
 		dynamicNormalisation = state.parameters.getBoolean(new Parameter("dynamic-normalisation"), null, false);
+		rootconcept =  state.parameters.getString(new Parameter("root-concept"), null);
+
 
 		// define task
 		taskInput = new ArrayList<String>();
@@ -76,7 +83,7 @@ public class GraphInitializer extends SimpleInitializer {
 		}
 
 		// Initial ontology DAG data
-		DirectedGraph<String, DefaultEdge> ontologyDAG = createOntologyDAG(initialWSCPool);
+		ontologyDAG = createOntologyDAG(initialWSCPool);
 		System .out.println("&&&&&&&&&&&&&&ontology DAG&&&& vertice size : "+ ontologyDAG.vertexSet().size()+"edge number : "+ontologyDAG.edgeSet().size());
 
 		// Initial StartNode and EndNode
@@ -103,7 +110,7 @@ public class GraphInitializer extends SimpleInitializer {
 		}
 
 		for (OWLClass owlClass : owlClassMap.values()) {
-			if (owlClass.getSubClassOf() != null) {
+			if (owlClass.getSubClassOf() != null && !owlClass.getSubClassOf().equals("")) {
 				String source = owlClass.getSubClassOf().getResource().substring(1);
 				String target = owlClass.getID();
 				g.addEdge(source, target);

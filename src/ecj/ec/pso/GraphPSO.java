@@ -13,6 +13,8 @@ import org.jgrapht.DirectedGraph;
 import org.jgrapht.GraphPath;
 import org.jgrapht.Graphs;
 import org.jgrapht.alg.AllDirectedPaths;
+import org.jgrapht.alg.DijkstraShortestPath;
+import org.jgrapht.alg.NaiveLcaFinder;
 import org.jgrapht.graph.DefaultDirectedGraph;
 import org.jgrapht.graph.DefaultEdge;
 
@@ -45,8 +47,6 @@ public class GraphPSO extends Problem implements SimpleProblemForm {
 		List<String> dangleVerticeList = new ArrayList<String>();
 		for (String v : allVertice) {
 			int relatedOutDegree = directedGraph.outDegreeOf(v);
-			System.out.println("degree is :" + relatedOutDegree);
-
 			if (relatedOutDegree == 0 && !v.equals("v5")) {
 				dangleVerticeList.add(v);
 			}
@@ -64,7 +64,7 @@ public class GraphPSO extends Problem implements SimpleProblemForm {
 		double t = 0.0;
 		double c = 0.0;
 		double[] mt = { 1.0, 0.75, 0.5, 0.25 };
-		double dst = 0.0;
+		double dst = 1; // Exact Match dst = 1 ; 0 < = dst < = 1
 
 		// set availability, reliability, cost
 		Set<String> verticeSet = directedGraph.vertexSet();
@@ -96,12 +96,12 @@ public class GraphPSO extends Problem implements SimpleProblemForm {
 
 		// set dst
 
-
-
-		individual.setAvailability(a);
-		individual.setReliability(r);
-		individual.setTime(t);
-		individual.setCost(c);
+		// init.ontologyDAG;
+//
+//		individual.setAvailability(a);
+//		individual.setReliability(r);
+//		individual.setTime(t);
+//		individual.setCost(c);
 
 	}
 
@@ -156,9 +156,7 @@ public class GraphPSO extends Problem implements SimpleProblemForm {
 				MaxPathLength = pathLength;
 			}
 		}
-		System.out.println(MaxPathLength + "index:" + IndexPathLength);
 		// return pathList.get(IndexPathLength).getEdgeList();
 		return Graphs.getPathVertexList(pathList.get(IndexPathLength));
 	}
-
 }

@@ -13,14 +13,18 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
 import org.jgrapht.DirectedGraph;
+import org.jgrapht.Graphs;
 import org.jgrapht.UndirectedGraph;
+import org.jgrapht.alg.DijkstraShortestPath;
+import org.jgrapht.alg.NaiveLcaFinder;
 import org.jgrapht.graph.DefaultEdge;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
-
+import ecj.ec.pso.GraphInitializer;
+import wsc.owl.bean.OWLClass;
 import wsc.wsdl.bean.SemExt;
 import wsc.wsdl.bean.SemMessageExt;
 
@@ -28,7 +32,7 @@ public class Service {
 
 	private final String serviceID;
 	// list of inputInstances(individuals), rather than list of input parameter.
-	private  double[] qos;
+	private double[] qos;
 
 	private final List<String> inputList = new ArrayList<String>();
 	// list of outputInstances(individuals), ranther than list of output
@@ -46,7 +50,6 @@ public class Service {
 	public List<String> getOutputList() {
 		return this.outputList;
 	}
-
 
 	public double[] getQos() {
 		return qos;
@@ -126,29 +129,35 @@ public class Service {
 	 * @param intputList
 	 * @return boolean
 	 */
-	public boolean searchServiceGraphMatchFromInputSet(SemanticsPool semanticsPool, Service service,HashSet<String> inputSet, DirectedGraph<String, DefaultEdge> directedGraph, Map<String, Service> graphOutputSetMap) {
+	public boolean searchServiceGraphMatchFromInputSet(SemanticsPool semanticsPool, Service service,
+			HashSet<String> inputSet, DirectedGraph<String, DefaultEdge> directedGraph,
+			Map<String, Service> graphOutputSetMap) {
 		int inputMatchCount = 0;
 		// check if the inputSet contains all the required inputs from services
 		for (String giveninput : inputSet) {
 			for (int i = 0; i < service.getInputList().size(); i++) {
 
 				String existInput = service.getInputList().get(i);
-				if (semanticsPool.searchSemanticMatchFromInst(giveninput, existInput)) {
+				boolean foundmatched = semanticsPool.searchSemanticMatchFromInst(giveninput, existInput);
+				double semanticDistance = CalculateSimilarityMeasure(GraphInitializer.ontologyDAG, giveninput,
+						existInput, semanticsPool);
+				System.out.println("semanticDistance#############"+semanticDistance+"");
+
+				if (foundmatched) {
 					inputMatchCount++;
 					// contain complete match from a single service
 					if (inputMatchCount == service.getInputList().size()) {
-						if(giveninput == "inst2139388127"){
+						if (giveninput == "inst2139388127") {
 							directedGraph.addVertex(service.getServiceID());
 							directedGraph.addEdge("startNode", service.getServiceID());
 
-
-						}else{
+						} else {
 							String oldServiceID = graphOutputSetMap.get(giveninput).getServiceID();
 							directedGraph.addVertex(service.getServiceID());
 							directedGraph.addEdge(oldServiceID, service.getServiceID());
 
 						}
-												return true;
+						return true;
 					}
 				}
 			}
@@ -156,5 +165,81 @@ public class Service {
 		return false;
 	}
 
+	public static double CalculateSimilarityMeasure(DirectedGraph<String, DefaultEdge> g, String giveninput,
+			String existInput, SemanticsPool semanticsPool) {
+
+		double similarityValue;
+		// find instance related concept
+		OWLClass givenClass = semanticsPool.getOwlClassHashMap()
+				.get(semanticsPool.getOwlInstHashMap().get(giveninput).getRdfType().getResource().substring(1));
+		OWLClass relatedClass = semanticsPool.getOwlClassHashMap()
+				.get(semanticsPool.getOwlInstHashMap().get(existInput).getRdfType().getResource().substring(1));
+
+		String a = givenClass.getID();
+		String b = relatedClass.getID();
+
+		// find the lowest common ancestor
+		String lca = new NaiveLcaFinder<String, DefaultEdge>(g).findLca(a, b);
+
+		double N = new DijkstraShortestPath(g, GraphInitializer.rootconcept, lca).getPathLength();
+		double N1 = new DijkstraShortestPath(g, GraphInitializer.rootconcept, a).getPathLength();
+		double N2 = new DijkstraShortestPath(g, GraphInitializer.rootconcept, b).getPathLength();
+
+		double sim = 2 * N / (N1 + N2);
+//		System.out.println("SemanticDistance:" + sim + " ##################");
+
+		if (isNeighbourConcept(g, a, b) == true) {
+			double L = new DijkstraShortestPath(g, lca, a).getPathLength()
+					+ new DijkstraShortestPath(g, lca, b).getPathLength();
+
+			int D = MaxDepth(g);
+			int r = 1;
+			double simNew = 2 * N * (Math.pow(Math.E, -r * L / D)) / (N1 + N2);
+//			System.out.println("SemanticDistance2:" + simNew + " ##################");
+			similarityValue = simNew;
+		} else {
+			similarityValue = sim;
+		}
+
+		return similarityValue;
+	}
+
+	private static boolean isNeighbourConcept(DirectedGraph<String, DefaultEdge> g, String a, String b) {
+
+		boolean isNeighbourConcept = false;
+		Set<DefaultEdge> incomingEdgeList1 = g.incomingEdgesOf(a);
+		Set<DefaultEdge> incomingEdgeList2 = g.incomingEdgesOf(b);
+
+		for (DefaultEdge e1 : incomingEdgeList1) {
+			String source1 = g.getEdgeSource(e1);
+			for (DefaultEdge e2 : incomingEdgeList2) {
+				String source2 = g.getEdgeSource(e2);
+				if (source1.equals(source2)) {
+					isNeighbourConcept = true;
+				}
+			}
+		}
+
+		return isNeighbourConcept;
+	}
+
+	private static int MaxDepth(DirectedGraph<String, DefaultEdge> g) {
+
+		int depth = 0;
+
+		Set<String> verticeset = g.vertexSet();
+
+		// update the depth while iterator successor
+		for (String v : verticeset) {
+			List<String> verticeList = Graphs.successorListOf(g, v);
+
+			if (verticeList.size() > 0) {
+				depth++;
+			}
+		}
+
+		return depth;
+
+	}
 
 }

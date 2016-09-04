@@ -21,7 +21,7 @@ public class SemanticsPool {
 	public HashMap<String, OWLInst> getOwlInstHashMap() {
 		return this.owlInstHashMap;
 	}
-	
+
 	/**
 	 * Semantics Initialization from OWL
 	 *
@@ -58,9 +58,12 @@ public class SemanticsPool {
 				.get(this.owlInstHashMap.get(existInst).getRdfType().getResource().substring(1));
 
 		// search for the potential semantic matching relationship
+
+
 		while (true) {
 			// Exact and PlugIn matching types
 			if (givenClass.getID().equals(relatedClass.getID())) {
+
 				return true;
 			}
 			if (givenClass.getSubClassOf() == null || givenClass.getSubClassOf().getResource().equals("")) {
