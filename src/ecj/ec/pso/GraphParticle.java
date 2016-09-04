@@ -9,6 +9,8 @@ public class GraphParticle extends Particle {
 	private double reliability;
 	private double time;
 	private double cost;
+	private double matchingType;
+	private double semanticDistance;
 
 	public String getStrRepresentation() {
 		return strRepresentation;
@@ -48,6 +50,22 @@ public class GraphParticle extends Particle {
 
 	public void setCost(double cost) {
 		this.cost = cost;
+	}
+
+	public double getSemanticDistance() {
+		return semanticDistance;
+	}
+
+	public void setSemanticDistance(double semanticDistance) {
+		this.semanticDistance = semanticDistance;
+	}
+
+	public double getMatchingType() {
+		return matchingType;
+	}
+
+	public void setMatchingType(double matchingType) {
+		this.matchingType = matchingType;
 	}
 
 }

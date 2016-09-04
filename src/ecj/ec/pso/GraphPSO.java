@@ -33,11 +33,11 @@ public class GraphPSO extends Problem implements SimpleProblemForm {
 		GraphParticle individual = (GraphParticle) ind;
 
 		// Create graph
-		init.relevantSerivces.getGraphOutputSet().clear();
+		init.initialWSCPool.getGraphOutputSet().clear();
 		DirectedGraph<String, DefaultEdge> directedGraph = new DefaultDirectedGraph<String, DefaultEdge>(
 				DefaultEdge.class);
 		directedGraph.addVertex("startNode");
-		init.relevantSerivces.createGraphService(init.taskInput.get(0), init.taskOutput.get(0), directedGraph);
+		init.initialWSCPool.createGraphService(init.taskInput.get(0), init.taskOutput.get(0), directedGraph);
 		// System.out.println(directedGraph.toString());
 
 		// initially find current dangleVertice
@@ -58,18 +58,18 @@ public class GraphPSO extends Problem implements SimpleProblemForm {
 		System.out.println("graph printing after removing all dangle#########################################");
 		System.out.println(directedGraph.toString());
 
-		// set nonfunctional attributes QoS
+		// set both functional and nonfunctional attributes( QoS )
 		double a = 1.0;
 		double r = 1.0;
 		double t = 0.0;
 		double c = 0.0;
+		double[] mt = { 1.0, 0.75, 0.5, 0.25 };
+		double dst = 0.0;
 
 		// set availability, reliability, cost
 		Set<String> verticeSet = directedGraph.vertexSet();
 
-		Map<String, double[]> qosMap = init.relevantSerivces.getSwsPool().getQosServiceMap();
-
-		System.out.println("qosMAP");
+		Map<String, double[]> qosMap = init.initialWSCPool.getSwsPool().getQosServiceMap();
 
 		for (String v : verticeSet) {
 			if (!v.equals("startNode") && !v.equals("endNode")) {
@@ -94,12 +94,14 @@ public class GraphPSO extends Problem implements SimpleProblemForm {
 		System.out.println("#########AVAILABILITY:" + a + "##########RELIABILITY:" + r + "#########COST:" + c
 				+ "#########time" + t);
 
+		// set dst
+
+
+
 		individual.setAvailability(a);
 		individual.setReliability(r);
 		individual.setTime(t);
 		individual.setCost(c);
-
-
 
 	}
 

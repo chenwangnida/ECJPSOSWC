@@ -3,12 +3,14 @@ package ecj.ec.pso;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.xml.bind.JAXBException;
 
 import org.jgrapht.DirectedGraph;
 import org.jgrapht.UndirectedGraph;
+import org.jgrapht.experimental.dag.DirectedAcyclicGraph;
 import org.jgrapht.graph.DefaultDirectedGraph;
 import org.jgrapht.graph.DefaultEdge;
 import org.jgrapht.graph.SimpleGraph;
@@ -16,9 +18,10 @@ import org.jgrapht.graph.SimpleGraph;
 import ec.EvolutionState;
 import ec.simple.SimpleInitializer;
 import ec.util.Parameter;
-import wsc.RelevantServices;
+import wsc.InitialWSCPool;
 import wsc.data.pool.SemanticsPool;
 import wsc.data.pool.Service;
+import wsc.owl.bean.OWLClass;
 
 public class GraphInitializer extends SimpleInitializer {
 
@@ -33,7 +36,12 @@ public class GraphInitializer extends SimpleInitializer {
 	public static final int AVAILABILITY = 2;
 	public static final int RELIABILITY = 3;
 
-	public RelevantServices relevantSerivces;
+	public static final int EXACT = 0;
+	public static final int PlUGIN = 1;
+	public static final int SUBSUME = 2;
+	public static final int INTERSECTION = 3;
+
+	public InitialWSCPool initialWSCPool;
 
 	List<String> taskInput;
 	List<String> taskOutput;
@@ -57,15 +65,19 @@ public class GraphInitializer extends SimpleInitializer {
 		taskOutput = new ArrayList<String>();
 		taskOutput.add("inst162515103");
 
-		// Find all relevant services
+		// Initial all data related to Web service composition  pools
 		try {
-			relevantSerivces = new RelevantServices(service_wsdl, taxonomy_owl);
-			relevantSerivces.allRelevantService(taskInput.get(0), taskOutput.get(0));
-			System.out.println("releveantService Size:" + relevantSerivces.getServiceSequence().size());
+			initialWSCPool = new InitialWSCPool(service_wsdl, taxonomy_owl);
+			initialWSCPool.allRelevantService(taskInput.get(0), taskOutput.get(0));
+			System.out.println("releveantService Size:" + initialWSCPool.getServiceSequence().size());
 
 		} catch (JAXBException | IOException e) {
 			e.printStackTrace();
 		}
+
+		// Initial ontology DAG data
+		DirectedGraph<String, DefaultEdge> ontologyDAG = createOntologyDAG(initialWSCPool);
+		System .out.println("&&&&&&&&&&&&&&ontology DAG&&&& vertice size : "+ ontologyDAG.vertexSet().size()+"edge number : "+ontologyDAG.edgeSet().size());
 
 		// Initial StartNode and EndNode
 		double[] mockQos = new double[4];
@@ -76,19 +88,30 @@ public class GraphInitializer extends SimpleInitializer {
 
 		// Set size of particles
 		Parameter genomeSizeParam = new Parameter("pop.subpop.0.species.genome-size");
-		state.parameters.set(genomeSizeParam, "" + relevantSerivces.getServiceSequence().size());
+		state.parameters.set(genomeSizeParam, "" + initialWSCPool.getServiceSequence().size());
+	}
 
-//		for (int i = 0; i <= 5; i++) {
-//			relevantSerivces.getGraphOutputSet().clear();
-//			DirectedGraph<String, DefaultEdge> undirectedGraph = new DefaultDirectedGraph<String, DefaultEdge>(
-//					DefaultEdge.class);
-//			undirectedGraph.addVertex("startNode");
-//			relevantSerivces.createGraphService(taskInput.get(0), taskOutput.get(0), undirectedGraph);
-//			System.out.println("graph printing#########################################");
-//			System.out.println(undirectedGraph.toString());
-//
-//		}
+	private static DirectedAcyclicGraph<String, DefaultEdge> createOntologyDAG(InitialWSCPool initialWSCPool) {
 
+		DirectedAcyclicGraph<String, DefaultEdge> g = new DirectedAcyclicGraph<String, DefaultEdge>(DefaultEdge.class);
+
+		HashMap<String, OWLClass> owlClassMap = initialWSCPool.getSemanticsPool().getOwlClassHashMap();
+
+		for (String concept : owlClassMap.keySet()) {
+			g.addVertex(concept);
+
+		}
+
+		for (OWLClass owlClass : owlClassMap.values()) {
+			if (owlClass.getSubClassOf() != null) {
+				String source = owlClass.getSubClassOf().getResource().substring(1);
+				String target = owlClass.getID();
+				g.addEdge(source, target);
+			}else{
+				System.out.println("&&&&&&&&&&&&&&&&&&&&&&& found  null in getSubClassOf");
+			}
+		}
+		return g;
 	}
 
 }

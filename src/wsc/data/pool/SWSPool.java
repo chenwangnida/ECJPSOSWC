@@ -23,7 +23,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
-import wsc.RelevantServices;
+import wsc.InitialWSCPool;
 import wsc.wsdl.bean.Definitions;
 
 public class SWSPool {

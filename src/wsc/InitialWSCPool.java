@@ -19,7 +19,7 @@ import wsc.data.pool.SWSPool;
 import wsc.data.pool.SemanticsPool;
 import wsc.data.pool.Service;
 
-public class RelevantServices {
+public class InitialWSCPool {
 
 	private SWSPool swsPool;
 
@@ -67,7 +67,7 @@ public class RelevantServices {
 	 * @throws FileNotFoundException
 	 */
 
-	public RelevantServices(String serviceFilePath, String owlFilePath) throws FileNotFoundException, JAXBException {
+	public InitialWSCPool(String serviceFilePath, String owlFilePath) throws FileNotFoundException, JAXBException {
 		this.semanticsPool = SemanticsPool.createSemanticsFromOWL(owlFilePath);
 		this.swsPool = SWSPool.parseXML(this.semanticsPool, serviceFilePath);
 	}
