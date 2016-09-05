@@ -24,6 +24,7 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 import wsc.InitialWSCPool;
+import wsc.graph.ServiceEdge;
 import wsc.wsdl.bean.Definitions;
 
 public class SWSPool {
@@ -173,7 +174,7 @@ public class SWSPool {
 	 * @param inputSet
 	 */
 	public Service createGraphService(HashSet<String> inputSet, List<Service> serviceCandidates,
-			SemanticsPool semanticsPool, DirectedGraph<String, DefaultEdge> directedGraph) {
+			SemanticsPool semanticsPool, DirectedGraph<String, ServiceEdge> directedGraph) {
 		int foundServiceIndex = -1;
 
 		for (int i = 0; i < serviceCandidates.size(); i++) {

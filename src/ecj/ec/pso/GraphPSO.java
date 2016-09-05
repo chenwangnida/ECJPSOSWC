@@ -3,6 +3,8 @@ package ecj.ec.pso;
 import ec.simple.SimpleProblemForm;
 
 import wsc.data.pool.Service;
+import wsc.graph.ServiceEdge;
+
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -36,8 +38,8 @@ public class GraphPSO extends Problem implements SimpleProblemForm {
 
 		// Create graph
 		init.initialWSCPool.getGraphOutputSet().clear();
-		DirectedGraph<String, DefaultEdge> directedGraph = new DefaultDirectedGraph<String, DefaultEdge>(
-				DefaultEdge.class);
+		DirectedGraph<String, ServiceEdge> directedGraph = new DefaultDirectedGraph<String, ServiceEdge>(
+				ServiceEdge.class);
 		directedGraph.addVertex("startNode");
 		init.initialWSCPool.createGraphService(init.taskInput.get(0), init.taskOutput.get(0), directedGraph);
 		// System.out.println(directedGraph.toString());
@@ -105,26 +107,24 @@ public class GraphPSO extends Problem implements SimpleProblemForm {
 
 	}
 
-	public static void removeAlltangle(DirectedGraph<String, DefaultEdge> directedGraph,
+	public static void removeAlltangle(DirectedGraph<String, ServiceEdge> directedGraph,
 			List<String> dangleVerticeList) {
 		// Iterator the endTangle
 		for (String danglevertice : dangleVerticeList) {
 
-			Set<DefaultEdge> relatedEdge = directedGraph.incomingEdgesOf(danglevertice);
+			Set<ServiceEdge> relatedEdge = directedGraph.incomingEdgesOf(danglevertice);
+			Set<String> potentialTangleVerticeList = new HashSet<String>();
 
-			for (DefaultEdge edge : relatedEdge) {
+
+			for (ServiceEdge edge : relatedEdge) {
 				String potentialTangleVertice = directedGraph.getEdgeSource(edge);
-
 				System.out.println("potentialTangleVertice:" + potentialTangleVertice);
+				potentialTangleVerticeList.add(potentialTangleVertice);
 			}
-
-			Set<DefaultEdge> ralatedEdgeSave = new HashSet<DefaultEdge>();
-			ralatedEdgeSave.addAll(relatedEdge);
 
 			directedGraph.removeVertex(danglevertice);
 
-			for (DefaultEdge edge : ralatedEdgeSave) {
-				String potentialTangleVertice = directedGraph.getEdgeSource(edge);
+			for (String potentialTangleVertice : potentialTangleVerticeList) {
 				int relatedOutDegree = directedGraph.outDegreeOf(potentialTangleVertice);
 				List<String> dangleVerticeList1 = new ArrayList<String>();
 				if (relatedOutDegree == 0) {

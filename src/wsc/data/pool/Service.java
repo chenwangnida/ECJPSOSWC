@@ -24,6 +24,7 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 import ecj.ec.pso.GraphInitializer;
+import wsc.graph.ServiceEdge;
 import wsc.owl.bean.OWLClass;
 import wsc.wsdl.bean.SemExt;
 import wsc.wsdl.bean.SemMessageExt;
@@ -130,7 +131,7 @@ public class Service {
 	 * @return boolean
 	 */
 	public boolean searchServiceGraphMatchFromInputSet(SemanticsPool semanticsPool, Service service,
-			HashSet<String> inputSet, DirectedGraph<String, DefaultEdge> directedGraph,
+			HashSet<String> inputSet, DirectedGraph<String, ServiceEdge> directedGraph,
 			Map<String, Service> graphOutputSetMap) {
 		int inputMatchCount = 0;
 		double sumsdt = 0.00;
@@ -157,16 +158,14 @@ public class Service {
 					if (inputMatchCount == service.getInputList().size()) {
 
 						double avgsdt = sumsdt / inputMatchCount;
-						System.out.println("avgsdt## for selected service###########" + avgsdt + "");
-
 						if (giveninput == "inst2139388127") {
 							directedGraph.addVertex(service.getServiceID());
-							directedGraph.addEdge("startNode", service.getServiceID());
+							directedGraph.addEdge("startNode", service.getServiceID(), new ServiceEdge(0.00, avgsdt));
 
 						} else {
 							String oldServiceID = graphOutputSetMap.get(giveninput).getServiceID();
 							directedGraph.addVertex(service.getServiceID());
-							directedGraph.addEdge(oldServiceID, service.getServiceID());
+							directedGraph.addEdge(oldServiceID, service.getServiceID(), new ServiceEdge(0.00, avgsdt));
 
 						}
 						return true;

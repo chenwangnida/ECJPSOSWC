@@ -76,7 +76,7 @@ public class GraphInitializer extends SimpleInitializer {
 		try {
 			initialWSCPool = new InitialWSCPool(service_wsdl, taxonomy_owl);
 			initialWSCPool.allRelevantService(taskInput.get(0), taskOutput.get(0));
-			System.out.println("releveantService Size:" + initialWSCPool.getServiceSequence().size());
+//			System.out.println("releveantService Size:" + initialWSCPool.getServiceSequence().size());
 
 		} catch (JAXBException | IOException e) {
 			e.printStackTrace();
@@ -84,7 +84,7 @@ public class GraphInitializer extends SimpleInitializer {
 
 		// Initial ontology DAG data
 		ontologyDAG = createOntologyDAG(initialWSCPool);
-		System .out.println("&&&&&&&&&&&&&&ontology DAG&&&& vertice size : "+ ontologyDAG.vertexSet().size()+"edge number : "+ontologyDAG.edgeSet().size());
+//		System .out.println("&&&&&&&&&&&&&&ontology DAG&&&& vertice size : "+ ontologyDAG.vertexSet().size()+"edge number : "+ontologyDAG.edgeSet().size());
 
 		// Initial StartNode and EndNode
 		double[] mockQos = new double[4];
@@ -114,8 +114,6 @@ public class GraphInitializer extends SimpleInitializer {
 				String source = owlClass.getSubClassOf().getResource().substring(1);
 				String target = owlClass.getID();
 				g.addEdge(source, target);
-			}else{
-				System.out.println("&&&&&&&&&&&&&&&&&&&&&&& found  null in getSubClassOf");
 			}
 		}
 		return g;

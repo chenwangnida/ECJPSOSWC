@@ -18,6 +18,7 @@ import org.jgrapht.graph.DefaultEdge;
 import wsc.data.pool.SWSPool;
 import wsc.data.pool.SemanticsPool;
 import wsc.data.pool.Service;
+import wsc.graph.ServiceEdge;
 
 public class InitialWSCPool {
 
@@ -78,13 +79,13 @@ public class InitialWSCPool {
 	 * @param givenoutput
 	 * @return
 	 */
-	private boolean checkOutputSet(String output, DirectedGraph<String, DefaultEdge> undirectedGraph,
+	private boolean checkOutputSet(String output, DirectedGraph<String, ServiceEdge> undirectedGraph,
 			Service service) {
 		for (String outputInst : this.graphOutputSet) {
 			if (this.semanticsPool.searchSemanticMatchFromInst(outputInst, output)) {
 
 				undirectedGraph.addVertex("endNode");
-				undirectedGraph.addEdge(service.getServiceID(), "endNode");
+				undirectedGraph.addEdge(service.getServiceID(), "endNode",new ServiceEdge(0.00, 0.00) );
 				return true;
 			}
 		}
@@ -112,7 +113,7 @@ public class InitialWSCPool {
 		} while (true);// while(!this.checkOutputSet(output))
 	}
 
-	public void createGraphService(String input, String output, DirectedGraph<String, DefaultEdge> directedGraph) {
+	public void createGraphService(String input, String output, DirectedGraph<String, ServiceEdge> directedGraph) {
 
 		this.graphOutputSet.add(input);
 		SWSPool swsPool = new SWSPool();
