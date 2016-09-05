@@ -65,8 +65,8 @@ public class GraphPSO extends Problem implements SimpleProblemForm {
 		double r = 1.0;
 		double t = 0.0;
 		double c = 0.0;
-		double[] mt = { 1.0, 0.75, 0.5, 0.25 };
-		double dst = 1; // Exact Match dst = 1 ; 0 < = dst < = 1
+		double mt = 1.0;
+		double dst = 1.0; // Exact Match dst = 1 ; 0 < = dst < = 1
 
 		// set availability, reliability, cost
 		Set<String> verticeSet = directedGraph.vertexSet();
@@ -96,14 +96,26 @@ public class GraphPSO extends Problem implements SimpleProblemForm {
 		System.out.println("#########AVAILABILITY:" + a + "##########RELIABILITY:" + r + "#########COST:" + c
 				+ "#########time" + t);
 
-		// set dst
+		// set average matching type, average semantic distance value for each match
+		
+		for(ServiceEdge serviceEdge: directedGraph.edgeSet()){
+			mt *= serviceEdge.getAvgmt();
+			dst += serviceEdge.getAvgsdt();
+		}
 
-		// init.ontologyDAG;
-//
-//		individual.setAvailability(a);
-//		individual.setReliability(r);
-//		individual.setTime(t);
-//		individual.setCost(c);
+		individual.setStrRepresentation(directedGraph.toString());
+		individual.setAvailability(a);
+		individual.setReliability(r);
+		individual.setTime(t);
+		individual.setCost(c);
+		individual.setSemanticDistance(dst);
+		individual.setMatchingType(mt);
+		
+	}
+
+	@Override
+	public void finishEvaluating(EvolutionState state, int threadnum) {
+		GraphInitializer init = (GraphInitializer) state.initializer;
 
 	}
 
