@@ -52,7 +52,10 @@ public class GraphInitializer extends SimpleInitializer {
 	public double maxTime = -1.0;
 	public double minCost = Double.MAX_VALUE;
 	public double maxCost = -1.0;
-	public double maxMT = 1;
+	public double maxMatchType = 1;
+	public double minMatchType = 0.25;
+	public double maxDistanceValue = 1;
+	public double minDistanceValue = 0;
 
 
 	public InitialWSCPool initialWSCPool;
@@ -155,10 +158,11 @@ public class GraphInitializer extends SimpleInitializer {
 			if (cost < minCost)
 				minCost = cost;
 		}
-		// Adjust max. cost and max. time based on the number of services in
+		// Adjust max. cost, max. time, max. distanceValue based on the number of services in
 		// shrunk repository
 		maxCost *= services.size();
 		maxTime *= services.size();
+		maxDistanceValue *= services.size();
 
 	}
 

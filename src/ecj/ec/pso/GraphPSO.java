@@ -181,6 +181,8 @@ public class GraphPSO extends Problem implements SimpleProblemForm {
 
 	private double calculateFitness(double mt, double dst, double a, double r, double t, double c,
 			GraphInitializer init) {
+		mt = normaliseMatchType(mt, init);
+		dst = normaliseDistanceValue(dst, init);
 		a = normaliseAvailability(a, init);
 		r = normaliseReliability(r, init);
 		t = normaliseTime(t, init);
@@ -188,6 +190,20 @@ public class GraphPSO extends Problem implements SimpleProblemForm {
 
 		double fitness = ((init.qos_w1 * a) + (init.qos_w1 * r) + (init.qos_w1 * t) + (init.qos_w1 * c));
 		return fitness;
+	}
+
+	private double normaliseMatchType(double matchType, GraphInitializer init) {
+		if (init.maxMatchType - init.minMatchType == 0.0)
+			return 1.0;
+		else
+			return (matchType - init.minMatchType) / (init.maxMatchType - init.minMatchType);
+	}
+
+	private double normaliseDistanceValue(double distanceValue, GraphInitializer init) {
+		if (init.maxDistanceValue - init.minDistanceValue == 0.0)
+			return 1.0;
+		else
+			return (distanceValue - init.minDistanceValue) / (init.maxDistanceValue - init.minDistanceValue);
 	}
 
 	private double normaliseAvailability(double availability, GraphInitializer init) {

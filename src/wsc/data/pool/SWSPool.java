@@ -88,7 +88,7 @@ public class SWSPool {
 		// manually add QoS attributes
 		for (int i = 0; i < list.size(); i++) {
 			swsp.qosServiceMap.put(swsp.serviceList.get(i).getServiceID(),list.get(i));
-//			swsp.serviceList.get(i).setQos(list.get(i));
+			swsp.serviceList.get(i).setQos(list.get(i));
 		}
 
 		System.out.println("No.of Service:" + swsp.serviceList.size());
