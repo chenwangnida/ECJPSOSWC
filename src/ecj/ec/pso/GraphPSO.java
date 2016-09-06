@@ -1,5 +1,6 @@
 package ecj.ec.pso;
 
+import ec.simple.SimpleFitness;
 import ec.simple.SimpleProblemForm;
 
 import wsc.data.pool.Service;
@@ -96,26 +97,33 @@ public class GraphPSO extends Problem implements SimpleProblemForm {
 		System.out.println("#########AVAILABILITY:" + a + "##########RELIABILITY:" + r + "#########COST:" + c
 				+ "#########time" + t);
 
-		// set average matching type, average semantic distance value for each match
-		
-		for(ServiceEdge serviceEdge: directedGraph.edgeSet()){
+		// set average matching type, average semantic distance value for each
+		// match
+
+		for (ServiceEdge serviceEdge : directedGraph.edgeSet()) {
 			mt *= serviceEdge.getAvgmt();
 			dst += serviceEdge.getAvgsdt();
 		}
 
-		individual.setStrRepresentation(directedGraph.toString());
 		individual.setAvailability(a);
 		individual.setReliability(r);
 		individual.setTime(t);
 		individual.setCost(c);
 		individual.setSemanticDistance(dst);
 		individual.setMatchingType(mt);
-		
-	}
 
-	@Override
-	public void finishEvaluating(EvolutionState state, int threadnum) {
-		GraphInitializer init = (GraphInitializer) state.initializer;
+		if (GraphInitializer.normalisation) {
+			double fitness = calculateFitness(mt, dst, a, r, t, c, init);
+
+			((SimpleFitness) individual.fitness).setFitness(state,
+					// ...the fitness...
+					fitness,
+					/// ... is the individual ideal? Indicate here...
+					false);
+			individual.evaluated = true;
+		}
+
+		individual.setStrRepresentation(directedGraph.toString());
 
 	}
 
@@ -126,7 +134,6 @@ public class GraphPSO extends Problem implements SimpleProblemForm {
 
 			Set<ServiceEdge> relatedEdge = directedGraph.incomingEdgesOf(danglevertice);
 			Set<String> potentialTangleVerticeList = new HashSet<String>();
-
 
 			for (ServiceEdge edge : relatedEdge) {
 				String potentialTangleVertice = directedGraph.getEdgeSource(edge);
@@ -171,4 +178,44 @@ public class GraphPSO extends Problem implements SimpleProblemForm {
 		// return pathList.get(IndexPathLength).getEdgeList();
 		return Graphs.getPathVertexList(pathList.get(IndexPathLength));
 	}
+
+	private double calculateFitness(double mt, double dst, double a, double r, double t, double c,
+			GraphInitializer init) {
+		a = normaliseAvailability(a, init);
+		r = normaliseReliability(r, init);
+		t = normaliseTime(t, init);
+		c = normaliseCost(c, init);
+
+		double fitness = ((init.qos_w1 * a) + (init.qos_w1 * r) + (init.qos_w1 * t) + (init.qos_w1 * c));
+		return fitness;
+	}
+
+	private double normaliseAvailability(double availability, GraphInitializer init) {
+		if (init.maxAvailability - init.minAvailability == 0.0)
+			return 1.0;
+		else
+			return (availability - init.minAvailability) / (init.maxAvailability - init.minAvailability);
+	}
+
+	private double normaliseReliability(double reliability, GraphInitializer init) {
+		if (init.maxReliability - init.minReliability == 0.0)
+			return 1.0;
+		else
+			return (reliability - init.minReliability) / (init.maxReliability - init.minReliability);
+	}
+
+	private double normaliseTime(double time, GraphInitializer init) {
+		if (init.maxTime - init.minTime == 0.0)
+			return 1.0;
+		else
+			return (init.maxTime - time) / (init.maxTime - init.minTime);
+	}
+
+	private double normaliseCost(double cost, GraphInitializer init) {
+		if (init.maxCost - init.minCost == 0.0)
+			return 1.0;
+		else
+			return (init.maxCost - cost) / (init.maxCost - init.minCost);
+	}
+
 }

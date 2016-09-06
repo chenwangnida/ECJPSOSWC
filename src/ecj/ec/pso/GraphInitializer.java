@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Set;
 
 import javax.xml.bind.JAXBException;
 
@@ -29,7 +30,7 @@ public class GraphInitializer extends SimpleInitializer {
 	public double qos_w2;
 	public double qos_w3;
 	public double qos_w4;
-	public static boolean dynamicNormalisation;
+	public static boolean normalisation;
 	public static String rootconcept;
 
 	public static final int TIME = 0;
@@ -41,6 +42,17 @@ public class GraphInitializer extends SimpleInitializer {
 	public static final int PlUGIN = 1;
 	public static final int SUBSUME = 2;
 	public static final int INTERSECTION = 3;
+
+	// define initial parameters to calculate normalized mt,dst,a,r,t,c
+	public double minAvailability = 0.0;
+	public double maxAvailability = -1.0;
+	public double minReliability = 0.0;
+	public double maxReliability = -1.0;
+	public double minTime = Double.MAX_VALUE;
+	public double maxTime = -1.0;
+	public double minCost = Double.MAX_VALUE;
+	public double maxCost = -1.0;
+	public double maxMT = 1;
 
 
 	public InitialWSCPool initialWSCPool;
@@ -56,15 +68,12 @@ public class GraphInitializer extends SimpleInitializer {
 		String taxonomy_owl = state.parameters.getString(new Parameter("taxonomy-owl"), null);
 		String service_wsla = state.parameters.getString(new Parameter("service-wsla"), null);
 
-
-
 		qos_w1 = state.parameters.getDouble(new Parameter("fitness-weight1"), null);
 		qos_w2 = state.parameters.getDouble(new Parameter("fitness-weight2"), null);
 		qos_w3 = state.parameters.getDouble(new Parameter("fitness-weight3"), null);
 		qos_w4 = state.parameters.getDouble(new Parameter("fitness-weight4"), null);
-		dynamicNormalisation = state.parameters.getBoolean(new Parameter("dynamic-normalisation"), null, false);
-		rootconcept =  state.parameters.getString(new Parameter("root-concept"), null);
-
+		normalisation = state.parameters.getBoolean(new Parameter("normalisation"), null, false);
+		rootconcept = state.parameters.getString(new Parameter("root-concept"), null);
 
 		// define task
 		taskInput = new ArrayList<String>();
@@ -72,26 +81,25 @@ public class GraphInitializer extends SimpleInitializer {
 		taskOutput = new ArrayList<String>();
 		taskOutput.add("inst162515103");
 
-		// Initial all data related to Web service composition  pools
+		// Initial all data related to Web service composition pools
 		try {
 			initialWSCPool = new InitialWSCPool(service_wsdl, taxonomy_owl);
 			initialWSCPool.allRelevantService(taskInput.get(0), taskOutput.get(0));
-//			System.out.println("releveantService Size:" + initialWSCPool.getServiceSequence().size());
+			// System.out.println("releveantService Size:" +
+			// initialWSCPool.getServiceSequence().size());
 
 		} catch (JAXBException | IOException e) {
 			e.printStackTrace();
 		}
 
+		//Calculate normalised bounds
+		if (normalisation)
+			calculateNormalisationBounds(initialWSCPool.getServiceSequence());
 		// Initial ontology DAG data
 		ontologyDAG = createOntologyDAG(initialWSCPool);
-//		System .out.println("&&&&&&&&&&&&&&ontology DAG&&&& vertice size : "+ ontologyDAG.vertexSet().size()+"edge number : "+ontologyDAG.edgeSet().size());
-
-		// Initial StartNode and EndNode
-		double[] mockQos = new double[4];
-		mockQos[TIME] = 0;
-		mockQos[COST] = 0;
-		mockQos[AVAILABILITY] = 1;
-		mockQos[RELIABILITY] = 1;
+		// System .out.println("&&&&&&&&&&&&&&ontology DAG&&&& vertice size : "+
+		// ontologyDAG.vertexSet().size()+"edge number :
+		// "+ontologyDAG.edgeSet().size());
 
 		// Set size of particles
 		Parameter genomeSizeParam = new Parameter("pop.subpop.0.species.genome-size");
@@ -117,6 +125,41 @@ public class GraphInitializer extends SimpleInitializer {
 			}
 		}
 		return g;
+	}
+
+	private void calculateNormalisationBounds(List<Service> services) {
+		for (Service service : services) {
+			double[] qos = service.getQos();
+
+			// Availability
+			double availability = qos[AVAILABILITY];
+			if (availability > maxAvailability)
+				maxAvailability = availability;
+
+			// Reliability
+			double reliability = qos[RELIABILITY];
+			if (reliability > maxReliability)
+				maxReliability = reliability;
+
+			// Time
+			double time = qos[TIME];
+			if (time > maxTime)
+				maxTime = time;
+			if (time < minTime)
+				minTime = time;
+
+			// Cost
+			double cost = qos[COST];
+			if (cost > maxCost)
+				maxCost = cost;
+			if (cost < minCost)
+				minCost = cost;
+		}
+		// Adjust max. cost and max. time based on the number of services in
+		// shrunk repository
+		maxCost *= services.size();
+		maxTime *= services.size();
+
 	}
 
 }
