@@ -77,7 +77,7 @@ public class SemanticsPool {
 		return false;
 	}
 
-	public Map<Integer, Boolean> searchSemanticMatchTypeFromInst(String givenInst, String existInst) {
+	public Map<Double, Boolean> searchSemanticMatchTypeFromInst(String givenInst, String existInst) {
 
 		OWLClass givenClass = this.owlClassHashMap
 				.get(this.owlInstHashMap.get(givenInst).getRdfType().getResource().substring(1));
@@ -85,27 +85,43 @@ public class SemanticsPool {
 				.get(this.owlInstHashMap.get(existInst).getRdfType().getResource().substring(1));
 
 		// search for the potential semantic matching relationship
-		Map<Integer, Boolean> matchType = new HashMap<Integer, Boolean>();
+		Map<Double, Boolean> matchType = new HashMap<Double, Boolean>();
 		// no match
-		matchType.put(0, false);
+		matchType.put(0.00, false);
 		// exact match
-		matchType.put(1, false);
+		matchType.put(1.00, false);
 		// plugin match
-		matchType.put(2, false);
+		matchType.put(0.75, false);
 		// subsume match
-		matchType.put(3, false);
+		matchType.put(0.50, false);
 		// intersection match
-		matchType.put(4, false);
+		matchType.put(0.25, false);
 
 		while (true) {
 			int i = 0;
 			// Exact and PlugIn matching types
 			if (givenClass.getID().equals(relatedClass.getID())) {
 				if (i == 0) {
-					matchType.put(1, true);
+					matchType.put(0.00, false);
+					// exact match
+					matchType.put(1.00, true);
+					// plugin match
+					matchType.put(0.75, false);
+					// subsume match
+					matchType.put(0.50, false);
+					// intersection match
+					matchType.put(0.25, false);
+
 				} else {
-					matchType.put(3, true);
-				}
+					matchType.put(0.00, false);
+					// exact match
+					matchType.put(1.00, false);
+					// plugin match
+					matchType.put(0.75, false);
+					// subsume match
+					matchType.put(0.50, true);
+					// intersection match
+					matchType.put(0.25, false);				}
 				return matchType;
 			}
 			if (givenClass.getSubClassOf() == null || givenClass.getSubClassOf().getResource().equals("")) {

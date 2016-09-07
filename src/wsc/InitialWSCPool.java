@@ -84,11 +84,22 @@ public class InitialWSCPool {
 	 */
 	private boolean checkOutputSet(String output, DirectedGraph<String, ServiceEdge> directedGraph, Service service) {
 		for (String outputInst : this.graphOutputSet) {
-			if (this.semanticsPool.searchSemanticMatchFromInst(outputInst, output)) {
+			Map<Double,Boolean> matchType = this.semanticsPool.searchSemanticMatchTypeFromInst(outputInst, output);
+			boolean value = true;
+			boolean foundmatched = matchType.containsValue(value);
+			
+			if (foundmatched) {
+				
+				double summt = 0.00;
+				for(double matchTypeValue:matchType.keySet()){
+					if (matchType.get(matchTypeValue)==true){
+						summt= matchTypeValue;
+					};
+				}
 
 				directedGraph.addVertex("endNode");
 				double dst = Service.CalculateSimilarityMeasure(GraphInitializer.ontologyDAG, outputInst, output, this.semanticsPool);
-				directedGraph.addEdge(service.getServiceID(), "endNode", new ServiceEdge(0.00, dst));
+				directedGraph.addEdge(service.getServiceID(), "endNode", new ServiceEdge(summt, dst));
 				return true;
 			}
 		}
