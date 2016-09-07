@@ -18,6 +18,7 @@ import org.jgrapht.UndirectedGraph;
 import org.jgrapht.graph.DefaultEdge;
 
 import ecj.ec.pso.GraphInitializer;
+import wsc.data.pool.ParamterConn;
 import wsc.data.pool.SWSPool;
 import wsc.data.pool.SemanticsPool;
 import wsc.data.pool.Service;
@@ -84,22 +85,16 @@ public class InitialWSCPool {
 	 */
 	private boolean checkOutputSet(String output, DirectedGraph<String, ServiceEdge> directedGraph, Service service) {
 		for (String outputInst : this.graphOutputSet) {
-			Map<Double,Boolean> matchType = this.semanticsPool.searchSemanticMatchTypeFromInst(outputInst, output);
-			boolean value = true;
-			boolean foundmatched = matchType.containsValue(value);
-			
+			ParamterConn pConn = this.semanticsPool.searchSemanticMatchTypeFromInst(outputInst, output);
+			boolean foundmatched = pConn.isConsidered();
+
 			if (foundmatched) {
-				
-				double summt = 0.00;
-				for(double matchTypeValue:matchType.keySet()){
-					if (matchType.get(matchTypeValue)==true){
-						summt= matchTypeValue;
-					};
-				}
+
+				double mt= pConn.getMatchType();
 
 				directedGraph.addVertex("endNode");
 				double dst = Service.CalculateSimilarityMeasure(GraphInitializer.ontologyDAG, outputInst, output, this.semanticsPool);
-				directedGraph.addEdge(service.getServiceID(), "endNode", new ServiceEdge(summt, dst));
+				directedGraph.addEdge(service.getServiceID(), "endNode", new ServiceEdge(mt, dst));
 				return true;
 			}
 		}

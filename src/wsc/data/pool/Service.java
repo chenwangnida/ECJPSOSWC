@@ -12,7 +12,6 @@ import org.jgrapht.alg.DijkstraShortestPath;
 import org.jgrapht.alg.NaiveLcaFinder;
 import org.jgrapht.graph.DefaultEdge;
 
-
 import ecj.ec.pso.GraphInitializer;
 import wsc.graph.ServiceEdge;
 import wsc.owl.bean.OWLClass;
@@ -25,7 +24,6 @@ public class Service implements Comparable<Service> {
 	// list of inputInstances(individuals), rather than list of input parameter.
 	private double[] qos;
 	private double score;
-
 
 	public double getScore() {
 		return score;
@@ -153,43 +151,31 @@ public class Service implements Comparable<Service> {
 		double sumdst = 0.00;
 		// check if the inputSet contains all the required inputs from services
 		for (String giveninput : inputSet) {
-		
-			double mt = 0.00;
-			double dst = 0.00;
-			
+
 			for (int i = 0; i < service.getInputList().size(); i++) {
 
 				String existInput = service.getInputList().get(i);
-//				boolean foundmatched = semanticsPool.searchSemanticMatchFromInst(giveninput, existInput);
-				Map<Double,Boolean> matchType = semanticsPool.searchSemanticMatchTypeFromInst(giveninput, existInput);
-				boolean value = true;
-				boolean foundmatched = matchType.containsValue(value);
+				// boolean foundmatched =
+				// semanticsPool.searchSemanticMatchFromInst(giveninput,
+				// existInput);
+				ParamterConn pConn = semanticsPool.searchSemanticMatchTypeFromInst(giveninput, existInput);
+				boolean foundmatched = pConn.isConsidered();
 
 				if (foundmatched) {
-					for(double matchTypeValue:matchType.keySet()){
-						if (matchType.get(matchTypeValue)==true){
-							mt= matchTypeValue;
-						};
-					}
-							
-//					if (i == 0) {
-//						sumsdt = 0.00;
-//					}
+
+					double mt = pConn.getMatchType();
 					double semanticDistance = CalculateSimilarityMeasure(GraphInitializer.ontologyDAG, giveninput,
 							existInput, semanticsPool);
 					summt += mt;
 					sumdst += semanticDistance;
-//					System.out.println("semanticDistance#############" + semanticDistance + "");
-//					System.out.println("sumsdt#############" + sumdst + "");
-
-
 					inputMatchCount++;
+
 					// contain complete match from a single service
 					if (inputMatchCount == service.getInputList().size()) {
 
 						double avgmt = summt / inputMatchCount;
 						double avgsdt = sumdst / inputMatchCount;
-					
+
 						if (giveninput == "inst2139388127") {
 							directedGraph.addVertex(service.getServiceID());
 							directedGraph.addEdge("startNode", service.getServiceID(), new ServiceEdge(avgmt, avgsdt));

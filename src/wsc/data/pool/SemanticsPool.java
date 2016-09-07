@@ -77,7 +77,7 @@ public class SemanticsPool {
 		return false;
 	}
 
-	public Map<Double, Boolean> searchSemanticMatchTypeFromInst(String givenInst, String existInst) {
+	public ParamterConn searchSemanticMatchTypeFromInst(String givenInst, String existInst) {
 
 		OWLClass givenClass = this.owlClassHashMap
 				.get(this.owlInstHashMap.get(givenInst).getRdfType().getResource().substring(1));
@@ -85,44 +85,21 @@ public class SemanticsPool {
 				.get(this.owlInstHashMap.get(existInst).getRdfType().getResource().substring(1));
 
 		// search for the potential semantic matching relationship
-		Map<Double, Boolean> matchType = new HashMap<Double, Boolean>();
-		// no match
-		matchType.put(0.00, false);
-		// exact match
-		matchType.put(1.00, false);
-		// plugin match
-		matchType.put(0.75, false);
-		// subsume match
-		matchType.put(0.50, false);
-		// intersection match
-		matchType.put(0.25, false);
+		ParamterConn pConn = new ParamterConn();
+
+		int i = 0;
 
 		while (true) {
-			int i = 0;
 			// Exact and PlugIn matching types
 			if (givenClass.getID().equals(relatedClass.getID())) {
-				if (i == 0) {
-					matchType.put(0.00, false);
-					// exact match
-					matchType.put(1.00, true);
-					// plugin match
-					matchType.put(0.75, false);
-					// subsume match
-					matchType.put(0.50, false);
-					// intersection match
-					matchType.put(0.25, false);
+				pConn.setConsidered(true);
+				if(i==0 ){
+					pConn.setMatchType(1);
 
-				} else {
-					matchType.put(0.00, false);
-					// exact match
-					matchType.put(1.00, false);
-					// plugin match
-					matchType.put(0.75, false);
-					// subsume match
-					matchType.put(0.50, true);
-					// intersection match
-					matchType.put(0.25, false);				}
-				return matchType;
+				}else{
+					pConn.setMatchType(0.5);
+				}
+				return pConn;
 			}
 			if (givenClass.getSubClassOf() == null || givenClass.getSubClassOf().getResource().equals("")) {
 				break;
@@ -130,8 +107,8 @@ public class SemanticsPool {
 			givenClass = this.owlClassHashMap.get(givenClass.getSubClassOf().getResource().substring(1));
 			i++;
 		}
-
-		return matchType;
+		pConn.setConsidered(false);
+		return pConn;
 	}
 
 	// /** Test data from unmarshalling process
