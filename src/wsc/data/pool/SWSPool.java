@@ -31,10 +31,9 @@ public class SWSPool {
 
 	private List<Service> serviceList = new LinkedList<Service>();
 	private SemanticsPool semantics;
-	private Map<String,double[]> qosServiceMap = new HashMap<String, double[]>();
+	private Map<String, double[]> qosServiceMap = new HashMap<String, double[]>();
 
-	private final Map<String,Service> graphOutputSetMap = new HashMap<String, Service>();
-
+	private final Map<String, Service> graphOutputSetMap = new HashMap<String, Service>();
 
 	public Map<String, Service> getGraphOutputSetMap() {
 		return graphOutputSetMap;
@@ -87,7 +86,7 @@ public class SWSPool {
 
 		// manually add QoS attributes
 		for (int i = 0; i < list.size(); i++) {
-			swsp.qosServiceMap.put(swsp.serviceList.get(i).getServiceID(),list.get(i));
+			swsp.qosServiceMap.put(swsp.serviceList.get(i).getServiceID(), list.get(i));
 			swsp.serviceList.get(i).setQos(list.get(i));
 		}
 
@@ -179,7 +178,8 @@ public class SWSPool {
 
 		for (int i = 0; i < serviceCandidates.size(); i++) {
 			Service s = new Service(serviceCandidates.get(i).getServiceID());
-			if (s.searchServiceGraphMatchFromInputSet(semanticsPool, serviceCandidates.get(i), inputSet,directedGraph, this.graphOutputSetMap)) {
+			if (s.searchServiceGraphMatchFromInputSet(semanticsPool, serviceCandidates.get(i), inputSet, directedGraph,
+					this.graphOutputSetMap)) {
 				foundServiceIndex = i;
 				break;
 			}
@@ -195,8 +195,8 @@ public class SWSPool {
 		for (String output : newService.getOutputList()) {
 			if (!inputSet.contains(output)) {
 				inputSet.add(output);
-				//output mapped back to service
-				graphOutputSetMap.put(output,newService );
+				// output mapped back to service
+				graphOutputSetMap.put(output, newService);
 			}
 		}
 		return newService;

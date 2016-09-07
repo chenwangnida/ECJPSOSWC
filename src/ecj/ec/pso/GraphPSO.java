@@ -38,30 +38,17 @@ public class GraphPSO extends Problem implements SimpleProblemForm {
 		GraphParticle individual = (GraphParticle) ind;
 
 		// Create graph
-		init.initialWSCPool.getGraphOutputSet().clear();
-		DirectedGraph<String, ServiceEdge> directedGraph = new DefaultDirectedGraph<String, ServiceEdge>(
-				ServiceEdge.class);
-		directedGraph.addVertex("startNode");
-		init.initialWSCPool.createGraphService(init.taskInput.get(0), init.taskOutput.get(0), directedGraph, individual.genome, init.serviceToIndexMap);
-		// System.out.println(directedGraph.toString());
+		DirectedGraph<String, ServiceEdge> directedGraph = graphRepresentation(init, individual);
 
-		// initially find current dangleVertice
-		Set<String> allVertice = directedGraph.vertexSet();
-		List<String> dangleVerticeList = new ArrayList<String>();
-		for (String v : allVertice) {
-			int relatedOutDegree = directedGraph.outDegreeOf(v);
-			if (relatedOutDegree == 0 && !v.equals("endNode")) {
-				dangleVerticeList.add(v);
-			}
-		}
+		// set both functional and nonfunctional attributes for fitness
+		// functiona
+		SetAttributes(state, init, individual, directedGraph);
 
-		// recursion for find updating tangle for remove all dangles
-		removeAlltangle(directedGraph, dangleVerticeList);
+	}
 
-		//print the semantic composition graph
-		System.out.println(directedGraph.toString());
+	private void SetAttributes(EvolutionState state, GraphInitializer init, GraphParticle individual,
+			DirectedGraph<String, ServiceEdge> directedGraph) {
 
-		// set both functional and nonfunctional attributes( QoS )
 		double a = 1.0;
 		double r = 1.0;
 		double t = 0.0;
@@ -69,7 +56,7 @@ public class GraphPSO extends Problem implements SimpleProblemForm {
 		double mt = 1.0;
 		double dst = 1.0; // Exact Match dst = 1 ; 0 < = dst < = 1
 
-		// set availability, reliability, cost
+		// set a, r, c aggregation
 		Set<String> verticeSet = directedGraph.vertexSet();
 
 		Map<String, double[]> qosMap = init.initialWSCPool.getSwsPool().getQosServiceMap();
@@ -83,9 +70,7 @@ public class GraphPSO extends Problem implements SimpleProblemForm {
 			}
 		}
 
-		// set time
-
-		// get edge list of the LogestPaths
+		// set time aggregation
 		List<String> longestVertexList = getLongestPathVertexList(directedGraph);
 		for (String v : longestVertexList) {
 			if (!v.equals("startNode") && !v.equals("endNode")) {
@@ -94,11 +79,7 @@ public class GraphPSO extends Problem implements SimpleProblemForm {
 			}
 		}
 
-		System.out.println("#########AVAILABILITY:" + a + "##########RELIABILITY:" + r + "#########COST:" + c
-				+ "#########time" + t);
-
-		// set average matching type, average semantic distance value for each
-		// match
+		// set mt,dst aggregation
 
 		for (ServiceEdge serviceEdge : directedGraph.edgeSet()) {
 			mt *= serviceEdge.getAvgmt();
@@ -124,10 +105,47 @@ public class GraphPSO extends Problem implements SimpleProblemForm {
 		}
 
 		individual.setStrRepresentation(directedGraph.toString());
+	}
+
+	private DirectedGraph graphRepresentation(GraphInitializer init, GraphParticle individual) {
+		init.initialWSCPool.getGraphOutputSet().clear();
+		DirectedGraph<String, ServiceEdge> directedGraph = new DefaultDirectedGraph<String, ServiceEdge>(
+				ServiceEdge.class);
+		directedGraph.addVertex("startNode");
+		init.initialWSCPool.createGraphService(init.taskInput.get(0), init.taskOutput.get(0), directedGraph,
+				individual.genome, init.serviceToIndexMap);
+
+//		System.out.println("orginal graph##########" + directedGraph.toString());
+
+		while (true) {
+			List<String> dangleVerticeList = dangleVerticeList(directedGraph);
+			if (dangleVerticeList.size() == 0) {
+				break;
+			}
+			removeCurrentdangle(directedGraph, dangleVerticeList);
+		}
+
+		System.out.println("compositeServiceGraph:" + directedGraph.toString());
+		return directedGraph;
 
 	}
 
-	public static void removeAlltangle(DirectedGraph<String, ServiceEdge> directedGraph,
+	private static List<String> dangleVerticeList(DirectedGraph<String, ServiceEdge> directedGraph) {
+		Set<String> allVertice = directedGraph.vertexSet();
+
+		List<String> dangleVerticeList = new ArrayList<String>();
+		for (String v : allVertice) {
+			int relatedOutDegree = directedGraph.outDegreeOf(v);
+
+			if (relatedOutDegree == 0 && !v.equals("endNode")) {
+				dangleVerticeList.add(v);
+
+			}
+		}
+		return dangleVerticeList;
+	}
+
+	private static void removeCurrentdangle(DirectedGraph<String, ServiceEdge> directedGraph,
 			List<String> dangleVerticeList) {
 		// Iterator the endTangle
 		for (String danglevertice : dangleVerticeList) {
@@ -137,23 +155,11 @@ public class GraphPSO extends Problem implements SimpleProblemForm {
 
 			for (ServiceEdge edge : relatedEdge) {
 				String potentialTangleVertice = directedGraph.getEdgeSource(edge);
-				System.out.println("potentialTangleVertice:" + potentialTangleVertice);
+//				System.out.println("potentialTangleVertice:" + potentialTangleVertice);
 				potentialTangleVerticeList.add(potentialTangleVertice);
 			}
 
 			directedGraph.removeVertex(danglevertice);
-
-			for (String potentialTangleVertice : potentialTangleVerticeList) {
-				int relatedOutDegree = directedGraph.outDegreeOf(potentialTangleVertice);
-				List<String> dangleVerticeList1 = new ArrayList<String>();
-				if (relatedOutDegree == 0) {
-					dangleVerticeList1.add(potentialTangleVertice);
-					removeAlltangle(directedGraph, dangleVerticeList1);
-				} else {
-					return;
-				}
-			}
-
 		}
 	}
 
@@ -188,7 +194,8 @@ public class GraphPSO extends Problem implements SimpleProblemForm {
 		t = normaliseTime(t, init);
 		c = normaliseCost(c, init);
 
-		double fitness = ((init.sf_w1 * mt)+(init.sf_w2 * dst)+(init.qos_w1 * a) + (init.qos_w1 * r) + (init.qos_w1 * t) + (init.qos_w1 * c));
+		double fitness = ((init.sf_w1 * mt) + (init.sf_w2 * dst) + (init.qos_w1 * a) + (init.qos_w1 * r)
+				+ (init.qos_w1 * t) + (init.qos_w1 * c));
 		return fitness;
 	}
 
