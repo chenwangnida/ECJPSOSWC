@@ -3,7 +3,6 @@ package ecj.ec.pso;
 import ec.simple.SimpleFitness;
 import ec.simple.SimpleProblemForm;
 
-import wsc.data.pool.Service;
 import wsc.graph.ServiceEdge;
 
 import java.util.ArrayList;
@@ -16,16 +15,18 @@ import org.jgrapht.DirectedGraph;
 import org.jgrapht.GraphPath;
 import org.jgrapht.Graphs;
 import org.jgrapht.alg.AllDirectedPaths;
-import org.jgrapht.alg.DijkstraShortestPath;
-import org.jgrapht.alg.NaiveLcaFinder;
 import org.jgrapht.graph.DefaultDirectedGraph;
-import org.jgrapht.graph.DefaultEdge;
 
 import ec.EvolutionState;
 import ec.Individual;
 import ec.Problem;
 
 public class GraphPSO extends Problem implements SimpleProblemForm {
+
+	/**
+	 *
+	 */
+	private static final long serialVersionUID = 2181889697257509451L;
 
 	@Override
 	public void evaluate(EvolutionState state, Individual ind, int subpopulation, int threadnum) {
@@ -107,7 +108,7 @@ public class GraphPSO extends Problem implements SimpleProblemForm {
 		individual.setStrRepresentation(directedGraph.toString());
 	}
 
-	private DirectedGraph graphRepresentation(GraphInitializer init, GraphParticle individual) {
+	private DirectedGraph<String, ServiceEdge> graphRepresentation(GraphInitializer init, GraphParticle individual) {
 		init.initialWSCPool.getGraphOutputSet().clear();
 		DirectedGraph<String, ServiceEdge> directedGraph = new DefaultDirectedGraph<String, ServiceEdge>(
 				ServiceEdge.class);
@@ -163,13 +164,11 @@ public class GraphPSO extends Problem implements SimpleProblemForm {
 		}
 	}
 
-	public static List<String> getLongestPathVertexList(DirectedGraph g) {
+	public static List<String> getLongestPathVertexList(DirectedGraph<String, ServiceEdge> g) {
 		// A algorithm to find all paths
-		AllDirectedPaths<String, DefaultEdge> allPath = new AllDirectedPaths<String, DefaultEdge>(g);
-		List<GraphPath<String, DefaultEdge>> pathList = allPath.getAllPaths("startNode", "endNode", true, null);
+		AllDirectedPaths<String, ServiceEdge> allPath = new AllDirectedPaths<String, ServiceEdge>(g);
+		List<GraphPath<String, ServiceEdge>> pathList = allPath.getAllPaths("startNode", "endNode", true, null);
 
-		List<DefaultEdge> edgeList;
-		List<DefaultEdge> LongestEdgeList;
 		int MaxPathLength = 0;
 		int IndexPathLength = 0;
 

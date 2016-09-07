@@ -62,7 +62,6 @@ public class SemanticsPool {
 		// search for the potential semantic matching relationship
 
 		while (true) {
-			int i = 0;
 			// Exact and PlugIn matching types
 			if (givenClass.getID().equals(relatedClass.getID())) {
 				return true;
@@ -71,7 +70,6 @@ public class SemanticsPool {
 				break;
 			}
 			givenClass = this.owlClassHashMap.get(givenClass.getSubClassOf().getResource().substring(1));
-			i++;
 		}
 
 		return false;

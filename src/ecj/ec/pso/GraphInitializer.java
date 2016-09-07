@@ -1,32 +1,30 @@
 package ecj.ec.pso;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import javax.xml.bind.JAXBException;
 
 import org.jgrapht.DirectedGraph;
-import org.jgrapht.UndirectedGraph;
 import org.jgrapht.experimental.dag.DirectedAcyclicGraph;
-import org.jgrapht.graph.DefaultDirectedGraph;
 import org.jgrapht.graph.DefaultEdge;
-import org.jgrapht.graph.SimpleGraph;
 
 import ec.EvolutionState;
 import ec.simple.SimpleInitializer;
 import ec.util.Parameter;
 import wsc.InitialWSCPool;
-import wsc.data.pool.SemanticsPool;
 import wsc.data.pool.Service;
 import wsc.owl.bean.OWLClass;
 
 public class GraphInitializer extends SimpleInitializer {
 
+	/**
+	 *
+	 */
+	private static final long serialVersionUID = 7186339312142518549L;
 	public double sf_w1;
 	public double sf_w2;
 	public double qos_w1;
@@ -73,7 +71,7 @@ public class GraphInitializer extends SimpleInitializer {
 
 		String service_wsdl = state.parameters.getString(new Parameter("service-wsdl"), null);
 		String taxonomy_owl = state.parameters.getString(new Parameter("taxonomy-owl"), null);
-		String service_wsla = state.parameters.getString(new Parameter("service-wsla"), null);
+//		String service_wsla = state.parameters.getString(new Parameter("service-wsla"), null);
 
 		sf_w1 = state.parameters.getDouble(new Parameter("fitness-weight1"), null);
 		sf_w2 = state.parameters.getDouble(new Parameter("fitness-weight2"), null);
