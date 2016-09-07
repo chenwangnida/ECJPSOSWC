@@ -191,7 +191,7 @@ public class Service implements Comparable<Service> {
 		return false;
 	}
 
-	private static double CalculateSimilarityMeasure(DirectedGraph<String, DefaultEdge> g, String giveninput,
+	public static double CalculateSimilarityMeasure(DirectedGraph<String, DefaultEdge> g, String giveninput,
 			String existInput, SemanticsPool semanticsPool) {
 
 		double similarityValue;

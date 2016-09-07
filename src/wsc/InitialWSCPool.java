@@ -17,6 +17,7 @@ import org.jgrapht.DirectedGraph;
 import org.jgrapht.UndirectedGraph;
 import org.jgrapht.graph.DefaultEdge;
 
+import ecj.ec.pso.GraphInitializer;
 import wsc.data.pool.SWSPool;
 import wsc.data.pool.SemanticsPool;
 import wsc.data.pool.Service;
@@ -81,12 +82,13 @@ public class InitialWSCPool {
 	 * @param givenoutput
 	 * @return
 	 */
-	private boolean checkOutputSet(String output, DirectedGraph<String, ServiceEdge> undirectedGraph, Service service) {
+	private boolean checkOutputSet(String output, DirectedGraph<String, ServiceEdge> directedGraph, Service service) {
 		for (String outputInst : this.graphOutputSet) {
 			if (this.semanticsPool.searchSemanticMatchFromInst(outputInst, output)) {
 
-				undirectedGraph.addVertex("endNode");
-				undirectedGraph.addEdge(service.getServiceID(), "endNode", new ServiceEdge(0.00, 0.00));
+				directedGraph.addVertex("endNode");
+				double dst = Service.CalculateSimilarityMeasure(GraphInitializer.ontologyDAG, outputInst, output, this.semanticsPool);
+				directedGraph.addEdge(service.getServiceID(), "endNode", new ServiceEdge(0.00, dst));
 				return true;
 			}
 		}

@@ -50,7 +50,7 @@ public class GraphPSO extends Problem implements SimpleProblemForm {
 		List<String> dangleVerticeList = new ArrayList<String>();
 		for (String v : allVertice) {
 			int relatedOutDegree = directedGraph.outDegreeOf(v);
-			if (relatedOutDegree == 0 && !v.equals("v5")) {
+			if (relatedOutDegree == 0 && !v.equals("endNode")) {
 				dangleVerticeList.add(v);
 			}
 		}
