@@ -42,7 +42,7 @@ public class GraphPSO extends Problem implements SimpleProblemForm {
 		DirectedGraph<String, ServiceEdge> directedGraph = new DefaultDirectedGraph<String, ServiceEdge>(
 				ServiceEdge.class);
 		directedGraph.addVertex("startNode");
-		init.initialWSCPool.createGraphService(init.taskInput.get(0), init.taskOutput.get(0), directedGraph);
+		init.initialWSCPool.createGraphService(init.taskInput.get(0), init.taskOutput.get(0), directedGraph, individual.genome, init.serviceToIndexMap);
 		// System.out.println(directedGraph.toString());
 
 		// initially find current dangleVertice
@@ -55,10 +55,10 @@ public class GraphPSO extends Problem implements SimpleProblemForm {
 			}
 		}
 
-		// recursion for find end tangle after remove the initial ones
+		// recursion for find updating tangle for remove all dangles
 		removeAlltangle(directedGraph, dangleVerticeList);
 
-		System.out.println("graph printing after removing all dangle#########################################");
+		//print the semantic composition graph
 		System.out.println(directedGraph.toString());
 
 		// set both functional and nonfunctional attributes( QoS )
@@ -188,7 +188,7 @@ public class GraphPSO extends Problem implements SimpleProblemForm {
 		t = normaliseTime(t, init);
 		c = normaliseCost(c, init);
 
-		double fitness = ((init.qos_w1 * a) + (init.qos_w1 * r) + (init.qos_w1 * t) + (init.qos_w1 * c));
+		double fitness = ((init.sf_w1 * mt)+(init.sf_w2 * dst)+(init.qos_w1 * a) + (init.qos_w1 * r) + (init.qos_w1 * t) + (init.qos_w1 * c));
 		return fitness;
 	}
 

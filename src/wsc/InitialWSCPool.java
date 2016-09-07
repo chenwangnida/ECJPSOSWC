@@ -3,11 +3,13 @@ package wsc;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import javax.xml.bind.JAXBException;
 
@@ -32,7 +34,7 @@ public class InitialWSCPool {
 	// save all the relevant services
 	private final List<Service> serviceSequence = new LinkedList<Service>();
 	// save all semantics
-	private HashSet<String>  graphOutputSet = new HashSet<String>();
+	private HashSet<String> graphOutputSet = new HashSet<String>();
 
 	public HashSet<String> getGraphOutputSet() {
 		return graphOutputSet;
@@ -79,13 +81,12 @@ public class InitialWSCPool {
 	 * @param givenoutput
 	 * @return
 	 */
-	private boolean checkOutputSet(String output, DirectedGraph<String, ServiceEdge> undirectedGraph,
-			Service service) {
+	private boolean checkOutputSet(String output, DirectedGraph<String, ServiceEdge> undirectedGraph, Service service) {
 		for (String outputInst : this.graphOutputSet) {
 			if (this.semanticsPool.searchSemanticMatchFromInst(outputInst, output)) {
 
 				undirectedGraph.addVertex("endNode");
-				undirectedGraph.addEdge(service.getServiceID(), "endNode",new ServiceEdge(0.00, 0.00) );
+				undirectedGraph.addEdge(service.getServiceID(), "endNode", new ServiceEdge(0.00, 0.00));
 				return true;
 			}
 		}
@@ -113,13 +114,19 @@ public class InitialWSCPool {
 		} while (true);// while(!this.checkOutputSet(output))
 	}
 
-	public void createGraphService(String input, String output, DirectedGraph<String, ServiceEdge> directedGraph) {
+	public void createGraphService(String input, String output, DirectedGraph<String, ServiceEdge> directedGraph,
+			double[] weights, Map<String, Integer> serviceToIndexMap) {
 
 		this.graphOutputSet.add(input);
 		SWSPool swsPool = new SWSPool();
 
+		SetWeightsToServiceList(serviceToIndexMap, serviceSequence, weights);
+
 		List<Service> serviceCandidates = new ArrayList<Service>();
 		serviceCandidates.addAll(serviceSequence);
+		// Sort the service in serviceCandidates list by weights from Particle
+		// location
+		Collections.sort(serviceCandidates);
 
 		Service service;
 		do {
@@ -131,6 +138,16 @@ public class InitialWSCPool {
 			}
 		} while (!this.checkOutputSet(output, directedGraph, service));
 
+	}
+
+	private void SetWeightsToServiceList(Map<String, Integer> serviceToIndexMap, List<Service> serviceSequence,
+			double[] weights) {
+		// Go through all relevant nodes
+		for (Service service : serviceSequence) {
+			// Find the index for that node
+			int index = serviceToIndexMap.get(service.getServiceID());
+			service.setScore(weights[index]);
+		}
 	}
 
 }

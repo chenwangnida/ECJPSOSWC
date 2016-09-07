@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import javax.xml.bind.JAXBException;
@@ -26,6 +27,8 @@ import wsc.owl.bean.OWLClass;
 
 public class GraphInitializer extends SimpleInitializer {
 
+	public double sf_w1;
+	public double sf_w2;
 	public double qos_w1;
 	public double qos_w2;
 	public double qos_w3;
@@ -57,8 +60,9 @@ public class GraphInitializer extends SimpleInitializer {
 	public double maxDistanceValue = 1;
 	public double minDistanceValue = 0;
 
-
 	public InitialWSCPool initialWSCPool;
+	public Map<String, Integer> serviceToIndexMap = new HashMap<String, Integer>();
+
 	public static DirectedGraph<String, DefaultEdge> ontologyDAG;
 
 	List<String> taskInput;
@@ -71,10 +75,12 @@ public class GraphInitializer extends SimpleInitializer {
 		String taxonomy_owl = state.parameters.getString(new Parameter("taxonomy-owl"), null);
 		String service_wsla = state.parameters.getString(new Parameter("service-wsla"), null);
 
-		qos_w1 = state.parameters.getDouble(new Parameter("fitness-weight1"), null);
-		qos_w2 = state.parameters.getDouble(new Parameter("fitness-weight2"), null);
-		qos_w3 = state.parameters.getDouble(new Parameter("fitness-weight3"), null);
-		qos_w4 = state.parameters.getDouble(new Parameter("fitness-weight4"), null);
+		sf_w1 = state.parameters.getDouble(new Parameter("fitness-weight1"), null);
+		sf_w2 = state.parameters.getDouble(new Parameter("fitness-weight2"), null);
+		qos_w1 = state.parameters.getDouble(new Parameter("fitness-weight3"), null);
+		qos_w2 = state.parameters.getDouble(new Parameter("fitness-weight4"), null);
+		qos_w3 = state.parameters.getDouble(new Parameter("fitness-weight5"), null);
+		qos_w4 = state.parameters.getDouble(new Parameter("fitness-weight6"), null);
 		normalisation = state.parameters.getBoolean(new Parameter("normalisation"), null, false);
 		rootconcept = state.parameters.getString(new Parameter("root-concept"), null);
 
@@ -95,7 +101,9 @@ public class GraphInitializer extends SimpleInitializer {
 			e.printStackTrace();
 		}
 
-		//Calculate normalised bounds
+		//
+		mapServicesToIndex(initialWSCPool.getServiceSequence(),serviceToIndexMap);
+		// Calculate normalised bounds
 		if (normalisation)
 			calculateNormalisationBounds(initialWSCPool.getServiceSequence());
 		// Initial ontology DAG data
@@ -107,6 +115,14 @@ public class GraphInitializer extends SimpleInitializer {
 		// Set size of particles
 		Parameter genomeSizeParam = new Parameter("pop.subpop.0.species.genome-size");
 		state.parameters.set(genomeSizeParam, "" + initialWSCPool.getServiceSequence().size());
+	}
+
+	private void mapServicesToIndex(List<Service> relevant, Map<String, Integer> serviceToIndexMap) {
+		int i = 0;
+		for (Service service : relevant) {
+			String serviceId = service.getServiceID();
+			serviceToIndexMap.put(serviceId, i++);
+		}
 	}
 
 	private static DirectedAcyclicGraph<String, DefaultEdge> createOntologyDAG(InitialWSCPool initialWSCPool) {
@@ -158,7 +174,8 @@ public class GraphInitializer extends SimpleInitializer {
 			if (cost < minCost)
 				minCost = cost;
 		}
-		// Adjust max. cost, max. time, max. distanceValue based on the number of services in
+		// Adjust max. cost, max. time, max. distanceValue based on the number
+		// of services in
 		// shrunk repository
 		maxCost *= services.size();
 		maxTime *= services.size();
