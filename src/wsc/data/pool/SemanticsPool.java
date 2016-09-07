@@ -1,7 +1,9 @@
 package wsc.data.pool;
 
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 import javax.xml.bind.JAXBException;
 
@@ -59,21 +61,63 @@ public class SemanticsPool {
 
 		// search for the potential semantic matching relationship
 
-
 		while (true) {
+			int i = 0;
 			// Exact and PlugIn matching types
 			if (givenClass.getID().equals(relatedClass.getID())) {
-
 				return true;
 			}
 			if (givenClass.getSubClassOf() == null || givenClass.getSubClassOf().getResource().equals("")) {
 				break;
 			}
 			givenClass = this.owlClassHashMap.get(givenClass.getSubClassOf().getResource().substring(1));
+			i++;
 		}
 
 		return false;
 	}
+
+	public Map<Integer, Boolean> searchSemanticMatchTypeFromInst(String givenInst, String existInst) {
+
+		OWLClass givenClass = this.owlClassHashMap
+				.get(this.owlInstHashMap.get(givenInst).getRdfType().getResource().substring(1));
+		OWLClass relatedClass = this.owlClassHashMap
+				.get(this.owlInstHashMap.get(existInst).getRdfType().getResource().substring(1));
+
+		// search for the potential semantic matching relationship
+		Map<Integer, Boolean> matchType = new HashMap<Integer, Boolean>();
+		// no match
+		matchType.put(0, false);
+		// exact match
+		matchType.put(1, false);
+		// plugin match
+		matchType.put(2, false);
+		// subsume match
+		matchType.put(3, false);
+		// intersection match
+		matchType.put(4, false);
+
+		while (true) {
+			int i = 0;
+			// Exact and PlugIn matching types
+			if (givenClass.getID().equals(relatedClass.getID())) {
+				if (i == 0) {
+					matchType.put(1, true);
+				} else {
+					matchType.put(3, true);
+				}
+				return matchType;
+			}
+			if (givenClass.getSubClassOf() == null || givenClass.getSubClassOf().getResource().equals("")) {
+				break;
+			}
+			givenClass = this.owlClassHashMap.get(givenClass.getSubClassOf().getResource().substring(1));
+			i++;
+		}
+
+		return matchType;
+	}
+
 	// /** Test data from unmarshalling process
 	// * @param args
 	// */
