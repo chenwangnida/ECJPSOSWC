@@ -1,6 +1,7 @@
 package wsc.data.pool;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -25,6 +26,8 @@ public class Service implements Comparable<Service> {
 	private List<String> inputList = new ArrayList<String>();
 	// list of outputInstances(individuals), ranther than list of output
 	private List<String> outputList = new ArrayList<String>();
+
+	private static List<ParamterConn> pConnList0 = new ArrayList<ParamterConn>();
 
 	private double score;
 
@@ -91,37 +94,38 @@ public class Service implements Comparable<Service> {
 		return "(" + score + ", " + serviceID + ")";
 	}
 
-//	/**
-//	 * Initial service from SemMessageExt
-//	 *
-//	 * @param request
-//	 * @param response
-//	 * @return
-//	 */
-//	public static Service initialServicefromMECE(SemMessageExt request, SemMessageExt response) {
-//		String serviceID = request.getServiceID();
-//		// verify request and response from same service.
-//		if (response.getServiceID().equals(serviceID) == false) {
-//			System.err.println("Service ID does not match");
-//			return null;
-//		}
-//		// valid request and response
-//		if (!request.isRequestMessage() || response.isRequestMessage()) {
-//			System.err.println("SemMessageExt type does not match");
-//			return null;
-//		}
-//		// initial data for service
-//		Service service = new Service(serviceID);
-//		for (SemExt se : request.getSemExt()) {
-//			int instBeginPos = se.getOntologyRef().indexOf("inst");
-//			service.inputList.add(se.getOntologyRef().substring(instBeginPos));
-//		}
-//		for (SemExt se : response.getSemExt()) {
-//			int instBeginPos = se.getOntologyRef().indexOf("inst");
-//			service.outputList.add(se.getOntologyRef().substring(instBeginPos));
-//		}
-//		return service;
-//	}
+	// /**
+	// * Initial service from SemMessageExt
+	// *
+	// * @param request
+	// * @param response
+	// * @return
+	// */
+	// public static Service initialServicefromMECE(SemMessageExt request,
+	// SemMessageExt response) {
+	// String serviceID = request.getServiceID();
+	// // verify request and response from same service.
+	// if (response.getServiceID().equals(serviceID) == false) {
+	// System.err.println("Service ID does not match");
+	// return null;
+	// }
+	// // valid request and response
+	// if (!request.isRequestMessage() || response.isRequestMessage()) {
+	// System.err.println("SemMessageExt type does not match");
+	// return null;
+	// }
+	// // initial data for service
+	// Service service = new Service(serviceID);
+	// for (SemExt se : request.getSemExt()) {
+	// int instBeginPos = se.getOntologyRef().indexOf("inst");
+	// service.inputList.add(se.getOntologyRef().substring(instBeginPos));
+	// }
+	// for (SemExt se : response.getSemExt()) {
+	// int instBeginPos = se.getOntologyRef().indexOf("inst");
+	// service.outputList.add(se.getOntologyRef().substring(instBeginPos));
+	// }
+	// return service;
+	// }
 
 	/**
 	 * search for services matched with current inputSet
@@ -160,6 +164,7 @@ public class Service implements Comparable<Service> {
 	public boolean searchServiceGraphMatchFromInputSet(SemanticsPool semanticsPool, Service service,
 			HashSet<String> inputSet, DirectedGraph<String, ServiceEdge> directedGraph,
 			Map<String, Service> graphOutputSetMap) {
+		pConnList0.clear();
 		int inputMatchCount = 0;
 		double summt = 0.00;
 		double sumdst = 0.00;
@@ -169,36 +174,60 @@ public class Service implements Comparable<Service> {
 			for (int i = 0; i < service.getInputList().size(); i++) {
 
 				String existInput = service.getInputList().get(i);
-				// boolean foundmatched =
-				// semanticsPool.searchSemanticMatchFromInst(giveninput,
-				// existInput);
 				ParamterConn pConn = semanticsPool.searchSemanticMatchTypeFromInst(giveninput, existInput);
 				boolean foundmatched = pConn.isConsidered();
 
 				if (foundmatched) {
+					pConn.setOutputInst(giveninput);
+					if (GraphInitializer.taskInput.contains(giveninput)) {
+						pConn.setSourceServiceID("startNode");
+					} else {
+						pConn.setSourceServiceID(graphOutputSetMap.get(giveninput).getServiceID());
+					}
+					double similarity = CalculateSimilarityMeasure(GraphInitializer.ontologyDAG, giveninput, existInput,
+							semanticsPool);
+					pConn.setSimilarity(similarity);
 
-					double mt = pConn.getMatchType();
-					double semanticDistance = CalculateSimilarityMeasure(GraphInitializer.ontologyDAG, giveninput,
-							existInput, semanticsPool);
-					summt += mt;
-					sumdst += semanticDistance;
+					pConnList0.add(pConn);
+
 					inputMatchCount++;
 
-					// contain complete match from a single service
 					if (inputMatchCount == service.getInputList().size()) {
 
-						double avgmt = summt / inputMatchCount;
-						double avgsdt = sumdst / inputMatchCount;
+						directedGraph.addVertex(service.getServiceID());
 
-						if (GraphInitializer.taskInput.contains(giveninput)) {// giveninput == "inst2139388127"
-							directedGraph.addVertex(service.getServiceID());
-							directedGraph.addEdge("startNode", service.getServiceID(), new ServiceEdge(avgmt, avgsdt));
+						Set<String> sourceSerIdSet = new HashSet<String>();
+						for (ParamterConn p : pConnList0) {
+							String sourceSerID = p.getSourceServiceID();
+							sourceSerIdSet.add(sourceSerID);
+						}
 
-						} else {
-							String oldServiceID = graphOutputSetMap.get(giveninput).getServiceID();
-							directedGraph.addVertex(service.getServiceID());
-							directedGraph.addEdge(oldServiceID, service.getServiceID(), new ServiceEdge(avgmt, avgsdt));
+						List<ServiceEdge> serEdgeList = new ArrayList<ServiceEdge>();
+						for (String sourceSerID : sourceSerIdSet) {
+							ServiceEdge serEdge = new ServiceEdge(0, 0);
+							serEdge.setSourceService(sourceSerID);
+							for (ParamterConn p : pConnList0) {
+								if (p.getSourceServiceID().equals(sourceSerID)) {
+									serEdge.getpConnList().add(p);
+								}
+							}
 
+							serEdgeList.add(serEdge);
+						}
+
+						for (ServiceEdge edge : serEdgeList) {
+
+
+							for (int i1 = 0; i1 < edge.getpConnList().size(); i1++) {
+								ParamterConn pCo = edge.getpConnList().get(i1);
+								summt += pCo.getMatchType();
+								sumdst += pCo.getSimilarity();
+
+							}
+							int count = edge.getpConnList().size();
+							edge.setAvgmt(summt / count);
+							edge.setAvgsdt(sumdst / count);
+							directedGraph.addEdge(edge.getSourceService(), service.getServiceID(), edge);
 						}
 						return true;
 					}

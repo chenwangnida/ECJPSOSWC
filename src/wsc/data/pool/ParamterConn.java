@@ -2,9 +2,27 @@ package wsc.data.pool;
 
 public class ParamterConn {
 	double matchType;
+	double similarity;
 	String outputInst;
 	String outputrequ;
+	String SourceServiceID;
 	boolean isConsidered;
+
+	public double getSimilarity() {
+		return similarity;
+	}
+
+	public void setSimilarity(double similarity) {
+		this.similarity = similarity;
+	}
+
+	public String getSourceServiceID() {
+		return SourceServiceID;
+	}
+
+	public void setSourceServiceID(String sourceServiceID) {
+		SourceServiceID = sourceServiceID;
+	}
 
 	public double getMatchType() {
 		return matchType;

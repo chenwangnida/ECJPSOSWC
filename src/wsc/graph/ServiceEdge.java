@@ -1,8 +1,17 @@
 package wsc.graph;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.jgraph.graph.DefaultEdge;
 
+import wsc.data.pool.ParamterConn;
+
 public class ServiceEdge extends DefaultEdge implements Cloneable {
+
+	String SourceService;
+
+	List<ParamterConn> pConnList = new ArrayList<ParamterConn>();
 
 	// average matching type value from source vertice to target vertice
 	double avgmt;
@@ -16,6 +25,27 @@ public class ServiceEdge extends DefaultEdge implements Cloneable {
 		this.avgmt = avgmt;
 		this.avgsdt = avgsdt;
 	}
+
+
+	public String getSourceService() {
+		return SourceService;
+	}
+
+
+	public void setSourceService(String sourceService) {
+		SourceService = sourceService;
+	}
+
+
+	public List<ParamterConn> getpConnList() {
+		return pConnList;
+	}
+
+
+	public void setpConnList(List<ParamterConn> pConnList) {
+		this.pConnList = pConnList;
+	}
+
 
 	public double getAvgmt() {
 		return avgmt;
