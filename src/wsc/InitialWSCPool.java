@@ -195,7 +195,7 @@ public class InitialWSCPool {
 			service = swsPool.createGraphService(this.graphOutputSet, serviceCandidates, this.semanticsPool,
 					directedGraph);
 			if (service == null) {
-				System.out.println("No more service satisfied");
+				System.err.println("No service is usable now");
 				return;
 			}
 		} while (!this.checkOutputSet(directedGraph, swsPool));

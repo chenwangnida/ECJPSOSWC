@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns1:RDF xmlns:ns1="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:ns2="http://www.w3.org/2002/07/owl#" xmlns:ns3="http://www.w3.org/2000/01/rdf-schema#">
+    <ns2:Ontology ns1:about=""/>
+    <ns2:Class ns1:ID="Reservation">
+        <ns3:subClassOf ns1:resource="#TravelInformation"/>
+    </ns2:Class>
+    <ns2:Class ns1:ID="DepartureDate">
+        <ns3:subClassOf ns1:resource="#Date"/>
+    </ns2:Class>
+    <ns2:Class ns1:ID="Location">
+        <ns3:subClassOf ns1:resource="#TravelInformation"/>
+    </ns2:Class>
+    <ns2:Class ns1:ID="ArrivalDate">
+        <ns3:subClassOf ns1:resource="#Date"/>
+    </ns2:Class>
+    <ns2:Class ns1:ID="UrbanMap">
+        <ns3:subClassOf ns1:resource="#Map"/>
+    </ns2:Class>
+    <ns2:Class ns1:ID="Map">
+        <ns3:subClassOf ns1:resource="#TravelInformation"/>
+    </ns2:Class>
+    <ns2:Class ns1:ID="RuralMap">
+        <ns3:subClassOf ns1:resource="#Map"/>
+    </ns2:Class>
+    <ns2:Class ns1:ID="Date">
+        <ns3:subClassOf ns1:resource="#TravelInformation"/>
+    </ns2:Class>
+    <ns2:Class ns1:ID="City">
+        <ns3:subClassOf ns1:resource="#Location"/>
+    </ns2:Class>
+    <ns2:Class ns1:ID="Ticket">
+        <ns3:subClassOf ns1:resource="#TravelInformation"/>
+    </ns2:Class>
+    <ns2:Class ns1:ID="TravelInformation"/>
+    <ns2:Thing ns1:ID="TravelArrivalDate">
+        <ns1:type ns1:resource="#ArrivalDate"/>
+    </ns2:Thing>
+    <ns2:Thing ns1:ID="FlightReturnDate">
+        <ns1:type ns1:resource="#Date"/>
+    </ns2:Thing>
+    <ns2:Thing ns1:ID="BusDepartureDate">
+        <ns1:type ns1:resource="#DepartureDate"/>
+    </ns2:Thing>
+    <ns2:Thing ns1:ID="FlightOriginCity">
+        <ns1:type ns1:resource="#City"/>
+    </ns2:Thing>
+    <ns2:Thing ns1:ID="BusDestinationCity">
+        <ns1:type ns1:resource="#City"/>
+    </ns2:Thing>
+    <ns2:Thing ns1:ID="HotelCheckoutDate">
+        <ns1:type ns1:resource="#Date"/>
+    </ns2:Thing>
+    <ns2:Thing ns1:ID="TravelReturnDate">
+        <ns1:type ns1:resource="#Date"/>
+    </ns2:Thing>
+    <ns2:Thing ns1:ID="TravelDepartureDate">
+        <ns1:type ns1:resource="#DepartureDate"/>
+    </ns2:Thing>
+    <ns2:Thing ns1:ID="HotelReservation">
+        <ns1:type ns1:resource="#Reservation"/>
+    </ns2:Thing>
+    <ns2:Thing ns1:ID="MappedLocation">
+        <ns1:type ns1:resource="#Location"/>
+    </ns2:Thing>
+    <ns2:Thing ns1:ID="FlightDestinationCity">
+        <ns1:type ns1:resource="#City"/>
+    </ns2:Thing>
+    <ns2:Thing ns1:ID="HomeCity">
+        <ns1:type ns1:resource="#City"/>
+    </ns2:Thing>
+    <ns2:Thing ns1:ID="TouristMap">
+        <ns1:type ns1:resource="#Map"/>
+    </ns2:Thing>
+    <ns2:Thing ns1:ID="FarmMap">
+        <ns1:type ns1:resource="#RuralMap"/>
+    </ns2:Thing>
+    <ns2:Thing ns1:ID="HotelCheckinDate">
+        <ns1:type ns1:resource="#Date"/>
+    </ns2:Thing>
+    <ns2:Thing ns1:ID="StreetMap">
+        <ns1:type ns1:resource="#UrbanMap"/>
+    </ns2:Thing>
+    <ns2:Thing ns1:ID="ConferenceCity">
+        <ns1:type ns1:resource="#City"/>
+    </ns2:Thing>
+    <ns2:Thing ns1:ID="FlightDepartureDate">
+        <ns1:type ns1:resource="#DepartureDate"/>
+    </ns2:Thing>
+    <ns2:Thing ns1:ID="BusTicket">
+        <ns1:type ns1:resource="#Ticket"/>
+    </ns2:Thing>
+    <ns2:Thing ns1:ID="FlightArrivalDate">
+        <ns1:type ns1:resource="#ArrivalDate"/>
+    </ns2:Thing>
+</ns1:RDF>
