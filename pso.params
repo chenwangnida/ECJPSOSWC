@@ -11,7 +11,8 @@ fitness-weight5       = 0.125
 fitness-weight6       = 0.125
 normalisation = true
 #ontology startnode
-root-concept = con1557701983
+#root-concept = con1557701983
+root-concept = TravelInformation
 
 state = ec.simple.SimpleEvolutionState
 init = ecj.ec.pso.GraphInitializer

@@ -99,16 +99,18 @@ public class GraphInitializer extends SimpleInitializer {
 		// Initial all data related to Web service composition pools
 		try {
 			initialWSCPool = new InitialWSCPool(service_wsdl, taxonomy_owl);
-			initialWSCPool.allRelevantService(taskInput, taskOutput);
-			System.out.println("releveantService Size:" + initialWSCPool.getSwsPool().getServiceList().size());
+			System.out.println("Initial servicelist:(before removed later) " + initialWSCPool.getSwsPool().getServiceList().size());
 
-			System.out.println("Whole service Size:" + initialWSCPool.getServiceSequence().size());
+			initialWSCPool.allRelevantService(taskInput, taskOutput);
+			System.out.println("Initial servicelist:(after removed later) " + initialWSCPool.getSwsPool().getServiceList().size());
+
+			System.out.println("All relevant service: " + initialWSCPool.getServiceSequence().size());
 
 		} catch (JAXBException | IOException e) {
 			e.printStackTrace();
 		}
 
-		MapServiceToQoS(initialWSCPool.getSwsPool().getServiceList());
+		MapServiceToQoS(initialWSCPool.getServiceSequence());
 
 		mapServicesToIndex(initialWSCPool.getServiceSequence(), serviceToIndexMap);
 		// Calculate normalised bounds

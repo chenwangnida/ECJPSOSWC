@@ -258,22 +258,22 @@ public class Service implements Comparable<Service> {
 		double sim = 2 * N / (N1 + N2);
 		// System.out.println("SemanticDistance:" + sim + "
 		// ##################");
+//
+//		if (isNeighbourConcept(g, a, b) == true) {
+//			double L = new DijkstraShortestPath(g, lca, a).getPathLength()
+//					+ new DijkstraShortestPath(g, lca, b).getPathLength();
+//
+//			int D = MaxDepth(g) + 1;
+//			int r = 1;
+//			double simNew = 2 * N * (Math.pow(Math.E, -r * L / D)) / (N1 + N2);
+//			// System.out.println("SemanticDistance2:" + simNew + "
+//			// ##################");
+//			similarityValue = simNew;
+//		} else {
+//			similarityValue = sim;
+//		}
 
-		if (isNeighbourConcept(g, a, b) == true) {
-			double L = new DijkstraShortestPath(g, lca, a).getPathLength()
-					+ new DijkstraShortestPath(g, lca, b).getPathLength();
-
-			int D = MaxDepth(g) + 1;
-			int r = 1;
-			double simNew = 2 * N * (Math.pow(Math.E, -r * L / D)) / (N1 + N2);
-			// System.out.println("SemanticDistance2:" + simNew + "
-			// ##################");
-			similarityValue = simNew;
-		} else {
-			similarityValue = sim;
-		}
-
-		return similarityValue;
+		return sim;
 	}
 
 	private static boolean isNeighbourConcept(DirectedGraph<String, DefaultEdge> g, String a, String b) {

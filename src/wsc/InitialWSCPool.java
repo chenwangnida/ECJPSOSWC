@@ -35,6 +35,8 @@ public class InitialWSCPool {
 
 	// save all the relevant services
 	private final List<Service> serviceSequence = new LinkedList<Service>();
+	private static List<Service> serviceCandidates = new ArrayList<Service>();
+
 	// save all semantics
 	private HashSet<String> graphOutputSet = new HashSet<String>();
 
@@ -183,8 +185,7 @@ public class InitialWSCPool {
 		SWSPool swsPool = new SWSPool();
 
 		SetWeightsToServiceList(serviceToIndexMap, serviceSequence, weights);
-
-		List<Service> serviceCandidates = new ArrayList<Service>();
+		serviceCandidates.clear();
 		serviceCandidates.addAll(serviceSequence);
 		// Sort the service in serviceCandidates list by weights from Particle
 		// location
