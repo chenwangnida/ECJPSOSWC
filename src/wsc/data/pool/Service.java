@@ -14,6 +14,7 @@ import org.jgrapht.alg.NaiveLcaFinder;
 import org.jgrapht.graph.DefaultEdge;
 
 import ecj.ec.pso.GraphInitializer;
+import wsc.graph.ParamterConn;
 import wsc.graph.ServiceEdge;
 import wsc.owl.bean.OWLClass;
 

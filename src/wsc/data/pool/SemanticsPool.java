@@ -7,6 +7,7 @@ import java.util.Map;
 
 import javax.xml.bind.JAXBException;
 
+import wsc.graph.ParamterConn;
 import wsc.owl.bean.OWLClass;
 import wsc.owl.bean.OWLInst;
 import wsc.owl.bean.RDF;

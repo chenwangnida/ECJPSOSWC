@@ -1,4 +1,4 @@
-package wsc.data.pool;
+package wsc.graph;
 
 public class ParamterConn {
 	double matchType;

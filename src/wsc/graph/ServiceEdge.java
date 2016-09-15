@@ -5,8 +5,6 @@ import java.util.List;
 
 import org.jgraph.graph.DefaultEdge;
 
-import wsc.data.pool.ParamterConn;
-
 public class ServiceEdge extends DefaultEdge implements Cloneable {
 
 	String SourceService;

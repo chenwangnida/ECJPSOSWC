@@ -18,10 +18,10 @@ import org.jgrapht.UndirectedGraph;
 import org.jgrapht.graph.DefaultEdge;
 
 import ecj.ec.pso.GraphInitializer;
-import wsc.data.pool.ParamterConn;
 import wsc.data.pool.SWSPool;
 import wsc.data.pool.SemanticsPool;
 import wsc.data.pool.Service;
+import wsc.graph.ParamterConn;
 import wsc.graph.ServiceEdge;
 
 public class InitialWSCPool {
