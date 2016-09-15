@@ -39,6 +39,7 @@ public class InitialWSCPool {
 	private HashSet<String> graphOutputSet = new HashSet<String>();
 
 	private static List<ParamterConn> pConnList = new ArrayList<ParamterConn>();
+	private static Set<String> sourceSerIdSet = new HashSet<String>();
 
 	public HashSet<String> getGraphOutputSet() {
 		return graphOutputSet;
@@ -87,8 +88,8 @@ public class InitialWSCPool {
 	 */
 	private boolean checkOutputSet(DirectedGraph<String, ServiceEdge> directedGraph, SWSPool swsPool) {
 		int numbermatched = 0;
-		double mt = 1;
-		double dst = 1;
+		double summt = 0.00;
+		double sumdst = 0.00;
 		pConnList.clear();
 		// List<ParamterConn> pConnList = new ArrayList<ParamterConn>();
 		for (String outputrequ : GraphInitializer.taskOutput) {
@@ -97,8 +98,12 @@ public class InitialWSCPool {
 				boolean foundmatched = pConn.isConsidered();
 				if (foundmatched) {
 					numbermatched++;
+					double similarity = Service.CalculateSimilarityMeasure(GraphInitializer.ontologyDAG, outputInst,
+							outputrequ, this.semanticsPool);
 					pConn.setOutputInst(outputInst);
 					pConn.setOutputrequ(outputrequ);
+					pConn.setSourceServiceID(swsPool.getGraphOutputSetMap().get(outputInst).getServiceID());
+					pConn.setSimilarity(similarity);
 					pConnList.add(pConn);
 				}
 
@@ -106,17 +111,35 @@ public class InitialWSCPool {
 		}
 		if (GraphInitializer.taskOutput.size() == numbermatched) {
 			directedGraph.addVertex("endNode");
+			sourceSerIdSet.clear();
+			for (ParamterConn p : pConnList) {
+				String sourceSerID = p.getSourceServiceID();
+				sourceSerIdSet.add(sourceSerID);
+			}
 
-			for (ParamterConn pConn : pConnList) {
-				String outputInst = pConn.getOutputInst();
-				String outputrequ = pConn.getOutputrequ();
+			List<ServiceEdge> serEdgeList = new ArrayList<ServiceEdge>();
+			for (String sourceSerID : sourceSerIdSet) {
+				ServiceEdge serEdge = new ServiceEdge(0, 0);
+				serEdge.setSourceService(sourceSerID);
+				for (ParamterConn p : pConnList) {
+					if (p.getSourceServiceID().equals(sourceSerID)) {
+						serEdge.getpConnList().add(p);
+					}
+				}
+				serEdgeList.add(serEdge);
+			}
 
-				mt = pConn.getMatchType();
-				dst = Service.CalculateSimilarityMeasure(GraphInitializer.ontologyDAG, outputInst, outputrequ,
-						this.semanticsPool);
-				String serviceID = swsPool.getGraphOutputSetMap().get(outputInst).getServiceID();
-				directedGraph.addEdge(serviceID, "endNode", new ServiceEdge(mt, dst));
+			for (ServiceEdge edge : serEdgeList) {
+				for (int i1 = 0; i1 < edge.getpConnList().size(); i1++) {
+					ParamterConn pCo = edge.getpConnList().get(i1);
+					summt += pCo.getMatchType();
+					sumdst += pCo.getSimilarity();
 
+				}
+				int count = edge.getpConnList().size();
+				edge.setAvgmt(summt / count);
+				edge.setAvgsdt(sumdst / count);
+				directedGraph.addEdge(edge.getSourceService(), "endNode", edge);
 			}
 
 			return true;
@@ -140,15 +163,15 @@ public class InitialWSCPool {
 		do {
 			Service service = this.swsPool.findPossibleService(this.outputSet);
 			if (service == null) {
-//				System.out.println("No more service satisfied");
-//				System.out.println("No more service satisfied");
-//				System.out.println("No more service satisfied");
+				// System.out.println("No more service satisfied");
+				// System.out.println("No more service satisfied");
+				// System.out.println("No more service satisfied");
 				return;
 			}
 			serviceSequence.add(service);
 
-//			i++;
-//			System.out.println("No service :" + i);
+			// i++;
+			// System.out.println("No service :" + i);
 
 		} while (true);// while(!this.checkOutputSet(output))
 	}

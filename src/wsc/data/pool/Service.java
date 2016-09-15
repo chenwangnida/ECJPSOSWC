@@ -28,6 +28,8 @@ public class Service implements Comparable<Service> {
 	private List<String> outputList = new ArrayList<String>();
 
 	private static List<ParamterConn> pConnList0 = new ArrayList<ParamterConn>();
+	private static Set<String> sourceSerIdSet = new HashSet<String>();
+
 
 	private double score;
 
@@ -193,10 +195,8 @@ public class Service implements Comparable<Service> {
 					inputMatchCount++;
 
 					if (inputMatchCount == service.getInputList().size()) {
-
 						directedGraph.addVertex(service.getServiceID());
-
-						Set<String> sourceSerIdSet = new HashSet<String>();
+						sourceSerIdSet.clear();
 						for (ParamterConn p : pConnList0) {
 							String sourceSerID = p.getSourceServiceID();
 							sourceSerIdSet.add(sourceSerID);
