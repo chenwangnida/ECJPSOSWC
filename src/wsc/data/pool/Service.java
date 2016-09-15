@@ -16,7 +16,6 @@ import ecj.ec.pso.GraphInitializer;
 import wsc.graph.ServiceEdge;
 import wsc.owl.bean.OWLClass;
 
-
 public class Service implements Comparable<Service> {
 
 	private final String serviceID;
@@ -191,7 +190,7 @@ public class Service implements Comparable<Service> {
 						double avgmt = summt / inputMatchCount;
 						double avgsdt = sumdst / inputMatchCount;
 
-						if (giveninput == "inst2139388127") {
+						if (GraphInitializer.taskInput.contains(giveninput)) {// giveninput == "inst2139388127"
 							directedGraph.addVertex(service.getServiceID());
 							directedGraph.addEdge("startNode", service.getServiceID(), new ServiceEdge(avgmt, avgsdt));
 

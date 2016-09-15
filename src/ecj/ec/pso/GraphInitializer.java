@@ -74,8 +74,8 @@ public class GraphInitializer extends SimpleInitializer {
 
 	public static DirectedGraph<String, DefaultEdge> ontologyDAG;
 
-	Set<String> taskInput;
-	Set<String> taskOutput;
+	public static Set<String> taskInput;
+	public static Set<String> taskOutput;
 
 	@Override
 	public void setup(EvolutionState state, Parameter base) {

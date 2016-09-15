@@ -85,14 +85,14 @@ public class InitialWSCPool {
 	 * @param givenoutput
 	 * @return
 	 */
-	private boolean checkOutputSet(Set<String> output, DirectedGraph<String, ServiceEdge> directedGraph,
+	private boolean checkOutputSet(DirectedGraph<String, ServiceEdge> directedGraph,
 			SWSPool swsPool) {
 		int numbermatched = 0;
 		double mt = 1;
 		double dst = 1;
 		pConnList.clear();
 //		List<ParamterConn> pConnList = new ArrayList<ParamterConn>();
-		for (String outputrequ : output) {
+		for (String outputrequ : GraphInitializer.taskOutput) {
 			for (String outputInst : this.graphOutputSet) {
 				ParamterConn pConn = this.semanticsPool.searchSemanticMatchTypeFromInst(outputInst, outputrequ);
 				boolean foundmatched = pConn.isConsidered();
@@ -105,7 +105,7 @@ public class InitialWSCPool {
 
 			}
 		}
-		if (output.size() == numbermatched) {
+		if (GraphInitializer.taskOutput.size() == numbermatched) {
 			directedGraph.addVertex("endNode");
 
 			for (ParamterConn pConn : pConnList) {
@@ -169,7 +169,7 @@ public class InitialWSCPool {
 				System.out.println("No more service satisfied");
 				return;
 			}
-		} while (!this.checkOutputSet(output, directedGraph, swsPool));
+		} while (!this.checkOutputSet(directedGraph, swsPool));
 
 	}
 
