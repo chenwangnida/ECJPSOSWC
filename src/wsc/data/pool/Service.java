@@ -181,6 +181,8 @@ public class Service implements Comparable<Service> {
 				boolean foundmatched = pConn.isConsidered();
 
 				if (foundmatched) {
+					inputMatchCount++;
+
 					pConn.setOutputInst(giveninput);
 					if (GraphInitializer.taskInput.contains(giveninput)) {
 						pConn.setSourceServiceID("startNode");
@@ -193,7 +195,6 @@ public class Service implements Comparable<Service> {
 
 					pConnList0.add(pConn);
 
-					inputMatchCount++;
 
 					if (inputMatchCount == service.getInputList().size()) {
 						directedGraph.addVertex(service.getServiceID());

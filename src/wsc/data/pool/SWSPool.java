@@ -227,6 +227,7 @@ public class SWSPool {
 			Service s = new Service(serviceCandidates.get(i).getServiceID());
 			if (s.searchServiceGraphMatchFromInputSet(semanticsPool, serviceCandidates.get(i), inputSet, directedGraph,
 					this.graphOutputSetMap)) {
+				serviceCandidates.remove(i);
 				foundServiceIndex = i;
 				break;
 			}
@@ -235,18 +236,18 @@ public class SWSPool {
 			System.out.println("no matching for inputSet");
 			return null;
 		}
-		Service newService = serviceCandidates.get(foundServiceIndex);
+		Service foundService = serviceCandidates.get(foundServiceIndex);
 
-		serviceCandidates.remove(foundServiceIndex);
+//		serviceCandidates.remove(foundServiceIndex);
 		// add found service outputs to inputSet
-		for (String output : newService.getOutputList()) {
+		for (String output : foundService.getOutputList()) {
 			if (!inputSet.contains(output)) {
 				inputSet.add(output);
 				// output mapped back to service
-				graphOutputSetMap.put(output, newService);
+				graphOutputSetMap.put(output, foundService);
 			}
 		}
-		return newService;
+		return foundService;
 	}
 
 }
