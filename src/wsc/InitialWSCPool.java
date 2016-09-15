@@ -85,13 +85,12 @@ public class InitialWSCPool {
 	 * @param givenoutput
 	 * @return
 	 */
-	private boolean checkOutputSet(DirectedGraph<String, ServiceEdge> directedGraph,
-			SWSPool swsPool) {
+	private boolean checkOutputSet(DirectedGraph<String, ServiceEdge> directedGraph, SWSPool swsPool) {
 		int numbermatched = 0;
 		double mt = 1;
 		double dst = 1;
 		pConnList.clear();
-//		List<ParamterConn> pConnList = new ArrayList<ParamterConn>();
+		// List<ParamterConn> pConnList = new ArrayList<ParamterConn>();
 		for (String outputrequ : GraphInitializer.taskOutput) {
 			for (String outputInst : this.graphOutputSet) {
 				ParamterConn pConn = this.semanticsPool.searchSemanticMatchTypeFromInst(outputInst, outputrequ);
@@ -137,13 +136,20 @@ public class InitialWSCPool {
 	 */
 	public void allRelevantService(Set input, Set output) throws JAXBException, IOException {
 		this.outputSet.addAll(input);
+		int i = 0;
 		do {
 			Service service = this.swsPool.findPossibleService(this.outputSet);
 			if (service == null) {
-				System.out.println("No more service satisfied");
+//				System.out.println("No more service satisfied");
+//				System.out.println("No more service satisfied");
+//				System.out.println("No more service satisfied");
 				return;
 			}
 			serviceSequence.add(service);
+
+//			i++;
+//			System.out.println("No service :" + i);
+
 		} while (true);// while(!this.checkOutputSet(output))
 	}
 

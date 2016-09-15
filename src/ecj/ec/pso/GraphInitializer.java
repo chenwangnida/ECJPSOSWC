@@ -100,8 +100,9 @@ public class GraphInitializer extends SimpleInitializer {
 		try {
 			initialWSCPool = new InitialWSCPool(service_wsdl, taxonomy_owl);
 			initialWSCPool.allRelevantService(taskInput, taskOutput);
-			// System.out.println("releveantService Size:" +
-			// initialWSCPool.getServiceSequence().size());
+			System.out.println("releveantService Size:" + initialWSCPool.getSwsPool().getServiceList().size());
+
+			System.out.println("Whole service Size:" + initialWSCPool.getServiceSequence().size());
 
 		} catch (JAXBException | IOException e) {
 			e.printStackTrace();
