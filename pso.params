@@ -1,7 +1,7 @@
 #testset files
-service-xml = CovertTestSet01/services-output.xml
-taxonomy-owl = CovertTestSet01/taxonomy.owl
-problem-xml = CovertTestSet01/problem.xml
+service-xml = CovertTestSet00/services-output.xml
+taxonomy-owl = CovertTestSet00/taxonomy.owl
+problem-xml = CovertTestSet00/problem.xml
 #Semantic Function and QoS Weights
 fitness-weight1       = 0.25
 fitness-weight2       = 0.25
