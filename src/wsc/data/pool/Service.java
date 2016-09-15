@@ -15,8 +15,7 @@ import org.jgrapht.graph.DefaultEdge;
 import ecj.ec.pso.GraphInitializer;
 import wsc.graph.ServiceEdge;
 import wsc.owl.bean.OWLClass;
-import wsc.wsdl.bean.SemExt;
-import wsc.wsdl.bean.SemMessageExt;
+
 
 public class Service implements Comparable<Service> {
 
