@@ -211,13 +211,10 @@ public class Service implements Comparable<Service> {
 									serEdge.getpConnList().add(p);
 								}
 							}
-
 							serEdgeList.add(serEdge);
 						}
 
 						for (ServiceEdge edge : serEdgeList) {
-
-
 							for (int i1 = 0; i1 < edge.getpConnList().size(); i1++) {
 								ParamterConn pCo = edge.getpConnList().get(i1);
 								summt += pCo.getMatchType();
