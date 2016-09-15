@@ -70,6 +70,7 @@ public class GraphInitializer extends SimpleInitializer {
 
 	public InitialWSCPool initialWSCPool;
 	public Map<String, Integer> serviceToIndexMap = new HashMap<String, Integer>();
+	Map<String, double[]> ServiceQoSMap = new HashMap<String, double[]>();
 
 	public static DirectedGraph<String, DefaultEdge> ontologyDAG;
 
@@ -106,7 +107,8 @@ public class GraphInitializer extends SimpleInitializer {
 			e.printStackTrace();
 		}
 
-		//
+		MapServiceToQoS(initialWSCPool.getSwsPool().getServiceList());
+
 		mapServicesToIndex(initialWSCPool.getServiceSequence(), serviceToIndexMap);
 		// Calculate normalised bounds
 		if (normalisation)
@@ -120,6 +122,12 @@ public class GraphInitializer extends SimpleInitializer {
 		// Set size of particles
 		Parameter genomeSizeParam = new Parameter("pop.subpop.0.species.genome-size");
 		state.parameters.set(genomeSizeParam, "" + initialWSCPool.getServiceSequence().size());
+	}
+
+	private void MapServiceToQoS(List<Service> serviceList) {
+		for (Service service : serviceList) {
+			ServiceQoSMap.put(service.getServiceID(), service.getQos());
+		}
 	}
 
 	/**

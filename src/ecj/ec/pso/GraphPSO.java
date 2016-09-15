@@ -2,10 +2,11 @@ package ecj.ec.pso;
 
 import ec.simple.SimpleFitness;
 import ec.simple.SimpleProblemForm;
-
+import wsc.data.pool.Service;
 import wsc.graph.ServiceEdge;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -60,14 +61,15 @@ public class GraphPSO extends Problem implements SimpleProblemForm {
 		// set a, r, c aggregation
 		Set<String> verticeSet = directedGraph.vertexSet();
 
-		Map<String, double[]> qosMap = init.initialWSCPool.getSwsPool().getQosServiceMap();
+		Map<String, double[]> ServiceQoSMap = init.ServiceQoSMap;
 
 		for (String v : verticeSet) {
 			if (!v.equals("startNode") && !v.equals("endNode")) {
-				double qos[] = qosMap.get(v);
+				double qos[] = ServiceQoSMap.get(v);
 				a *= qos[GraphInitializer.AVAILABILITY];
 				r *= qos[GraphInitializer.RELIABILITY];
 				c += qos[GraphInitializer.COST];
+
 			}
 		}
 
@@ -75,7 +77,7 @@ public class GraphPSO extends Problem implements SimpleProblemForm {
 		List<String> longestVertexList = getLongestPathVertexList(directedGraph);
 		for (String v : longestVertexList) {
 			if (!v.equals("startNode") && !v.equals("endNode")) {
-				double qos[] = qosMap.get(v);
+				double qos[] = ServiceQoSMap.get(v);
 				t += qos[GraphInitializer.TIME];
 			}
 		}
@@ -113,10 +115,11 @@ public class GraphPSO extends Problem implements SimpleProblemForm {
 		DirectedGraph<String, ServiceEdge> directedGraph = new DefaultDirectedGraph<String, ServiceEdge>(
 				ServiceEdge.class);
 		directedGraph.addVertex("startNode");
-		init.initialWSCPool.createGraphService(init.taskInput, init.taskOutput, directedGraph,
-				individual.genome, init.serviceToIndexMap);
+		init.initialWSCPool.createGraphService(init.taskInput, init.taskOutput, directedGraph, individual.genome,
+				init.serviceToIndexMap);
 
-//		System.out.println("orginal graph##########" + directedGraph.toString());
+		// System.out.println("orginal graph##########" +
+		// directedGraph.toString());
 
 		while (true) {
 			List<String> dangleVerticeList = dangleVerticeList(directedGraph);
@@ -156,7 +159,8 @@ public class GraphPSO extends Problem implements SimpleProblemForm {
 
 			for (ServiceEdge edge : relatedEdge) {
 				String potentialTangleVertice = directedGraph.getEdgeSource(edge);
-//				System.out.println("potentialTangleVertice:" + potentialTangleVertice);
+				// System.out.println("potentialTangleVertice:" +
+				// potentialTangleVertice);
 				potentialTangleVerticeList.add(potentialTangleVertice);
 			}
 
