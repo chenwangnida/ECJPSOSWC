@@ -38,6 +38,8 @@ public class InitialWSCPool {
 	// save all semantics
 	private HashSet<String> graphOutputSet = new HashSet<String>();
 
+	private static List<ParamterConn> pConnList = new ArrayList<ParamterConn>();
+
 	public HashSet<String> getGraphOutputSet() {
 		return graphOutputSet;
 	}
@@ -74,7 +76,7 @@ public class InitialWSCPool {
 
 	public InitialWSCPool(String serviceFilePath, String owlFilePath) throws FileNotFoundException, JAXBException {
 		this.semanticsPool = SemanticsPool.createSemanticsFromOWL(owlFilePath);
-		this.swsPool = SWSPool.parseXML(this.semanticsPool, serviceFilePath);
+		this.swsPool = SWSPool.parseWSCServiceFile(this.semanticsPool, serviceFilePath);
 	}
 
 	/**
@@ -83,22 +85,45 @@ public class InitialWSCPool {
 	 * @param givenoutput
 	 * @return
 	 */
-	private boolean checkOutputSet(String output, DirectedGraph<String, ServiceEdge> directedGraph, Service service) {
-		for (String outputInst : this.graphOutputSet) {
-			ParamterConn pConn = this.semanticsPool.searchSemanticMatchTypeFromInst(outputInst, output);
-			boolean foundmatched = pConn.isConsidered();
+	private boolean checkOutputSet(Set<String> output, DirectedGraph<String, ServiceEdge> directedGraph,
+			SWSPool swsPool) {
+		int numbermatched = 0;
+		double mt = 1;
+		double dst = 1;
+		pConnList.clear();
+//		List<ParamterConn> pConnList = new ArrayList<ParamterConn>();
+		for (String outputrequ : output) {
+			for (String outputInst : this.graphOutputSet) {
+				ParamterConn pConn = this.semanticsPool.searchSemanticMatchTypeFromInst(outputInst, outputrequ);
+				boolean foundmatched = pConn.isConsidered();
+				if (foundmatched) {
+					numbermatched++;
+					pConn.setOutputInst(outputInst);
+					pConn.setOutputrequ(outputrequ);
+					pConnList.add(pConn);
+				}
 
-			if (foundmatched) {
-
-				double mt= pConn.getMatchType();
-
-				directedGraph.addVertex("endNode");
-				double dst = Service.CalculateSimilarityMeasure(GraphInitializer.ontologyDAG, outputInst, output, this.semanticsPool);
-				directedGraph.addEdge(service.getServiceID(), "endNode", new ServiceEdge(mt, dst));
-				return true;
 			}
 		}
-		return false;
+		if (output.size() == numbermatched) {
+			directedGraph.addVertex("endNode");
+
+			for (ParamterConn pConn : pConnList) {
+				String outputInst = pConn.getOutputInst();
+				String outputrequ = pConn.getOutputrequ();
+
+				mt = pConn.getMatchType();
+				dst = Service.CalculateSimilarityMeasure(GraphInitializer.ontologyDAG, outputInst, outputrequ,
+						this.semanticsPool);
+				String serviceID = swsPool.getGraphOutputSetMap().get(outputInst).getServiceID();
+				directedGraph.addEdge(serviceID, "endNode", new ServiceEdge(mt, dst));
+
+			}
+
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	/**
@@ -110,8 +135,8 @@ public class InitialWSCPool {
 	 * @param givenoutput
 	 *
 	 */
-	public void allRelevantService(String input, String output) throws JAXBException, IOException {
-		this.outputSet.add(input);
+	public void allRelevantService(Set input, Set output) throws JAXBException, IOException {
+		this.outputSet.addAll(input);
 		do {
 			Service service = this.swsPool.findPossibleService(this.outputSet);
 			if (service == null) {
@@ -122,10 +147,10 @@ public class InitialWSCPool {
 		} while (true);// while(!this.checkOutputSet(output))
 	}
 
-	public void createGraphService(String input, String output, DirectedGraph<String, ServiceEdge> directedGraph,
+	public void createGraphService(Set input, Set output, DirectedGraph<String, ServiceEdge> directedGraph,
 			double[] weights, Map<String, Integer> serviceToIndexMap) {
 
-		this.graphOutputSet.add(input);
+		this.graphOutputSet.addAll(input);
 		SWSPool swsPool = new SWSPool();
 
 		SetWeightsToServiceList(serviceToIndexMap, serviceSequence, weights);
@@ -144,7 +169,7 @@ public class InitialWSCPool {
 				System.out.println("No more service satisfied");
 				return;
 			}
-		} while (!this.checkOutputSet(output, directedGraph, service));
+		} while (!this.checkOutputSet(output, directedGraph, swsPool));
 
 	}
 

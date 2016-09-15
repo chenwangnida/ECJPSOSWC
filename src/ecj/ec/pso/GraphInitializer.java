@@ -1,16 +1,26 @@
 package ecj.ec.pso;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import javax.xml.bind.JAXBException;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 
 import org.jgrapht.DirectedGraph;
 import org.jgrapht.experimental.dag.DirectedAcyclicGraph;
 import org.jgrapht.graph.DefaultEdge;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
 
 import ec.EvolutionState;
 import ec.simple.SimpleInitializer;
@@ -63,15 +73,15 @@ public class GraphInitializer extends SimpleInitializer {
 
 	public static DirectedGraph<String, DefaultEdge> ontologyDAG;
 
-	List<String> taskInput;
-	List<String> taskOutput;
+	Set<String> taskInput;
+	Set<String> taskOutput;
 
 	@Override
 	public void setup(EvolutionState state, Parameter base) {
 
-		String service_wsdl = state.parameters.getString(new Parameter("service-wsdl"), null);
+		String service_wsdl = state.parameters.getString(new Parameter("service-xml"), null);
 		String taxonomy_owl = state.parameters.getString(new Parameter("taxonomy-owl"), null);
-//		String service_wsla = state.parameters.getString(new Parameter("service-wsla"), null);
+		String problem_xml = state.parameters.getString(new Parameter("problem-xml"), null);
 
 		sf_w1 = state.parameters.getDouble(new Parameter("fitness-weight1"), null);
 		sf_w2 = state.parameters.getDouble(new Parameter("fitness-weight2"), null);
@@ -83,15 +93,12 @@ public class GraphInitializer extends SimpleInitializer {
 		rootconcept = state.parameters.getString(new Parameter("root-concept"), null);
 
 		// define task
-		taskInput = new ArrayList<String>();
-		taskInput.add("inst2139388127");
-		taskOutput = new ArrayList<String>();
-		taskOutput.add("inst162515103");
+		initialTask(problem_xml);
 
 		// Initial all data related to Web service composition pools
 		try {
 			initialWSCPool = new InitialWSCPool(service_wsdl, taxonomy_owl);
-			initialWSCPool.allRelevantService(taskInput.get(0), taskOutput.get(0));
+			initialWSCPool.allRelevantService(taskInput, taskOutput);
 			// System.out.println("releveantService Size:" +
 			// initialWSCPool.getServiceSequence().size());
 
@@ -100,7 +107,7 @@ public class GraphInitializer extends SimpleInitializer {
 		}
 
 		//
-		mapServicesToIndex(initialWSCPool.getServiceSequence(),serviceToIndexMap);
+		mapServicesToIndex(initialWSCPool.getServiceSequence(), serviceToIndexMap);
 		// Calculate normalised bounds
 		if (normalisation)
 			calculateNormalisationBounds(initialWSCPool.getServiceSequence());
@@ -113,6 +120,48 @@ public class GraphInitializer extends SimpleInitializer {
 		// Set size of particles
 		Parameter genomeSizeParam = new Parameter("pop.subpop.0.species.genome-size");
 		state.parameters.set(genomeSizeParam, "" + initialWSCPool.getServiceSequence().size());
+	}
+
+	/**
+	 * Parses the WSC task file with the given name, extracting input and output
+	 * values to be used as the composition task.
+	 *
+	 * @param fileName
+	 */
+	private void initialTask(String fileName) {
+		try {
+			File fXmlFile = new File(fileName);
+			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+			Document doc = dBuilder.parse(fXmlFile);
+
+			org.w3c.dom.Node provided = doc.getElementsByTagName("provided").item(0);
+			NodeList providedList = ((Element) provided).getElementsByTagName("instance");
+			taskInput = new HashSet<String>();
+			for (int i = 0; i < providedList.getLength(); i++) {
+				org.w3c.dom.Node item = providedList.item(i);
+				Element e = (Element) item;
+				taskInput.add(e.getAttribute("name"));
+			}
+
+			org.w3c.dom.Node wanted = doc.getElementsByTagName("wanted").item(0);
+			NodeList wantedList = ((Element) wanted).getElementsByTagName("instance");
+			taskOutput = new HashSet<String>();
+			for (int i = 0; i < wantedList.getLength(); i++) {
+				org.w3c.dom.Node item = wantedList.item(i);
+				Element e = (Element) item;
+				taskOutput.add(e.getAttribute("name"));
+			}
+		} catch (ParserConfigurationException e) {
+			System.out.println("Task file parsing failed...");
+			e.printStackTrace();
+		} catch (SAXException e) {
+			System.out.println("Task file parsing failed...");
+			e.printStackTrace();
+		} catch (IOException e) {
+			System.out.println("Task file parsing failed...");
+			e.printStackTrace();
+		}
 	}
 
 	private void mapServicesToIndex(List<Service> relevant, Map<String, Integer> serviceToIndexMap) {

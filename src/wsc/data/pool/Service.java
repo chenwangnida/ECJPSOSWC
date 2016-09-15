@@ -23,7 +23,28 @@ public class Service implements Comparable<Service> {
 	private final String serviceID;
 	// list of inputInstances(individuals), rather than list of input parameter.
 	private double[] qos;
+
+	private List<String> inputList = new ArrayList<String>();
+	// list of outputInstances(individuals), ranther than list of output
+	private List<String> outputList = new ArrayList<String>();
+
 	private double score;
+
+	public Service(String serviceID, double[] qos, List<String> inputList, List<String> outputList) {
+		super();
+		this.serviceID = serviceID;
+		this.qos = qos;
+		this.inputList = inputList;
+		this.outputList = outputList;
+	}
+
+	public void setInputList(List<String> inputList) {
+		this.inputList = inputList;
+	}
+
+	public void setOutputList(List<String> outputList) {
+		this.outputList = outputList;
+	}
 
 	public double getScore() {
 		return score;
@@ -32,11 +53,6 @@ public class Service implements Comparable<Service> {
 	public void setScore(double score) {
 		this.score = score;
 	}
-
-	private final List<String> inputList = new ArrayList<String>();
-	// list of outputInstances(individuals), ranther than list of output
-	// parameter.
-	private final List<String> outputList = new ArrayList<String>();
 
 	public String getServiceID() {
 		return this.serviceID;
@@ -77,37 +93,37 @@ public class Service implements Comparable<Service> {
 		return "(" + score + ", " + serviceID + ")";
 	}
 
-	/**
-	 * Initial service from SemMessageExt
-	 *
-	 * @param request
-	 * @param response
-	 * @return
-	 */
-	public static Service initialServicefromMECE(SemMessageExt request, SemMessageExt response) {
-		String serviceID = request.getServiceID();
-		// verify request and response from same service.
-		if (response.getServiceID().equals(serviceID) == false) {
-			System.err.println("Service ID does not match");
-			return null;
-		}
-		// valid request and response
-		if (!request.isRequestMessage() || response.isRequestMessage()) {
-			System.err.println("SemMessageExt type does not match");
-			return null;
-		}
-		// initial data for service
-		Service service = new Service(serviceID);
-		for (SemExt se : request.getSemExt()) {
-			int instBeginPos = se.getOntologyRef().indexOf("inst");
-			service.inputList.add(se.getOntologyRef().substring(instBeginPos));
-		}
-		for (SemExt se : response.getSemExt()) {
-			int instBeginPos = se.getOntologyRef().indexOf("inst");
-			service.outputList.add(se.getOntologyRef().substring(instBeginPos));
-		}
-		return service;
-	}
+//	/**
+//	 * Initial service from SemMessageExt
+//	 *
+//	 * @param request
+//	 * @param response
+//	 * @return
+//	 */
+//	public static Service initialServicefromMECE(SemMessageExt request, SemMessageExt response) {
+//		String serviceID = request.getServiceID();
+//		// verify request and response from same service.
+//		if (response.getServiceID().equals(serviceID) == false) {
+//			System.err.println("Service ID does not match");
+//			return null;
+//		}
+//		// valid request and response
+//		if (!request.isRequestMessage() || response.isRequestMessage()) {
+//			System.err.println("SemMessageExt type does not match");
+//			return null;
+//		}
+//		// initial data for service
+//		Service service = new Service(serviceID);
+//		for (SemExt se : request.getSemExt()) {
+//			int instBeginPos = se.getOntologyRef().indexOf("inst");
+//			service.inputList.add(se.getOntologyRef().substring(instBeginPos));
+//		}
+//		for (SemExt se : response.getSemExt()) {
+//			int instBeginPos = se.getOntologyRef().indexOf("inst");
+//			service.outputList.add(se.getOntologyRef().substring(instBeginPos));
+//		}
+//		return service;
+//	}
 
 	/**
 	 * search for services matched with current inputSet

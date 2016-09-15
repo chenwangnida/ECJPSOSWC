@@ -1,7 +1,6 @@
 package wsc.data.pool;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -9,29 +8,20 @@ import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-
-import javax.xml.bind.JAXBException;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
-
 import org.jgrapht.DirectedGraph;
-import org.jgrapht.UndirectedGraph;
-import org.jgrapht.graph.DefaultEdge;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
-
-import wsc.InitialWSCPool;
 import wsc.graph.ServiceEdge;
-import wsc.wsdl.bean.Definitions;
 
 public class SWSPool {
 
 	private List<Service> serviceList = new LinkedList<Service>();
 	private SemanticsPool semantics;
-	private Map<String, double[]> qosServiceMap = new HashMap<String, double[]>();
 
 	private final Map<String, Service> graphOutputSetMap = new HashMap<String, Service>();
 
@@ -55,13 +45,6 @@ public class SWSPool {
 		this.semantics = semantics;
 	}
 
-	public Map<String, double[]> getQosServiceMap() {
-		return qosServiceMap;
-	}
-
-	public void setQosServiceMap(Map<String, double[]> qosServiceMap) {
-		this.qosServiceMap = qosServiceMap;
-	}
 
 	/**
 	 * Semantic web service pool initialization
@@ -72,25 +55,89 @@ public class SWSPool {
 	 *
 	 * @return SemanticWebServicePool
 	 */
-	public static SWSPool parseXML(SemanticsPool semantics, String serviceFilePath)
-			throws FileNotFoundException, JAXBException {
+//	public static SWSPool parseXML(SemanticsPool semantics, String serviceFilePath)
+//			throws FileNotFoundException, JAXBException {
+//		SWSPool swsp = new SWSPool();
+//		swsp.semantics = semantics;
+//		List<double[]> list = initialQoSfromSLA("qos.xml");
+//
+//		Definitions def = Definitions.parseXML(serviceFilePath);
+//		for (int i = 0; i < def.getSemExtension().getSemMessageExtList().size(); i += 2) {
+//			swsp.serviceList.add(Service.initialServicefromMECE(def.getSemExtension().getSemMessageExtList().get(i),
+//					def.getSemExtension().getSemMessageExtList().get(i + 1)));
+//		}
+//
+//		// manually add QoS attributes
+//		for (int i = 0; i < list.size(); i++) {
+//			swsp.qosServiceMap.put(swsp.serviceList.get(i).getServiceID(), list.get(i));
+//			swsp.serviceList.get(i).setQos(list.get(i));
+//		}
+//
+//		System.out.println("No.of Service:" + swsp.serviceList.size());
+//		return swsp;
+//	}
+
+	public static SWSPool parseWSCServiceFile(SemanticsPool semantics, String fileName) {
+
 		SWSPool swsp = new SWSPool();
 		swsp.semantics = semantics;
-		List<double[]> list = initialQoSfromSLA("qos.xml");
 
-		Definitions def = Definitions.parseXML(serviceFilePath);
-		for (int i = 0; i < def.getSemExtension().getSemMessageExtList().size(); i += 2) {
-			swsp.serviceList.add(Service.initialServicefromMECE(def.getSemExtension().getSemMessageExtList().get(i),
-					def.getSemExtension().getSemMessageExtList().get(i + 1)));
+		List<String> inputs = new ArrayList<String>();
+		List<String> outputs = new ArrayList<String>();
+		double[] qos = new double[4];
+
+		try {
+			File fXmlFile = new File(fileName);
+			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+			Document doc = dBuilder.parse(fXmlFile);
+
+			NodeList nList = doc.getElementsByTagName("service");
+
+			for (int i = 0; i < nList.getLength(); i++) {
+				org.w3c.dom.Node nNode = nList.item(i);
+				Element eElement = (Element) nNode;
+				// service name, for example serv904934656
+				String name = eElement.getAttribute("name");
+
+				qos[0] = Double.valueOf(eElement.getAttribute("Res"));
+				qos[1] = Double.valueOf(eElement.getAttribute("Pri"));
+				qos[2] = Double.valueOf(eElement.getAttribute("Ava"));
+				qos[3] = Double.valueOf(eElement.getAttribute("Rel"));
+
+				// Get inputs, instance name, for example inst995667695
+				org.w3c.dom.Node inputNode = eElement.getElementsByTagName("inputs").item(0);
+				NodeList inputNodes = ((Element) inputNode).getElementsByTagName("instance");
+				for (int j = 0; j < inputNodes.getLength(); j++) {
+					org.w3c.dom.Node in = inputNodes.item(j);
+					Element e = (Element) in;
+					inputs.add(e.getAttribute("name"));
+				}
+
+				// Get outputs instance name, for example inst1348768777
+				org.w3c.dom.Node outputNode = eElement.getElementsByTagName("outputs").item(0);
+				NodeList outputNodes = ((Element) outputNode).getElementsByTagName("instance");
+				for (int j = 0; j < outputNodes.getLength(); j++) {
+					org.w3c.dom.Node out = outputNodes.item(j);
+					Element e = (Element) out;
+					outputs.add(e.getAttribute("name"));
+				}
+
+				Service ws = new Service(name, qos, inputs, outputs);
+				swsp.serviceList.add(ws);
+
+				inputs = new ArrayList<String>();
+				outputs = new ArrayList<String>();
+				qos = new double[4];
+			}
+
+		} catch (IOException ioe) {
+			System.out.println("Service file parsing failed...");
+		} catch (ParserConfigurationException e) {
+			System.out.println("Service file parsing failed...");
+		} catch (SAXException e) {
+			System.out.println("Service file parsing failed...");
 		}
-
-		// manually add QoS attributes
-		for (int i = 0; i < list.size(); i++) {
-			swsp.qosServiceMap.put(swsp.serviceList.get(i).getServiceID(), list.get(i));
-			swsp.serviceList.get(i).setQos(list.get(i));
-		}
-
-		System.out.println("No.of Service:" + swsp.serviceList.size());
 		return swsp;
 	}
 

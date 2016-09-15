@@ -113,7 +113,7 @@ public class GraphPSO extends Problem implements SimpleProblemForm {
 		DirectedGraph<String, ServiceEdge> directedGraph = new DefaultDirectedGraph<String, ServiceEdge>(
 				ServiceEdge.class);
 		directedGraph.addVertex("startNode");
-		init.initialWSCPool.createGraphService(init.taskInput.get(0), init.taskOutput.get(0), directedGraph,
+		init.initialWSCPool.createGraphService(init.taskInput, init.taskOutput, directedGraph,
 				individual.genome, init.serviceToIndexMap);
 
 //		System.out.println("orginal graph##########" + directedGraph.toString());
