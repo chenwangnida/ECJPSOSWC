@@ -213,7 +213,7 @@ public class InitialWSCPool {
 				System.err.println("No service is usable now");
 				return;
 			}
-			System.out.println("####Building process#####" + directedGraph.toString());
+//			System.out.println("####Building process#####" + directedGraph.toString());
 
 			goalSatisfied = this.checkOutputSet(directedGraph, taskOutput);
 
