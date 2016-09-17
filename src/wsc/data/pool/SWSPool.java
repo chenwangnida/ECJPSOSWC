@@ -219,7 +219,7 @@ public class SWSPool {
 	 *
 	 * @param inputSet
 	 */
-	public Service createGraphService(HashSet<String> inputSet, List<Service> serviceCandidates,
+	public Service createGraphService(List<String> inputSet, List<Service> serviceCandidates,
 			SemanticsPool semanticsPool, DirectedGraph<String, ServiceEdge> directedGraph) {
 		int foundServiceIndex = -1;
 

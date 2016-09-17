@@ -111,7 +111,7 @@ public class GraphPSO extends Problem implements SimpleProblemForm {
 	}
 
 	private DirectedGraph<String, ServiceEdge> graphRepresentation(GraphInitializer init, GraphParticle individual) {
-		init.initialWSCPool.getGraphOutputSet().clear();
+		init.initialWSCPool.getGraphOutputList().clear();
 		DirectedGraph<String, ServiceEdge> directedGraph = new DefaultDirectedGraph<String, ServiceEdge>(
 				ServiceEdge.class);
 		directedGraph.addVertex("startNode");

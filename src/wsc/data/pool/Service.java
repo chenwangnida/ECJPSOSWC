@@ -164,7 +164,7 @@ public class Service implements Comparable<Service> {
 	 * @return boolean
 	 */
 	public boolean searchServiceGraphMatchFromInputSet(SemanticsPool semanticsPool, Service service,
-			HashSet<String> inputSet, DirectedGraph<String, ServiceEdge> directedGraph,
+			List<String> inputSet, DirectedGraph<String, ServiceEdge> directedGraph,
 			Map<String, Service> graphOutputSetMap) {
 		pConnList0.clear();
 		// int inputMatchCount = 0;
@@ -173,9 +173,13 @@ public class Service implements Comparable<Service> {
 		List<String> inputList = service.getInputList();
 
 		// check if the inputSet contains all the required inputs from services
-		for (String giveninput : inputSet) {
+		// for (String giveninput : inputSet) {
+		for (int i = 0; i < inputSet.size(); i++) {
+			String giveninput = inputSet.get(i);
 
-			for (String existInput : service.getInputList()) {
+			// for (String existInput : service.getInputList()) {
+			for (int j = 0; j < service.getInputList().size(); j++) {
+				String existInput = service.getInputList().get(j);
 				ParamterConn pConn = semanticsPool.searchSemanticMatchTypeFromInst(giveninput, existInput);
 				boolean foundmatched = pConn.isConsidered();
 

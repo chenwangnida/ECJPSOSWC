@@ -74,8 +74,8 @@ public class GraphInitializer extends SimpleInitializer {
 
 	public static DirectedGraph<String, DefaultEdge> ontologyDAG;
 
-	public static Set<String> taskInput;
-	public static Set<String> taskOutput;
+	public static List<String> taskInput;
+	public static List<String> taskOutput;
 
 	@Override
 	public void setup(EvolutionState state, Parameter base) {
@@ -148,7 +148,7 @@ public class GraphInitializer extends SimpleInitializer {
 
 			org.w3c.dom.Node provided = doc.getElementsByTagName("provided").item(0);
 			NodeList providedList = ((Element) provided).getElementsByTagName("instance");
-			taskInput = new HashSet<String>();
+			taskInput = new ArrayList<String>();
 			for (int i = 0; i < providedList.getLength(); i++) {
 				org.w3c.dom.Node item = providedList.item(i);
 				Element e = (Element) item;
@@ -157,7 +157,7 @@ public class GraphInitializer extends SimpleInitializer {
 
 			org.w3c.dom.Node wanted = doc.getElementsByTagName("wanted").item(0);
 			NodeList wantedList = ((Element) wanted).getElementsByTagName("instance");
-			taskOutput = new HashSet<String>();
+			taskOutput = new ArrayList<String>();
 			for (int i = 0; i < wantedList.getLength(); i++) {
 				org.w3c.dom.Node item = wantedList.item(i);
 				Element e = (Element) item;
