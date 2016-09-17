@@ -39,13 +39,6 @@ public class InitialWSCPool {
 	private static List<String> taskOutputList = new ArrayList<String>();
 	private static Set<String> sourceSerIdSet = new HashSet<String>();
 
-	public List<String> getGraphOutputList() {
-		return graphOutputList;
-	}
-
-	public void setGraphOutputList(List<String> graphOutputList) {
-		this.graphOutputList = graphOutputList;
-	}
 
 	// set and get
 	public SWSPool getSwsPool() {
@@ -84,13 +77,13 @@ public class InitialWSCPool {
 	 * @param givenoutput
 	 * @return
 	 */
-	private boolean checkOutputSet(DirectedGraph<String, ServiceEdge> directedGraph, SWSPool swsPool) {
+	private boolean checkOutputSet(DirectedGraph<String, ServiceEdge> directedGraph, List<String> taskOutput) {
 		// int numbermatched = 0;
 		double summt = 0.00;
 		double sumdst = 0.00;
 		pConnList.clear();
 		taskOutputList.clear();
-		taskOutputList.addAll(GraphInitializer.taskOutput);
+		taskOutputList.addAll(taskOutput);
 
 		// List<String> checktaskOutputList = GraphInitializer.taskOutput;
 
@@ -183,33 +176,36 @@ public class InitialWSCPool {
 		} while (true);// while(!this.checkOutputSet(output))
 	}
 
-	public void createGraphService(List input, List output, DirectedGraph<String, ServiceEdge> directedGraph,
+	public void createGraphService(List<String> taskInput, List<String> taskOutput, DirectedGraph<String, ServiceEdge> directedGraph,
 			double[] weights, Map<String, Integer> serviceToIndexMap) {
 
+
 		graphOutputList.clear();
-		graphOutputList.addAll(input);
 		graphOutputListMap.clear();
+		serviceCandidates.clear();
+
+		graphOutputList.addAll(taskInput);
 
 		SWSPool swsPool = new SWSPool();
 
 		SetWeightsToServiceList(serviceToIndexMap, serviceSequence, weights);
-		serviceCandidates.clear();
 		serviceCandidates.addAll(serviceSequence);
-		// Sort the service in serviceCandidates list by weights from Particle
-		// location
 		Collections.sort(serviceCandidates);
 
 		boolean goalSatisfied;
 
+		directedGraph.addVertex("startNode");
+
+
 		do {
-			Service service = swsPool.createGraphService(this.graphOutputList, serviceCandidates, this.semanticsPool,
+			Service service = swsPool.createGraphService(graphOutputList, serviceCandidates, this.semanticsPool,
 					directedGraph, graphOutputListMap);
 			if (service == null) {
 				System.err.println("No service is usable now");
 				return;
 			}
 
-			goalSatisfied = this.checkOutputSet(directedGraph, swsPool);
+			goalSatisfied = this.checkOutputSet(directedGraph, taskOutput);
 			System.out.println("####Building process#####"+directedGraph.toString());
 
 		} while (!goalSatisfied);
