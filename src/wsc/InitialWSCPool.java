@@ -88,8 +88,8 @@ public class InitialWSCPool {
 		// List<String> checktaskOutputList = GraphInitializer.taskOutput;
 
 		// for (String outputrequ : taskOutputList) {
-		for (int i = 0; i < GraphInitializer.taskOutput.size(); i++) {
-			String outputrequ = GraphInitializer.taskOutput.get(i);
+		for (int i = 0; i < taskOutput.size(); i++) {
+			String outputrequ = taskOutput.get(i);
 			for (int j = 0; j < this.graphOutputList.size(); j++) {
 				String outputInst = this.graphOutputList.get(j);
 				ParamterConn pConn = this.semanticsPool.searchSemanticMatchTypeFromInst(outputInst, outputrequ);

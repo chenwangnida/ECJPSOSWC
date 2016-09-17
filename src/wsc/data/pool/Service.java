@@ -16,6 +16,8 @@ import org.jgrapht.graph.DefaultEdge;
 import ecj.ec.pso.GraphInitializer;
 import wsc.graph.ParamterConn;
 import wsc.graph.ServiceEdge;
+import wsc.graph.ServiceInput;
+import wsc.graph.ServiceOutput;
 import wsc.owl.bean.OWLClass;
 
 public class Service implements Comparable<Service> {
@@ -24,17 +26,17 @@ public class Service implements Comparable<Service> {
 	// list of inputInstances(individuals), rather than list of input parameter.
 	private double[] qos;
 
-	private List<String> inputList = new ArrayList<String>();
+	private List<ServiceInput> inputList = new ArrayList<ServiceInput>();
 	// list of outputInstances(individuals), ranther than list of output
-	private List<String> outputList = new ArrayList<String>();
+	private List<ServiceOutput> outputList = new ArrayList<ServiceOutput>();
 
 	private static List<ParamterConn> pConnList0 = new ArrayList<ParamterConn>();
-	private static List<String> inputList0 =new ArrayList<String>();
+	private static List<ServiceInput> inputList0 = new ArrayList<ServiceInput>();
 	private static Set<String> sourceSerIdSet = new HashSet<String>();
 
 	private double score;
 
-	public Service(String serviceID, double[] qos, List<String> inputList, List<String> outputList) {
+	public Service(String serviceID, double[] qos, List<ServiceInput> inputList, List<ServiceOutput> outputList) {
 		super();
 		this.serviceID = serviceID;
 		this.qos = qos;
@@ -42,11 +44,19 @@ public class Service implements Comparable<Service> {
 		this.outputList = outputList;
 	}
 
-	public void setInputList(List<String> inputList) {
+	public List<ServiceInput> getInputList() {
+		return inputList;
+	}
+
+	public void setInputList(List<ServiceInput> inputList) {
 		this.inputList = inputList;
 	}
 
-	public void setOutputList(List<String> outputList) {
+	public List<ServiceOutput> getOutputList() {
+		return outputList;
+	}
+
+	public void setOutputList(List<ServiceOutput> outputList) {
 		this.outputList = outputList;
 	}
 
@@ -60,14 +70,6 @@ public class Service implements Comparable<Service> {
 
 	public String getServiceID() {
 		return this.serviceID;
-	}
-
-	public List<String> getInputList() {
-		return this.inputList;
-	}
-
-	public List<String> getOutputList() {
-		return this.outputList;
 	}
 
 	public double[] getQos() {
@@ -143,7 +145,7 @@ public class Service implements Comparable<Service> {
 		for (String giveninput : inputSet) {
 			for (int i = 0; i < this.inputList.size(); i++) {
 
-				String existInput = this.inputList.get(i);
+				String existInput = this.inputList.get(i).getInput();
 				if (semanticsPool.searchSemanticMatchFromInst(giveninput, existInput)) {
 					inputMatchCount++;
 					// contain complete match from a single service
@@ -181,7 +183,7 @@ public class Service implements Comparable<Service> {
 
 			// for (String existInput : service.getInputList()) {
 			for (int j = 0; j < service.getInputList().size(); j++) {
-				String existInput = service.getInputList().get(j);
+				String existInput = service.getInputList().get(j).getInput();
 				ParamterConn pConn = semanticsPool.searchSemanticMatchTypeFromInst(giveninput, existInput);
 				boolean foundmatched = pConn.isConsidered();
 

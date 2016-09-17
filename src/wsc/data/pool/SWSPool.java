@@ -17,6 +17,8 @@ import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 import wsc.graph.ServiceEdge;
+import wsc.graph.ServiceInput;
+import wsc.graph.ServiceOutput;
 
 public class SWSPool {
 
@@ -79,8 +81,8 @@ public class SWSPool {
 		SWSPool swsp = new SWSPool();
 		swsp.semantics = semantics;
 
-		List<String> inputs = new ArrayList<String>();
-		List<String> outputs = new ArrayList<String>();
+		List<ServiceInput> inputs = new ArrayList<ServiceInput>();
+		List<ServiceOutput> outputs = new ArrayList<ServiceOutput>();
 		double[] qos = new double[4];
 
 		try {
@@ -108,7 +110,8 @@ public class SWSPool {
 				for (int j = 0; j < inputNodes.getLength(); j++) {
 					org.w3c.dom.Node in = inputNodes.item(j);
 					Element e = (Element) in;
-					inputs.add(e.getAttribute("name"));
+					ServiceInput serviceInput= new ServiceInput(e.getAttribute("name"),false);
+					inputs.add(serviceInput);
 				}
 
 				// Get outputs instance name, for example inst1348768777
@@ -117,14 +120,15 @@ public class SWSPool {
 				for (int j = 0; j < outputNodes.getLength(); j++) {
 					org.w3c.dom.Node out = outputNodes.item(j);
 					Element e = (Element) out;
-					outputs.add(e.getAttribute("name"));
+					ServiceOutput serviceOutput = new ServiceOutput(e.getAttribute("name"),false);
+					outputs.add(serviceOutput);
 				}
 
 				Service ws = new Service(name, qos, inputs, outputs);
 				swsp.serviceList.add(ws);
 
-				inputs = new ArrayList<String>();
-				outputs = new ArrayList<String>();
+				inputs = new ArrayList<ServiceInput>();
+				outputs = new ArrayList<ServiceOutput>();
 				qos = new double[4];
 			}
 
@@ -202,9 +206,10 @@ public class SWSPool {
 		Service service = this.serviceList.get(foundServiceIndex);
 		this.serviceList.remove(foundServiceIndex);
 		// add found service outputs to inputSet
-		for (String output : service.getOutputList()) {
-			if (!inputSet.contains(output)) {
-				inputSet.add(output);
+		for (ServiceOutput output : service.getOutputList()) {
+
+			if (!inputSet.contains(output.getOutput())) {
+				inputSet.add(output.getOutput());
 			}
 		}
 		return service;
@@ -221,8 +226,9 @@ public class SWSPool {
 		int foundServiceIndex = -1;
 
 		for (int i = 0; i < serviceCandidates.size(); i++) {
-			Service s = new Service(serviceCandidates.get(i).getServiceID());
-			if (s.searchServiceGraphMatchFromInputSet(semanticsPool, serviceCandidates.get(i), graphOutputList, directedGraph,
+//			Service s = new Service(serviceCandidates.get(i).getServiceID());
+			Service service = serviceCandidates.get(i);
+			if (service.searchServiceGraphMatchFromInputSet(semanticsPool, service, graphOutputList, directedGraph,
 					graphOutputListMap)) {
 				foundServiceIndex = i;
 				break;
@@ -235,11 +241,11 @@ public class SWSPool {
 		Service service = serviceCandidates.get(foundServiceIndex);
 		serviceCandidates.remove(service);
 		// add found service outputs to inputSet
-		for (String output : service.getOutputList()) {
+		for (ServiceOutput output : service.getOutputList()) {
 			if (!graphOutputList.contains(output)) {
-				graphOutputList.add(output);
+				graphOutputList.add(output.getOutput());
 				// output mapped back to service
-				graphOutputListMap.put(output, service);
+				graphOutputListMap.put(output.getOutput(), service);
 			}
 		}
 		return service;
