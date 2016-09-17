@@ -197,7 +197,7 @@ public class Service implements Comparable<Service> {
 						pConn.setSimilarity(similarity);
 						pConnList0.add(pConn);
 						System.out.println("##########found One");
-						break;
+						break;// each inst can only be used for one time
 					}
 
 				}

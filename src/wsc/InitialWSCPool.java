@@ -23,6 +23,8 @@ import wsc.data.pool.SemanticsPool;
 import wsc.data.pool.Service;
 import wsc.graph.ParamterConn;
 import wsc.graph.ServiceEdge;
+import wsc.graph.ServiceInput;
+import wsc.graph.ServiceOutput;
 
 public class InitialWSCPool {
 
@@ -36,9 +38,8 @@ public class InitialWSCPool {
 	private static List<String> graphOutputList = new ArrayList<String>();
 	private static Map<String, Service> graphOutputListMap = new HashMap<String, Service>();
 	private static List<ParamterConn> pConnList = new ArrayList<ParamterConn>();
-	private static List<String> taskOutputList = new ArrayList<String>();
+	private static List<ServiceOutput> taskOutputList = new ArrayList<ServiceOutput>();
 	private static Set<String> sourceSerIdSet = new HashSet<String>();
-
 
 	// set and get
 	public SWSPool getSwsPool() {
@@ -78,70 +79,79 @@ public class InitialWSCPool {
 	 * @return
 	 */
 	private boolean checkOutputSet(DirectedGraph<String, ServiceEdge> directedGraph, List<String> taskOutput) {
-		// int numbermatched = 0;
-		double summt = 0.00;
-		double sumdst = 0.00;
 		pConnList.clear();
 		taskOutputList.clear();
-		taskOutputList.addAll(taskOutput);
+		int taskMatchCount = 0;
+		double summt = 0.00;
+		double sumdst = 0.00;
+		for (String taskOutputStr : taskOutput) {
+			ServiceOutput taskSerOutput = new ServiceOutput(taskOutputStr, false);
+			taskOutputList.add(taskSerOutput);
+		}
 
-		// List<String> checktaskOutputList = GraphInitializer.taskOutput;
-
-		// for (String outputrequ : taskOutputList) {
-		for (int i = 0; i < taskOutput.size(); i++) {
-			String outputrequ = taskOutput.get(i);
-			for (int j = 0; j < this.graphOutputList.size(); j++) {
-				String outputInst = this.graphOutputList.get(j);
-				ParamterConn pConn = this.semanticsPool.searchSemanticMatchTypeFromInst(outputInst, outputrequ);
-				boolean foundmatched = pConn.isConsidered();
-				if (foundmatched) {
-					taskOutputList.remove(outputrequ);
-					double similarity = Service.CalculateSimilarityMeasure(GraphInitializer.ontologyDAG, outputInst,
-							outputrequ, this.semanticsPool);
-					pConn.setOutputInst(outputInst);
-					pConn.setOutputrequ(outputrequ);
-					pConn.setSourceServiceID(graphOutputListMap.get(outputInst).getServiceID());
-					pConn.setSimilarity(similarity);
-					pConnList.add(pConn);
-					break;
+		for (int i = 0; i < this.graphOutputList.size(); i++) {
+			String outputInst = this.graphOutputList.get(i);
+			for (int j = 0; i < taskOutputList.size(); j++) {
+				ServiceOutput serOutputReq = taskOutputList.get(j);
+				if (!serOutputReq.isSatified()) {
+					String outputrequ = taskOutputList.get(j).getOutput();
+					ParamterConn pConn = this.semanticsPool.searchSemanticMatchTypeFromInst(outputInst, outputrequ);
+					boolean foundmatched = pConn.isConsidered();
+					if (foundmatched) {
+						serOutputReq.setSatified(true);
+						double similarity = Service.CalculateSimilarityMeasure(GraphInitializer.ontologyDAG, outputInst,
+								outputrequ, this.semanticsPool);
+						pConn.setOutputInst(outputInst);
+						pConn.setOutputrequ(outputrequ);
+						pConn.setSourceServiceID(graphOutputListMap.get(outputInst).getServiceID());
+						pConn.setSimilarity(similarity);
+						pConnList.add(pConn);
+						break;
+					}
 				}
 			}
+		}
 
-			if (taskOutputList.size() == 0) {
-				directedGraph.addVertex("endNode");
-				sourceSerIdSet.clear();
+		for (ServiceOutput tOutput : taskOutputList) {
+			boolean sf = tOutput.isSatified();
+			if (sf == true) {
+				taskMatchCount++;
+			}
+		}
+
+		if (taskMatchCount == taskOutputList.size()) {
+			directedGraph.addVertex("endNode");
+			sourceSerIdSet.clear();
+			for (ParamterConn p : pConnList) {
+				String sourceSerID = p.getSourceServiceID();
+				sourceSerIdSet.add(sourceSerID);
+			}
+
+			List<ServiceEdge> serEdgeList = new ArrayList<ServiceEdge>();
+			for (String sourceSerID : sourceSerIdSet) {
+				ServiceEdge serEdge = new ServiceEdge(0, 0);
+				serEdge.setSourceService(sourceSerID);
 				for (ParamterConn p : pConnList) {
-					String sourceSerID = p.getSourceServiceID();
-					sourceSerIdSet.add(sourceSerID);
-				}
-
-				List<ServiceEdge> serEdgeList = new ArrayList<ServiceEdge>();
-				for (String sourceSerID : sourceSerIdSet) {
-					ServiceEdge serEdge = new ServiceEdge(0, 0);
-					serEdge.setSourceService(sourceSerID);
-					for (ParamterConn p : pConnList) {
-						if (p.getSourceServiceID().equals(sourceSerID)) {
-							serEdge.getpConnList().add(p);
-						}
+					if (p.getSourceServiceID().equals(sourceSerID)) {
+						serEdge.getpConnList().add(p);
 					}
-					serEdgeList.add(serEdge);
 				}
-
-				for (ServiceEdge edge : serEdgeList) {
-					for (int i1 = 0; i1 < edge.getpConnList().size(); i1++) {
-						ParamterConn pCo = edge.getpConnList().get(i1);
-						summt += pCo.getMatchType();
-						sumdst += pCo.getSimilarity();
-
-					}
-					int count = edge.getpConnList().size();
-					edge.setAvgmt(summt / count);
-					edge.setAvgsdt(sumdst / count);
-					directedGraph.addEdge(edge.getSourceService(), "endNode", edge);
-				}
-				return true;
+				serEdgeList.add(serEdge);
 			}
 
+			for (ServiceEdge edge : serEdgeList) {
+				for (int i1 = 0; i1 < edge.getpConnList().size(); i1++) {
+					ParamterConn pCo = edge.getpConnList().get(i1);
+					summt += pCo.getMatchType();
+					sumdst += pCo.getSimilarity();
+
+				}
+				int count = edge.getpConnList().size();
+				edge.setAvgmt(summt / count);
+				edge.setAvgsdt(sumdst / count);
+				directedGraph.addEdge(edge.getSourceService(), "endNode", edge);
+			}
+			return true;
 		}
 
 		return false;
@@ -176,9 +186,9 @@ public class InitialWSCPool {
 		} while (true);// while(!this.checkOutputSet(output))
 	}
 
-	public void createGraphService(List<String> taskInput, List<String> taskOutput, DirectedGraph<String, ServiceEdge> directedGraph,
-			double[] weights, Map<String, Integer> serviceToIndexMap) {
-
+	public void createGraphService(List<String> taskInput, List<String> taskOutput,
+			DirectedGraph<String, ServiceEdge> directedGraph, double[] weights,
+			Map<String, Integer> serviceToIndexMap) {
 
 		graphOutputList.clear();
 		graphOutputListMap.clear();
@@ -196,7 +206,6 @@ public class InitialWSCPool {
 
 		directedGraph.addVertex("startNode");
 
-
 		do {
 			Service service = swsPool.createGraphService(graphOutputList, serviceCandidates, this.semanticsPool,
 					directedGraph, graphOutputListMap);
@@ -204,9 +213,9 @@ public class InitialWSCPool {
 				System.err.println("No service is usable now");
 				return;
 			}
+			System.out.println("####Building process#####" + directedGraph.toString());
 
 			goalSatisfied = this.checkOutputSet(directedGraph, taskOutput);
-			System.out.println("####Building process#####"+directedGraph.toString());
 
 		} while (!goalSatisfied);
 
