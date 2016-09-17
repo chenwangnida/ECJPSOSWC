@@ -143,47 +143,6 @@ public class SWSPool {
 	}
 
 	/**
-	 * Initial service nonfunctional attributes from SLA
-	 *
-	 * @param request
-	 * @param response
-	 * @return
-	 */
-	public static List<double[]> initialQoSfromSLA(String fileName) {
-		List<double[]> qosList = new ArrayList<double[]>();
-
-		try {
-			File fXmlFile = new File(fileName);
-			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-			Document doc = dBuilder.parse(fXmlFile);
-
-			NodeList nList = doc.getElementsByTagName("service");
-
-			for (int i = 0; i < nList.getLength(); i++) {
-				org.w3c.dom.Node nNode = nList.item(i);
-				Element eElement = (Element) nNode;
-				double[] qos = new double[4];
-				qos[0] = Double.valueOf(eElement.getAttribute("Res"));
-				qos[1] = Double.valueOf(eElement.getAttribute("Pri"));
-				qos[2] = Double.valueOf(eElement.getAttribute("Ava"));
-				qos[3] = Double.valueOf(eElement.getAttribute("Rel"));
-				qosList.add(qos);
-
-			}
-
-		} catch (IOException ioe) {
-			System.out.println("Service file parsing failed...");
-		} catch (ParserConfigurationException e) {
-			System.out.println("Service file parsing failed...");
-		} catch (SAXException e) {
-			System.out.println("Service file parsing failed...");
-		}
-		System.out.println(qosList.size());
-		return qosList;
-	}
-
-	/**
 	 * find a single service that can be applied now and update the output list
 	 * and delete the service
 	 *
@@ -226,8 +185,8 @@ public class SWSPool {
 		int foundServiceIndex = -1;
 
 		for (int i = 0; i < serviceCandidates.size(); i++) {
-//			Service s = new Service(serviceCandidates.get(i).getServiceID());
-			Service service = serviceCandidates.get(i);
+			Service service = new Service(serviceCandidates.get(i).getServiceID());
+//			Service service = serviceCandidates.get(i);
 			if (service.searchServiceGraphMatchFromInputSet(semanticsPool, service, graphOutputList, directedGraph,
 					graphOutputListMap)) {
 				foundServiceIndex = i;

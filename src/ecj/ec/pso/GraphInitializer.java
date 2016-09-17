@@ -27,6 +27,7 @@ import ec.simple.SimpleInitializer;
 import ec.util.Parameter;
 import wsc.InitialWSCPool;
 import wsc.data.pool.Service;
+import wsc.graph.ServiceEdge;
 import wsc.owl.bean.OWLClass;
 
 public class GraphInitializer extends SimpleInitializer {
@@ -125,6 +126,7 @@ public class GraphInitializer extends SimpleInitializer {
 		// Set size of particles
 		Parameter genomeSizeParam = new Parameter("pop.subpop.0.species.genome-size");
 		state.parameters.set(genomeSizeParam, "" + initialWSCPool.getServiceSequence().size());
+
 	}
 
 	private void MapServiceToQoS(List<Service> serviceList) {
