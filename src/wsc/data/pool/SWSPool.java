@@ -23,11 +23,8 @@ public class SWSPool {
 	private List<Service> serviceList = new LinkedList<Service>();
 	private SemanticsPool semantics;
 
-	private final Map<String, Service> graphOutputSetMap = new HashMap<String, Service>();
+//	private final Map<String, Service> graphOutputSetMap = new HashMap<String, Service>();
 
-	public Map<String, Service> getGraphOutputSetMap() {
-		return graphOutputSetMap;
-	}
 
 	public List<Service> getServiceList() {
 		return serviceList;
@@ -217,16 +214,16 @@ public class SWSPool {
 	 * find a single service that can be applied now and update the output list
 	 * and delete the service
 	 *
-	 * @param inputSet
+	 * @param graphOutputList
 	 */
-	public Service createGraphService(List<String> inputSet, List<Service> serviceCandidates,
-			SemanticsPool semanticsPool, DirectedGraph<String, ServiceEdge> directedGraph) {
+	public Service createGraphService(List<String> graphOutputList, List<Service> serviceCandidates,
+			SemanticsPool semanticsPool, DirectedGraph<String, ServiceEdge> directedGraph, Map<String, Service> graphOutputListMap) {
 		int foundServiceIndex = -1;
 
 		for (int i = 0; i < serviceCandidates.size(); i++) {
 			Service s = new Service(serviceCandidates.get(i).getServiceID());
-			if (s.searchServiceGraphMatchFromInputSet(semanticsPool, serviceCandidates.get(i), inputSet, directedGraph,
-					this.graphOutputSetMap)) {
+			if (s.searchServiceGraphMatchFromInputSet(semanticsPool, serviceCandidates.get(i), graphOutputList, directedGraph,
+					graphOutputListMap)) {
 				foundServiceIndex = i;
 				break;
 			}
@@ -236,13 +233,13 @@ public class SWSPool {
 			return null;
 		}
 		Service service = serviceCandidates.get(foundServiceIndex);
-		serviceCandidates.remove(foundServiceIndex);
+		serviceCandidates.remove(service);
 		// add found service outputs to inputSet
 		for (String output : service.getOutputList()) {
-			if (!inputSet.contains(output)) {
-				inputSet.add(output);
+			if (!graphOutputList.contains(output)) {
+				graphOutputList.add(output);
 				// output mapped back to service
-				graphOutputSetMap.put(output, service);
+				graphOutputListMap.put(output, service);
 			}
 		}
 		return service;

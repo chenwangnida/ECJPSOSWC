@@ -29,6 +29,7 @@ public class Service implements Comparable<Service> {
 	private List<String> outputList = new ArrayList<String>();
 
 	private static List<ParamterConn> pConnList0 = new ArrayList<ParamterConn>();
+	private static List<String> inputList0 =new ArrayList<String>();
 	private static Set<String> sourceSerIdSet = new HashSet<String>();
 
 	private double score;
@@ -164,18 +165,19 @@ public class Service implements Comparable<Service> {
 	 * @return boolean
 	 */
 	public boolean searchServiceGraphMatchFromInputSet(SemanticsPool semanticsPool, Service service,
-			List<String> inputSet, DirectedGraph<String, ServiceEdge> directedGraph,
-			Map<String, Service> graphOutputSetMap) {
+			List<String> graphOutputList, DirectedGraph<String, ServiceEdge> directedGraph,
+			Map<String, Service> graphOutputListMap) {
 		pConnList0.clear();
+		inputList0.clear();
 		// int inputMatchCount = 0;
 		double summt = 0.00;
 		double sumdst = 0.00;
-		List<String> inputList = service.getInputList();
+		inputList0.addAll(service.getInputList());
 
 		// check if the inputSet contains all the required inputs from services
 		// for (String giveninput : inputSet) {
-		for (int i = 0; i < inputSet.size(); i++) {
-			String giveninput = inputSet.get(i);
+		for (int i = 0; i < graphOutputList.size(); i++) {
+			String giveninput = graphOutputList.get(i);
 
 			// for (String existInput : service.getInputList()) {
 			for (int j = 0; j < service.getInputList().size(); j++) {
@@ -186,13 +188,13 @@ public class Service implements Comparable<Service> {
 				if (foundmatched) {
 
 					// inputMatchCount++;
-					inputList.remove(existInput);
+					inputList0.remove(existInput);
 
 					pConn.setOutputInst(giveninput);
 					if (GraphInitializer.taskInput.contains(giveninput)) {
 						pConn.setSourceServiceID("startNode");
 					} else {
-						pConn.setSourceServiceID(graphOutputSetMap.get(giveninput).getServiceID());
+						pConn.setSourceServiceID(graphOutputListMap.get(giveninput).getServiceID());
 					}
 					double similarity = CalculateSimilarityMeasure(GraphInitializer.ontologyDAG, giveninput, existInput,
 							semanticsPool);
@@ -204,7 +206,7 @@ public class Service implements Comparable<Service> {
 			}
 
 			// if (inputMatchCount == service.getInputList().size()) {
-			if (inputList.size() == 0) {
+			if (inputList0.size() == 0) {
 				directedGraph.addVertex(service.getServiceID());
 				sourceSerIdSet.clear();
 				// how many sourceService are connected
