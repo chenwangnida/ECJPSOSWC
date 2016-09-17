@@ -242,7 +242,7 @@ public class SWSPool {
 		serviceCandidates.remove(service);
 		// add found service outputs to inputSet
 		for (ServiceOutput output : service.getOutputList()) {
-			if (!graphOutputList.contains(output)) {
+			if (!graphOutputList.contains(output.getOutput())) {
 				graphOutputList.add(output.getOutput());
 				// output mapped back to service
 				graphOutputListMap.put(output.getOutput(), service);
