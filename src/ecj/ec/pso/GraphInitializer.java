@@ -105,8 +105,6 @@ public class GraphInitializer extends SimpleInitializer {
 					+ initialWSCPool.getSwsPool().getServiceList().size());
 
 			initialWSCPool.allRelevantService(taskInput, taskOutput);
-			System.out.println(
-					"Initial servicelist:(after removed later) " + initialWSCPool.getSwsPool().getServiceList().size());
 
 			System.out.println("All relevant service: " + initialWSCPool.getServiceSequence().size());
 
