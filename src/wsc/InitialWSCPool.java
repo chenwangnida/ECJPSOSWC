@@ -169,21 +169,13 @@ public class InitialWSCPool {
 	 */
 	public void allRelevantService(List input, List output) throws JAXBException, IOException {
 		this.outputSet.addAll(input);
-		int i = 0;
 		do {
 			Service service = this.swsPool.findPossibleService(this.outputSet);
 			if (service == null) {
-				// System.out.println("No more service satisfied");
-				// System.out.println("No more service satisfied");
-				// System.out.println("No more service satisfied");
 				return;
 			}
 			serviceSequence.add(service);
-
-			// i++;
-			// System.out.println("No service :" + i);
-
-		} while (true);// while(!this.checkOutputSet(output))
+		} while (true);
 	}
 
 	public void createGraphService(List<String> taskInput, List<String> taskOutput,

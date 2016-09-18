@@ -164,7 +164,6 @@ public class SWSPool {
 		}
 		Service service = this.serviceList.get(foundServiceIndex);
 		this.serviceList.remove(foundServiceIndex);
-		// add found service outputs to inputSet
 		for (ServiceOutput output : service.getOutputList()) {
 
 			if (!inputSet.contains(output.getOutput())) {
@@ -185,7 +184,6 @@ public class SWSPool {
 		int foundServiceIndex = -1;
 
 		for (int i = 0; i < serviceCandidates.size(); i++) {
-//			Service service = new Service(serviceCandidates.get(i).getServiceID());
 			Service service = serviceCandidates.get(i);
 			if (service.searchServiceGraphMatchFromInputSet(semanticsPool, service, graphOutputList, directedGraph,
 					graphOutputListMap)) {

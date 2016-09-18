@@ -140,22 +140,56 @@ public class Service implements Comparable<Service> {
 	 * @param intputList
 	 * @return boolean
 	 */
-	public boolean searchServiceMatchFromInputSet(SemanticsPool semanticsPool, HashSet<String> inputSet) {
-		int inputMatchCount = 0;
-		// check if the inputSet contains all the required inputs from services
-		for (String giveninput : inputSet) {
-			for (int i = 0; i < this.inputList.size(); i++) {
+//	public boolean searchServiceMatchFromInputSet(SemanticsPool semanticsPool, HashSet<String> inputSet) {
+//		int inputMatchCount = 0;
+//		// check if the inputSet contains all the required inputs from services
+//		for (String giveninput : inputSet) {
+//			for (int i = 0; i < this.inputList.size(); i++) {
+//
+//				String existInput = this.inputList.get(i).getInput();
+//				if (semanticsPool.searchSemanticMatchFromInst(giveninput, existInput)) {
+//					inputMatchCount++;
+//					// contain complete match from a single service
+//					if (inputMatchCount == this.inputList.size()) {
+//						return true;
+//					}
+//				}
+//			}
+//		}
+//		return false;
+//	}
 
-				String existInput = this.inputList.get(i).getInput();
-				if (semanticsPool.searchSemanticMatchFromInst(giveninput, existInput)) {
-					inputMatchCount++;
-					// contain complete match from a single service
-					if (inputMatchCount == this.inputList.size()) {
-						return true;
+	public boolean searchServiceMatchFromInputSet(SemanticsPool semanticsPool, HashSet<String> inputSet) {
+		int relevantServiceCount = 0;
+		for (String giveninput : inputSet) {
+			for (int j = 0; j < this.inputList.size(); j++) {
+				ServiceInput serInput = this.inputList.get(j);
+				if (!serInput.isSatified()) {
+					String existInput = this.inputList.get(j).getInput();
+					ParamterConn pConn = semanticsPool.searchSemanticMatchFromInst(giveninput, existInput);
+					boolean foundmatched = pConn.isConsidered();
+					if (foundmatched) {
+						serInput.setSatified(true);
+						break;// each inst can only be used for one time
 					}
+
 				}
+
+			}
+
+		}
+
+		for (ServiceInput sInput : this.inputList) {
+			boolean sf = sInput.isSatified();
+			if (sf == true) {
+				relevantServiceCount++;
 			}
 		}
+
+		if (relevantServiceCount == this.inputList.size()) {
+			return true;
+		}
+
 		return false;
 	}
 
@@ -176,15 +210,11 @@ public class Service implements Comparable<Service> {
 		int inputMatchCount = 0;
 		double summt = 0.00;
 		double sumdst = 0.00;
-//		inputList0.addAll(service.getInputList());
 
-		for(ServiceInput serinput: service.getInputList()){
+		for (ServiceInput serinput : service.getInputList()) {
 			serinput.setSatified(false);
 			inputList0.add(serinput);
-//			System.out.println("Input:   "+serinput.getInput()+"isSatified:  "+serinput.isSatified());
-
 		}
-
 
 		for (int i = 0; i < graphOutputList.size(); i++) {
 			String giveninput = graphOutputList.get(i);
@@ -206,7 +236,6 @@ public class Service implements Comparable<Service> {
 								existInput, semanticsPool);
 						pConn.setSimilarity(similarity);
 						pConnList0.add(pConn);
-//						System.out.println("##########found One");
 						break;// each inst can only be used for one time
 					}
 
