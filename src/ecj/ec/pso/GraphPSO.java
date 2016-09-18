@@ -21,6 +21,7 @@ import org.jgrapht.graph.DefaultDirectedGraph;
 import ec.EvolutionState;
 import ec.Individual;
 import ec.Problem;
+import ec.Subpopulation;
 
 public class GraphPSO extends Problem implements SimpleProblemForm {
 
@@ -98,19 +99,18 @@ public class GraphPSO extends Problem implements SimpleProblemForm {
 		individual.setSemanticDistance(dst);
 		individual.setMatchingType(mt);
 
-		if (GraphInitializer.normalisation) {
-			double fitness = calculateFitness(mt, dst, a, r, t, c, init);
+		double fitness = calculateFitness(mt, dst, a, r, t, c, init);
 
-			((SimpleFitness) individual.fitness).setFitness(state,
-					// ...the fitness...
-					fitness,
-					/// ... is the individual ideal? Indicate here...
-					false);
-			individual.evaluated = true;
-		}
+		((SimpleFitness) individual.fitness).setFitness(state,
+				// ...the fitness...
+				fitness,
+				/// ... is the individual ideal? Indicate here...
+				false);
+		individual.evaluated = true;
 
 		individual.setStrRepresentation(directedGraph.toString());
 	}
+
 
 	private DirectedGraph<String, ServiceEdge> graphRepresentation(GraphInitializer init, GraphParticle individual) {
 
