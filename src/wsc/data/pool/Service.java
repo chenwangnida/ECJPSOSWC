@@ -1,5 +1,6 @@
 package wsc.data.pool;
 
+import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -171,10 +172,19 @@ public class Service implements Comparable<Service> {
 			Map<String, Service> graphOutputListMap) {
 		pConnList0.clear();
 		inputList0.clear();
+
 		int inputMatchCount = 0;
 		double summt = 0.00;
 		double sumdst = 0.00;
-		inputList0.addAll(service.getInputList());
+//		inputList0.addAll(service.getInputList());
+
+		for(ServiceInput serinput: service.getInputList()){
+			serinput.setSatified(false);
+			inputList0.add(serinput);
+			System.out.println("Input:   "+serinput.getInput()+"isSatified:  "+serinput.isSatified());
+
+		}
+
 
 		for (int i = 0; i < graphOutputList.size(); i++) {
 			String giveninput = graphOutputList.get(i);

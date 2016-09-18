@@ -196,7 +196,7 @@ public class InitialWSCPool {
 
 		graphOutputList.addAll(taskInput);
 
-		SWSPool swsPool = new SWSPool();
+//		SWSPool swsPool = new SWSPool();
 
 //		SetWeightsToServiceList(serviceToIndexMap, serviceSequence, weights);
 		serviceCandidates.addAll(serviceSequence);
