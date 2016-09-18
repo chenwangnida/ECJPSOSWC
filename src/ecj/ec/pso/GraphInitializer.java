@@ -78,6 +78,8 @@ public class GraphInitializer extends SimpleInitializer {
 
 	public static List<String> taskInput;
 	public static List<String> taskOutput;
+	public GraphRandom random;
+
 
 	@Override
 	public void setup(EvolutionState state, Parameter base) {
@@ -111,13 +113,14 @@ public class GraphInitializer extends SimpleInitializer {
 		} catch (JAXBException | IOException e) {
 			e.printStackTrace();
 		}
+		random = new GraphRandom(state.random[0]);
 
 		MapServiceToQoS(initialWSCPool.getServiceSequence());
 
 		mapServicesToIndex(initialWSCPool.getServiceSequence(), serviceToIndexMap);
 		// Calculate normalised bounds
 		if (normalisation)
-			calculateNormalisationBounds(initialWSCPool.getServiceSequence());
+			calculateNormalisationBounds(initialWSCPool.getServiceSequence(), initialWSCPool.getSemanticsPool().getOwlInstHashMap().size());
 		// Initial ontology DAG data
 		ontologyDAG = createOntologyDAG(initialWSCPool);
 		// System .out.println("&&&&&&&&&&&&&&ontology DAG&&&& vertice size : "+
@@ -138,7 +141,7 @@ public class GraphInitializer extends SimpleInitializer {
 	private void TestCreateGraph(List<String> taskInput, List<String> taskOutput,
 			Map<String, Integer> serviceToIndexMap) {
 
-		double[] weights = { 0 };
+		double[] weights = { 0,1,2,3 };
 
 		DirectedGraph<String, ServiceEdge> directedGraph = new DefaultDirectedGraph<String, ServiceEdge>(
 				ServiceEdge.class);
@@ -226,7 +229,7 @@ public class GraphInitializer extends SimpleInitializer {
 		return g;
 	}
 
-	private void calculateNormalisationBounds(List<Service> services) {
+	private void calculateNormalisationBounds(List<Service> services, int instSize) {
 		for (Service service : services) {
 			double[] qos = service.getQos();
 
@@ -259,7 +262,7 @@ public class GraphInitializer extends SimpleInitializer {
 		// shrunk repository
 		maxCost *= services.size();
 		maxTime *= services.size();
-		maxDistanceValue *= services.size();
+		maxDistanceValue *= instSize/2;
 
 	}
 

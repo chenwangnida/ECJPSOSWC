@@ -140,24 +140,25 @@ public class Service implements Comparable<Service> {
 	 * @param intputList
 	 * @return boolean
 	 */
-//	public boolean searchServiceMatchFromInputSet(SemanticsPool semanticsPool, HashSet<String> inputSet) {
-//		int inputMatchCount = 0;
-//		// check if the inputSet contains all the required inputs from services
-//		for (String giveninput : inputSet) {
-//			for (int i = 0; i < this.inputList.size(); i++) {
-//
-//				String existInput = this.inputList.get(i).getInput();
-//				if (semanticsPool.searchSemanticMatchFromInst(giveninput, existInput)) {
-//					inputMatchCount++;
-//					// contain complete match from a single service
-//					if (inputMatchCount == this.inputList.size()) {
-//						return true;
-//					}
-//				}
-//			}
-//		}
-//		return false;
-//	}
+	// public boolean searchServiceMatchFromInputSet(SemanticsPool
+	// semanticsPool, HashSet<String> inputSet) {
+	// int inputMatchCount = 0;
+	// // check if the inputSet contains all the required inputs from services
+	// for (String giveninput : inputSet) {
+	// for (int i = 0; i < this.inputList.size(); i++) {
+	//
+	// String existInput = this.inputList.get(i).getInput();
+	// if (semanticsPool.searchSemanticMatchFromInst(giveninput, existInput)) {
+	// inputMatchCount++;
+	// // contain complete match from a single service
+	// if (inputMatchCount == this.inputList.size()) {
+	// return true;
+	// }
+	// }
+	// }
+	// }
+	// return false;
+	// }
 
 	public boolean searchServiceMatchFromInputSet(SemanticsPool semanticsPool, HashSet<String> inputSet) {
 		int relevantServiceCount = 0;
@@ -206,10 +207,10 @@ public class Service implements Comparable<Service> {
 			Map<String, Service> graphOutputListMap) {
 		pConnList0.clear();
 		inputList0.clear();
-
-		int inputMatchCount = 0;
 		double summt = 0.00;
 		double sumdst = 0.00;
+
+		int inputMatchCount = 0;
 
 		for (ServiceInput serinput : service.getInputList()) {
 			serinput.setSatified(false);
@@ -278,6 +279,8 @@ public class Service implements Comparable<Service> {
 			}
 
 			for (ServiceEdge edge : serEdgeList) {
+				summt = 0.00;
+				sumdst = 0.00;
 				for (int i1 = 0; i1 < edge.getpConnList().size(); i1++) {
 					ParamterConn pCo = edge.getpConnList().get(i1);
 					summt += pCo.getMatchType();

@@ -82,8 +82,8 @@ public class InitialWSCPool {
 		pConnList.clear();
 		taskOutputList.clear();
 		int taskMatchCount = 0;
-		double summt = 0.00;
-		double sumdst = 0.00;
+		double summt;
+		double sumdst;
 		for (String taskOutputStr : taskOutput) {
 			ServiceOutput taskSerOutput = new ServiceOutput(taskOutputStr, false);
 			taskOutputList.add(taskSerOutput);
@@ -140,6 +140,8 @@ public class InitialWSCPool {
 			}
 
 			for (ServiceEdge edge : serEdgeList) {
+				summt = 0.00;
+				sumdst = 0.00;
 				for (int i1 = 0; i1 < edge.getpConnList().size(); i1++) {
 					ParamterConn pCo = edge.getpConnList().get(i1);
 					summt += pCo.getMatchType();
@@ -188,7 +190,7 @@ public class InitialWSCPool {
 
 		graphOutputList.addAll(taskInput);
 
-//		SWSPool swsPool = new SWSPool();
+		// SWSPool swsPool = new SWSPool();
 
 		SetWeightsToServiceList(serviceToIndexMap, serviceSequence, weights);
 		serviceCandidates.addAll(serviceSequence);
