@@ -2,6 +2,9 @@
 service-xml = CovertTestSet00/services-output.xml
 taxonomy-owl = CovertTestSet00/taxonomy.owl
 problem-xml = CovertTestSet00/problem.xml
+#ontology startnode
+#root-concept = con1557701983
+root-concept = TravelInformation
 #Semantic Function and QoS Weights
 fitness-weight1       = 0.25
 fitness-weight2       = 0.25
@@ -10,10 +13,6 @@ fitness-weight4       = 0.125
 fitness-weight5       = 0.125
 fitness-weight6       = 0.125
 normalisation = true
-#ontology startnode
-#root-concept = con1557701983
-root-concept = TravelInformation
-
 state = ec.simple.SimpleEvolutionState
 init = ecj.ec.pso.GraphInitializer
 finish = ec.simple.SimpleFinisher

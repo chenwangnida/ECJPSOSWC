@@ -43,8 +43,10 @@ public class GraphPSO extends Problem implements SimpleProblemForm {
 		DirectedGraph<String, ServiceEdge> directedGraph = graphRepresentation(init, individual);
 
 		// set both functional and nonfunctional attributes for fitness
-		// functiona
+		// function
 		SetAttributes(state, init, individual, directedGraph);
+
+		state.output.println("WebServiceComposition:" + directedGraph.toString(), 0);
 
 	}
 
@@ -118,8 +120,6 @@ public class GraphPSO extends Problem implements SimpleProblemForm {
 		init.initialWSCPool.createGraphService(init.taskInput, init.taskOutput, directedGraph, individual.genome,
 				init.serviceToIndexMap);
 
-//		System.out.println("orginal graph##########" +directedGraph.toString());
-
 		while (true) {
 			List<String> dangleVerticeList = dangleVerticeList(directedGraph);
 			if (dangleVerticeList.size() == 0) {
@@ -128,7 +128,6 @@ public class GraphPSO extends Problem implements SimpleProblemForm {
 			removeCurrentdangle(directedGraph, dangleVerticeList);
 		}
 
-		System.out.println("WebServiceComposition:" + directedGraph.toString());
 		return directedGraph;
 
 	}
