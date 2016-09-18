@@ -91,7 +91,7 @@ public class InitialWSCPool {
 
 		for (int i = 0; i < this.graphOutputList.size(); i++) {
 			String outputInst = this.graphOutputList.get(i);
-			for (int j = 0; i < taskOutputList.size(); j++) {
+			for (int j = 0; j < taskOutputList.size(); j++) {
 				ServiceOutput serOutputReq = taskOutputList.get(j);
 				if (!serOutputReq.isSatified()) {
 					String outputrequ = taskOutputList.get(j).getOutput();
@@ -198,7 +198,7 @@ public class InitialWSCPool {
 
 		SWSPool swsPool = new SWSPool();
 
-		SetWeightsToServiceList(serviceToIndexMap, serviceSequence, weights);
+//		SetWeightsToServiceList(serviceToIndexMap, serviceSequence, weights);
 		serviceCandidates.addAll(serviceSequence);
 		Collections.sort(serviceCandidates);
 
@@ -213,8 +213,6 @@ public class InitialWSCPool {
 				System.err.println("No service is usable now");
 				return;
 			}
-//			System.out.println("####Building process#####" + directedGraph.toString());
-
 			goalSatisfied = this.checkOutputSet(directedGraph, taskOutput);
 
 		} while (!goalSatisfied);

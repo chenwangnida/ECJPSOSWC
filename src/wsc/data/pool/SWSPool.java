@@ -185,8 +185,8 @@ public class SWSPool {
 		int foundServiceIndex = -1;
 
 		for (int i = 0; i < serviceCandidates.size(); i++) {
-			Service service = new Service(serviceCandidates.get(i).getServiceID());
-//			Service service = serviceCandidates.get(i);
+//			Service service = new Service(serviceCandidates.get(i).getServiceID());
+			Service service = serviceCandidates.get(i);
 			if (service.searchServiceGraphMatchFromInputSet(semanticsPool, service, graphOutputList, directedGraph,
 					graphOutputListMap)) {
 				foundServiceIndex = i;

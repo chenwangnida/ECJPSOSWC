@@ -40,11 +40,11 @@ public class GraphPSO extends Problem implements SimpleProblemForm {
 		GraphParticle individual = (GraphParticle) ind;
 
 		// Create graph
-		DirectedGraph<String, ServiceEdge> directedGraph = graphRepresentation(init, individual);
+//		DirectedGraph<String, ServiceEdge> directedGraph = graphRepresentation(init, individual);
 
 		// set both functional and nonfunctional attributes for fitness
 		// functiona
-		SetAttributes(state, init, individual, directedGraph);
+//		SetAttributes(state, init, individual, directedGraph);
 
 	}
 

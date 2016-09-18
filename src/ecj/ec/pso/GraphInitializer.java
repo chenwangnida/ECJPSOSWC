@@ -16,6 +16,7 @@ import javax.xml.parsers.ParserConfigurationException;
 
 import org.jgrapht.DirectedGraph;
 import org.jgrapht.experimental.dag.DirectedAcyclicGraph;
+import org.jgrapht.graph.DefaultDirectedGraph;
 import org.jgrapht.graph.DefaultEdge;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -100,10 +101,12 @@ public class GraphInitializer extends SimpleInitializer {
 		// Initial all data related to Web service composition pools
 		try {
 			initialWSCPool = new InitialWSCPool(service_wsdl, taxonomy_owl);
-			System.out.println("Initial servicelist:(before removed later) " + initialWSCPool.getSwsPool().getServiceList().size());
+			System.out.println("Initial servicelist:(before removed later) "
+					+ initialWSCPool.getSwsPool().getServiceList().size());
 
 			initialWSCPool.allRelevantService(taskInput, taskOutput);
-			System.out.println("Initial servicelist:(after removed later) " + initialWSCPool.getSwsPool().getServiceList().size());
+			System.out.println(
+					"Initial servicelist:(after removed later) " + initialWSCPool.getSwsPool().getServiceList().size());
 
 			System.out.println("All relevant service: " + initialWSCPool.getServiceSequence().size());
 
@@ -126,6 +129,26 @@ public class GraphInitializer extends SimpleInitializer {
 		// Set size of particles
 		Parameter genomeSizeParam = new Parameter("pop.subpop.0.species.genome-size");
 		state.parameters.set(genomeSizeParam, "" + initialWSCPool.getServiceSequence().size());
+
+		// testcreate graph
+
+		for(int i=0;i<10;i++){
+			TestCreateGraph(taskInput, taskOutput, serviceToIndexMap);
+		}
+
+	}
+
+	private void TestCreateGraph(List<String> taskInput, List<String> taskOutput,
+			Map<String, Integer> serviceToIndexMap) {
+
+		double[] weights = { 0 };
+
+		DirectedGraph<String, ServiceEdge> directedGraph = new DefaultDirectedGraph<String, ServiceEdge>(
+				ServiceEdge.class);
+
+		initialWSCPool.createGraphService(taskInput, taskOutput, directedGraph, weights, serviceToIndexMap);
+
+		System.out.println("orginal graph##########" + directedGraph.toString());
 
 	}
 
