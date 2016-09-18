@@ -198,7 +198,7 @@ public class InitialWSCPool {
 
 //		SWSPool swsPool = new SWSPool();
 
-//		SetWeightsToServiceList(serviceToIndexMap, serviceSequence, weights);
+		SetWeightsToServiceList(serviceToIndexMap, serviceSequence, weights);
 		serviceCandidates.addAll(serviceSequence);
 		Collections.sort(serviceCandidates);
 

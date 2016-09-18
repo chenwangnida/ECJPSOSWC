@@ -131,10 +131,9 @@ public class GraphInitializer extends SimpleInitializer {
 		state.parameters.set(genomeSizeParam, "" + initialWSCPool.getServiceSequence().size());
 
 		// testcreate graph
-
-		for(int i=0;i<10;i++){
-			TestCreateGraph(taskInput, taskOutput, serviceToIndexMap);
-		}
+//		for (int i = 0; i < 10; i++) {
+//			TestCreateGraph(taskInput, taskOutput, serviceToIndexMap);
+//		}
 
 	}
 

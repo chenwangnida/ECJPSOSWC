@@ -181,7 +181,7 @@ public class Service implements Comparable<Service> {
 		for(ServiceInput serinput: service.getInputList()){
 			serinput.setSatified(false);
 			inputList0.add(serinput);
-			System.out.println("Input:   "+serinput.getInput()+"isSatified:  "+serinput.isSatified());
+//			System.out.println("Input:   "+serinput.getInput()+"isSatified:  "+serinput.isSatified());
 
 		}
 
